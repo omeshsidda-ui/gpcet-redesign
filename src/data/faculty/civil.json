@@ -1,0 +1,962 @@
+[
+  {
+    "sno": 1,
+    "name": "P. Malathi",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.ED, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/P-Malathi.jpg",
+    "profileRoute": "/departments/civil/faculty/p-malathi",
+    "links": []
+  },
+  {
+    "sno": 2,
+    "name": "Syeda Ayesha Jahan",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/SYEDA-AYESHA-JAHAN.jpg",
+    "profileRoute": "/departments/civil/faculty/syeda-ayesha-jahan",
+    "links": []
+  },
+  {
+    "sno": 3,
+    "name": "K.Santhosh Reddy",
+    "designation": "Assistant Professor",
+    "qualification": "B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/K-SANTHOSH-REDDY.jpg",
+    "profileRoute": "/departments/civil/faculty/k-santhosh-reddy",
+    "links": []
+  },
+  {
+    "sno": 4,
+    "name": "K. Vijayabhaskar",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/K-VIJAYA-BHASKAR.jpg",
+    "profileRoute": "/departments/civil/faculty/k-vijayabhaskar",
+    "links": []
+  },
+  {
+    "sno": 5,
+    "name": "Mohammad Faruk",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/Md.Faruq-Photo.jpg",
+    "profileRoute": "/departments/civil/faculty/mohammad-faruk",
+    "links": []
+  },
+  {
+    "sno": 6,
+    "name": "Ravi Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/M.RAVI_.jpg",
+    "profileRoute": "/departments/civil/faculty/ravi-kumar",
+    "links": []
+  },
+  {
+    "sno": 7,
+    "name": "Mithli Kiranmai",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, M.PHIL, PH.D, M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-19-at-10.21.41-1.jpeg",
+    "profileRoute": "/departments/civil/faculty/mithli-kiranmai",
+    "links": []
+  },
+  {
+    "sno": 8,
+    "name": "A G GOPINATH",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.ED, M.PHIL",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/05/A-G-Gopinath.jpg",
+    "profileRoute": "/departments/civil/faculty/a-g-gopinath",
+    "links": []
+  },
+  {
+    "sno": 9,
+    "name": "C.MANASA",
+    "designation": "Assistant Professor",
+    "qualification": "B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/05/C-Manasa.jpeg",
+    "profileRoute": "/departments/civil/faculty/c-manasa",
+    "links": []
+  },
+  {
+    "sno": 10,
+    "name": "C Venkateswaramma",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.ED, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/11/C.Venkateswaramma-Photo.jpg",
+    "profileRoute": "/departments/civil/faculty/c-venkateswaramma",
+    "links": []
+  },
+  {
+    "sno": 11,
+    "name": "Hari Krishna",
+    "designation": "Assistant Professor",
+    "qualification": "B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2023/03/Photo-from-Hari.jpg",
+    "profileRoute": "/departments/civil/faculty/hari-krishna",
+    "links": []
+  },
+  {
+    "sno": 12,
+    "name": "Uzma",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2023/03/uzma-1-1.jpg",
+    "profileRoute": "/departments/civil/faculty/uzma",
+    "links": []
+  },
+  {
+    "sno": 13,
+    "name": "Kadiyala Vijaya  Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/12/vijaya-kumar-1.jpg",
+    "profileRoute": "/departments/civil/faculty/kadiyala-vijaya-kumar",
+    "links": []
+  },
+  {
+    "sno": 14,
+    "name": "N S SWAPNA",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/swapna-photo.jpg",
+    "profileRoute": "/departments/civil/faculty/n-s-swapna",
+    "links": []
+  },
+  {
+    "sno": 15,
+    "name": "Deena",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/01/Deena-Photo.jpg",
+    "profileRoute": "/departments/civil/faculty/deena",
+    "links": []
+  },
+  {
+    "sno": 16,
+    "name": "HimaBindhu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/01/Hima-Bindu-Photo-150x150.jpg",
+    "profileRoute": "/departments/civil/faculty/himabindhu",
+    "links": []
+  },
+  {
+    "sno": 17,
+    "name": "Vijay Babu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/01/Y-Vijay-Babu-150x150.jpg",
+    "profileRoute": "/departments/civil/faculty/vijay-babu",
+    "links": []
+  },
+  {
+    "sno": 18,
+    "name": "Venkateshwarlu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/01/K-Venka-teswarlu-CSE-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/venkateshwarlu",
+    "links": []
+  },
+  {
+    "sno": 19,
+    "name": "Raghavendra_CSE",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH, PHD",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/12/Rahavendra-150x150.jpg",
+    "profileRoute": "/departments/civil/faculty/raghavendra-cse",
+    "links": []
+  },
+  {
+    "sno": 20,
+    "name": "Kamsali Sirisha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/Sirisha-121x150.jpg",
+    "profileRoute": "/departments/civil/faculty/kamsali-sirisha",
+    "links": []
+  },
+  {
+    "sno": 21,
+    "name": "Roja Ramani",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/Roja-Ramani-128x150.jpg",
+    "profileRoute": "/departments/civil/faculty/roja-ramani",
+    "links": []
+  },
+  {
+    "sno": 22,
+    "name": "M Jayasunitha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/M-Jaya-Sunitha--127x150.jpg",
+    "profileRoute": "/departments/civil/faculty/m-jayasunitha",
+    "links": []
+  },
+  {
+    "sno": 23,
+    "name": "B Sowjanya",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/B-Sowjanya.jpg",
+    "profileRoute": "/departments/civil/faculty/b-sowjanya",
+    "links": []
+  },
+  {
+    "sno": 24,
+    "name": "Sai Niveditha",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/Sai-Niveditha-Photo-150x150.jpg",
+    "profileRoute": "/departments/civil/faculty/sai-niveditha",
+    "links": []
+  },
+  {
+    "sno": 25,
+    "name": "Ramakrishna",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, M.PHIL, PHD, B.SC, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/G.Ramakrisha-Photo-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/ramakrishna",
+    "links": []
+  },
+  {
+    "sno": 26,
+    "name": "T Sarala Devi",
+    "designation": "Assistant Professor",
+    "qualification": "MBA",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/sarala.png",
+    "profileRoute": "/departments/civil/faculty/t-sarala-devi",
+    "links": []
+  },
+  {
+    "sno": 27,
+    "name": "Kalyani",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/03/Kalyani-232x300.jpg",
+    "profileRoute": "/departments/civil/faculty/kalyani",
+    "links": []
+  },
+  {
+    "sno": 28,
+    "name": "Hussainy",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/03/Hussainy-240x300.jpg",
+    "profileRoute": "/departments/civil/faculty/hussainy",
+    "links": []
+  },
+  {
+    "sno": 29,
+    "name": "Bramarambika",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/09/Bramarambika-photo-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/bramarambika",
+    "links": []
+  },
+  {
+    "sno": 30,
+    "name": "Sunanda",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/image-rotated-e1613475358479-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/sunanda",
+    "links": []
+  },
+  {
+    "sno": 31,
+    "name": "K Varun Kumar Reddy",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/12/Photo-150x150.jpg",
+    "profileRoute": "/departments/civil/faculty/k-varun-kumar-reddy",
+    "links": []
+  },
+  {
+    "sno": 32,
+    "name": "P.Chandrakalavathi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/12/chandrakala-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/p-chandrakalavathi",
+    "links": []
+  },
+  {
+    "sno": 33,
+    "name": "M Ebenezar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/12/Ebenezar-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/m-ebenezar",
+    "links": []
+  },
+  {
+    "sno": 34,
+    "name": "T Aditya Sai Srinivas",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/12/Aditya-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/t-aditya-sai-srinivas",
+    "links": []
+  },
+  {
+    "sno": 35,
+    "name": "R Sandeep Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PHD, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/R-Sandeep-Kumar-150x150.jpeg",
+    "profileRoute": "/departments/civil/faculty/r-sandeep-kumar",
+    "links": []
+  },
+  {
+    "sno": 36,
+    "name": "E Sravanthi",
+    "designation": "Assistant Professor",
+    "qualification": "MBA",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/11/T-Sai-Vasavi.jpeg",
+    "profileRoute": "/departments/civil/faculty/e-sravanthi",
+    "links": []
+  },
+  {
+    "sno": 37,
+    "name": "GSreenuvasulu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/sreenivasulu.jpg",
+    "profileRoute": "/departments/civil/faculty/gsreenuvasulu",
+    "links": []
+  },
+  {
+    "sno": 38,
+    "name": "P Siva Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/P-Siva-Kumar.jpg",
+    "profileRoute": "/departments/civil/faculty/p-siva-kumar",
+    "links": []
+  },
+  {
+    "sno": 39,
+    "name": "USupriya",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/09/USupriya.png",
+    "profileRoute": "/departments/civil/faculty/usupriya",
+    "links": []
+  },
+  {
+    "sno": 40,
+    "name": "Vamsi",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/09/vamsi.jpg",
+    "profileRoute": "/departments/civil/faculty/vamsi",
+    "links": []
+  },
+  {
+    "sno": 41,
+    "name": "G Gopinath",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/09/gopi-1.jpg",
+    "profileRoute": "/departments/civil/faculty/g-gopinath",
+    "links": []
+  },
+  {
+    "sno": 42,
+    "name": "Lavayna",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.ED, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/B-Lavanya.jpg",
+    "profileRoute": "/departments/civil/faculty/lavayna",
+    "links": []
+  },
+  {
+    "sno": 43,
+    "name": "K Radha",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, M.B.A, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/K-Radha1.jpg",
+    "profileRoute": "/departments/civil/faculty/k-radha",
+    "links": []
+  },
+  {
+    "sno": 44,
+    "name": "L V V Nagaraju",
+    "designation": "Assistant Professor",
+    "qualification": "MBA",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/L-V-V-NAGARAJU.jpg",
+    "profileRoute": "/departments/civil/faculty/l-v-v-nagaraju",
+    "links": []
+  },
+  {
+    "sno": 45,
+    "name": "J Usha Sree",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/USHA-MAM.jpg",
+    "profileRoute": "/departments/civil/faculty/j-usha-sree",
+    "links": []
+  },
+  {
+    "sno": 46,
+    "name": "Sivanandareddy.Y",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/Y-Sivananda-Reddy-photo1.jpg",
+    "profileRoute": "/departments/civil/faculty/sivanandareddy-y",
+    "links": []
+  },
+  {
+    "sno": 47,
+    "name": "A.Vinod Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/Vinod-photo1.jpg",
+    "profileRoute": "/departments/civil/faculty/a-vinod-kumar",
+    "links": []
+  },
+  {
+    "sno": 48,
+    "name": "VALICSE",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190608_093654-1.jpg",
+    "profileRoute": "/departments/civil/faculty/valicse",
+    "links": []
+  },
+  {
+    "sno": 49,
+    "name": "sravani",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/sravani.jpg",
+    "profileRoute": "/departments/civil/faculty/sravani",
+    "links": []
+  },
+  {
+    "sno": 50,
+    "name": "shashikala",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/SASHIKALA.jpg",
+    "profileRoute": "/departments/civil/faculty/shashikala",
+    "links": []
+  },
+  {
+    "sno": 51,
+    "name": "ameenayasmeen",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/yasmin.png",
+    "profileRoute": "/departments/civil/faculty/ameenayasmeen",
+    "links": []
+  },
+  {
+    "sno": 52,
+    "name": "ramarao",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190608_144104.jpg",
+    "profileRoute": "/departments/civil/faculty/ramarao",
+    "links": []
+  },
+  {
+    "sno": 53,
+    "name": "K.SANDHYARANI",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/sandhya-1.jpg",
+    "profileRoute": "/departments/civil/faculty/k-sandhyarani",
+    "links": []
+  },
+  {
+    "sno": 54,
+    "name": "supriyareddy",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/supriya.png",
+    "profileRoute": "/departments/civil/faculty/supriyareddy",
+    "links": []
+  },
+  {
+    "sno": 55,
+    "name": "K.GAYATHRI",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/gayi.jpg",
+    "profileRoute": "/departments/civil/faculty/k-gayathri",
+    "links": []
+  },
+  {
+    "sno": 56,
+    "name": "S.Loka Raghavendra",
+    "designation": "Professor",
+    "qualification": "M.SC, B.ED, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/S-Lokaraghavendra.jpg",
+    "profileRoute": "/departments/civil/faculty/s-loka-raghavendra",
+    "links": []
+  },
+  {
+    "sno": 57,
+    "name": "M.Sridevi",
+    "designation": "Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/M-Sridevi.jpg",
+    "profileRoute": "/departments/civil/faculty/m-sridevi",
+    "links": []
+  },
+  {
+    "sno": 58,
+    "name": "Shahina Nikhath",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, M.PHIL, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/SHAHINA-NIKHATH-PHOTO.jpg",
+    "profileRoute": "/departments/civil/faculty/shahina-nikhath",
+    "links": []
+  },
+  {
+    "sno": 59,
+    "name": "N.Janaki",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, B.ED, B.SC, M.PHIL",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/N-JANAKI.jpg",
+    "profileRoute": "/departments/civil/faculty/n-janaki",
+    "links": []
+  },
+  {
+    "sno": 60,
+    "name": "Dr. S. Naga Chandrudu",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, PH.D, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/SNC.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-s-naga-chandrudu",
+    "links": []
+  },
+  {
+    "sno": 61,
+    "name": "Dr.Syeda Jeelani Basri",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, PH.D, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr-T-Syeda-Jeelani-Basri.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-syeda-jeelani-basri",
+    "links": []
+  },
+  {
+    "sno": 62,
+    "name": "B.SUNEETHA",
+    "designation": "Assistant Professor",
+    "qualification": "M.SC, M.PHIL, PH.D, B.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/B.Suneetha.jpg",
+    "profileRoute": "/departments/civil/faculty/b-suneetha",
+    "links": []
+  },
+  {
+    "sno": 63,
+    "name": "Dr. T.Sujatha",
+    "designation": "Assistant Professor",
+    "qualification": "PH.D, B.SC, B.ED",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr-T-Sujatha.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-t-sujatha",
+    "links": []
+  },
+  {
+    "sno": 64,
+    "name": "G. Sashi Kumar",
+    "designation": "Professor",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/G.SASHI-KUMAR.jpg",
+    "profileRoute": "/departments/civil/faculty/g-sashi-kumar",
+    "links": []
+  },
+  {
+    "sno": 65,
+    "name": "T. Sudheshna Devi",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, M.B.A",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/11/S-Revathi.jpeg",
+    "profileRoute": "/departments/civil/faculty/t-sudheshna-devi",
+    "links": []
+  },
+  {
+    "sno": 66,
+    "name": "Ruhi Afreen",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/RUHI.jpg",
+    "profileRoute": "/departments/civil/faculty/ruhi-afreen",
+    "links": []
+  },
+  {
+    "sno": 67,
+    "name": "N.Rajitha",
+    "designation": "Assistant Professor",
+    "qualification": "MBA",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/N-Rajitha-P.jpg",
+    "profileRoute": "/departments/civil/faculty/n-rajitha",
+    "links": []
+  },
+  {
+    "sno": 68,
+    "name": "M.Y.Naidu",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Naidu.jpg",
+    "profileRoute": "/departments/civil/faculty/m-y-naidu",
+    "links": []
+  },
+  {
+    "sno": 69,
+    "name": "C. NAGA GANESH",
+    "designation": "Assistant Professor",
+    "qualification": "M.B.A, MBA, M.SC",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/C-Naga-Ganesh.jpg",
+    "profileRoute": "/departments/civil/faculty/c-naga-ganesh",
+    "links": []
+  },
+  {
+    "sno": 70,
+    "name": "Dr. H. S. ABZAL BASHA",
+    "designation": "Assistant Professor",
+    "qualification": "M.B.A, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr-H-S-Abzal-Basha.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-h-s-abzal-basha",
+    "links": []
+  },
+  {
+    "sno": 71,
+    "name": "Dr. K. Nagaraju",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, PH.D, B.SC, M.B.A",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/nagaraju1.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-k-nagaraju",
+    "links": []
+  },
+  {
+    "sno": 72,
+    "name": "Dr. M. GIRIDHAR KUMAR,",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, B.ED, PH.D, PHD, M.B.A",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/M-Giridhar-Kumar-2.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-m-giridhar-kumar",
+    "links": []
+  },
+  {
+    "sno": 73,
+    "name": "S Akhil Tej",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/AKHIL.jpg",
+    "profileRoute": "/departments/civil/faculty/s-akhil-tej",
+    "links": []
+  },
+  {
+    "sno": 74,
+    "name": "S Venkata Mahesh",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/MAHESH-PHOTO.jpg",
+    "profileRoute": "/departments/civil/faculty/s-venkata-mahesh",
+    "links": []
+  },
+  {
+    "sno": 75,
+    "name": "Mrs.P.Pavithra",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/pavithra.jpg",
+    "profileRoute": "/departments/civil/faculty/mrs-p-pavithra",
+    "links": []
+  },
+  {
+    "sno": 76,
+    "name": "KONDURU ANAND",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/ANAND-PIC.jpg",
+    "profileRoute": "/departments/civil/faculty/konduru-anand",
+    "links": []
+  },
+  {
+    "sno": 77,
+    "name": "C G Mohan Babu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/mohan.jpg",
+    "profileRoute": "/departments/civil/faculty/c-g-mohan-babu",
+    "links": []
+  },
+  {
+    "sno": 78,
+    "name": "S.Vinay Babu",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/VINAY-PHOTO.jpg",
+    "profileRoute": "/departments/civil/faculty/s-vinay-babu",
+    "links": []
+  },
+  {
+    "sno": 79,
+    "name": "Syed Afzal Basha",
+    "designation": "Associate Professor",
+    "qualification": "PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/S.Afzal_.jpg",
+    "profileRoute": "/departments/civil/faculty/syed-afzal-basha",
+    "links": []
+  },
+  {
+    "sno": 80,
+    "name": "Mr.K.Jagadeesh",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/K.Jagadeesh.jpg",
+    "profileRoute": "/departments/civil/faculty/mr-k-jagadeesh",
+    "links": []
+  },
+  {
+    "sno": 81,
+    "name": "D. Farooq Basha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/farooq.jpg",
+    "profileRoute": "/departments/civil/faculty/d-farooq-basha",
+    "links": []
+  },
+  {
+    "sno": 82,
+    "name": "ayeshashariff",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PHD, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/ayesha.jpg",
+    "profileRoute": "/departments/civil/faculty/ayeshashariff",
+    "links": []
+  },
+  {
+    "sno": 83,
+    "name": "R.Varaprasad",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190608_143652.jpg",
+    "profileRoute": "/departments/civil/faculty/r-varaprasad",
+    "links": []
+  },
+  {
+    "sno": 84,
+    "name": "K.Lakshmi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/k.lakshmi.jpg",
+    "profileRoute": "/departments/civil/faculty/k-lakshmi",
+    "links": []
+  },
+  {
+    "sno": 85,
+    "name": "D.JAYANARAYANA REDDY",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/DSC_02661.png",
+    "profileRoute": "/departments/civil/faculty/d-jayanarayana-reddy",
+    "links": []
+  },
+  {
+    "sno": 86,
+    "name": "P Kiran Rao",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190608_143546.jpg",
+    "profileRoute": "/departments/civil/faculty/p-kiran-rao",
+    "links": []
+  },
+  {
+    "sno": 87,
+    "name": "N.Parashuram",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190608_140316-1.jpg",
+    "profileRoute": "/departments/civil/faculty/n-parashuram",
+    "links": []
+  },
+  {
+    "sno": 88,
+    "name": "M.Sri Lakshmi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/srilakshmi.jpg",
+    "profileRoute": "/departments/civil/faculty/m-sri-lakshmi",
+    "links": []
+  },
+  {
+    "sno": 89,
+    "name": "P.Suman Prakash",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190604_145431-1.jpg",
+    "profileRoute": "/departments/civil/faculty/p-suman-prakash",
+    "links": []
+  },
+  {
+    "sno": 90,
+    "name": "M.Janarhan",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/janardhan.jpg",
+    "profileRoute": "/departments/civil/faculty/m-janarhan",
+    "links": []
+  },
+  {
+    "sno": 91,
+    "name": "Dr. K. Seshadri Ramana",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_20190604_145455.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-k-seshadri-ramana",
+    "links": []
+  },
+  {
+    "sno": 92,
+    "name": "Dr.  S. Prem Kumar",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D",
+    "department": "CIVIL",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/premkumar.jpg",
+    "profileRoute": "/departments/civil/faculty/dr-s-prem-kumar",
+    "links": []
+  },
+  {
+    "sno": 93,
+    "name": "Mr. SALE AKHIL TEJ",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 94,
+    "name": "Mr.C G MOHAN BABU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 95,
+    "name": "T SUHARIKA PAUL",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 96,
+    "name": "Mr.M LOKANATHA REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CIVIL",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  }
+]

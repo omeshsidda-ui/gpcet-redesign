@@ -1,0 +1,44 @@
+asyncapi: 3.1.0
+info:
+  title: Example Events
+  version: 1.0.0
+  description: Replace with event ownership and delivery semantics.
+servers:
+  production:
+    host: broker.example.com:9092
+    protocol: kafka
+channels:
+  exampleChanged:
+    address: examples.changed.v1
+    messages:
+      ExampleChanged:
+        $ref: '#/components/messages/ExampleChanged'
+operations:
+  receiveExampleChanged:
+    action: receive
+    channel:
+      $ref: '#/channels/exampleChanged'
+    messages:
+      - $ref: '#/channels/exampleChanged/messages/ExampleChanged'
+components:
+  messages:
+    ExampleChanged:
+      name: ExampleChanged
+      title: Example changed
+      correlationId:
+        location: $message.header#/correlationId
+      headers:
+        type: object
+        additionalProperties: false
+        required: [eventId, occurredAt, correlationId]
+        properties:
+          eventId: {type: string}
+          occurredAt: {type: string, format: date-time}
+          correlationId: {type: string}
+      payload:
+        type: object
+        additionalProperties: false
+        required: [exampleId, changeType]
+        properties:
+          exampleId: {type: string}
+          changeType: {type: string, enum: [created, updated, deleted]}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "create-project",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "新しいPythonのCLIツールを作りたい。CSVをJSONに変換するやつ。設計をPLAN.mdにまとめて、TODO.mdも作って。調査は不要。",
+      "expected_output": "docs/PLAN.md に設計方針・アーキテクチャ・API仕様・依存関係が記載され、docs/TODO.md にチェックボックス形式のタスクリストが作成される。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "この既存のWebアプリに認証機能を追加したい。OAuth2でAuth0を使う予定。PLAN.mdとTODO.mdを更新して、Auth0 APIの調査内容はreferencesに残して。",
+      "expected_output": "既存の docs/PLAN.md と docs/TODO.md が認証機能追加用に更新され、docs/references/auth0-api.md（または類似）に調査内容が保存される。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "長い作業が続いているので、今の設計決定事項と残りのタスクをdocsに書き出して。次のエージェントがすぐ再開できるようにして。",
+      "expected_output": "docs/PLAN.md に現在の設計決定事項が記録され、docs/TODO.md に未完了タスクと次のステップが明確に残される。",
+      "files": []
+    }
+  ]
+}

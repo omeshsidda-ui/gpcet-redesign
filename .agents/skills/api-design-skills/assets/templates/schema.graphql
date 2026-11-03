@@ -1,0 +1,46 @@
+type Query {
+  example(id: ID!): Example
+  examples(first: Int = 20, after: String): ExampleConnection!
+}
+
+type Mutation {
+  updateExample(input: UpdateExampleInput!): UpdateExamplePayload!
+}
+
+type Example {
+  id: ID!
+  createdAt: DateTime!
+}
+
+type ExampleConnection {
+  edges: [ExampleEdge!]!
+  pageInfo: PageInfo!
+}
+
+type ExampleEdge {
+  cursor: String!
+  node: Example!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  endCursor: String
+}
+
+input UpdateExampleInput {
+  id: ID!
+  idempotencyKey: String
+}
+
+type UpdateExamplePayload {
+  example: Example
+  errors: [UserError!]!
+}
+
+type UserError {
+  code: String!
+  message: String!
+  path: [String!]!
+}
+
+scalar DateTime

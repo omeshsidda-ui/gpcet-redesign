@@ -1,0 +1,802 @@
+[
+  {
+    "sno": 1,
+    "name": "S.N.Chandrika",
+    "designation": "Assistant Professor",
+    "qualification": "MSC, B.SC, M.SC",
+    "department": "HS",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/s-n-chandrika.jpg",
+    "profileRoute": "/departments/hs/faculty/s-n-chandrika",
+    "links": []
+  },
+  {
+    "sno": 2,
+    "name": "DR M GIRIDHAR KUMAR",
+    "designation": "VICE PRINCIPAL",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 3,
+    "name": "DR B SUNEETHA",
+    "designation": "PROFESSOR & DEAN",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 4,
+    "name": "DR J MAMATHA",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 5,
+    "name": "DR M YELLAIAH NAIDU",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 6,
+    "name": "DR SYEDA JEELANI BASRI",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 7,
+    "name": "DR K MAITHILI KIRANMAI",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 8,
+    "name": "DR A UMA RAVI SANKAR",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 9,
+    "name": "DR SHAHAB KHAN P",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 10,
+    "name": "DR M YELLAPPA",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 11,
+    "name": "DR H S ABZAL BASHA",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 12,
+    "name": "Mr. G SASHI KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 13,
+    "name": "Mr. S LOKA RAGHAVENDRA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 14,
+    "name": "Mr. M RAVI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 15,
+    "name": "Mrs. B LAVANYA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 16,
+    "name": "Mrs. M SRIDEVI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 17,
+    "name": "Mr. MD FARUK",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 18,
+    "name": "Mrs. N RAJITHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 19,
+    "name": "Mrs. N JANAKI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 20,
+    "name": "Ms. SYEDA AYESHA JAHAN",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 21,
+    "name": "Mr. K VIJAYA BHASKAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 22,
+    "name": "Ms. C MANASA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 23,
+    "name": "Mrs. Y APARNA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 24,
+    "name": "DR M MADHU SEKHAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 25,
+    "name": "Ms. B SRAVANTHI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 26,
+    "name": "Mr. V DIVAKAR NAIDU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 27,
+    "name": "Mr. M GOPINATH REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 28,
+    "name": "Mr. A M PRASANNA KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 29,
+    "name": "Mr. K HARINATH REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 30,
+    "name": "Mr. V NARASIMHA REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 31,
+    "name": "Mr. K RAMACHANDRUDU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 32,
+    "name": "Mr. D SURENDRANATHA REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 33,
+    "name": "Mr. B VENKATA KRISHNA REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 34,
+    "name": "Mr. B SIVA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 35,
+    "name": "Ms. M GURU DEVI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 36,
+    "name": "Mr. M VEERESH",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 37,
+    "name": "Ms. R ARCHANA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 38,
+    "name": "Mrs. DEENA GRACE ABIGAEL",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 39,
+    "name": "Mr. G RAJARAO",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 40,
+    "name": "Mr. V SHIVASHANKARA ACHARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 41,
+    "name": "Ms. B RAJESWARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 42,
+    "name": "Mr. K SREENIVASULU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 43,
+    "name": "Mr. P SIDDIQ",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 44,
+    "name": "Mr. K B RAJESWAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 45,
+    "name": "Ms. PUSHPALATHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 46,
+    "name": "Ms. SUREKHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 47,
+    "name": "Ms. M T NAGAMANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 48,
+    "name": "Ms. E NAGAMANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 49,
+    "name": "Ms. T SUJATHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 50,
+    "name": "Ms. LALITHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 51,
+    "name": "Mr. M JAYAKRISHNA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 52,
+    "name": "Mr. CHANDRASEKHAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 53,
+    "name": "Mr. VIJAYUDU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 54,
+    "name": "Ms. B PARVATHAMMA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 55,
+    "name": "Ms. T SOWMYA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 56,
+    "name": "Ms. P UMA MAHESWARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 57,
+    "name": "Ms. A SREELEKHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 58,
+    "name": "Mr. C BALA HUSSAINY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 59,
+    "name": "Mr. M JAYARAMUDU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 60,
+    "name": "Ms. GHANSHYAMBHAI GOVINDBHAI TEJANI",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 61,
+    "name": "Ms. B GEETHA RANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 62,
+    "name": "Mr. S ANIL KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 63,
+    "name": "Dr. G Ramachandra Reddy",
+    "designation": "Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 64,
+    "name": "Dr. V Suresh Babu",
+    "designation": "Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 65,
+    "name": "Dr. D R Venkatesh",
+    "designation": "Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 66,
+    "name": "Dr. S. Naga Chandrudu",
+    "designation": "Associate Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 67,
+    "name": "Dr. K Rama Krishna",
+    "designation": "Associate Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 68,
+    "name": "Dr. K Tanveer",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 69,
+    "name": "Dr. C Pavan Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 70,
+    "name": "Dr.T Syeda Jeelani Basari",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 71,
+    "name": "E Swarna Gowri",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 72,
+    "name": "P Ramakrishna",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 73,
+    "name": "L.Tayseen khanam",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 74,
+    "name": "G.Siddesh Babu",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 75,
+    "name": "P Malathi",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 76,
+    "name": "R.Simon",
+    "designation": "Librarian",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 77,
+    "name": "G.Durga prasad",
+    "designation": "Assistant Librarian",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 78,
+    "name": "J Venkataramana Murthy",
+    "designation": "P.D.",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 79,
+    "name": "Neela Kantha Reddy",
+    "designation": "Asst Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 80,
+    "name": "G HARSHA VARDHANREDDY",
+    "designation": "Asst Professor",
+    "qualification": "",
+    "department": "HS",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  }
+]

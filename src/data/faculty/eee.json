@@ -1,0 +1,652 @@
+[
+  {
+    "sno": 1,
+    "name": "Dr.D.VeerabhadraBabu",
+    "designation": "Professor",
+    "qualification": "PH.D, M.TECH, PHD",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2023/02/Dr.D.Veerabhadrababu.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-d-veerabhadrababu",
+    "links": []
+  },
+  {
+    "sno": 2,
+    "name": "MADDIKERA KRISHNA REDDY",
+    "designation": "Assistant Professor",
+    "qualification": "B.TECH, M.TECH, PH.D",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/M.KRISHNA-REDDY.jpg",
+    "profileRoute": "/departments/eee/faculty/maddikera-krishna-reddy",
+    "links": []
+  },
+  {
+    "sno": 3,
+    "name": "B. Ravi Chandra",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, PHD, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/B.RAVI-CHANDRA.jpg",
+    "profileRoute": "/departments/eee/faculty/b-ravi-chandra",
+    "links": []
+  },
+  {
+    "sno": 4,
+    "name": "Zaheer Pasha",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/Dr.-Jahir-pasha-232x300.jpg",
+    "profileRoute": "/departments/eee/faculty/zaheer-pasha",
+    "links": []
+  },
+  {
+    "sno": 5,
+    "name": "M Rudra Kumar",
+    "designation": "Professor",
+    "qualification": "PH.D, B.TECH, M.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/01/Dr-Rudra-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/m-rudra-kumar",
+    "links": []
+  },
+  {
+    "sno": 6,
+    "name": "Mohammad Riyaz Belgaum",
+    "designation": "Associate Professor",
+    "qualification": "PH.D",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/Riyaz.jpg",
+    "profileRoute": "/departments/eee/faculty/mohammad-riyaz-belgaum",
+    "links": []
+  },
+  {
+    "sno": 7,
+    "name": "Indira",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/Indira-jpeg-150x150.jpeg",
+    "profileRoute": "/departments/eee/faculty/indira",
+    "links": []
+  },
+  {
+    "sno": 8,
+    "name": "S, TOWSEEF AHMED",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/S.Towseef-Ahmed-Photo-150x150.jpeg",
+    "profileRoute": "/departments/eee/faculty/s-towseef-ahmed",
+    "links": []
+  },
+  {
+    "sno": 9,
+    "name": "Siva",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/SHIVA-234x300.jpg",
+    "profileRoute": "/departments/eee/faculty/siva",
+    "links": []
+  },
+  {
+    "sno": 10,
+    "name": "Raziya",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/RAZIYA-229x300.jpg",
+    "profileRoute": "/departments/eee/faculty/raziya",
+    "links": []
+  },
+  {
+    "sno": 11,
+    "name": "Praveen",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/PRAVEEN-224x300.jpg",
+    "profileRoute": "/departments/eee/faculty/praveen",
+    "links": []
+  },
+  {
+    "sno": 12,
+    "name": "Nishanth",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/Nishanth-243x300.jpg",
+    "profileRoute": "/departments/eee/faculty/nishanth",
+    "links": []
+  },
+  {
+    "sno": 13,
+    "name": "Dr. SANDIP SWARNAKAR",
+    "designation": "Professor",
+    "qualification": "M.TECH, PHD, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/02/swarnakar-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-sandip-swarnakar",
+    "links": []
+  },
+  {
+    "sno": 14,
+    "name": "V.Sowmya Sree",
+    "designation": "Professor",
+    "qualification": "M.TECH, PHD, B.TECH, PH.D",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/sowmya-sree.jpg",
+    "profileRoute": "/departments/eee/faculty/v-sowmya-sree",
+    "links": []
+  },
+  {
+    "sno": 15,
+    "name": "LNeelu",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PHD, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/Pass-Pic-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/lneelu",
+    "links": []
+  },
+  {
+    "sno": 16,
+    "name": "MDFaruq",
+    "designation": "Assistant Professor",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/Md.Faruq-Photo-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/mdfaruq",
+    "links": []
+  },
+  {
+    "sno": 17,
+    "name": "Ipshitha",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/12/ipshitha-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/ipshitha",
+    "links": []
+  },
+  {
+    "sno": 18,
+    "name": "EEE_Girija",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/Girija-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/eee-girija",
+    "links": []
+  },
+  {
+    "sno": 19,
+    "name": "EEE_Pradeep",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/P-PRADEEP-KUMAR-150x150.jpeg",
+    "profileRoute": "/departments/eee/faculty/eee-pradeep",
+    "links": []
+  },
+  {
+    "sno": 20,
+    "name": "EEE_Pravallika",
+    "designation": "Professor",
+    "qualification": "B.TECH, M.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/Pravallika-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/eee-pravallika",
+    "links": []
+  },
+  {
+    "sno": 21,
+    "name": "EEE_SivaDeepthi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/Siva-Deepthi-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/eee-sivadeepthi",
+    "links": []
+  },
+  {
+    "sno": 22,
+    "name": "EEE_Sivaram",
+    "designation": "Professor",
+    "qualification": "B.TECH, M.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/Siva-ram-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/eee-sivaram",
+    "links": []
+  },
+  {
+    "sno": 23,
+    "name": "EEE_Urmila",
+    "designation": "Professor",
+    "qualification": "B.TECH, M.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/Urmila-150x150.jpg",
+    "profileRoute": "/departments/eee/faculty/eee-urmila",
+    "links": []
+  },
+  {
+    "sno": 24,
+    "name": "Dr. K. Sathish Babu",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/Photo-Dr.-K-Sathish-Babu1.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-k-sathish-babu",
+    "links": []
+  },
+  {
+    "sno": 25,
+    "name": "P.A.Irfan Khan",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/PA-Irfan-Khan.jpg",
+    "profileRoute": "/departments/eee/faculty/p-a-irfan-khan",
+    "links": []
+  },
+  {
+    "sno": 26,
+    "name": "Dr. K.MALLIKARJUNA",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/Dr.-K.-MALLIKARJUNA-PHOTO.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-k-mallikarjuna",
+    "links": []
+  },
+  {
+    "sno": 27,
+    "name": "K. Venkateswaramma",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/K.Venkateswaramma-photo-1.jpg",
+    "profileRoute": "/departments/eee/faculty/k-venkateswaramma",
+    "links": []
+  },
+  {
+    "sno": 28,
+    "name": "P.Anusha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/P.Anusha-photo-1.jpg",
+    "profileRoute": "/departments/eee/faculty/p-anusha",
+    "links": []
+  },
+  {
+    "sno": 29,
+    "name": "B.Vishala",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/B.Vishala-photo-2.jpg",
+    "profileRoute": "/departments/eee/faculty/b-vishala",
+    "links": []
+  },
+  {
+    "sno": 30,
+    "name": "K.SWARNA MADHURI",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/SWARNA-MADHURI.jpg",
+    "profileRoute": "/departments/eee/faculty/k-swarna-madhuri",
+    "links": []
+  },
+  {
+    "sno": 31,
+    "name": "Mohammed Abdul Farida",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/M-A-FARIDA.jpg",
+    "profileRoute": "/departments/eee/faculty/mohammed-abdul-farida",
+    "links": []
+  },
+  {
+    "sno": 32,
+    "name": "Mr.E.Upendranath Goud",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/UPENDRA.jpg",
+    "profileRoute": "/departments/eee/faculty/mr-e-upendranath-goud",
+    "links": []
+  },
+  {
+    "sno": 33,
+    "name": "Gude Ramarao",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/GUDE-RAMARAO.jpg",
+    "profileRoute": "/departments/eee/faculty/gude-ramarao",
+    "links": []
+  },
+  {
+    "sno": 34,
+    "name": "Mr.B.Obulesu",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH, BED",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/B-OBULESU.jpg",
+    "profileRoute": "/departments/eee/faculty/mr-b-obulesu",
+    "links": []
+  },
+  {
+    "sno": 35,
+    "name": "Dr. T. TIRUPAL",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr-T-TIRUPAL.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-t-tirupal",
+    "links": []
+  },
+  {
+    "sno": 36,
+    "name": "Dr. K.C.T.Swamy",
+    "designation": "Associate Professor",
+    "qualification": "PH.D, B.TECH, M.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr.-K-C-T-SWAMY.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-k-c-t-swamy",
+    "links": []
+  },
+  {
+    "sno": 37,
+    "name": "Dr.C.Srinivasarao",
+    "designation": "Professor",
+    "qualification": "PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/principal-1.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-c-srinivasarao",
+    "links": []
+  },
+  {
+    "sno": 38,
+    "name": "Dr. N.Ramamurthy",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr-N-Rammurthy.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-n-ramamurthy",
+    "links": []
+  },
+  {
+    "sno": 39,
+    "name": "Mr. A.SREEKANTH",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/A-Sreekanth.jpg",
+    "profileRoute": "/departments/eee/faculty/mr-a-sreekanth",
+    "links": []
+  },
+  {
+    "sno": 40,
+    "name": "Y.Hazarathaiah",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/Y.Hazarathaiah.jpg",
+    "profileRoute": "/departments/eee/faculty/y-hazarathaiah",
+    "links": []
+  },
+  {
+    "sno": 41,
+    "name": "U CHAITHANYA",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/U.Chaithanya.jpg",
+    "profileRoute": "/departments/eee/faculty/u-chaithanya",
+    "links": []
+  },
+  {
+    "sno": 42,
+    "name": "S.Sankara Prasad",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/SANKARAPRASAD-PHOTO.jpg",
+    "profileRoute": "/departments/eee/faculty/s-sankara-prasad",
+    "links": []
+  },
+  {
+    "sno": 43,
+    "name": "S Divya",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/divya-1.jpg",
+    "profileRoute": "/departments/eee/faculty/s-divya",
+    "links": []
+  },
+  {
+    "sno": 44,
+    "name": "Mrs. R. Vasudha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/VASUDHA-PHOTO.jpg",
+    "profileRoute": "/departments/eee/faculty/mrs-r-vasudha",
+    "links": []
+  },
+  {
+    "sno": 45,
+    "name": "Ms. R. Sheba Rani",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/R-SHEBA-RANI-PHOTO.jpg",
+    "profileRoute": "/departments/eee/faculty/ms-r-sheba-rani",
+    "links": []
+  },
+  {
+    "sno": 46,
+    "name": "Venkateswarlu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/M-VENKATESWARLU-PHOTO.jpg",
+    "profileRoute": "/departments/eee/faculty/venkateswarlu",
+    "links": []
+  },
+  {
+    "sno": 47,
+    "name": "K JAYA SREE",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/jayasree-1.jpg",
+    "profileRoute": "/departments/eee/faculty/k-jaya-sree",
+    "links": []
+  },
+  {
+    "sno": 48,
+    "name": "K DEEPAK",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/K.Deepak.jpg",
+    "profileRoute": "/departments/eee/faculty/k-deepak",
+    "links": []
+  },
+  {
+    "sno": 49,
+    "name": "Dr.G.Pandu Ranga Reddy",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/G-PANDURANGA-REDDY-PHOTO-1.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-g-pandu-ranga-reddy",
+    "links": []
+  },
+  {
+    "sno": 50,
+    "name": "E.Jyothirmai",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/E.Jyothirmai-Photo-graph.jpg",
+    "profileRoute": "/departments/eee/faculty/e-jyothirmai",
+    "links": []
+  },
+  {
+    "sno": 51,
+    "name": "M. Bhagya Lakshmi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/M.Bhagyalakshmi.jpg",
+    "profileRoute": "/departments/eee/faculty/m-bhagya-lakshmi",
+    "links": []
+  },
+  {
+    "sno": 52,
+    "name": "Dr.B.V.Rami Reddy",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/RAMIREDDY-PHOTO.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-b-v-rami-reddy",
+    "links": []
+  },
+  {
+    "sno": 53,
+    "name": "A.Suresh Kumar",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/A.Suresh-Kumar-Photo-graph.jpg",
+    "profileRoute": "/departments/eee/faculty/a-suresh-kumar",
+    "links": []
+  },
+  {
+    "sno": 54,
+    "name": "Dr. V.Vijaya Kishore",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/DSC_6358.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-v-vijaya-kishore",
+    "links": []
+  },
+  {
+    "sno": 55,
+    "name": "Dr.M.Rama Prasad Reddy",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/Dr.jpg",
+    "profileRoute": "/departments/eee/faculty/dr-m-rama-prasad-reddy",
+    "links": []
+  },
+  {
+    "sno": 56,
+    "name": "Dr K Sreenivasulu",
+    "designation": "Professor",
+    "qualification": "PH.D, B.TECH, M.TECH",
+    "department": "EEE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Sreenivasulu.jpeg",
+    "profileRoute": "/departments/eee/faculty/dr-k-sreenivasulu",
+    "links": []
+  },
+  {
+    "sno": 57,
+    "name": "Dr. COPPISETTY SRINIVASA RAO",
+    "designation": "PRINCIPAL",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 58,
+    "name": "Dr. G PANDURANGA REDDY",
+    "designation": "PROFESSOR & DEAN",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 59,
+    "name": "DR. M RAMA PRASAD REDDY",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 60,
+    "name": "DR B V RAMIREDDY",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 61,
+    "name": "DR M VENKATESHWARLU",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 62,
+    "name": "Dr. KARANAM DEEPAK",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 63,
+    "name": "Mrs.M BHAGYA LAKSHMI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 64,
+    "name": "Mr.S SANKARA PRASAD",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 65,
+    "name": "Mrs.D RAZIYA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "EEE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  }
+]

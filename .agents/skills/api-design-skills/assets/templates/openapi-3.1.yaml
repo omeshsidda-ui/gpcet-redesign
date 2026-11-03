@@ -1,0 +1,63 @@
+openapi: 3.1.0
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+info:
+  title: Example API
+  version: 1.0.0
+  summary: Replace with a concise API summary.
+servers:
+  - url: https://api.example.com
+security:
+  - oauth2: [example.read]
+paths:
+  /examples:
+    get:
+      operationId: listExamples
+      summary: List examples
+      responses:
+        '200':
+          description: Example page
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    maxItems: 100
+                    items:
+                      $ref: '#/components/schemas/Example'
+        '401': {$ref: '#/components/responses/Problem'}
+        '403': {$ref: '#/components/responses/Problem'}
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://identity.example.com/authorize
+          tokenUrl: https://identity.example.com/token
+          scopes:
+            example.read: Read examples
+  responses:
+    Problem:
+      description: Problem Details response
+      content:
+        application/problem+json:
+          schema: {$ref: '#/components/schemas/Problem'}
+  schemas:
+    Example:
+      type: object
+      additionalProperties: false
+      required: [id]
+      properties:
+        id: {type: string}
+    Problem:
+      type: object
+      required: [type, title, status]
+      properties:
+        type: {type: string, format: uri-reference}
+        title: {type: string}
+        status: {type: integer, minimum: 400, maximum: 599}
+        detail: {type: string}

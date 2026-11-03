@@ -1,0 +1,31 @@
+---
+id: 19127
+title: "Placement Records"
+slug: "placement-records"
+wp_slug: "placement-records"
+section: "placements"
+route: "/placements/placement-records"
+date: "2017-09-13T09:40:15"
+modified: "2017-09-14T17:32:30"
+canonical_url: "https://www.gpcet.ac.in/placement-records/"
+tables_count: 4
+pdfs_count: 0
+---
+
+**Placement for 2013-2017**
+
+**BATCH-2013-2017**
+
+| Sr. No | Name of Organization | Package (Rs.Lakhs Per annual) | Students Selected | TOTAL | | --- | --- | --- | --- | --- | | CSE | ECE | EEE | - | - | | 1 | TECH MAHINDRA | 1,50,000 | 2 | - | - | 2 | - | | 2 | IBM | 3,15,000 | 15 | - | - | 15 | - | | 3 | APTROID | 2,40,000 | 1 | - | - | 1 | - | | 4 | Quest Vally | 1,50,000 | 10 | 11 | 9 | 30 | - | | 5 | GENPACT | 1,50,000 | 1 | - | - | 1 | - | | 6 | DATA64 | 3,00,000 | 3 | 1 | - | 4 | - | | 7 | RISING STAR MOBILE PVT LTD | 1,44,000 | - | 9 | 7 | 16 | - | | 8 | NTT | - | - | 1 | - | 1 | - | | 9 | AMBOELI PROFESSIONAL ASSOCIATES PVT LTD | 4,00,000 | - | 2 | - | 2 | - | | 10 | CARE SYSTEMS | 1,60,000 | - | 1 | - | 1 | - | | 11 | MAHA ELECTRONICS | 1,75,000 | - | 20 | 11 | 31 | - | | 12 | WEB SYNERGIES | 1,80,000 | - | 6 | - | 6 | - | | 13 | SS E | 1,50,000 | - | - | 10 | 10 | - | | 14 | WINNOW SYSTEMS | 2,40,000 | - | 4 | - | 4 | - | | 15 | HCL | 3,00,000 | - | 1 | - | 1 | - | | 16 | IKYA | - | 6 | 10 | 9 | 25 | - | | 17 | HEBEON TECHNOLOGIES | - | 7 | - | - | 7 | - | | TOTAL | 45 | 66 | 46 | 157 | - |
+
+**BATCH-2012-2016**
+
+| Sr. No | Name of Organization | Package (Rs.Lakhs Per annual) | Students Selected | TOTAL | | --- | --- | --- | --- | --- | | CSE | ECE | EEE | - | - | | 1 | TECH MAHINDRA | 3,25,000 | 7 | 10 | 3 | 20 | - | | 2 | TPO TECHNOLOGIES | 2,40,000 | 4 | 3 | 4 | 11 | - | | 3 | CAPGEMENI | 3,15,000 | 1 | 2 | - | 3 | - | | 4 | ALLIANCE GLOBAL | 4,00,000 | 5 | 11 | 5 | 21 | - | | 5 | VIBEUS INDIA PVT LTD | 1,20,000 | 1 | - | - | 1 | - | | 6 | IBM | 3,25,000 | 4 | 21 | 7 | 32 | - | | 7 | TCS | 3,33,475 | 1 | 3 | - | 4 | - | | 8 | HEBEON TECHNOLOGIES | 2,00,000 | 3 | 17 | 15 | 35 | - | | 9 | IKYA | 1,89,000 | - | 17 | 9 | 26 | - | | 10 | AXIS WIND FARMS PVT LTD | 1,32,000 | - | - | 1 | 1 | - | | 11 | SRI VENKATESH ENTERPRISES | 1,80,000 | - | - | 1 | 1 | - | | 12 | KORED INTRA TECH PVT LTD | 1,50,000 | - | - | 1 | 1 | - | | 13 | WEST CORPORATION | 1,80,000 | - | - | 1 | 1 | - | | 14 | VARUN MOTORS | 2,00,000 | - | - | 1 | 1 | - | | 15 | ORIANO SOLAR | 1,50,000 | - | - | 1 | 1 | - | | 16 | SILICON MICRO SYSTEMS | 2,50,000 | - | 2 | 3 | 5 | - | | 17 | INFOSYS | 3,40,000 | - | 4 | - | 4 | - | | 18 | VALUE LABS | 2,40,000 | - | 2 | - | 2 | - | | 19 | MIND TREE | 3,25,000 | - | 1 | - | 1 | - | | 20 | HP | 2,75,000 | - | 1 | - | 1 | - | | 21 | VEDA IIT | 3,00,000 | - | 8 | - | 8 | - | | TOTAL | 26 | 102 | 52 | 180 | - |
+
+**BATCH-2011-2015**
+
+| Sr. No | Name of Organization | Package (Rs.Lakhs Per annual) | Students Selected | TOTAL | | --- | --- | --- | --- | --- | | CSE | ECE | EEE | - | - | | 1 | TECH MAHINDRA | 3,07,000 | 11 | 12 | 5 | 28 | - | | 2 | ATTRA INFOTECH PVT LTD | 2,84,413 | 1 | - | - | 1 | - | | 3 | CAPGEMENI | 3,60,000 | 2 | - | 1 | 3 | - | | 4 | SUNERA E SEAL INDIA PRIVATE LIMITED | 3,00,000 | 1 | - | - | 1 | - | | 5 | GENPACT | 99,600 | 1 | - | - | 1 | - | | 6 | OPEN TEXT | 4,51,500 | 1 | - | - | 1 | - | | 7 | NTT DATA GLOBAL DELIVERY SERVICES LIMITED | 3,00,000 | 2 | - | 1 | 3 | - | | 8 | PRANIKH TECHNOLOGIES PVT LTD | 1,20,000 | 1 | - | - | 1 | - | | 9 | LYCOS | 1,20,000 | 1 | - | - | 1 | - | | 10 | TCS | 3,33,475 | 2 | 2 | 1 | 5 | - | | 11 | 6D TECHNOLOGIES | 2,60,000 | 1 | - | - | 1 | - | | 12 | HEBEON TECHNOLOGIES | 2,00,000 | 3 | 25 | 13 | 41 | - | | 13 | RISE CORPORATION | 2,065,00 | 2 | - | - | 2 | - | | 14 | WINNOW SOLUTIONS | 1,00,000 | 2 | - | - | 2 | - | | 15 | TPO | 2,40,000 | 6 | 3 | - | 9 | - | | 16 | IKYA | 189,000 | - | 27 | 11 | 38 | - | | 17 | SHACHI ENGINEERING | 2,50,000 | - | - | 1 | 1 | - | | 18 | PRANAVIES ENTERPRISES | 1,85,000 | - | - | 1 | 1 | - | | 19 | YATHVA ENERGY SOLUTIONS | 2,30,000 | - | - | 1 | 1 | - | | 20 | VEDA IIT | 3,00,000 | - | 9 | 4 | 13 | - | | 21 | INFOSYS | 3,40,000 | - | 3 | - | 3 | - | | 22 | VALU LABS | 2,40,000 | - | 1 | - | 1 | - | | 23 | SILICON MICRO SYSTEMS | 2,50,000 | - | 3 | - | 3 | - | | TOTAL | 37 | 85 | 39 | 161 | - |
+
+**BATCH-2010-2014**
+
+| Sr. No | Name of Organization | Package (Rs.Lakhs Per annual) | Students Selected | TOTAL | | --- | --- | --- | --- | --- | | CSE | ECE | EEE | - | - | | 1 | Tech Mahindra | 3,07,000 | 7 | 12 | 3 | 22 | - | | 2 | Wipro | 2,75,016 | 1 | 2 | - | 3 | - | | 3 | HEBEON TECHNOLOGIES | 2,00,000 | 4 | 23 | 9 | 36 | - | | 4 | RISE SOLUTION | 2,06,500 | 1 | - | - | 1 | - | | 5 | TCS | 3,18,887 | 1 | 2 | - | 3 | - | | 6 | TPO | 2,60,000 | 3 | - | - | 3 | - | | 7 | WIN NOW SOLUTIONS | 1,00,000 | 2 | - | - | 2 | - | | 8 | PERVACIO | 1,22,000 | 2 | - | - | 2 | - | | 9 | DIGITIZER | 1,44,000 | 3 | - | - | 3 | - | | 10 | GLOBAL LOGIC | 1,44,000 | 1 | - | - | 1 | - | | 11 | SUSEELA NETRALAYA | 1,00,000 | 1 | - | - | 1 | - | | 12 | INTELLIER INFO TECH PVT LTD | 1,44,000 | 1 | - | - | 1 | - | | 13 | APTS | 1,40,000 | 1 | - | - | 1 | - | | 14 | COGNIZANT TECHNOLOGIES PVT LTD | 3,01,500 | 2 | 4 | - | 6 | - | | 15 | SATYAM TECH | 1,80,000 | 1 | - | - | 1 | - | | 16 | IKYA GLOBA | 1,89,354 | 1 | 17 | 7 | 25 | - | | 17 | THE TECH SCRIBES | 2,40,000 | - | - | 1 | 1 | - | | 18 | CAPGEMINI | 3,60,000 | - | - | 1 | 1 | - | | 19 | EMINENCE LUCRE MANAGEMENT | 2,40,000 | - | - | 1 | 1 | - | | 20 | HCL | 3,25,000 | - | - | 1 | 1 | - | | 21 | C&S ELECTRICS | 2,00,000 | - | - | 1 | 1 | - | | 22 | ASCENT | 2,64,000 | - | - | 1 | 1 | - | | 23 | BIG BLUBS INDIA PVT LTD | 2,48,000 | - | - | 1 | 1 | - | | 24 | POWER GRID | 2,34,000 | - | - | 1 | 1 | - | | 25 | KONFIDO GROUP | 2,10,000 | - | - | 1 | 1 | - | | 26 | FOOD CORPORATION | 3,50,000 | - | - | 1 | 1 | - | | 27 | VEDA IIT | 3,00,000 | - | 3 | 6 | 9 | - | | 28 | LISTER TECHNOLOGIES | 4,50,000 | - | 1 | - | 1 | - | | 29 | DIGITAL MARKETING | 3,80,000 | - | 1 | - | 1 | - | | 30 | INFOSYS | 3,40,000 | - | 3 | - | 3 | - | | 31 | SMS COUNTRY | 2,60,000 | - | 1 | - | 1 | - | | 32 | WEB SYNERGIES | 2,50,000 | - | 1 | - | 1 | - | | 33 | FORTINET | 2,00,000 | - | 1 | - | 1 | - | | 34 | NOMUS | 1,80,000 | - | 1 | - | 1 | - | | TOTAL | 32 | 72 | 35 | 139 | - |

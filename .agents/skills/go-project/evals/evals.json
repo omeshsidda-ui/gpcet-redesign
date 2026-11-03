@@ -1,0 +1,23 @@
+{
+  "skill_name": "advance-project",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "CSV to JSONツールの実装を続けて。次はコアロジックの実装。",
+      "expected_output": "docs/PLAN.md の設計に従ってコアロジックが実装され、docs/TODO.md が更新される（完了タスクに[x]、新しいNext immediate stepが設定される）。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "ダッシュボードプロジェクトを続けて。ユーザー設定ページを実装して。",
+      "expected_output": "既存の設計決定事項に従ってユーザー設定ページが実装され、TODO.md が進捗反映で更新される。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Flaskアプリの認証機能を続けて。/loginエンドポイントを実装して。",
+      "expected_output": "PLAN.md のAuth0設計に従って/loginエンドポイントが実装され、TODO.md が更新される。",
+      "files": []
+    }
+  ]
+}

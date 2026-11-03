@@ -1,0 +1,12 @@
+{
+  "type": "https://api.example.com/problems/validation-error",
+  "title": "Request validation failed",
+  "status": 400,
+  "detail": "One or more request fields are invalid.",
+  "instance": "/requests/01JEXAMPLE",
+  "code": "VALIDATION_ERROR",
+  "requestId": "01JEXAMPLE",
+  "errors": [
+    {"path": "/email", "code": "FORMAT", "message": "Must be a valid email address."}
+  ]
+}

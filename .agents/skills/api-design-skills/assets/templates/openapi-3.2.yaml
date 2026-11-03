@@ -1,0 +1,92 @@
+openapi: 3.2.0
+$self: https://api.example.com/openapi.yaml
+info:
+  title: Example API
+  version: 1.0.0
+  summary: Replace with a concise API summary.
+  description: Replace with consumer-facing behavior and constraints.
+servers:
+  - url: https://api.example.com
+    description: Production placeholder
+security:
+  - oauth2: [example.read]
+tags:
+  - name: Examples
+paths:
+  /examples:
+    get:
+      tags: [Examples]
+      operationId: listExamples
+      summary: List examples
+      parameters:
+        - $ref: '#/components/parameters/PageCursor'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Example page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExamplePage'
+        '401':
+          $ref: '#/components/responses/Problem'
+        '403':
+          $ref: '#/components/responses/Problem'
+        '429':
+          $ref: '#/components/responses/Problem'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://identity.example.com/authorize
+          tokenUrl: https://identity.example.com/token
+          scopes:
+            example.read: Read examples
+  parameters:
+    PageCursor:
+      name: page[cursor]
+      in: query
+      schema: {type: string, maxLength: 2048}
+    PageSize:
+      name: page[size]
+      in: query
+      schema: {type: integer, minimum: 1, maximum: 100, default: 20}
+  responses:
+    Problem:
+      description: Problem Details response
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+  schemas:
+    Example:
+      type: object
+      additionalProperties: false
+      required: [id, createdAt]
+      properties:
+        id: {type: string, minLength: 1, maxLength: 128}
+        createdAt: {type: string, format: date-time, readOnly: true}
+    ExamplePage:
+      type: object
+      additionalProperties: false
+      required: [items]
+      properties:
+        items:
+          type: array
+          maxItems: 100
+          items: {$ref: '#/components/schemas/Example'}
+        nextCursor: {type: [string, 'null']}
+    Problem:
+      type: object
+      additionalProperties: true
+      required: [type, title, status]
+      properties:
+        type: {type: string, format: uri-reference}
+        title: {type: string}
+        status: {type: integer, minimum: 400, maximum: 599}
+        detail: {type: string}
+        instance: {type: string, format: uri-reference}
+        code: {type: string}
+        requestId: {type: string}

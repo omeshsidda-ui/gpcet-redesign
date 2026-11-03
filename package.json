@@ -1,0 +1,33 @@
+{
+  "name": "gpcet-redesign",
+  "version": "1.0.0",
+  "description": "Scraper pipeline and modern Next.js redesign for G. Pullaiah College of Engineering & Technology",
+  "type": "module",
+  "main": "scraper/cli.js",
+  "scripts": {
+    "scrape:verify": "node scraper/cli.js --verify-endpoints",
+    "scrape:cache": "node scraper/cli.js --scrape-cache",
+    "scrape:all": "node scraper/cli.js --scrape-all",
+    "scrape:dept": "node scraper/cli.js --scrape-dept",
+    "scrape:parse": "node scraper/cli.js --parse-content",
+    "scrape:assets": "node scraper/cli.js --download-assets",
+    "scrape:manifest": "node scraper/cli.js --generate-manifest",
+    "test": "node --test tests/*.test.js",
+    "test:contracts": "node scripts/test-data-contracts.js",
+    "seed:generate": "node scripts/seed-supabase.js"
+  },
+  "keywords": [
+    "gpcet",
+    "scraper",
+    "redesign",
+    "nextjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2",
+    "zod": "^4.6.7"
+  }
+}

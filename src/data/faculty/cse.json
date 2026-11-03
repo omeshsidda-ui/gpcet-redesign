@@ -1,0 +1,722 @@
+[
+  {
+    "sno": 1,
+    "name": "Jaswinder Kaur",
+    "designation": "Assistant Professor",
+    "qualification": "M.B.A",
+    "department": "CSE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/02/jaswander-kaur1-150x150.jpg",
+    "profileRoute": "/departments/cse/faculty/jaswinder-kaur",
+    "links": []
+  },
+  {
+    "sno": 2,
+    "name": "DR. M SRILAKSHMI",
+    "designation": "PROFESSOR & DEAN",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 3,
+    "name": "DR S PREM KUMAR",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 4,
+    "name": "DR C RANJEETH KUMAR",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 5,
+    "name": "DR P SUMAN PRAKASH",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 6,
+    "name": "DR M JANARDAN",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 7,
+    "name": "DR. K SESHADRI RAMANA",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 8,
+    "name": "DR. T ADITYA SAI SRINIVAS",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 9,
+    "name": "DR. SABEENA B",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 10,
+    "name": "DR. B NAGALAKSHMI",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 11,
+    "name": "DR C MADDILETY",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 12,
+    "name": "DR. M KIRAN MAYEE",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 13,
+    "name": "DR T GIRIBABU",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 14,
+    "name": "DR B SURESH KUMAR",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 15,
+    "name": "Mr. K VIJAY KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 16,
+    "name": "Mrs. K LAKSHMI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 17,
+    "name": "Mr. R VARA PRASAD",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 18,
+    "name": "Mrs. AMEENA YASMEEN",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 19,
+    "name": "Mrs. B DEENA DIVYA NAYOMI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 20,
+    "name": "Mrs. M JAYASUNITHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 21,
+    "name": "Ms. B ROJA RAMANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 22,
+    "name": "Mr. K VENKATESWARLU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 23,
+    "name": "Mrs. D NAVYA DEVI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 24,
+    "name": "Mrs. B CHANDRAKALA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 25,
+    "name": "Mrs. V LILLY GRACE",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 26,
+    "name": "Mr. U PREM SAGAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 27,
+    "name": "Mrs. K MANJUSHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 28,
+    "name": "Mrs. M HARITHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 29,
+    "name": "Mr. S HUPESH NAGA KETHAN",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 30,
+    "name": "Mrs. P RAJYA LAKSHMI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 31,
+    "name": "Mr. V RAJASEKHAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 32,
+    "name": "Mr. K SRINIVASULU ACHARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 33,
+    "name": "Mrs. A SREEPRADHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 34,
+    "name": "Mr. K MAHESH BABU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 35,
+    "name": "Mr. D K SHAREEF",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 36,
+    "name": "Mr. KUMMARI NAGENDRUDU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 37,
+    "name": "Mr. Y SURENDRA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 38,
+    "name": "Mrs. B THULASI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 39,
+    "name": "Mr. G LOKESH",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 40,
+    "name": "Mrs. V SRAVANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 41,
+    "name": "Mr. T N BALAKRISHNA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 42,
+    "name": "Mrs. P VIJAYA KUMARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 43,
+    "name": "Mrs. P NAGA SHRUTHI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 44,
+    "name": "Mrs. SYED SUHANA BEGUM",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 45,
+    "name": "Mrs. D SWARNA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 46,
+    "name": "Ms. SHILPA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 47,
+    "name": "Mr. T NISHANTH",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 48,
+    "name": "Mrs. U CHAITHANYA",
+    "designation": "TEACHING ASST",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 49,
+    "name": "Mr. C V SATHEESH KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 50,
+    "name": "Mr. D MOHAMMED ZILANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 51,
+    "name": "Mr. M NAVEEN BABU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 52,
+    "name": "Ms. S AZRA TABASUM",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 53,
+    "name": "Ms. KALVA NAGASWATHI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 54,
+    "name": "Mr. A S AFFAAN SAFI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 55,
+    "name": "Ms. A JAYANTHI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 56,
+    "name": "Ms. GAJJALA PRIYANKA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 57,
+    "name": "Mr. DASARI AYYASWAMY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 58,
+    "name": "Mr. KANDRA RAMA KRISHNA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 59,
+    "name": "Mr. C PRAVEEN KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 60,
+    "name": "Mr. S RAJASEKHAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 61,
+    "name": "Mrs. ALLURI DAMAYANTHI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 62,
+    "name": "Mr. G SREENIVASULU",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 63,
+    "name": "Mr. P SIVA KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 64,
+    "name": "Mrs. Y INDIRA PRIYADARSHINI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 65,
+    "name": "Mr. S ASLAM SHAREEF",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 66,
+    "name": "Mrs. MACHAPURAM SAILAJA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 67,
+    "name": "Mrs. A SAI REKHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 68,
+    "name": "Mrs. M SHAHEDA BEGUM",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 69,
+    "name": "Mrs. G LUCY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 70,
+    "name": "Mrs. S SARITHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 71,
+    "name": "Mrs. SAMEENA YOUSUFF",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 72,
+    "name": "Mrs. V ROHINI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "CSE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  }
+]

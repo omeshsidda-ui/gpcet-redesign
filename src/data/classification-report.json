@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-10-31T13:38:28.994Z",
+  "totalPagesIngested": 928,
+  "totalPagesWritten": 928,
+  "totalTablesExtracted": 630,
+  "sectionDistribution": {
+    "administration": 16,
+    "accreditation": 20,
+    "departments/mba": 17,
+    "departments/hs": 15,
+    "departments/me": 59,
+    "departments/eee": 50,
+    "departments/ece": 68,
+    "departments/civil": 56,
+    "departments/ai": 11,
+    "archive-or-orphan": 206,
+    "accreditation/naac": 48,
+    "departments/cse": 91,
+    "campus-life": 19,
+    "admissions": 7,
+    "examinations": 8,
+    "research": 18,
+    "placements": 6,
+    "departments/civil/faculty": 94,
+    "departments/hs/faculty": 1,
+    "departments/ece/faculty": 41,
+    "departments/eee/faculty": 57,
+    "departments/me/faculty": 19,
+    "departments/cse/faculty": 1
+  },
+  "orphanCount": 206,
+  "facultyCounts": {
+    "cse": 72,
+    "ai": 30,
+    "ece": 70,
+    "eee": 65,
+    "me": 23,
+    "civil": 96,
+    "hs": 80,
+    "mba": 16
+  }
+}

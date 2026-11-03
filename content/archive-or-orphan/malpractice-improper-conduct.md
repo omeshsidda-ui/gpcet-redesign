@@ -1,0 +1,45 @@
+---
+id: 22736
+title: "Malpractice/Improper conduct"
+slug: "malpractice-improper-conduct"
+wp_slug: "malpractice-improper-conduct"
+section: "archive-or-orphan"
+route: "/archive-or-orphan/malpractice-improper-conduct"
+date: "2019-05-07T15:24:31"
+modified: "2023-05-04T18:13:47"
+canonical_url: "https://www.gpcet.ac.in/malpractice-improper-conduct/"
+tables_count: 1
+pdfs_count: 0
+---
+
+Placements
+
+[Welcome to G.Pullaiah College of Engineering and Technology (Autonomous): Kurnool](https://www.gpcet.ac.in/welcome-to-g-pullaiah-college-of-engineering-and-technology/)
+
+[financial\_assistance\_letters](/departments/cse/financial-assistance-letters)
+
+### **About GPCET**
+
+-   [College History](/archive-or-orphan/college-history)
+-   [Courses Offered](/archive-or-orphan/programmes)
+-   [Academic Calendars](/archive-or-orphan/academic-calendars)
+-   [Regulations and Syllabus](/archive-or-orphan/regulations-and-syllabus)
+-   [Research Development Cell](/research/research-development-cell)
+-   [Examinations Cell](/examinations/examinations)
+    -   [Malpractice/Improper conduct](/archive-or-orphan/malpractice-improper-conduct)
+    -   [Result Announcement](http://digitalcampus.msmfclasses.com:99/)
+    -   [Evaluation Procedure](/archive-or-orphan/evaluation-procedure)
+    -   [Download Applications](/archive-or-orphan/download-applications)
+-   [IQAC Cell](/accreditation/iqac)
+-   [Accreditation and Affiliation](/archive-or-orphan/accreditation-and-affiliation)
+    -   [AICTE Approval Letters](/accreditation/aicte-approval-letters)
+    -   [NBA](/accreditation/nba-2)
+    -   [NAAC](/accreditation/naac-4)
+    -   [AISHE](/archive-or-orphan/aishe)
+    -   [NIRF](/accreditation/nirf-2)
+
+### **Disciplinary  Action for Malpractices/Improper conduct during Examinations**
+
+The examinations committee will take the following guidelines into consideration while dealing with the suspected cases of malpractice/improper conduct reported by the invigilators/squad members etc; during internal and external examinations. The punishment may be more severe or less severe depending on the merits of the individual cases.
+
+| S.no | Nature of Malpractice/Improper conduct | Punishment | | --- | --- | --- | | 1 | Possesses or keeps accessible in examination hall, any paper, note book, programmable calculators, Cell phones, pager, palm computers or any other form of material concerned with or related to the course of the examination (theory or practical) in which he is appearing but has not made use of (material shall include any marks on the body of the student which can be used as an aid in the course of the examination) | Expulsion from the examination hall and cancellation of the performance in that course only. | | 2 | Uses objectionable, abusive or offensive language in the answer paper or in letters to the examiners or writes to the examiner requesting him to award pass marks | Cancellation of the performance in that course. | | 3 | Copying detected on the basis of internal evidence, such as, during valuation or during special scrutiny. | Cancellation of the performance in that course and all other courses the candidate has appeared including practical examinations and project work of that semester/year examinations. | | 4 | Gives assistance or guidance or receives it from any other student orally or by any other body language methods or communicates through cell phones with any other student or persons in or outside the exam hall in respect of any matter. | Expulsion from the examination hall and cancellation of the performance in that course only of all the students involved. In case of an outsider, he will be handed over to the police and a case shall be registered against him. | | 5 | Has copied in the examination hall from any paper, book, programmable calculators, palm computers or any other form of material relevant to the course of the examination (theory or practical) in which the student is appearing. | Expulsion from the examination hall and cancellation of the performance in that course and all other courses including practical examinations and project work of that semester/year. | | 6 | Comes in a drunken condition to the examination hall. | Expulsion from the examination hall and cancellation of the performance in that course and all other courses including practical examinations and project work of that semester/year. | | 7 | Smuggles in the Answer book or takes out or arranges to send out the question paper during the examination or answer book during or after the examination | Expulsion from the examination hall and cancellation of performance in that course and all the other courses including practical examinations and project work of that semester/year. The student is also debarred for two consecutive semesters from class work and all examinations. The continuation of the course by the student is subject to the academic regulations in connection with forfeit of seat. | | 8 | Refuses to obey the orders of the Chief Superintendent/Assistant – Superintendent / any officer on duty or misbehaves or creates disturbance of any kind in and around the examination hall or organizes a walk out or instigates others to walk out, or threatens the officer-in charge or any person on duty in or outside the examination hall of any injury to his person or to any of his relations whether by words, either spoken or written or by signs or by visible representation, assaults the officer-in-charge, or any person on duty in or outside the examination hall or any of his relations, or indulges in any other act of misconduct or mischief which result in damage to or destruction of property in the examination hall or any part of the College campus or engages in any other act which in the opinion of the officer on duty amounts to use of unfair means or misconduct or has the tendency to disrupt the orderly conduct of the examination. | In case of students of the college, they shall be expelled from examination halls and cancellation of their performance in that course and all other courses of that semester/year. The students also are debarred and forfeit their seats. In case of outsiders, they will be handed over to the police and a police case shall be registered against them. | | 9 | Leaves the exam hall taking away answer script or intentionally tears up the script or any part thereof inside or outside the examination hall. | Expulsion from the examination hall and cancellation of performance in that course and all the other courses including practical examinations and project work of that semester/year. The candidate is also debarred for two consecutive semesters from class work and all end examinations. The continuation of the course by the candidate is subject to the academic regulations in connection with forfeiture of seat. | | 10 | Possesses any lethal weapon or firearm in the examination hall. | Expulsion from the examination hall and cancellation of the performance in that course and all other courses including practical examinations and project work of that semester/year. The student is also debarred and forfeits the seat. | | 11 | If student of the college, who is not a candidate for the particular examination or any person not connected with the college indulges in any malpractice or improper conduct mentioned in S.No7 to S.No 9. | For Student of the college : Expulsion from the examination hall and cancellation of the performance in that course and all other courses including practical examinations and project work of that semester/year. The candidate is also debarred and forfeits the seat. Person(s) who do not belong to the College will be handed over to police and, a police case shall be registered against them. | | 12 | Impersonates any other student in connection with the examination | The student who has impersonated shall be expelled from examination hall. The student is debarred from writing the remaining exams, and rusticated from the college for one academic year during which period the student will not be permitted to write any exam. If the imposter is an outsider, he will be handed over to the police and a case shall be registered against him. The performance of the original student who has been impersonated, shall be cancelled in all the courses of the examination including practical’s and project work of that semester /year. The student is rusticated from the college for two consecutive years during which period the student will not be permitted to write any exam. The continuation of the course by the student is subject to the academic regulations in connection with forfeiture of seat. | | 13 | If any malpractice is detected which is not covered in the above S.No 1 to S.No 12 items, it shall be reported to the college academic council for further action and award suitable punishment. | - | | 14 | Malpractice cases identified during sessional examinations will be reported to the examination committee nominated by Academic council to award suitable punishment. | - |

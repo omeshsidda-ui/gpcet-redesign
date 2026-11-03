@@ -1,0 +1,702 @@
+[
+  {
+    "sno": 1,
+    "name": "C. Lokanath Reddy",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2023/03/C.Lokanath-Reddy.jpeg",
+    "profileRoute": "/departments/ece/faculty/c-lokanath-reddy",
+    "links": []
+  },
+  {
+    "sno": 2,
+    "name": "A.SWETHA RANI",
+    "designation": "Assistant Professor",
+    "qualification": "B.TECH, M.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2023/02/A.Swetharani-Photo.jpg",
+    "profileRoute": "/departments/ece/faculty/a-swetha-rani",
+    "links": []
+  },
+  {
+    "sno": 3,
+    "name": "K.MAHESWARI",
+    "designation": "Assistant Professor",
+    "qualification": "B.TECH, M.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/K.MAHESWARI.jpg",
+    "profileRoute": "/departments/ece/faculty/k-maheswari",
+    "links": []
+  },
+  {
+    "sno": 4,
+    "name": "Syed IshrathMoin",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/ISHRATH-MOIN.jpg",
+    "profileRoute": "/departments/ece/faculty/syed-ishrathmoin",
+    "links": []
+  },
+  {
+    "sno": 5,
+    "name": "Y Bhanu Priya",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/Y.Bhanu-Priya-Photo-127x150.jpg",
+    "profileRoute": "/departments/ece/faculty/y-bhanu-priya",
+    "links": []
+  },
+  {
+    "sno": 6,
+    "name": "V Priyanka",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, MTECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/V.Priyanka-Photo-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/v-priyanka",
+    "links": []
+  },
+  {
+    "sno": 7,
+    "name": "CHANDRA LINGAMAIAH",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/S.Chandra-Lingamaiah-Photo-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/chandra-lingamaiah",
+    "links": []
+  },
+  {
+    "sno": 8,
+    "name": "B Venkatesu",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/B.Venkatesu-Photo-150x150.jpeg",
+    "profileRoute": "/departments/ece/faculty/b-venkatesu",
+    "links": []
+  },
+  {
+    "sno": 9,
+    "name": "A.SREEVANI",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/A.Sreevani-Photo-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/a-sreevani",
+    "links": []
+  },
+  {
+    "sno": 10,
+    "name": "N.Hari Priya",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH, PH.D",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/N.Hari-Priya-Photo-144x150.jpg",
+    "profileRoute": "/departments/ece/faculty/n-hari-priya",
+    "links": []
+  },
+  {
+    "sno": 11,
+    "name": "M.Rachana",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/M.Rachana-Photo-133x150.jpg",
+    "profileRoute": "/departments/ece/faculty/m-rachana",
+    "links": []
+  },
+  {
+    "sno": 12,
+    "name": "Mary Swetha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/02/P.Mary-Swetha-Photo-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/mary-swetha",
+    "links": []
+  },
+  {
+    "sno": 13,
+    "name": "CV Satheesh",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/12/Satish-Photo-150x150.jpeg",
+    "profileRoute": "/departments/ece/faculty/cv-satheesh",
+    "links": []
+  },
+  {
+    "sno": 14,
+    "name": "T N Balue",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/TN-Balu.jpg",
+    "profileRoute": "/departments/ece/faculty/t-n-balue",
+    "links": []
+  },
+  {
+    "sno": 15,
+    "name": "SHarika",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/4.a.-S.Harika-Photo-150x150.jpeg",
+    "profileRoute": "/departments/ece/faculty/sharika",
+    "links": []
+  },
+  {
+    "sno": 16,
+    "name": "TSuman",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/10/3.a.-T.Suman-Photo-e1601971543721-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/tsuman",
+    "links": []
+  },
+  {
+    "sno": 17,
+    "name": "U.AshokKumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/39.-U.Ashok-Kumar-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/u-ashokkumar",
+    "links": []
+  },
+  {
+    "sno": 18,
+    "name": "K.Kalyani",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/38.-K.Kalyani-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/k-kalyani",
+    "links": []
+  },
+  {
+    "sno": 19,
+    "name": "GRajasekar",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/35.-G.Rajasekhar-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/grajasekar",
+    "links": []
+  },
+  {
+    "sno": 20,
+    "name": "G.Mahalakshi",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/33.-G.Mahalaxmi-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/g-mahalakshi",
+    "links": []
+  },
+  {
+    "sno": 21,
+    "name": "S.Rukshana",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/32.-S.Ruksana-150x150.jpg",
+    "profileRoute": "/departments/ece/faculty/s-rukshana",
+    "links": []
+  },
+  {
+    "sno": 22,
+    "name": "B.Praveena",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/25.-B.Praveena-150x150.jpeg",
+    "profileRoute": "/departments/ece/faculty/b-praveena",
+    "links": []
+  },
+  {
+    "sno": 23,
+    "name": "T.SWETHA",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/03/19.-T.SWETHA.jpg",
+    "profileRoute": "/departments/ece/faculty/t-swetha",
+    "links": []
+  },
+  {
+    "sno": 24,
+    "name": "D.Imran",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/D.Imran-photo.jpg",
+    "profileRoute": "/departments/ece/faculty/d-imran",
+    "links": []
+  },
+  {
+    "sno": 25,
+    "name": "S Sofia Saba",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/S.Sofia-Saba-photo.jpg",
+    "profileRoute": "/departments/ece/faculty/s-sofia-saba",
+    "links": []
+  },
+  {
+    "sno": 26,
+    "name": "Syed Shanawaz",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/Syed-Shanawaz.jpg",
+    "profileRoute": "/departments/ece/faculty/syed-shanawaz",
+    "links": []
+  },
+  {
+    "sno": 27,
+    "name": "B.ERAMMA",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/B-ERAMMA.jpg",
+    "profileRoute": "/departments/ece/faculty/b-eramma",
+    "links": []
+  },
+  {
+    "sno": 28,
+    "name": "K.Vanitha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/K.Vanitha-photo.jpg",
+    "profileRoute": "/departments/ece/faculty/k-vanitha",
+    "links": []
+  },
+  {
+    "sno": 29,
+    "name": "P. BinduSwetha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/P.Binduswetha-photo.jpg",
+    "profileRoute": "/departments/ece/faculty/p-binduswetha",
+    "links": []
+  },
+  {
+    "sno": 30,
+    "name": "K.Anil Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/ANIL-KUMAR.jpg",
+    "profileRoute": "/departments/ece/faculty/k-anil-kumar",
+    "links": []
+  },
+  {
+    "sno": 31,
+    "name": "K. Uma Maheswari",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/UMA-MAHESHWARI.jpg",
+    "profileRoute": "/departments/ece/faculty/k-uma-maheswari",
+    "links": []
+  },
+  {
+    "sno": 32,
+    "name": "Ms.S.Fowzia Sultana",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/FOWZIA-SULTHANA.jpg",
+    "profileRoute": "/departments/ece/faculty/ms-s-fowzia-sultana",
+    "links": []
+  },
+  {
+    "sno": 33,
+    "name": "Kalva pushpakala",
+    "designation": "Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/K-Pushpakala.jpg",
+    "profileRoute": "/departments/ece/faculty/kalva-pushpakala",
+    "links": []
+  },
+  {
+    "sno": 34,
+    "name": "K Vinod Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/K-VINOD-KUMAR.jpg",
+    "profileRoute": "/departments/ece/faculty/k-vinod-kumar",
+    "links": []
+  },
+  {
+    "sno": 35,
+    "name": "P. Vishnu Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Vishnu-Kumar-Photo.jpg",
+    "profileRoute": "/departments/ece/faculty/p-vishnu-kumar",
+    "links": []
+  },
+  {
+    "sno": 36,
+    "name": "B.GEETHA RANI",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/B-GEETHA-RANI.jpg",
+    "profileRoute": "/departments/ece/faculty/b-geetha-rani",
+    "links": []
+  },
+  {
+    "sno": 37,
+    "name": "Mr. Shravan Kumar Hulsoor",
+    "designation": "Associate Professor",
+    "qualification": "B.TECH, M.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/shravan.jpg",
+    "profileRoute": "/departments/ece/faculty/mr-shravan-kumar-hulsoor",
+    "links": []
+  },
+  {
+    "sno": 38,
+    "name": "Dr. D.Rajasekhar",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr.-D-RAJASEKHAR.jpg",
+    "profileRoute": "/departments/ece/faculty/dr-d-rajasekhar",
+    "links": []
+  },
+  {
+    "sno": 39,
+    "name": "Dr. K.E.Sreenivasa Murthy",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/KESM.jpg",
+    "profileRoute": "/departments/ece/faculty/dr-k-e-sreenivasa-murthy",
+    "links": []
+  },
+  {
+    "sno": 40,
+    "name": "A. Swetha",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH, PH.D",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/A-SWETHA.jpg",
+    "profileRoute": "/departments/ece/faculty/a-swetha",
+    "links": []
+  },
+  {
+    "sno": 41,
+    "name": "Ms.A.Parvathi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ECE",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/A-PARVATHI.jpg",
+    "profileRoute": "/departments/ece/faculty/ms-a-parvathi",
+    "links": []
+  },
+  {
+    "sno": 42,
+    "name": "Dr. TALARI TIRUPAL",
+    "designation": "PROFESSOR & DEAN",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 43,
+    "name": "Dr. K C T SWAMY",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 44,
+    "name": "Dr. B RAVI CHANDRA",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 45,
+    "name": "Dr. NALUBOLU GEETHA RANI",
+    "designation": "PROFESSOR",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 46,
+    "name": "DR Y MADHU KEERTHANA",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 47,
+    "name": "DR K RAJKUMAR",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 48,
+    "name": "Mr. GUDE RAMARAO",
+    "designation": "ASSOCIATE PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 49,
+    "name": "Mr.P VISHNU KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 50,
+    "name": "Mrs. SOWDAGAR FOWZIA SULTHANA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 51,
+    "name": "Mrs. KUMMARI UMA MAHESWARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 52,
+    "name": "Mrs. ALLURU SREEVANI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 53,
+    "name": "Mrs. BODA ERAMMA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 54,
+    "name": "Mrs. VANDAVASI PRIYANKA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 55,
+    "name": "Mrs. KOTLA MAHESWARI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 56,
+    "name": "Ms. YEDDULAMALA BHANU PRIYA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 57,
+    "name": "Mr. CHILAKALA LOKANATH REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 58,
+    "name": "Mr. TALARI KISHORE",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 59,
+    "name": "Mrs. T RANJITHA DEVI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 60,
+    "name": "Mrs. BOGGULA SULOCHANA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 61,
+    "name": "Mr .TOWSEEF AHMED",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 62,
+    "name": "Ms. A BHARGAVI",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 63,
+    "name": "Ms. M LALITHA MEGHANA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 64,
+    "name": "Ms. D ANUSHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 65,
+    "name": "Mr. K VENKATA SIVA REDDY",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 66,
+    "name": "Mr. P KISHOR KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 67,
+    "name": "Mrs. C AHALYA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 68,
+    "name": "Mr G ASHOK KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 69,
+    "name": "Ms.SHAIK ZEBA MEHREEN",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 70,
+    "name": "Mrs P IPSHITHA",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ECE",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  }
+]

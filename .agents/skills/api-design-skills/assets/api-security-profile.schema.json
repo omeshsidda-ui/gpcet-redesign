@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/api-security-profile.schema.json",
+  "title": "API Security Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "classification",
+    "dataClasses",
+    "actors",
+    "authentication",
+    "authorization",
+    "tokenValidation",
+    "tenantIsolation",
+    "abuseControls",
+    "networkControls",
+    "loggingAndPrivacy",
+    "threats",
+    "securityTests"
+  ],
+  "properties": {
+    "classification": {"enum": ["internal", "partner", "public", "high-assurance"]},
+    "dataClasses": {"type": "array", "items": {"type": "string"}},
+    "actors": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "authentication": {"type": "object"},
+    "authorization": {"type": "object"},
+    "tokenValidation": {"type": "object"},
+    "tenantIsolation": {"type": "object"},
+    "abuseControls": {"type": "object"},
+    "networkControls": {"type": "object"},
+    "loggingAndPrivacy": {"type": "object"},
+    "threats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "threat", "impact", "controls", "verification"],
+        "properties": {
+          "id": {"type": "string"},
+          "threat": {"type": "string"},
+          "impact": {"type": "string"},
+          "controls": {"type": "array", "items": {"type": "string"}},
+          "verification": {"type": "array", "items": {"type": "string"}},
+          "residualRisk": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "securityTests": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

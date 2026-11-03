@@ -1,0 +1,232 @@
+[
+  {
+    "sno": 1,
+    "name": "Dr S M Ravi Kumar",
+    "designation": "Associate Professor",
+    "qualification": "PH.D, MTECH, PHD, B.TECH, M.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/Dr-S.M.RAVI-KUMAR-289x300.jpg",
+    "profileRoute": "/departments/me/faculty/dr-s-m-ravi-kumar",
+    "links": []
+  },
+  {
+    "sno": 2,
+    "name": "Dr L Jaykishan Nayak",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/09/Dr.L-.-J-.-Nayak-240x300.jpg",
+    "profileRoute": "/departments/me/faculty/dr-l-jaykishan-nayak",
+    "links": []
+  },
+  {
+    "sno": 3,
+    "name": "CHINNAVEERESH",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2022/01/photo.jpg",
+    "profileRoute": "/departments/me/faculty/chinnaveeresh",
+    "links": []
+  },
+  {
+    "sno": 4,
+    "name": "veena",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, PHD",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/11/C-THEJASWINI-VEENA--144x150.jpg",
+    "profileRoute": "/departments/me/faculty/veena",
+    "links": []
+  },
+  {
+    "sno": 5,
+    "name": "M.Nagaraju",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/nagaraju-150x150.jpg",
+    "profileRoute": "/departments/me/faculty/m-nagaraju",
+    "links": []
+  },
+  {
+    "sno": 6,
+    "name": "Krishna Chaitanya",
+    "designation": "Assistant Professor",
+    "qualification": "PHD, B.TECH, M.TECH, PH.D",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/10/chaitanya-150x150.jpg",
+    "profileRoute": "/departments/me/faculty/krishna-chaitanya",
+    "links": []
+  },
+  {
+    "sno": 7,
+    "name": "V.Viswanatha Chari",
+    "designation": "Assistant Professor",
+    "qualification": "B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/V-VISWANATHA-CHARI-PHOTO.jpg",
+    "profileRoute": "/departments/me/faculty/v-viswanatha-chari",
+    "links": []
+  },
+  {
+    "sno": 8,
+    "name": "A.Srinivas",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2020/02/A-SRINIVAS-PHOTO.jpg",
+    "profileRoute": "/departments/me/faculty/a-srinivas",
+    "links": []
+  },
+  {
+    "sno": 9,
+    "name": "Mr G Siva Prasad",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/08/siva-photo.jpg",
+    "profileRoute": "/departments/me/faculty/mr-g-siva-prasad",
+    "links": []
+  },
+  {
+    "sno": 10,
+    "name": "K.Nirmala",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/07/nirmala.jpg",
+    "profileRoute": "/departments/me/faculty/k-nirmala",
+    "links": []
+  },
+  {
+    "sno": 11,
+    "name": "Dr. A.KRISHNA SUDHEER",
+    "designation": "Professor",
+    "qualification": "MBA, M.PHIL, PH.D, PHD, M.B.A",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/AKS.jpg",
+    "profileRoute": "/departments/me/faculty/dr-a-krishna-sudheer",
+    "links": []
+  },
+  {
+    "sno": 12,
+    "name": "N.Govinda Rao",
+    "designation": "Associate Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/N-Govinda-Rao.jpg",
+    "profileRoute": "/departments/me/faculty/n-govinda-rao",
+    "links": []
+  },
+  {
+    "sno": 13,
+    "name": "Mr. A. RAMANJANEYA REDDY",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/A-Ramanjaneya-Reddy.jpg",
+    "profileRoute": "/departments/me/faculty/mr-a-ramanjaneya-reddy",
+    "links": []
+  },
+  {
+    "sno": 14,
+    "name": "Mr. SHAIK JAVEED",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/S-Javeed.jpg",
+    "profileRoute": "/departments/me/faculty/mr-shaik-javeed",
+    "links": []
+  },
+  {
+    "sno": 15,
+    "name": "B.Sreelakshmi",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/B-Sreelakshmi.jpg",
+    "profileRoute": "/departments/me/faculty/b-sreelakshmi",
+    "links": []
+  },
+  {
+    "sno": 16,
+    "name": "Dr. S.Venkateswarlu",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/Dr.-S-Venkateswarlu.jpg",
+    "profileRoute": "/departments/me/faculty/dr-s-venkateswarlu",
+    "links": []
+  },
+  {
+    "sno": 17,
+    "name": "K MALLIKARJUNA REDDY",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/05/MALLIKARJUNA.jpg",
+    "profileRoute": "/departments/me/faculty/k-mallikarjuna-reddy",
+    "links": []
+  },
+  {
+    "sno": 18,
+    "name": "C.Thejaswini Veena",
+    "designation": "Professor",
+    "qualification": "M.TECH, PH.D, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2019/06/IMG_2624.jpg",
+    "profileRoute": "/departments/me/faculty/c-thejaswini-veena",
+    "links": []
+  },
+  {
+    "sno": 19,
+    "name": "A. David Donald",
+    "designation": "Assistant Professor",
+    "qualification": "M.TECH, B.TECH",
+    "department": "ME",
+    "photoUrl": "https://www.gpcet.ac.in/wp-content/uploads/2021/09/SEKHAR-150x150.jpg",
+    "profileRoute": "/departments/me/faculty/a-david-donald",
+    "links": []
+  },
+  {
+    "sno": 20,
+    "name": "DR G PRAVEEN KUMAR",
+    "designation": "ASSOCIATE PROF & DEAN",
+    "qualification": "",
+    "department": "ME",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 21,
+    "name": "DR C NAGA KUMAR",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ME",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 22,
+    "name": "Mr. K CHINNA VEERESH",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ME",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  },
+  {
+    "sno": 23,
+    "name": "Mr. M. JOHNSON",
+    "designation": "ASSISTANT PROF",
+    "qualification": "",
+    "department": "ME",
+    "photoUrl": null,
+    "profileRoute": null,
+    "links": []
+  }
+]
