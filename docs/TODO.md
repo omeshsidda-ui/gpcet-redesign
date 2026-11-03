@@ -31,9 +31,9 @@
 - [x] Author production API contracts, RFC 9457 problem catalog, and Zod schemas in `docs/API.md`.
 - [x] Author production system architecture, caching tier, and durable execution in `docs/ARCHITECTURE.md`.
 - [x] Record ADR-004 (Durable Workflows) and ADR-005 (Fail-Safe Hybrid Access) in `docs/decisions/`.
-- [ ] Install Next.js 15, React 19, Tailwind CSS, Supabase SSR, and essential UI packages in `package.json`.
-- [ ] Configure `next.config.ts` (remote image domains, Workflow SDK plugin, static build optimization).
-- [ ] Configure `src/app/globals.css` with CSS custom variables for the 75/20/5 color tokens and typography scale.
+- [x] Install Next.js 15, React 19, Tailwind CSS, Supabase SSR, and essential UI packages in `package.json`.
+- [x] Configure `next.config.ts` (remote image domains, 2,784 legacy URL edge redirects, static build optimization).
+- [x] Configure `src/app/globals.css` with CSS custom variables for the 75/20/5 color tokens and typography scale.
 - [ ] Setup web fonts (*Newsreader* serif + *Plus Jakarta Sans* + *JetBrains Mono*).
 
 ---
@@ -55,7 +55,7 @@
 ---
 
 ## Phase 3: Fail-Safe Data Layer & Durable Scraper Workflow (`Subagent Gamma & Delta`)
-- [ ] Implement `src/lib/supabase/` SSR client helpers (`server.ts`, `client.ts`, `admin.ts`).
+- [x] Implement `src/lib/supabase/` SSR client helpers (`server.ts`, `client.ts`, `admin.ts`).
 - [x] Implement `src/lib/data/faculty.js` with offline JSON fallback (452 verified faculty records).
 - [x] Implement `src/lib/data/documents.js` with offline JSON fallback (5,822 cataloged documents).
 - [x] Implement `src/lib/data/notices.js` with offline fallback notices.
