@@ -70,12 +70,12 @@
 
 ---
 
-## Phase 4: Frontend Global Shell & Institutional Layout (`Subagent Epsilon`)
-- [ ] Implement `src/components/global/TopInstitutionalBar.tsx` (Autonomous status, JNTUA badge, NAAC seal).
-- [ ] Implement `src/components/global/InstitutionalNavbar.tsx` (Official crest, desktop mega-menu dropdowns, mobile drawer).
-- [ ] Implement `src/components/global/GlobalSearchModal.tsx` (`Cmd+K` command palette using `src/lib/search/search-client.ts`).
-- [ ] Implement `src/components/global/InstitutionalFooter.tsx` (Statutory strip, AICTE/NBA/NAAC crests, RTI disclosures).
-- [ ] Scaffold `src/app/layout.tsx` integrating TopBar, Navbar, Footer, and SearchModal.
+## Phase 4: Frontend Global Shell & Institutional Layout (Subagent Epsilon / Agent 4)
+- [x] Implement `src/components/global/TopInstitutionalBar.tsx` (Autonomous status, JNTUA badge, NAAC seal, EAPCET PULE code, quick portals).
+- [x] Implement `src/components/global/InstitutionalNavbar.tsx` (Official crest, desktop mega-menu dropdowns, mobile drawer, Cmd+K trigger).
+- [x] Implement `src/components/global/GlobalSearchModal.tsx` (`Cmd+K` command palette with instant MiniSearch index, keyboard navigation, and deferred faculty indexing).
+- [x] Implement `src/components/global/InstitutionalFooter.tsx` (Statutory strip, AICTE/NBA/NAAC crests, RTI disclosures, campus coordinates).
+- [x] Scaffold `src/app/layout.tsx` integrating Google fonts (Newsreader, Plus Jakarta Sans, JetBrains Mono), skip-to-content accessibility link, TopBar, Navbar, Footer, and SearchModal.
 
 ---
 

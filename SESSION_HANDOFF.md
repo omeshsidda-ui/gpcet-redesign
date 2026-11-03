@@ -1,37 +1,13 @@
 # Session Handoff: GPCET Redesign
 
 ## Current Status
-- **Current State**: Phase 1 Foundation, Content Pipeline & API Architecture fully completed and verified!
-  - Next.js 15 App Router project scaffolded and validated with React 19, TypeScript, and Tailwind CSS v4.
-  - 2,784 legacy WordPress redirects compiled into native `next.config.ts` edge redirects (1,858 unique edge routes).
-  - Supabase SSR client helpers implemented (`server.ts`, `client.ts`, `admin.ts`).
-  - Content Pipeline & Rendering Engine operational for all 936+ Markdown pages and 636 Avada academic data tables with responsive horizontal scroll and sticky column (`src/components/content/MarkdownRenderer.tsx`).
-  - Next.js dynamic catch-all route handlers implemented (`src/app/[...slug]/page.tsx`, `layout.tsx`, `not-found.tsx`).
-  - All REST Route Handlers in `src/app/api/v1/` (`health`, `faculty`, `faculty/[slug]`, `documents`, `notices`, `inquiries`, `assets/proxy`) implemented with strict RFC 9457 Problem Details envelopes.
-  - The 2.43 MB search bundle problem solved via build-time MiniSearch index partitioning (`public/search-index.json` at **170.61 KB**, strictly < 180 KB).
-  - Media asset proxy with SSRF protection and Supabase Storage batch migration pipeline implemented.
-  - Total test suite expanded to **54/54 automated tests passing** across 8 test suites.
-  - Task 4 (Agent 4 - UI Shell & Design Tokens) dispatched and currently running in Orca.
-- **Completed in this Session**:
-  - **Orca ADE Deep Research & Multi-Agent Skill Installation**:
-    - Installed 5 production-grade AI agent skills into `.agents/skills/`: `orca-cli`, `orca-orchestration`, `orca-browser`, `orca-computer-use`, and `orca-100x-playbook`.
-    - Created `.orca/prompts/` (Agents 1-7) and initialized native Orca Orchestration Run `run_37d0490aed1b`.
-  - **Phase 1 Agent 1 (Infra, Config & Redirects) Delivered & Merged**:
-    - Next.js 15, React 19, Tailwind CSS v4, PostCSS, Lucide React, Supabase SSR, gray-matter, remark/rehype.
-    - `.env.example`, `next.config.ts` (1,858 edge redirects), `.github/workflows/ci.yml`.
-    - Supabase SSR helpers in `src/lib/supabase/`.
-  - **Phase 1 Agent 2 (Content Pipeline & Markdown AST) Delivered & Merged**:
-    - Frontmatter Zod schema in `src/lib/validations/content.schema.ts`.
-    - Content reader utilities in `src/lib/content.ts` with breadcrumbs, TOC, and Levenshtein 404 recovery.
-    - Sanitized AST table renderer in `src/components/content/MarkdownRenderer.tsx`.
-    - Dynamic catch-all routes `src/app/[...slug]/page.tsx`, `layout.tsx`, `not-found.tsx`.
-    - ADR-006: `docs/decisions/006-markdown-ast-rendering-and-table-normalization.md`.
-  - **Phase 1 Agent 3 (API Routes & Search Index) Delivered & Merged**:
-    - Next.js 15 Route Handlers in `src/app/api/v1/` (`health`, `faculty`, `documents`, `notices`, `inquiries`, `assets/proxy`).
-    - Build-time MiniSearch index partitioner (`scripts/build-search-index.js`, `public/search-index.json` @ 170.61 KB).
-    - Client-side lazy search client (`src/lib/search/search-client.ts`).
-    - Supabase Storage migration script (`scripts/migrate-assets-to-supabase.js`).
-    - Integration tests in `tests/api-route-handlers.test.js` and `tests/search-and-storage.test.js`.
+- **Current State**: Phase 1 and Phase 2 Shell fully completed and verified!
+  - **Infrastructure & Config (Agent 1)**: Next.js 15 App Router, React 19, TypeScript, Tailwind CSS v4, 1,858 edge redirects (for 2,784 legacy URLs), and Supabase SSR helpers.
+  - **Content Pipeline (Agent 2)**: Markdown AST ingestion, frontmatter Zod validation, responsive table normalizer with sticky columns for all 636 Avada academic tables, strict XSS sanitization (`rehype-sanitize`), and dynamic catch-all route handlers (`src/app/[...slug]/`).
+  - **API Routes & Search Index (Agent 3)**: Next.js 15 REST Route Handlers (`/health`, `/faculty`, `/documents`, `/notices`, `/inquiries`, `/assets/proxy`) returning RFC 9457 Problem Details; 2.43 MB search bundle reduced to 170.61 KB build-time MiniSearch index (`public/search-index.json`); client-side lazy loader (`src/lib/search/search-client.ts`); and streaming media proxy with SSRF protection.
+  - **UI Shell & Design Tokens (Agent 4)**: Anti-AI-Slop 75/20/5 color tokens, Google Fonts typography (Newsreader, Plus Jakarta Sans, JetBrains Mono), `TopInstitutionalBar`, `InstitutionalNavbar` (accessible desktop mega-menus + mobile sheet drawer), `GlobalSearchModal` (`Cmd+K` keyboard palette), `InstitutionalFooter` (statutory disclosures, AICTE/NBA/NAAC seals), and `layout.tsx`.
+  - **Automated Tests**: Over 60 automated tests pass with 0 failures across the test suite (`npm test`).
+  - **Task 5 (Agent 5 - Institutional Pages & Dept Matrix)**: READY to dispatch!
 - **Key Decisions Made**:
   - **ADR-001**: Hybrid data strategy (offline static JSON/Markdown cache + Supabase PostgreSQL).
   - **ADR-002**: Cookie-based SSR sessions via `@supabase/ssr` with HttpOnly flags and RBAC in `app_metadata`.
@@ -40,15 +16,13 @@
   - **ADR-005**: Fail-Safe Hybrid Data Access Pattern: Supabase PostgreSQL as primary with automatic transparent fallback to offline JSON manifests to prevent any 500 downtime.
   - **ADR-006**: Markdown AST Ingestion, Avada Table Normalization, and XSS Sanitization.
   - **Dual-Tier Search Architecture**: Client-side MiniSearch (<180 KB) for instant Cmd+K keyboard autocomplete + Server-side PostgreSQL GIN `tsvector` for exhaustive 5,822-document queries.
-- **Tests & Verification**:
-  - `npm test`: Passes 100% with zero failures.
-  - `npm run build`: Production build passes without error; static prerendering completes.
+  - **Anti-AI-Slop Visual System**: Committed 75/20/5 palette (Alabaster/Stone, Midnight Ink/Imperial Navy, Oxblood/Brass), restrained radiuses (`rounded-md`, `rounded-lg`), Newsreader serif for dignified academic authority.
 - **Current Orchestration State**:
   - **Run ID**: `run_37d0490aed1b`
   - **Task 1 (Infra)**: COMPLETED & MERGED.
   - **Task 2 (Content)**: COMPLETED & MERGED.
   - **Task 3 (API)**: COMPLETED & MERGED.
-  - **Task 4 (UI Shell)**: DISPATCHED & RUNNING (`ctx_c37513ca6832`, `betta`).
-  - **Task 5 (Pages & Matrix)**: PENDING (Dependencies: Tasks 1, 2, 3, 4).
+  - **Task 4 (UI Shell)**: COMPLETED & MERGED.
+  - **Task 5 (Pages & Matrix)**: READY.
   - **Task 6 (Admin)**: PENDING (Dependency: Task 5).
   - **Task 7 (QA)**: PENDING (Dependency: Task 6).
