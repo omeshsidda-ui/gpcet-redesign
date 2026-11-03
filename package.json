@@ -12,9 +12,11 @@
     "scrape:parse": "node scraper/cli.js --parse-content",
     "scrape:assets": "node scraper/cli.js --download-assets",
     "scrape:manifest": "node scraper/cli.js --generate-manifest",
-    "test": "node --test tests/*.test.js",
+    "test": "node --import tsx --test tests/",
     "test:contracts": "node scripts/test-data-contracts.js",
-    "seed:generate": "node scripts/seed-supabase.js"
+    "seed:generate": "node scripts/seed-supabase.js",
+    "search:build": "node scripts/build-search-index.js",
+    "assets:migrate": "node scripts/migrate-assets-to-supabase.js"
   },
   "keywords": [
     "gpcet",
@@ -25,9 +27,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.95.3",
     "cheerio": "^1.0.0",
+    "minisearch": "^7.2.0",
     "turndown": "^7.2.0",
     "turndown-plugin-gfm": "^1.0.2",
     "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }

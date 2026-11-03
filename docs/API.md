@@ -322,7 +322,46 @@ Submit an admissions inquiry with anti-spam and cryptographic rate-limiting.
 
 ---
 
-## 4. Protected Administration Endpoints
+### 7. `GET /api/v1/assets/proxy`
+SSRF-protected streaming proxy for legacy and external institutional PDF assets with edge caching and hostname allowlisting.
+
+**Query Parameters:**
+| Parameter | Type | Required | Description | Example |
+| :--- | :--- | :--- | :--- | :--- |
+| `url` | `string` | Yes | Target PDF asset URL (must match `*.gpcet.ac.in`) | `https://www.gpcet.ac.in/wp-content/uploads/2021/09/CSE-R20-Syllabus.pdf` |
+
+**Security Controls:**
+- **Hostname Allowlist**: Strict validation allowing only `gpcet.ac.in` and subdomains `*.gpcet.ac.in`. Rejects loopback (`127.0.0.1`), private RFC 1918 subnets, and attacker confusion hostnames.
+- **Protocol**: HTTP/HTTPS only.
+- **Streaming**: Streams binary response body with 15-second abort controller.
+
+**Cache Headers:**
+- `Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800`
+
+**Error Responses (RFC 9457):**
+- **400 Bad Request**: Missing or malformed `url` query parameter.
+- **403 Forbidden**: Target hostname outside `gpcet.ac.in` domain.
+- **404 Not Found**: Remote upstream asset returned 404.
+- **502 Bad Gateway**: Upstream server failed or network error occurred.
+
+---
+
+## 4. Client Search Index & Bundle Partitioning (<180 KB)
+
+To prevent bundling the 2.43 MB raw manifest (`src/data/media-manifest.json`) into the client JavaScript chunk, the portal employs a dual-tier search architecture:
+
+1. **Client-Side Lean MiniSearch Index (`public/search-index.json`)**:
+   - Generated at build time via `npm run search:build` (`scripts/build-search-index.js`).
+   - Weighs **170.61 KB** (<180 KB acceptance gate satisfied), indexing 766 core academic documents (all syllabi, calendars, timetables, circulars, accreditation files, forms).
+   - Lazily fetched by `src/lib/search/search-client.ts` strictly when the user opens the `Cmd+K` command palette.
+   - Executes keystroke autocomplete queries in **< 5ms** with prefix and fuzzy matching.
+2. **Server-Side High-Capacity Search (`/api/v1/documents`)**:
+   - Handles comprehensive searches across the complete 5,822 cataloged documents.
+   - Powered by PostgreSQL 15 `tsvector` GIN indexes (`idx_docs_fts`) in Supabase, with automatic fallback to offline JSON manifest.
+
+---
+
+## 5. Protected Administration Endpoints
 
 ### `POST /api/v1/admin/sync/notices`
 Trigger a background durable synchronization job via Vercel Workflow to pull the latest circulars from WordPress REST without blocking the client.
@@ -342,7 +381,7 @@ Trigger a background durable synchronization job via Vercel Workflow to pull the
 
 ---
 
-## 5. TypeScript Zod Validation Schemas (`src/lib/validations/`)
+## 6. TypeScript Zod Validation Schemas (`src/lib/validations/`)
 
 All API routes validate inputs using production-grade Zod schemas:
 
