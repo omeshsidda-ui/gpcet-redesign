@@ -5,10 +5,10 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(
   request: Request,
-  props: { params: Promise<{ slug: string }> | { slug: string } }
+  props: { params: Promise<{ slug: string }> }
 ) {
   const url = new URL(request.url);
-  const params = await Promise.resolve(props?.params);
+  const params = await props.params;
   const slug = params?.slug;
 
   if (!slug) {
