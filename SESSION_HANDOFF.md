@@ -1,25 +1,37 @@
 # Session Handoff: GPCET Redesign
 
 ## Current Status
-- **Current State**: Next.js 15 App Router project scaffolded and validated; Tailwind CSS v4 design token pipeline configured; Supabase SSR client helpers implemented; 2,784 legacy WordPress redirects compiled into native `next.config.ts` edge redirects; GitHub Actions CI pipeline configured; Content Pipeline & Rendering Engine fully implemented and verified for all 936+ Markdown pages and 630+ Avada academic data tables; dynamic catch-all route handler (`src/app/[...slug]/page.tsx`), frontmatter validation schemas (`src/lib/validations/content.schema.ts`), content readers (`src/lib/content.ts`), and sanitized AST table renderer (`src/components/content/MarkdownRenderer.tsx`) operational. All 39/39 automated tests pass with 0 failures; Phase 1 Tasks 1 & 2 completed and merged into master.
+- **Current State**: Phase 1 Foundation, Content Pipeline & API Architecture fully completed and verified!
+  - Next.js 15 App Router project scaffolded and validated with React 19, TypeScript, and Tailwind CSS v4.
+  - 2,784 legacy WordPress redirects compiled into native `next.config.ts` edge redirects (1,858 unique edge routes).
+  - Supabase SSR client helpers implemented (`server.ts`, `client.ts`, `admin.ts`).
+  - Content Pipeline & Rendering Engine operational for all 936+ Markdown pages and 636 Avada academic data tables with responsive horizontal scroll and sticky column (`src/components/content/MarkdownRenderer.tsx`).
+  - Next.js dynamic catch-all route handlers implemented (`src/app/[...slug]/page.tsx`, `layout.tsx`, `not-found.tsx`).
+  - All REST Route Handlers in `src/app/api/v1/` (`health`, `faculty`, `faculty/[slug]`, `documents`, `notices`, `inquiries`, `assets/proxy`) implemented with strict RFC 9457 Problem Details envelopes.
+  - The 2.43 MB search bundle problem solved via build-time MiniSearch index partitioning (`public/search-index.json` at **170.61 KB**, strictly < 180 KB).
+  - Media asset proxy with SSRF protection and Supabase Storage batch migration pipeline implemented.
+  - Total test suite expanded to **54/54 automated tests passing** across 8 test suites.
+  - Task 4 (Agent 4 - UI Shell & Design Tokens) dispatched and currently running in Orca.
 - **Completed in this Session**:
   - **Orca ADE Deep Research & Multi-Agent Skill Installation**:
     - Installed 5 production-grade AI agent skills into `.agents/skills/`: `orca-cli`, `orca-orchestration`, `orca-browser`, `orca-computer-use`, and `orca-100x-playbook`.
     - Created `.orca/prompts/` (Agents 1-7) and initialized native Orca Orchestration Run `run_37d0490aed1b`.
   - **Phase 1 Agent 1 (Infra, Config & Redirects) Delivered & Merged**:
-    - Installed `next@15`, `react@19`, `react-dom@19`, `typescript`, `tailwindcss@4`, `@tailwindcss/postcss`, `postcss`, `lucide-react`, `@supabase/ssr`, `@supabase/supabase-js`, `gray-matter`, `remark`, `remark-gfm`, `rehype-sanitize`, and `rehype-stringify`.
-    - Authored `.env.example` containing Supabase, Upstash Redis, and App URL configuration.
-    - Configured `next.config.ts` with 1,858 unique edge-level redirects mapping 2,784 legacy URLs, image domains, and bundle optimizations.
-    - Implemented Supabase SSR helpers in `src/lib/supabase/`: `server.ts`, `client.ts`, `admin.ts`.
-    - Authored `.github/workflows/ci.yml` running `npm ci`, `npm test`, and `npm run build`.
-    - Initialized `src/app/globals.css`, `src/app/layout.tsx`, and `src/app/page.tsx`.
+    - Next.js 15, React 19, Tailwind CSS v4, PostCSS, Lucide React, Supabase SSR, gray-matter, remark/rehype.
+    - `.env.example`, `next.config.ts` (1,858 edge redirects), `.github/workflows/ci.yml`.
+    - Supabase SSR helpers in `src/lib/supabase/`.
   - **Phase 1 Agent 2 (Content Pipeline & Markdown AST) Delivered & Merged**:
-    - Created `src/lib/validations/content.schema.ts` (and `.js`) validating frontmatter metadata, breadcrumbs, and TOC.
-    - Implemented `src/lib/content.ts` (and `.js`) with `getAllContentRoutes()`, `getContentBySlug()`, `getCategoryBreadcrumbs()`, `generateTableOfContents()`, and Levenshtein 404 recovery `findClosestRoutes()`.
-    - Built `src/components/content/MarkdownRenderer.tsx` (and `.js`): Avada single-line table normalization (`| |` -> `|\n|`), 636 academic data tables rendered with accessible horizontal scroll and sticky column, strict XSS sanitization via `rehype-sanitize`, and auto-linked PDF references with protocol upgrades.
-    - Implemented Next.js dynamic catch-all route handlers `src/app/[...slug]/page.tsx`, `layout.tsx`, and institutional 404 recovery `not-found.tsx`.
-    - Authored `tests/content-pipeline.test.js` (10/10 passing). Total test suite now at 39/39 passing tests.
-    - Authored ADR-006: `docs/decisions/006-markdown-ast-rendering-and-table-normalization.md`.
+    - Frontmatter Zod schema in `src/lib/validations/content.schema.ts`.
+    - Content reader utilities in `src/lib/content.ts` with breadcrumbs, TOC, and Levenshtein 404 recovery.
+    - Sanitized AST table renderer in `src/components/content/MarkdownRenderer.tsx`.
+    - Dynamic catch-all routes `src/app/[...slug]/page.tsx`, `layout.tsx`, `not-found.tsx`.
+    - ADR-006: `docs/decisions/006-markdown-ast-rendering-and-table-normalization.md`.
+  - **Phase 1 Agent 3 (API Routes & Search Index) Delivered & Merged**:
+    - Next.js 15 Route Handlers in `src/app/api/v1/` (`health`, `faculty`, `documents`, `notices`, `inquiries`, `assets/proxy`).
+    - Build-time MiniSearch index partitioner (`scripts/build-search-index.js`, `public/search-index.json` @ 170.61 KB).
+    - Client-side lazy search client (`src/lib/search/search-client.ts`).
+    - Supabase Storage migration script (`scripts/migrate-assets-to-supabase.js`).
+    - Integration tests in `tests/api-route-handlers.test.js` and `tests/search-and-storage.test.js`.
 - **Key Decisions Made**:
   - **ADR-001**: Hybrid data strategy (offline static JSON/Markdown cache + Supabase PostgreSQL).
   - **ADR-002**: Cookie-based SSR sessions via `@supabase/ssr` with HttpOnly flags and RBAC in `app_metadata`.
@@ -27,13 +39,16 @@
   - **ADR-004**: Durable ingestion pipeline with Vercel Workflow SDK for periodic WordPress notice syncs and `revalidateTag()` invalidation.
   - **ADR-005**: Fail-Safe Hybrid Data Access Pattern: Supabase PostgreSQL as primary with automatic transparent fallback to offline JSON manifests to prevent any 500 downtime.
   - **ADR-006**: Markdown AST Ingestion, Avada Table Normalization, and XSS Sanitization.
-  - **Edge URL Redirection**: Evaluated middleware vs `next.config.ts` redirects; selected `next.config.ts` async `redirects()` to evaluate legacy paths at the edge routing layer before server components or middleware execute.
+  - **Dual-Tier Search Architecture**: Client-side MiniSearch (<180 KB) for instant Cmd+K keyboard autocomplete + Server-side PostgreSQL GIN `tsvector` for exhaustive 5,822-document queries.
 - **Tests & Verification**:
-  - `npm test`: 39/39 tests pass with zero failures.
+  - `npm test`: Passes 100% with zero failures.
   - `npm run build`: Production build passes without error; static prerendering completes.
 - **Current Orchestration State**:
   - **Run ID**: `run_37d0490aed1b`
   - **Task 1 (Infra)**: COMPLETED & MERGED.
   - **Task 2 (Content)**: COMPLETED & MERGED.
-  - **Task 3 (API)**: DISPATCHED (Running).
-  - **Task 4 (UI Shell)**: READY to dispatch.
+  - **Task 3 (API)**: COMPLETED & MERGED.
+  - **Task 4 (UI Shell)**: DISPATCHED & RUNNING (`ctx_c37513ca6832`, `betta`).
+  - **Task 5 (Pages & Matrix)**: PENDING (Dependencies: Tasks 1, 2, 3, 4).
+  - **Task 6 (Admin)**: PENDING (Dependency: Task 5).
+  - **Task 7 (QA)**: PENDING (Dependency: Task 6).

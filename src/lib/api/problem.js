@@ -120,3 +120,15 @@ export function rateLimitProblem(retryAfterSeconds = 60, instance) {
     instance
   });
 }
+
+/**
+ * Serializes a Problem Details object into a standard HTTP Response with RFC 9457 Content-Type
+ */
+export function toProblemResponse(problem) {
+  return new Response(JSON.stringify(problem), {
+    status: problem.status,
+    headers: {
+      'Content-Type': 'application/problem+json'
+    }
+  });
+}
