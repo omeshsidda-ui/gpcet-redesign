@@ -2,6 +2,7 @@
   "name": "gpcet-redesign",
   "version": "1.0.0",
   "description": "Institutional web portal overhaul for G. Pullaiah College of Engineering & Technology (GPCET)",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
