@@ -119,6 +119,13 @@ Powered by the **Vercel Workflow SDK**:
   - **Step 5**: Invoke `revalidateTag('notices')` to instantly refresh edge caches.
 - Crash-safe durability: Automatically retries on network drops with exponential backoff (`RetryableError`).
 
+### 5. Content Ingestion, Normalization & Table AST Pipeline (`src/lib/content.ts`, `src/components/content/`)
+- **Frontmatter Zod Validation**: Validates all ingested markdown metadata using `ContentFrontmatterSchema` in `src/lib/validations/content.schema.ts`.
+- **Dynamic Catch-All Engine (`src/app/[...slug]/page.tsx`)**: Pre-computes routes via `getAllContentRoutes()` for `generateStaticParams()`, extracts hierarchical breadcrumbs, generates dynamic OpenGraph and canonical SEO metadata via `generateMetadata()`, and provides sticky anchor navigation via `generateTableOfContents()`.
+- **Avada Table Normalization & Responsive Wrapper (`src/components/content/MarkdownRenderer.tsx`)**: Preprocesses legacy single-line pipe tables (`| |` $\rightarrow$ `|\n|`) so 100% of 630+ academic tables render in accessible, horizontally scrollable containers with sticky first columns.
+- **Strict Rehype-Sanitize Whitelist**: Strips all raw `<script>`, `<iframe>`, `javascript:` protocols, and inline event handlers (`onclick`, `onerror`) while permitting academic formatting. Auto-links verified PDFs with `target="_blank"` and `rel="noopener noreferrer"`.
+- **Institutional 404 Recovery (`src/app/[...slug]/not-found.tsx`)**: Employs Levenshtein distance fuzzy route matching (`findClosestRoutes()`) to guide visitors to relevant academic hubs when requested URLs are moved.
+
 ---
 
 ## 3. Application Security Architecture

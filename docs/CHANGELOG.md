@@ -50,6 +50,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Implemented comprehensive Zod validation schemas in `src/lib/validations/` (`faculty.schema.js`, `document.schema.js`, `notice.schema.js`, `inquiry.schema.js`).
   - Implemented Fail-Safe Data Access Layer in `src/lib/data/` (`faculty.js`, `documents.js`, `departments.js`, `notices.js`) guaranteeing 100% uptime with offline JSON fallback.
   - Authored and verified 29 automated tests in `tests/*.test.js` (`data-normalization`, `api-problem`, `zod-validation`, `database-schema-integrity`, `hybrid-data-layer`).
+- **Content Ingestion Pipeline, Table AST Normalization & Dynamic Catch-All Routing (Agent 2)**:
+  - Implemented `src/lib/validations/content.schema.ts` (`ContentFrontmatterSchema`, `ContentPageSchema`) validating frontmatter attributes across all ingested markdown pages.
+  - Implemented `src/lib/content.ts` with `getAllContentRoutes()`, `getContentBySlug()`, `getCategoryBreadcrumbs()`, `generateTableOfContents()`, and `findClosestRoutes()` fuzzy route matching.
+  - Implemented `src/components/content/MarkdownRenderer.tsx` featuring Avada compressed pipe-table row normalization (`| |` -> `|\n|`), responsive overflow wrapper with sticky first column, auto-linking of PDF assets with `rel="noopener noreferrer"` and visual badges, and strict `rehype-sanitize` XSS protection.
+  - Implemented Next.js 15 dynamic catch-all route `src/app/[...slug]/page.tsx` with `generateStaticParams()`, dynamic `generateMetadata()` for OpenGraph/canonical SEO, and sticky Table of Contents anchor navigation.
+  - Implemented `src/app/[...slug]/layout.tsx` with clean institutional reading shell and `src/app/[...slug]/not-found.tsx` with institutional 404 recovery suggestions.
+  - Created ADR-006 (`docs/decisions/006-markdown-ast-rendering-and-table-normalization.md`).
+  - Authored automated test suite `tests/content-pipeline.test.js` (10/10 tests passing; 100% of 1,256 markdown pages resolve without runtime parsing errors; all 636 academic data tables render cleanly; 39/39 total tests passing).
 
 ---
 
