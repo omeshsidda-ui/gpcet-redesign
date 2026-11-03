@@ -188,6 +188,15 @@ The following 26 specialized skills are installed in [`.agents/skills/`](./.agen
 | **`owasp-top-10`** | `skills/owasp-top-10` | `microsoft/hve-core` | Structured 2025 OWASP Top 10 normative references and web security remediation guides. | "OWASP", "OWASP Top 10", "web security checklist", "access control review" |
 | **`sarif-parsing`** | `skills/sarif-parsing` | `trailofbits/skills` | Parsing, aggregating, and deduplicating SARIF outputs from CodeQL and Semgrep runs. | "parse sarif", "read scan results", "aggregate findings", "process sarif" |
 
+### ⚡ Orca ADE & Multi-Agent Orchestration Skills
+| Skill | Directory | Upstream Source | Primary Responsibility | Trigger Phrases |
+| :--- | :--- | :--- | :--- | :--- |
+| **`orca-cli`** | `skills/orca-cli` | `stablyai/orca` | Operate Orca-managed worktrees, folder contexts, terminals, repos, automations, artifacts, and embedded browser. | "orca", "orca-cli", "$orca-cli", "orca worktree", "child worktree", "terminal send", "terminal wait" |
+| **`orca-orchestration`** | `skills/orca-orchestration` | `stablyai/orca` | Multi-agent fleet orchestration, supervisor-worker protocols, task DAGs, worker dispatches, and mailboxes. | "orchestration", "orca orchestration", "worker-start", "dispatch worker", "task dag", "worker_done" |
+| **`orca-browser`** | `skills/orca-browser` | `stablyai/orca` | Drive Orca's embedded Chromium browser, snapshot accessibility trees (`@e1`), visual QA, and Design Mode CSS. | "orca browser", "browser snapshot", "embedded browser", "inspect element orca", "visual qa orca" |
+| **`orca-computer-use`** | `skills/orca-computer-use` | `stablyai/orca` | GUI automation for visible external desktop application windows and OS dialogs via `orca computer`. | "orca computer", "computer-use", "gui automation", "desktop click", "native window" |
+| **`orca-100x-playbook`** | `skills/orca-100x-playbook` | Custom In-House | 100x developer workflow: prompt fan-out, parallel spikes, coordinator-worker hierarchy, and mobile AFK ops. | "100x", "100x dev", "orca playbook", "100x workflow", "parallel agents", "fleet orchestration" |
+
 ### 📝 Documentation, ADRs & Continuity Skills
 | Skill | Directory | Upstream Source | Primary Responsibility | Trigger Phrases |
 | :--- | :--- | :--- | :--- | :--- |

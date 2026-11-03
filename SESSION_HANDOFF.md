@@ -3,6 +3,16 @@
 ## Current Status
 - **Current State**: Architecture thoroughly researched; production-grade backend specifications formalized in context files AND backed by runnable, verified implementation artifacts in codebase (`supabase/migrations/`, `supabase/seed.sql`, `scripts/seed-supabase.js`, `src/lib/api/problem.js`, `src/lib/validations/`, `src/lib/data/`); 29/29 automated integration tests passing (`npm test`); zero documentation drift.
 - **Completed in this Session**:
+  - **Orca ADE Deep Research & Multi-Agent Skill Installation**:
+    - Conducted deep architectural research on **Orca ADE (Agent Development Environment)** created by Stably AI (`stablyai/orca`).
+    - Discovered that Antigravity CLI is running live inside an active Orca terminal pane (`ORCA_APP_VERSION=1.4.247`, `ORCA_WORKSPACE_ID`, `ORCA_TERMINAL_HANDLE`).
+    - Installed 5 production-grade AI agent skills into `.agents/skills/`:
+      1. [`orca-cli`](./.agents/skills/orca-cli/SKILL.md): Git worktrees (`orca worktree create`, `list`, `snapshot`, `remove`), terminal automation (`send`, `wait`, `read`), artifacts, diffs, comments, and handoffs.
+      2. [`orca-orchestration`](./.agents/skills/orca-orchestration/SKILL.md): Coordinator-Worker task DAGs, worker dispatches (`worker-start`), mailboxes, blocking queries (`ask`), asynchronous completions (`worker_done`), and fleet broadcasts.
+      3. [`orca-browser`](./.agents/skills/orca-browser/SKILL.md): Embedded Chromium browser automation (`goto`, `snapshot`, `click`, `fill`, `screenshot`, `evaluate`) and Design Mode CSS inspection.
+      4. [`orca-computer-use`](./.agents/skills/orca-computer-use/SKILL.md): GUI desktop automation for native OS windows and dialogs via `orca computer`.
+      5. [`orca-100x-playbook`](./.agents/skills/orca-100x-playbook/SKILL.md): Comprehensive tactical guide for 100x developer velocity using Antigravity CLI inside Orca (prompt fan-out / racing, coordinator DAGs, mobile AFK development, and worktree hygiene).
+    - Updated `AGENTS.md` catalog with the new Orca ADE skills.
   - **Data Contract & Schema Audit**:
     - Identified and fixed critical data-to-schema mismatches in scraped corpus: made `faculty.profile_route` nullable (242/452 records lack subpages), added default `''` for `highest_qualification` (250/452 empty), expanded `academic_documents.category` check constraint to encompass all 14 categories in `media-manifest.json`, and upgraded `audit_logs.record_id` to `TEXT` for universal table key support.
     - Resolved critical Row Level Security (RLS) footguns: added `public.is_staff()` bypasses to SELECT policies so staff can view/edit deactivated faculty and unpublished documents, and added missing administrative management policies for `departments` and `academic_regulations`.
