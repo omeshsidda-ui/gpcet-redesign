@@ -20,6 +20,14 @@
     - Implemented Next.js dynamic catch-all route handlers `src/app/[...slug]/page.tsx`, `layout.tsx`, and institutional 404 recovery `not-found.tsx`.
     - Authored `tests/content-pipeline.test.js` (10/10 passing). Total test suite now at 39/39 passing tests.
     - Authored ADR-006: `docs/decisions/006-markdown-ast-rendering-and-table-normalization.md`.
+  - **Phase 1 Agent 4 (UI Shell & Design System Specialist) Delivered & Verified**:
+    - Configured strict Anti-AI-Slop 75/20/5 color tokens, typography scales, masked reveal animations, and WCAG AA dual-ring focus rules in `src/app/globals.css`.
+    - Integrated Google Fonts (*Newsreader*, *Plus Jakarta Sans*, *JetBrains Mono*) in `src/app/layout.tsx` alongside an accessible skip-to-content mechanism.
+    - Built `src/components/global/TopInstitutionalBar.tsx` featuring UGC Autonomous credentials, JNTUA affiliation, NAAC A+ (3.38 CGPA) badge, copyable EAPCET Code `PULE`, and quick institutional gateways.
+    - Built `src/components/global/InstitutionalNavbar.tsx` featuring collegiate crest emblem, accessible hierarchical mega-menus for Academics, Departments, Admissions, Placements, and Accreditation, responsive mobile drawer, and `Cmd+K` trigger.
+    - Built `src/components/global/GlobalSearchModal.tsx` implementing accessible keyboard navigation (`↑`/`↓`/`↵`/`Esc`) and MiniSearch catalog querying 5,822 documents and 452 faculty.
+    - Built `src/components/global/InstitutionalFooter.tsx` featuring statutory RTI disclosures, AICTE mandatory disclosures, anti-ragging helpline, coordinates, and 7 official accreditation seals (UGC, NAAC, NBA, AICTE, JNTUA, IDEA Lab, NIRF).
+    - Authored `tests/global-shell.test.js` (6/6 passing). Total project test suite now at 45/45 passing tests. Production static build generates 1,268/1,268 pages with 0 errors.
 - **Key Decisions Made**:
   - **ADR-001**: Hybrid data strategy (offline static JSON/Markdown cache + Supabase PostgreSQL).
   - **ADR-002**: Cookie-based SSR sessions via `@supabase/ssr` with HttpOnly flags and RBAC in `app_metadata`.
@@ -29,11 +37,11 @@
   - **ADR-006**: Markdown AST Ingestion, Avada Table Normalization, and XSS Sanitization.
   - **Edge URL Redirection**: Evaluated middleware vs `next.config.ts` redirects; selected `next.config.ts` async `redirects()` to evaluate legacy paths at the edge routing layer before server components or middleware execute.
 - **Tests & Verification**:
-  - `npm test`: 39/39 tests pass with zero failures.
+  - `npm test`: 45/45 tests pass with zero failures (including 6 new tests in `tests/global-shell.test.js`).
   - `npm run build`: Production build passes without error; static prerendering completes.
 - **Current Orchestration State**:
   - **Run ID**: `run_37d0490aed1b`
   - **Task 1 (Infra)**: COMPLETED & MERGED.
   - **Task 2 (Content)**: COMPLETED & MERGED.
   - **Task 3 (API)**: DISPATCHED (Running).
-  - **Task 4 (UI Shell)**: READY to dispatch.
+  - **Task 4 (UI Shell)**: COMPLETED & VERIFIED.

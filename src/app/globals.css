@@ -1,22 +1,51 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-primary-navy: var(--primary-navy);
+  --color-brand-crimson: var(--brand-crimson);
+  --color-brass-gold: var(--brass-gold);
+  --color-rule: var(--rule);
+
+  --font-serif: var(--font-newsreader), 'Newsreader', Georgia, serif;
+  --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
 :root {
+  /* 75% Ground & Canvas */
   --bg: #FBFBFD;
   --surface: #F1F3F6;
   --surface-raised: #FFFFFF;
+
+  /* 20% Structural Ink & Navy */
   --ink: #0A1124;
   --muted: #4B5565;
   --primary-navy: #0C2340;
+
+  /* <5% Accent */
   --brand-crimson: #8A1538;
   --brass-gold: #B8860B;
   --rule: rgba(10, 17, 36, 0.08);
 
   /* Typography Scale */
-  --font-display: 'Newsreader', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-serif: var(--font-newsreader), 'Newsreader', Georgia, serif;
+  --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Radius Scale */
+  --text-hero: clamp(2.75rem, 5.2vw, 4.5rem);
+  --text-title: clamp(2.00rem, 3.6vw, 2.875rem);
+  --text-h2: clamp(1.50rem, 2.4vw, 1.875rem);
+  --text-lead: clamp(1.125rem, 1.4vw, 1.35rem);
+  --text-body: 1rem;
+  --text-meta: 0.8125rem;
+  --text-code: 0.8125rem;
+
+  /* Disciplined Radius Scale */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -34,12 +63,98 @@
   --rule: rgba(248, 250, 252, 0.1);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
 body {
   background-color: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular Numerals for Metric Alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* WCAG AA Dual-Ring Focus Visibility */
+:focus-visible {
+  outline: 2px solid var(--primary-navy);
+  outline-offset: 2px;
+}
+
+/* Skip-to-content accessibility target */
+.skip-to-content {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(12, 35, 64, 0.3);
+  text-decoration: none;
+  transition: top 120ms ease-out;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+  left: 1rem;
+  outline: 2px solid var(--brass-gold);
+  outline-offset: 2px;
+}
+
+/* Editorial Masked Headline Animation */
+@keyframes maskedReveal {
+  from {
+    transform: translateY(105%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.animate-masked-headline {
+  display: block;
+  animation: maskedReveal 850ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-masked-headline-stagger {
+  display: block;
+  animation: maskedReveal 850ms cubic-bezier(0.16, 1, 0.3, 1) 90ms forwards;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-masked-headline,
+  .animate-masked-headline-stagger {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
