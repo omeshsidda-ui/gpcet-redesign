@@ -1,7 +1,7 @@
 # Session Handoff: GPCET Redesign
 
 ## Current Status
-- **Current State**: Next.js 15 App Router project scaffolded and validated; Tailwind CSS v4 design token pipeline configured; Supabase SSR client helpers implemented (`server.ts`, `client.ts`, `admin.ts`); 2,784 legacy WordPress redirects compiled into native `next.config.ts` edge redirects; GitHub Actions CI pipeline configured; 29/29 tests passing (`npm test`); Next.js production build (`npm run build`) compiles with zero type or configuration errors; Phase 1 Agent 1 settled and merged into master.
+- **Current State**: Next.js 15 App Router project scaffolded and validated; Tailwind CSS v4 design token pipeline configured; Supabase SSR client helpers implemented; 2,784 legacy WordPress redirects compiled into native `next.config.ts` edge redirects; GitHub Actions CI pipeline configured; Content Pipeline & Rendering Engine fully implemented and verified for all 936+ Markdown pages and 630+ Avada academic data tables; dynamic catch-all route handler (`src/app/[...slug]/page.tsx`), frontmatter validation schemas (`src/lib/validations/content.schema.ts`), content readers (`src/lib/content.ts`), and sanitized AST table renderer (`src/components/content/MarkdownRenderer.tsx`) operational. All 39/39 automated tests pass with 0 failures; Phase 1 Tasks 1 & 2 completed and merged into master.
 - **Completed in this Session**:
   - **Orca ADE Deep Research & Multi-Agent Skill Installation**:
     - Installed 5 production-grade AI agent skills into `.agents/skills/`: `orca-cli`, `orca-orchestration`, `orca-browser`, `orca-computer-use`, and `orca-100x-playbook`.
@@ -13,24 +13,27 @@
     - Implemented Supabase SSR helpers in `src/lib/supabase/`: `server.ts`, `client.ts`, `admin.ts`.
     - Authored `.github/workflows/ci.yml` running `npm ci`, `npm test`, and `npm run build`.
     - Initialized `src/app/globals.css`, `src/app/layout.tsx`, and `src/app/page.tsx`.
-  - **Database & API Foundation (Pre-scaffolded)**:
-    - Executable SQL migrations in `supabase/migrations/` (core schema, indexes, RLS policies, triggers).
-    - Seed scripts in `scripts/seed-supabase.js` and `supabase/seed.sql`.
-    - RFC 9457 Problem Details library (`src/lib/api/problem.js`) and Zod schemas in `src/lib/validations/`.
-    - Fail-safe hybrid data layer (`src/lib/data/`).
+  - **Phase 1 Agent 2 (Content Pipeline & Markdown AST) Delivered & Merged**:
+    - Created `src/lib/validations/content.schema.ts` (and `.js`) validating frontmatter metadata, breadcrumbs, and TOC.
+    - Implemented `src/lib/content.ts` (and `.js`) with `getAllContentRoutes()`, `getContentBySlug()`, `getCategoryBreadcrumbs()`, `generateTableOfContents()`, and Levenshtein 404 recovery `findClosestRoutes()`.
+    - Built `src/components/content/MarkdownRenderer.tsx` (and `.js`): Avada single-line table normalization (`| |` -> `|\n|`), 636 academic data tables rendered with accessible horizontal scroll and sticky column, strict XSS sanitization via `rehype-sanitize`, and auto-linked PDF references with protocol upgrades.
+    - Implemented Next.js dynamic catch-all route handlers `src/app/[...slug]/page.tsx`, `layout.tsx`, and institutional 404 recovery `not-found.tsx`.
+    - Authored `tests/content-pipeline.test.js` (10/10 passing). Total test suite now at 39/39 passing tests.
+    - Authored ADR-006: `docs/decisions/006-markdown-ast-rendering-and-table-normalization.md`.
 - **Key Decisions Made**:
   - **ADR-001**: Hybrid data strategy (offline static JSON/Markdown cache + Supabase PostgreSQL).
   - **ADR-002**: Cookie-based SSR sessions via `@supabase/ssr` with HttpOnly flags and RBAC in `app_metadata`.
   - **ADR-003**: Next.js 15 App Router + React 19 + TypeScript foundation.
   - **ADR-004**: Durable ingestion pipeline with Vercel Workflow SDK for periodic WordPress notice syncs and `revalidateTag()` invalidation.
   - **ADR-005**: Fail-Safe Hybrid Data Access Pattern: Supabase PostgreSQL as primary with automatic transparent fallback to offline JSON manifests to prevent any 500 downtime.
+  - **ADR-006**: Markdown AST Ingestion, Avada Table Normalization, and XSS Sanitization.
   - **Edge URL Redirection**: Evaluated middleware vs `next.config.ts` redirects; selected `next.config.ts` async `redirects()` to evaluate legacy paths at the edge routing layer before server components or middleware execute.
 - **Tests & Verification**:
-  - `npm test`: 29/29 tests pass with zero failures.
+  - `npm test`: 39/39 tests pass with zero failures.
   - `npm run build`: Production build passes without error; static prerendering completes.
 - **Current Orchestration State**:
   - **Run ID**: `run_37d0490aed1b`
   - **Task 1 (Infra)**: COMPLETED & MERGED.
-  - **Task 2 (Content)**: DISPATCHED (Running).
+  - **Task 2 (Content)**: COMPLETED & MERGED.
   - **Task 3 (API)**: DISPATCHED (Running).
   - **Task 4 (UI Shell)**: READY to dispatch.
