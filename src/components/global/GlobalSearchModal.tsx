@@ -390,7 +390,7 @@ export default function GlobalSearchModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Institutional Search Command Palette"
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start justify-center pt-12 sm:pt-20 p-4 animate-in fade-in duration-120"
+      className="fixed inset-0 z-50 bg-black/60 flex items-start justify-center pt-12 sm:pt-20 p-4 animate-in fade-in duration-120"
       onClick={() => setIsOpen(false)}
       onKeyDown={handleModalKeyDown}
     >

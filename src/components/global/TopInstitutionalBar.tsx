@@ -21,8 +21,7 @@ export default function TopInstitutionalBar() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         {/* Left: Civic Credentials & Autonomous Recognition */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] sm:text-xs">
-          <span className="inline-flex items-center gap-1 font-semibold text-white tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+          <span className="inline-flex items-center font-semibold text-white tracking-wider">
             UGC AUTONOMOUS
           </span>
 

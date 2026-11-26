@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --import tsx --test tests/",
+    "test": "node --import tsx --test \"tests/**/*.test.{js,ts}\"",
     "test:contracts": "node scripts/test-data-contracts.js",
     "seed:generate": "node scripts/seed-supabase.js",
     "search:build": "node scripts/build-search-index.js",
@@ -41,10 +41,15 @@
     "tailwindcss": "^4.0.9",
     "turndown": "^7.2.0",
     "turndown-plugin-gfm": "^1.0.2",
+    "workflow": "^5.8.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {
     "tsx": "^4.23.15",
     "typescript": "^5.7.3"
+  },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.9",
+    "lightningcss-linux-x64-gnu": "^1.33.0"
   }
 }

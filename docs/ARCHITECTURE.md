@@ -57,18 +57,26 @@ flowchart TD
 
 ## 2. Layered Component Boundaries
 
-### 1. Edge & Middleware Layer (`src/middleware.ts`)
-- **Strict Content-Security-Policy (CSP)**: Generates cryptographic nonces for script tags, restricts script origins to `'self'`, enforces `frame-ancestors 'none'`, and blocks unsafe inline styles.
-- **Legacy URL Redirection**: Consults a memoized Trie index of `src/data/url-map.json` (2,784 legacy WordPress paths) and issues immediate `301 Moved Permanently` responses before invoking downstream server components.
-- **Bot Mitigation & Rate Limiting**: Intercepts abuse-prone paths (`/api/v1/inquiries`, `/api/v1/documents`) and enforces sliding-window rate limits via Upstash Redis.
+### 1. Edge & Middleware Layer (`src/middleware.ts` & `next.config.ts`)
+- **Strict Content-Security-Policy (CSP) & Security Headers (`src/middleware.ts`)**: Enforces `Content-Security-Policy` (`default-src 'self'`, `script-src 'self' 'unsafe-inline'` in production with `'unsafe-eval'` restricted to development—omitting script nonces so Next.js 15 statically prerendered SSG hydration scripts remain unblocked), `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`, `font-src 'self' https://fonts.gstatic.com data:`, `img-src 'self' data: https://www.gpcet.ac.in https://gpcet.ac.in blob:`, `connect-src 'self' https://*.supabase.co https://www.gpcet.ac.in`, `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'`, and `form-action 'self'`, alongside `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, and `Permissions-Policy: camera=(), microphone=(), geolocation=()`.
+- **Supabase SSR Session Refresh**: On `/admin/:path*`, refreshes `@supabase/ssr` `HttpOnly` session cookies cleanly when non-placeholder `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are configured, degrading cleanly when unconfigured.
+- **Fast Static Matcher**: `export const config = { matcher }` excludes `_next/static`, `_next/image`, `favicon.ico`, `assets/`, `search-index.json`, and static media extensions.
+- **Legacy URL Redirection (`next.config.ts`)**: Compiles `src/data/url-map.json` (2,784 legacy WordPress paths) into edge `301` redirects inside `next.config.ts` (`redirects()`).
+- **Rate Limiting (`src/app/api/v1/inquiries/route.ts`)**: Enforces sliding-window IP rate limiting (5 requests per 10-minute window per SHA-256 hashed IP) via Upstash Redis REST API with resilient in-memory fallback, returning RFC 9457 `429` (`RATE_LIMIT_EXCEEDED`).
 
-### 2. Rendering Strategy & Server Components
-- **Zero-JS by Default**: Static content pages (Syllabus tables, Board of Studies minutes, Department overviews, NAAC Criteria 1–7) are rendered as pure React Server Components with zero hydration overhead.
+### 2. Rendering Strategy, Public Portals & Staff Admin CMS
+- **Zero-JS by Default**: Static content pages (Syllabus tables, Board of Studies minutes, Department overviews, NAAC Criteria 1–7, Administration, Placements, Campus Life) are rendered as React Server Components.
 - **Interactive Islands (Client Leaves)**: Client-side JavaScript is restricted strictly to interactive affordances:
-  - `GlobalSearchModal.tsx`: Sub-5ms Cmd+K command palette.
-  - `FacultyRosterTable.tsx`: Client-side instant sorting and qualification filters.
-  - `DocumentVaultClient.tsx`: Instant category tab switches and debounced search.
-- **Static Site Generation (SSG) with ISR**: Pre-renders all 936 content pages and 452 faculty profiles at build time using `generateStaticParams()`, with on-demand Incremental Static Regeneration via `revalidateTag()`.
+  - `GlobalSearchModal.tsx`: Sub-5ms `Cmd+K` command palette backed by `public/search-index.json` (<180 KB) and deferred faculty indexing.
+  - `DepartmentalMatrix.tsx`: Interactive 8-department register with quick-view HOD & summary drawer.
+  - `FacultyRosterTable.tsx`: Client-side instant sorting, cadre pills, and qualification filters across 452 faculty records.
+  - `DocumentVaultClient.tsx`: Instant MiniSearch category/department/regulation filtering and pagination across 5,822 items.
+  - `CriteriaMatrixGrid.tsx`: Interactive NAAC SSR Criteria 1–7 filter across 48 metric dossiers (`src/lib/naac-data.ts`).
+  - `AdmissionsInquiryForm.tsx`: Validated inquiry form with honeypot anti-spam field submitting to `/api/v1/inquiries`.
+- **Authenticated Staff Admin CMS (`src/app/admin/`, [ADR-006](./decisions/006-production-cms-cutover.md))**:
+  - Protected routes (`/admin`, `/admin/notices/**`, `/admin/faculty`) and `/admin/login` governed by `src/lib/auth/admin-auth.ts` (`getAdminSession`, `requireStaffSession` validating `user.app_metadata.role` for `admin`, `editor`, `hod`, `counselor`).
+  - CSRF-verified Server Actions (`src/lib/actions/admin-actions.ts`) perform Zod-validated notice/faculty mutations and trigger on-demand `revalidateTag()` / `revalidatePath()` invalidation.
+- **Static Site Generation (SSG) with ISR**: Pre-renders ingested Markdown pages (`src/app/[...slug]/page.tsx`) via `generateStaticParams()`, with on-demand Incremental Static Regeneration via `revalidateTag()`.
 
 ### 3. Data Access Layer & Offline Resilience (`src/lib/data/`)
 To eliminate brittle database dependencies that cause typical web projects to fail, the data access layer implements a **Fail-Safe Hybrid Pattern**:

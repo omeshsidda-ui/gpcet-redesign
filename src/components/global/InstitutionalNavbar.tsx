@@ -446,7 +446,7 @@ export default function InstitutionalNavbar() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="fixed inset-0 top-[calc(40px+5rem)] z-50 lg:hidden bg-black/40 backdrop-blur-sm animate-in fade-in duration-150"
+          className="fixed inset-0 top-[calc(40px+5rem)] z-50 lg:hidden bg-black/50 animate-in fade-in duration-150"
           onClick={() => setMobileOpen(false)}
         >
           <div

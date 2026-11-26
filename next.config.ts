@@ -1,6 +1,38 @@
 import type { NextConfig } from 'next';
 import fs from 'node:fs';
 import path from 'node:path';
+import { withWorkflow } from 'workflow/next';
+
+// First-class App Router routes that must never be shadowed by legacy WordPress redirects
+const RESERVED_APP_ROUTES = new Set([
+  '/',
+  '/documents',
+  '/departments',
+  '/accreditation',
+  '/accreditation/naac',
+  '/accreditation/nba',
+  '/administration',
+  '/admissions',
+  '/campus-life',
+  '/placements',
+  '/admin',
+  '/admin/login',
+  '/admin/notices',
+  '/admin/faculty',
+]);
+
+function isReservedAppRoute(pathname: string): boolean {
+  if (RESERVED_APP_ROUTES.has(pathname)) {
+    return true;
+  }
+  if (pathname.startsWith('/api/') || pathname.startsWith('/admin/')) {
+    return true;
+  }
+  if (/^\/departments\/(cse|ai|ece|eee|me|civil|hs|mba)(\/(faculty|laboratories|board-of-studies|syllabus|events))?$/.test(pathname)) {
+    return true;
+  }
+  return false;
+}
 
 /**
  * Transforms the 2,784 legacy WordPress URL mappings from src/data/url-map.json
@@ -37,6 +69,11 @@ function getLegacyRedirects(): Array<{ source: string; destination: string; perm
       // Normalize trailing slash (unless root '/')
       if (source.length > 1 && source.endsWith('/')) {
         source = source.slice(0, -1);
+      }
+
+      // Never shadow first-class App Router pages (e.g. '/', '/accreditation')
+      if (isReservedAppRoute(source)) {
+        continue;
       }
 
       let target = dest.trim();
@@ -98,4 +135,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withWorkflow(nextConfig);

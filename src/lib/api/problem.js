@@ -49,14 +49,46 @@ export const PROBLEM_TYPES = {
 };
 
 /**
+ * @typedef {Object} ProblemErrorItem
+ * @property {string} field
+ * @property {string} message
+ * @property {string} [code]
+ */
+
+/**
+ * @typedef {Object} ProblemDetailsOptions
+ * @property {number} status
+ * @property {string} [title]
+ * @property {string} [detail]
+ * @property {string} [instance]
+ * @property {string} [code]
+ * @property {ProblemErrorItem[]} [errors]
+ * @property {string} [type]
+ */
+
+/**
+ * @typedef {Object} ProblemDetails
+ * @property {string} type
+ * @property {string} title
+ * @property {number} status
+ * @property {string} code
+ * @property {string} detail
+ * @property {string | undefined} instance
+ * @property {ProblemErrorItem[]} [errors]
+ * @property {string} timestamp
+ */
+
+/**
  * Creates an RFC 9457 Problem Details JSON payload
+ * @param {ProblemDetailsOptions} options
+ * @returns {ProblemDetails}
  */
 export function createProblemDetails({
   status,
-  title,
-  detail,
-  instance,
-  code,
+  title = undefined,
+  detail = undefined,
+  instance = undefined,
+  code = undefined,
   errors = undefined,
   type = undefined
 }) {
@@ -75,12 +107,14 @@ export function createProblemDetails({
 
 /**
  * Format a ZodError into machine-readable field error list
+ * @param {any} zodError
+ * @returns {ProblemErrorItem[]}
  */
 export function formatZodError(zodError) {
   if (!zodError || !Array.isArray(zodError.issues)) {
     return [{ field: 'root', message: 'Validation failed' }];
   }
-  return zodError.issues.map(issue => ({
+  return zodError.issues.map((/** @type {any} */ issue) => ({
     field: issue.path.join('.') || 'root',
     message: issue.message,
     code: issue.code
@@ -89,8 +123,12 @@ export function formatZodError(zodError) {
 
 /**
  * Convenience helper for validation failures (HTTP 422)
+ * @param {any} zodError
+ * @param {string} [instance]
+ * @param {string} [detail]
+ * @returns {ProblemDetails}
  */
-export function validationProblem(zodError, instance, detail = 'Request parameters failed schema validation.') {
+export function validationProblem(zodError, instance = undefined, detail = 'Request parameters failed schema validation.') {
   return createProblemDetails({
     status: 422,
     detail,
@@ -101,8 +139,12 @@ export function validationProblem(zodError, instance, detail = 'Request paramete
 
 /**
  * Convenience helper for not found errors (HTTP 404)
+ * @param {string} resourceName
+ * @param {string} identifier
+ * @param {string} [instance]
+ * @returns {ProblemDetails}
  */
-export function notFoundProblem(resourceName, identifier, instance) {
+export function notFoundProblem(resourceName, identifier, instance = undefined) {
   return createProblemDetails({
     status: 404,
     detail: `${resourceName} with identifier '${identifier}' was not found.`,
@@ -112,8 +154,11 @@ export function notFoundProblem(resourceName, identifier, instance) {
 
 /**
  * Convenience helper for rate limiting (HTTP 429)
+ * @param {number} [retryAfterSeconds]
+ * @param {string} [instance]
+ * @returns {ProblemDetails}
  */
-export function rateLimitProblem(retryAfterSeconds = 60, instance) {
+export function rateLimitProblem(retryAfterSeconds = 60, instance = undefined) {
   return createProblemDetails({
     status: 429,
     detail: `Too many requests. Please retry in ${retryAfterSeconds} seconds.`,
@@ -123,6 +168,8 @@ export function rateLimitProblem(retryAfterSeconds = 60, instance) {
 
 /**
  * Serializes a Problem Details object into a standard HTTP Response with RFC 9457 Content-Type
+ * @param {ProblemDetails} problem
+ * @returns {Response}
  */
 export function toProblemResponse(problem) {
   return new Response(JSON.stringify(problem), {

@@ -61,6 +61,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0] - 2026-11-26
+
+### Added
+- **Phase 3 Durable WordPress Notice Sync (`src/lib/workflow/sync-notices.ts`, `src/app/api/v1/admin/sync/notices/route.ts`)**:
+  - Implemented 4-step Vercel Workflow SDK (`"use workflow"` / `"use step"`) pipeline: `fetchLatestWpPosts` (with `RetryableError` exponential backoff and offline fallback), `cleanAndNormalizePost` (Cheerio + Turndown stripping `[fusion_*]` / `[vc_*]` shortcodes and extracting PDF attachments), `upsertNoticeRecord` (Supabase `notices` upsert with offline skip), and `revalidateApplicationTags` (`revalidateTag('notices')` / `revalidateTag('documents')`).
+  - Secured `POST /api/v1/admin/sync/notices` with timing-safe Bearer token verification (`ADMIN_SYNC_TOKEN` / `CRON_SECRET`) and Supabase SSR `app_metadata.role` (`admin` / `editor`) authorization, returning HTTP `202 Accepted`.
+  - Added automated test coverage in `tests/sync-notices.test.js`.
+- **Phase 4 Global Institutional Shell & Design System (`src/app/layout.tsx`, `src/components/global/`)**:
+  - Implemented `TopInstitutionalBar.tsx`, `InstitutionalNavbar.tsx` (accessible desktop mega-menus & mobile sheet drawer), `GlobalSearchModal.tsx` (`Cmd+K` MiniSearch command palette with deferred 452-faculty indexing), and `InstitutionalFooter.tsx` (statutory seals and RTI disclosures).
+  - Configured Google Fonts (`Newsreader`, `Plus_Jakarta_Sans`, `JetBrains_Mono`), accessible skip-to-content link, and 75/20/5 design tokens in `src/app/globals.css`.
+- **Phase 5 Institutional Pages, Department Portals & Accreditation Hub**:
+  - Implemented `src/app/page.tsx` featuring `AsymmetricHeroSpread`, `LiveAcademicGazette`, `DepartmentalMatrix`, `LeadershipDiscourse`, and `ResearchExcellenceBand`.
+  - Implemented 8-department portal routes under `src/app/departments/` (`page.tsx`, `[dept]/layout.tsx`, `[dept]/page.tsx`, `faculty/page.tsx`, `faculty/[slug]/page.tsx`, `laboratories/page.tsx`, `board-of-studies/page.tsx`, `syllabus/page.tsx`, `events/page.tsx`) with `DepartmentHeader`, `DepartmentTabs`, `FacultyRosterTable`, and `FacultyProfileView`.
+  - Implemented Central Syllabus & Document Vault (`src/app/documents/page.tsx`, `DocumentVaultClient.tsx`, `DocumentRow.tsx`) with instant MiniSearch faceted filtering across 5,822 cataloged items.
+  - Implemented Accreditation Hub (`src/app/accreditation/page.tsx`, `nba/page.tsx`, `naac/page.tsx`, `naac/[criteria]/page.tsx`) backed by `src/lib/naac-data.ts` covering all 48 NAAC SSR metrics across Criteria 1–7.
+  - Implemented `src/app/administration/page.tsx`, `src/app/campus-life/page.tsx`, `src/app/admissions/page.tsx` (`AdmissionsInquiryForm.tsx`), `src/app/placements/page.tsx`, and institutional content/sanitization helpers in `src/lib/institutional-content.ts`.
+- **Phase 6 Staff Admin CMS & Production Cutover (`src/app/admin/`, `docs/decisions/006-production-cms-cutover.md`)**:
+  - Built authenticated Staff CMS portal (`/admin`, `/admin/login`, `/admin/notices`, `/admin/notices/new`, `/admin/notices/[id]`, `/admin/faculty`) with `AdminSidebarNav`, `AdminLoginForm`, `AdminForbidden`, `CmsModeToggle`, `NoticeListClient`, `NoticeEditorForm` (with live `MarkdownRenderer` preview), and `FacultyEditorClient`.
+  - Implemented `src/lib/auth/admin-auth.ts` (`getAdminSession`, `requireStaffSession` validating `app_metadata.role` exclusively) and CSRF-protected Server Actions in `src/lib/actions/admin-actions.ts` with Zod validation and on-demand `revalidateTag()` invalidation.
+- **Phase 6 Edge Security Middleware, QA & Accessibility Hardening**:
+  - Implemented `src/middleware.ts` enforcing `Content-Security-Policy` (dev-only `'unsafe-eval'`, static-SSG-compatible `'unsafe-inline'` without nonce conflict), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`, and Supabase SSR session cookie refresh on `/admin/:path*`.
+  - Added `tests/security-and-pages.test.js` covering Edge security headers, `/api/v1/inquiries` sliding-window rate limiting (429 `RATE_LIMIT_EXCEEDED`), client-bundle `SUPABASE_SERVICE_ROLE_KEY` isolation, NAAC/department/markdown invariants, WCAG AA / anti-slop structural checks, and `next.config.ts` reserved route protection (81/81 tests passing via `npm test`).
+
+### Security & Quality Fixes
+- Hardened `next.config.ts` `getLegacyRedirects()` with `RESERVED_APP_ROUTES` / `isReservedAppRoute()` so legacy WordPress mappings (`/` and `/accreditation`) never shadow first-class App Router pages.
+- Hardened `sanitizeScrapedMarkdown()` in `src/lib/institutional-content.ts` to strip `<script>`, `<iframe>`, `javascript:` URIs, and Avada `[fusion_*]` / `[vc_*]` shortcodes before Markdown AST rendering.
+- Removed anti-slop violations: eliminated the cosmetic status dot from `TopInstitutionalBar.tsx` and `backdrop-blur-sm` scrims from `InstitutionalNavbar.tsx` and `GlobalSearchModal.tsx`.
+
+---
+
 ## [0.2.0] - 2026-10-31
 
 ### Added
