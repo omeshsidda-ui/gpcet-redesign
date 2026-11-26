@@ -84,7 +84,7 @@ export default function LiveAcademicGazette({
               Autonomous Examination Cell &amp; Registrar Dispatches
             </p>
           </div>
-          <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--primary-navy)] tabular-nums">
+          <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums">
             2026–27
           </span>
         </div>
@@ -100,8 +100,8 @@ export default function LiveAcademicGazette({
                   <span
                     className={`font-mono text-[10px] font-semibold px-1.5 py-0.5 rounded-sm border ${
                       isUrgent
-                        ? 'bg-[#8A1538]/10 text-[var(--brand-crimson)] border-[#8A1538]/25'
-                        : 'bg-[var(--surface)] text-[var(--primary-navy)] border-[var(--rule)]'
+                        ? 'bg-[var(--brand-crimson)]/10 text-[var(--brand-crimson)] border-[var(--brand-crimson)]/25'
+                        : 'bg-[var(--surface)] text-[var(--ruby)] border-[var(--rule)]'
                     }`}
                   >
                     {categoryBadgeLabel(notice.category)}
@@ -132,11 +132,11 @@ export default function LiveAcademicGazette({
                     href="/documents"
                     className="group flex items-start justify-between gap-3 focus-visible:outline-none focus-visible:underline"
                   >
-                    <span className="text-sm font-semibold text-[var(--ink)] group-hover:text-[var(--primary-navy)] transition-colors leading-snug">
+                    <span className="text-sm font-semibold text-[var(--ink)] group-hover:text-[var(--ruby)] transition-colors leading-snug">
                       {notice.title}
                     </span>
                     <ArrowRight
-                      className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--primary-navy)] shrink-0 mt-1"
+                      className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--ruby)] shrink-0 mt-1"
                       aria-hidden="true"
                     />
                   </Link>
@@ -193,7 +193,7 @@ export default function LiveAcademicGazette({
       <div className="px-5 py-3.5 bg-[var(--surface)] border-t border-[var(--rule)] flex items-center justify-between">
         <Link
           href="/documents"
-          className="inline-flex items-center justify-between w-full text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+          className="inline-flex items-center justify-between w-full text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
         >
           <span>
             View All{' '}

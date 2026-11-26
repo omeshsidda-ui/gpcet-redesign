@@ -44,7 +44,7 @@ export default async function DepartmentLaboratoriesPage({ params }: DeptLabsPag
         </div>
         <Link
           href="/accreditation/aicte-idea-lab"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
         >
           <span>AICTE IDEA Lab Prototyping Hub</span>
           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

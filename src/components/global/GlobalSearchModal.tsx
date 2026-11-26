@@ -222,6 +222,7 @@ export default function GlobalSearchModal() {
   const [, startTransition] = useTransition();
 
   const router = useRouter();
+  const dialog = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const miniSearchRef = useRef<MiniSearch<SearchDoc> | null>(null);
@@ -319,12 +320,18 @@ export default function GlobalSearchModal() {
       setQuery('');
       setResults(STATIC_CATALOG.slice(0, 8));
       setSelectedIndex(0);
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => inputRef.current?.focus(), 50);
-    } else {
-      document.body.style.overflow = '';
+      const trigger = document.activeElement;
+      dialog.current?.showModal();
+      inputRef.current?.focus();
+      return () => {
+        if (trigger instanceof HTMLElement && trigger.isConnected) trigger.focus({ preventScroll: true });
+      };
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) document.getElementById(`search-result-${selectedIndex}`)?.scrollIntoView({ block: 'nearest' });
+  }, [isOpen, selectedIndex]);
 
   // Handle Query Changes with MiniSearch
   const handleQueryChange = (val: string) => {
@@ -347,6 +354,7 @@ export default function GlobalSearchModal() {
 
   // Keyboard Navigation inside Modal (Up / Down / Enter)
   const handleModalKeyDown = (e: React.KeyboardEvent) => {
+    if (e.target !== inputRef.current) return;
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setSelectedIndex((prev) => (prev + 1) % Math.max(1, results.length));
@@ -369,15 +377,15 @@ export default function GlobalSearchModal() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Portals':
-        return <Building2 className="w-4 h-4 text-[#0C2340]" aria-hidden="true" />;
+        return <Building2 className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />;
       case 'Departments':
-        return <GraduationCap className="w-4 h-4 text-[#8A1538]" aria-hidden="true" />;
+        return <GraduationCap className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />;
       case 'Documents':
         return <FileText className="w-4 h-4 text-slate-600" aria-hidden="true" />;
       case 'Faculty':
         return <Users className="w-4 h-4 text-emerald-700" aria-hidden="true" />;
       case 'Accreditation':
-        return <Award className="w-4 h-4 text-[#B8860B]" aria-hidden="true" />;
+        return <Award className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />;
       default:
         return <FileText className="w-4 h-4 text-[var(--muted)]" aria-hidden="true" />;
     }
@@ -386,16 +394,18 @@ export default function GlobalSearchModal() {
   if (!isOpen) return null;
 
   return (
-    <div
+    <dialog
+      ref={dialog}
+      onCancel={() => setIsOpen(false)}
       role="dialog"
       aria-modal="true"
       aria-label="Institutional Search Command Palette"
-      className="fixed inset-0 z-50 bg-black/60 flex items-start justify-center pt-12 sm:pt-20 p-4 animate-in fade-in duration-120"
+      className="fixed inset-0 m-0 max-w-none max-h-none w-full h-dvh z-50 bg-transparent backdrop:bg-black/60 flex items-start justify-center pt-12 sm:pt-20 p-4 animate-in fade-in duration-120"
       onClick={() => setIsOpen(false)}
       onKeyDown={handleModalKeyDown}
     >
       <div
-        className="w-full max-w-2xl bg-[var(--surface-raised)] border border-[var(--rule)] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-150"
+        className="w-full max-w-2xl bg-[var(--surface-raised)] border border-[var(--rule)] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-120"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
@@ -408,6 +418,9 @@ export default function GlobalSearchModal() {
             onChange={(e) => handleQueryChange(e.target.value)}
             placeholder="Search documents, faculty, departments, regulations (e.g. R20, CSE)..."
             aria-label="Search query"
+            role="combobox"
+            aria-expanded="true"
+            aria-activedescendant={results.length ? `search-result-${selectedIndex}` : undefined}
             aria-autocomplete="list"
             aria-controls="search-results-list"
             className="flex-1 bg-transparent border-none text-sm sm:text-base text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:ring-0"
@@ -426,12 +439,14 @@ export default function GlobalSearchModal() {
               ESC
             </kbd>
           )}
+          <button type="button" onClick={() => setIsOpen(false)} aria-label="Close search" className="p-2 text-[var(--ruby)] hover:bg-white"><X size={18} /></button>
         </div>
 
         {/* Results Container */}
         <div
           ref={listRef}
           id="search-results-list"
+          aria-label="Search results"
           role="listbox"
           className="overflow-y-auto p-2 divide-y divide-[var(--rule)] flex-1 max-h-[55vh]"
         >
@@ -455,7 +470,7 @@ export default function GlobalSearchModal() {
                   onMouseEnter={() => setSelectedIndex(idx)}
                   className={`flex items-start justify-between gap-3 p-3 rounded-md cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-[var(--surface)] border-l-2 border-[#8A1538]'
+                      ? 'bg-[var(--surface)] border-l-2 border-[var(--brand-crimson)]'
                       : 'hover:bg-[var(--surface)]'
                   }`}
                 >
@@ -485,7 +500,7 @@ export default function GlobalSearchModal() {
                       {doc.category}
                     </span>
                     {isSelected && (
-                      <CornerDownLeft className="w-3.5 h-3.5 text-[#0C2340]" aria-hidden="true" />
+                      <CornerDownLeft className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                     )}
                   </div>
                 </div>
@@ -517,6 +532,6 @@ export default function GlobalSearchModal() {
           </div>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

@@ -34,7 +34,7 @@ export default function FacultyProfileView({
       <div>
         <Link
           href={`/departments/${deptCode}/faculty`}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
           <span>Back to {deptName} Faculty Directory</span>
@@ -53,18 +53,18 @@ export default function FacultyProfileView({
               className="w-24 h-24 rounded-full object-cover border border-[var(--rule)] bg-[var(--surface)] shrink-0"
             />
           ) : (
-            <div className="w-24 h-24 rounded-full bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center font-serif text-2xl font-semibold text-[var(--primary-navy)] shrink-0">
+            <div className="w-24 h-24 rounded-full bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center font-serif text-2xl font-semibold text-[var(--ruby)] shrink-0">
               {getInitials(faculty.name)}
             </div>
           )}
 
           <div className="space-y-1.5">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--primary-navy)]">
+              <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)]">
                 {deptCode.toUpperCase()} · S.NO {faculty.sno}
               </span>
               {faculty.isHod && (
-                <span className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--brass-gold)]">
+                <span className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--ruby)]/10 border border-[var(--ruby)]/30 text-[var(--ruby)]">
                   <Award className="w-3.5 h-3.5" aria-hidden="true" />
                   Department Head / Dean
                 </span>
@@ -89,14 +89,14 @@ export default function FacultyProfileView({
         <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-sm">
           <div>
             <dt className="text-xs font-semibold text-[var(--muted)] flex items-center gap-1.5">
-              <Building2 className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+              <Building2 className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               Department
             </dt>
             <dd className="mt-1 font-medium text-[var(--ink)]">Department of {deptName}</dd>
           </div>
           <div>
             <dt className="text-xs font-semibold text-[var(--muted)] flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+              <BookOpen className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               Qualification
             </dt>
             <dd className="mt-1 font-mono text-xs text-[var(--ink)]">
@@ -105,13 +105,13 @@ export default function FacultyProfileView({
           </div>
           <div>
             <dt className="text-xs font-semibold text-[var(--muted)] flex items-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+              <Mail className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               Department Office
             </dt>
             <dd className="mt-1">
               <a
                 href={`mailto:${deptEmail}`}
-                className="text-xs font-medium text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] underline underline-offset-2"
+                className="text-xs font-medium text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-2"
               >
                 {deptEmail}
               </a>
@@ -142,13 +142,13 @@ export default function FacultyProfileView({
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               href="/accreditation/naac/3-4-3"
-              className="text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] underline underline-offset-2"
+              className="text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-2"
             >
               View NAAC 3.4.3 Department Publications →
             </Link>
             <Link
               href={`/departments/${deptCode}/syllabus`}
-              className="text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] underline underline-offset-2"
+              className="text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-2"
             >
               Department Curriculum &amp; Syllabi →
             </Link>

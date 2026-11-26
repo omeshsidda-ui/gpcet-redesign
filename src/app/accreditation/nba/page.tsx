@@ -20,16 +20,16 @@ export default async function NbaAccreditationPage() {
         <div>
           <Link
             href="/accreditation"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
           >
             <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Back to Accreditation Gateway</span>
           </Link>
         </div>
 
-        <header className="pb-6 border-b border-[var(--rule)] flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <header className="section-masthead pb-6 border-b border-[var(--rule)] flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[var(--brass-gold)]">
+            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[var(--distinction-ink)]">
               <Award className="w-4 h-4" aria-hidden="true" />
               <span>NATIONAL BOARD OF ACCREDITATION · OUTCOME-BASED EDUCATION</span>
             </div>
@@ -47,7 +47,7 @@ export default async function NbaAccreditationPage() {
             href="https://www.gpcet.ac.in/wp-content/uploads/2023/06/NBA-Documents.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[var(--brand-crimson)] hover:bg-[#72112e] text-white text-xs font-semibold shrink-0 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[var(--brand-crimson)] hover:bg-[var(--burgundy)] text-white text-xs font-semibold shrink-0 transition-colors"
           >
             <FileText className="w-4 h-4" aria-hidden="true" />
             <span>Download Official NBA Documents</span>
@@ -72,7 +72,7 @@ export default async function NbaAccreditationPage() {
             <tbody className="divide-y divide-[var(--rule)] text-sm">
               {nbaDepts.map((dept) => (
                 <tr key={dept.code} className="hover:bg-[var(--surface)]/60 transition-colors">
-                  <td className="py-4 px-4 font-mono text-xs font-semibold text-[var(--primary-navy)]">
+                  <td className="py-4 px-4 font-mono text-xs font-semibold text-[var(--ruby)]">
                     {dept.deptNumber} · {dept.shortName}
                   </td>
                   <td className="py-4 px-4 font-semibold text-[var(--ink)]">
@@ -91,7 +91,7 @@ export default async function NbaAccreditationPage() {
                   <td className="py-4 px-4 text-right">
                     <Link
                       href={`/departments/${dept.code}`}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
                     >
                       <span>Open</span>
                       <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

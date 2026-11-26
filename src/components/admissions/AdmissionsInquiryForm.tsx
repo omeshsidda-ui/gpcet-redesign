@@ -92,9 +92,9 @@ export default function AdmissionsInquiryForm() {
     return (
       <div
         role="status"
-        className="bg-[var(--surface-raised)] border border-[var(--primary-navy)]/30 rounded-md p-6 sm:p-8 space-y-4"
+        className="bg-[var(--surface-raised)] border border-[var(--ruby)]/30 rounded-md p-6 sm:p-8 space-y-4"
       >
-        <div className="flex items-center gap-2.5 text-[var(--primary-navy)]">
+        <div className="flex items-center gap-2.5 text-[var(--ruby)]">
           <CheckCircle2 className="w-5 h-5 shrink-0" aria-hidden="true" />
           <h3 className="font-serif text-xl font-medium text-[var(--ink)]">
             Admissions Inquiry Recorded
@@ -134,7 +134,7 @@ export default function AdmissionsInquiryForm() {
       {errorBanner && (
         <div
           role="alert"
-          className="p-3.5 rounded border border-[var(--brand-crimson)]/40 bg-[#8A1538]/5 text-xs text-[var(--brand-crimson)] space-y-1"
+          className="p-3.5 rounded border border-[var(--brand-crimson)]/40 bg-[var(--brand-crimson)]/5 text-xs text-[var(--brand-crimson)] space-y-1"
         >
           <div className="flex items-center gap-2 font-semibold">
             <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
@@ -178,7 +178,7 @@ export default function AdmissionsInquiryForm() {
             value={studentName}
             onChange={(e) => setStudentName(e.target.value)}
             placeholder="e.g., K. Sai Kiran"
-            className="w-full px-3 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -193,7 +193,7 @@ export default function AdmissionsInquiryForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="applicant@example.com"
-            className="w-full px-3 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -208,7 +208,7 @@ export default function AdmissionsInquiryForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+91 9876543210"
-            className="w-full px-3 py-2.5 text-sm font-mono bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2.5 text-sm font-mono bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -257,7 +257,7 @@ export default function AdmissionsInquiryForm() {
             value={eamcetRank}
             onChange={(e) => setEamcetRank(e.target.value)}
             placeholder="e.g., 14500"
-            className="w-full px-3 py-2.5 text-sm font-mono bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2.5 text-sm font-mono bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
       </div>
@@ -272,14 +272,14 @@ export default function AdmissionsInquiryForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Specify queries on lateral entry, JVD reimbursement, transport, or branch availability..."
-          className="w-full px-3 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+          className="w-full px-3 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
         />
       </div>
 
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-[var(--brand-crimson)] hover:bg-[#72112e] disabled:opacity-50 text-white text-sm font-semibold transition-colors"
+        className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-[var(--brand-crimson)] hover:bg-[var(--burgundy)] disabled:opacity-50 text-white text-sm font-semibold transition-colors"
       >
         <Send className="w-4 h-4" aria-hidden="true" />
         <span>{submitting ? 'Submitting Inquiry...' : 'Submit Admissions Inquiry'}</span>

@@ -21,16 +21,16 @@ export default function NaacHubPage() {
         <div>
           <Link
             href="/accreditation"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
           >
             <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Back to Accreditation Gateway</span>
           </Link>
         </div>
 
-        <header className="pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <header className="section-masthead pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[var(--brass-gold)]">
+            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[var(--distinction-ink)]">
               <Award className="w-4 h-4" aria-hidden="true" />
               <span>NAAC CYCLE 2 · GRADE &apos;A+&apos; (3.38 CGPA)</span>
             </div>
@@ -50,7 +50,7 @@ export default function NaacHubPage() {
               href="https://www.gpcet.ac.in/wp-content/uploads/2023/06/NAAC-LATEST-CERTIFICATE.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[var(--brand-crimson)] hover:bg-[#72112e] text-white text-xs font-semibold transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[var(--brand-crimson)] hover:bg-[var(--burgundy)] text-white text-xs font-semibold transition-colors"
             >
               <FileText className="w-4 h-4" aria-hidden="true" />
               <span>NAAC &apos;A+&apos; Certificate (PDF)</span>
@@ -58,7 +58,7 @@ export default function NaacHubPage() {
             </a>
             <Link
               href="/accreditation/iqac"
-              className="text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+              className="text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
             >
               Internal Quality Assurance Cell (IQAC) →
             </Link>

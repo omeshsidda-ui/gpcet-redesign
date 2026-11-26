@@ -154,7 +154,7 @@ const NAVIGATION_SECTIONS: NavItem[] = [
       {
         title: 'Online Admission Inquiry',
         description: 'Submit an inquiry directly to the GPCET admissions desk.',
-        href: '/admissions/inquiry',
+        href: '/admissions#inquiry',
       },
     ],
   },
@@ -224,6 +224,8 @@ export default function InstitutionalNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDialogElement>(null);
   const pathname = usePathname();
 
   // Close menus on route navigation
@@ -232,28 +234,30 @@ export default function InstitutionalNavbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when mobile drawer is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    if (!mobileOpen) return;
+    drawer.current?.showModal();
+    return () => menuButton.current?.focus({ preventScroll: true });
   }, [mobileOpen]);
 
   // Handle escape key to close menus
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && !document.querySelector('dialog:modal')) {
+        document.querySelector<HTMLButtonElement>('nav[aria-label="Main Navigation"] button[aria-expanded="true"]')?.focus();
         setActiveMenu(null);
         setMobileOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 64rem)');
+    const closeDrawer = () => { if (desktop.matches) setMobileOpen(false); };
+    desktop.addEventListener('change', closeDrawer);
+    return () => desktop.removeEventListener('change', closeDrawer);
   }, []);
 
   const handleMouseEnter = (label: string) => {
@@ -272,60 +276,88 @@ export default function InstitutionalNavbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[var(--surface-raised)] border-b border-[var(--rule)] transition-colors">
+    <header className="relative z-40 bg-[var(--surface-raised)] border-b border-[var(--rule)] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between gap-3 py-3">
           {/* Institutional Brand Crest & Collegiate Identity */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-navy)] rounded-md py-1"
+            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ruby)] rounded-md py-1"
           >
-            {/* Collegiate Crest Emblem SVG */}
-            <div className="relative w-11 h-11 flex-shrink-0 bg-[#0C2340] rounded-md flex items-center justify-center text-white border border-[#1A3B66] shadow-sm transition-transform group-hover:scale-[1.02]">
-              <svg
-                viewBox="0 0 48 48"
-                className="w-7 h-7 text-[#D4AF37]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                {/* Shield Outline */}
-                <path d="M24 4L8 10v14c0 11.05 6.84 21.41 16 24 9.16-2.59 16-12.95 16-24V10L24 4z" fill="#0C2340" />
-                {/* Lamp of Knowledge / Book */}
-                <path d="M16 26c2.5-1.5 5-1.5 8 0 3-1.5 5.5-1.5 8 0" stroke="#FFFFFF" />
-                <path d="M24 16v10" stroke="#FFFFFF" />
-                {/* Academic Sunburst */}
-                <circle cx="24" cy="14" r="2.5" fill="#D4AF37" />
-              </svg>
-            </div>
+            <img src="/assets/brand/gpcet-logo.png" width={72} height={72} alt="" className="college-crest" />
 
             <div className="flex flex-col">
-              <span className="font-serif text-[17px] sm:text-[19px] font-bold tracking-tight text-[#0C2340] leading-tight">
+              <span className="font-serif text-[17px] sm:text-[26px] lg:text-[30px] font-medium tracking-tight text-[var(--ruby)] leading-tight">
                 G. Pullaiah College of Engineering &amp; Technology
               </span>
-              <span className="text-[11px] sm:text-xs text-[var(--muted)] font-medium flex items-center gap-1.5 mt-0.5">
-                <span className="text-[var(--primary-navy)] font-semibold">Autonomous</span>
-                <span className="text-slate-300" aria-hidden="true">·</span>
+              <span className="text-[11px] sm:text-xs text-[var(--muted)] font-medium hidden sm:flex whitespace-nowrap items-center gap-1.5 mt-0.5">
+                <span className="text-[var(--ruby)] font-semibold">Autonomous</span>
+                <span className="text-[var(--muted)]/60" aria-hidden="true">·</span>
                 <span>Estd. 2007</span>
-                <span className="text-slate-300" aria-hidden="true">·</span>
-                <span className="text-[#8A1538] font-semibold">NAAC &apos;A+&apos;</span>
-                <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
+                <span className="text-[var(--muted)]/60" aria-hidden="true">·</span>
+                <span className="text-[var(--brand-crimson)] font-semibold">NAAC &apos;A+&apos;</span>
+                <span className="text-[var(--muted)]/60 hidden sm:inline" aria-hidden="true">·</span>
                 <span className="hidden sm:inline">Kurnool</span>
               </span>
             </div>
           </Link>
 
+          {/* Right Action Elements: Cmd+K Search Trigger & Primary Admissions CTA */}
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            {/* Global Search Button */}
+            <button
+              type="button"
+              onClick={openSearchModal}
+              title="Search institutional vault (Cmd + K)"
+              aria-label="Search documents and faculty (Press Cmd+K)"
+              className="inline-flex items-center gap-2 px-3 py-1.5 text-xs rounded-md border border-[var(--rule)] bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--ink)] hover:border-slate-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ruby)]"
+            >
+              <Search className="w-3.5 h-3.5 text-[var(--muted)]" aria-hidden="true" />
+              <span className="hidden sm:inline">Search...</span>
+              <kbd className="hidden md:inline-flex items-center px-1.5 py-0.5 font-mono text-[10px] bg-[var(--surface-raised)] border border-[var(--rule)] rounded text-[var(--muted)]">
+                ⌘K
+              </kbd>
+            </button>
+
+            {/* Document Vault Link */}
+            <Link
+              href="/documents"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:bg-[var(--surface-raised)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ruby)]"
+            >
+              <FileText className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
+              Vault
+            </Link>
+
+            {/* Admissions 2026 Primary CTA */}
+            <Link
+              href="/admissions"
+              className="hidden lg:inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold rounded-md bg-[var(--brand-crimson)] hover:bg-[var(--burgundy)] text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--brand-crimson)]"
+            >
+              Admissions 2026
+            </Link>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              type="button"
+              ref={menuButton}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileOpen}
+              className="lg:hidden p-2 rounded-md text-[var(--ink)] hover:bg-[var(--surface)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ruby)]"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
           {/* Desktop Hierarchical Navigation */}
-          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-6 -ml-3 border-t border-[var(--rule)] py-1">
             {NAVIGATION_SECTIONS.map((section) => {
               const isOpen = activeMenu === section.label;
               return (
                 <div
                   key={section.label}
-                  className="relative"
+                  className="relative group/nav"
+                  onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setActiveMenu(null); }}
                   onMouseEnter={() => handleMouseEnter(section.label)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -333,17 +365,16 @@ export default function InstitutionalNavbar() {
                     type="button"
                     onClick={() => setActiveMenu(isOpen ? null : section.label)}
                     aria-expanded={isOpen}
-                    aria-haspopup="true"
-                    className={`inline-flex items-center gap-1 px-3 py-2 text-[13px] font-semibold rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-navy)] ${
+                    className={`inline-flex items-center gap-1 px-3 py-2 text-[13px] font-semibold rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ruby)] ${
                       isOpen
-                        ? 'text-[#0C2340] bg-[var(--surface)]'
-                        : 'text-[var(--ink)] hover:text-[#0C2340] hover:bg-[var(--surface)]'
+                        ? 'text-[var(--ruby)] bg-[var(--surface)]'
+                        : 'text-[var(--ink)] hover:text-[var(--ruby)] hover:bg-[var(--surface)]'
                     }`}
                   >
                     {section.label}
                     <ChevronDown
-                      className={`w-3.5 h-3.5 text-[var(--muted)] transition-transform duration-150 ${
-                        isOpen ? 'rotate-180 text-[#0C2340]' : ''
+                      className={`w-3.5 h-3.5 text-[var(--muted)] transition-transform duration-120 ${
+                        isOpen ? 'rotate-180 text-[var(--ruby)]' : ''
                       }`}
                       aria-hidden="true"
                     />
@@ -352,21 +383,21 @@ export default function InstitutionalNavbar() {
                   {/* Mega-Menu Flyout Panel */}
                   {isOpen && (
                     <div
-                      role="menu"
+
                       aria-label={`${section.label} menu`}
-                      className={`absolute top-full left-0 mt-1 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md shadow-lg p-3 z-50 animate-in fade-in slide-in-from-top-1 duration-120 ${
-                        section.label === 'Departments' ? 'w-[580px] grid grid-cols-2 gap-2' : 'w-[360px] flex flex-col gap-1'
+                      className={`absolute top-full right-0 group-first/nav:left-0 group-first/nav:right-auto mt-1 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md shadow-lg p-3 z-50 animate-in fade-in slide-in-from-top-1 duration-120 ${
+                        section.label === 'Departments' ? 'left-0 right-auto w-[580px] grid grid-cols-2 gap-2' : 'w-[360px] flex flex-col gap-1'
                       }`}
                     >
                       {section.items?.map((item) => (
                         <Link
                           key={item.title}
                           href={item.href}
-                          role="menuitem"
-                          className="flex flex-col p-2.5 rounded hover:bg-[var(--surface)] transition-colors group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--primary-navy)]"
+
+                          className="flex flex-col p-2.5 rounded hover:bg-[var(--surface)] transition-colors group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--ruby)]"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-[13px] font-semibold text-[var(--ink)] group-hover:text-[#0C2340] flex items-center gap-1.5">
+                            <span className="text-[13px] font-semibold text-[var(--ink)] group-hover:text-[var(--ruby)] flex items-center gap-1.5">
                               {item.code && (
                                 <span className="font-mono text-[10px] px-1.5 py-0.2 bg-[var(--surface)] border border-[var(--rule)] rounded text-[var(--muted)] font-medium">
                                   {item.code}
@@ -392,67 +423,24 @@ export default function InstitutionalNavbar() {
             })}
           </nav>
 
-          {/* Right Action Elements: Cmd+K Search Trigger & Primary Admissions CTA */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Global Search Button */}
-            <button
-              type="button"
-              onClick={openSearchModal}
-              title="Search institutional vault (Cmd + K)"
-              aria-label="Search documents and faculty (Press Cmd+K)"
-              className="inline-flex items-center gap-2 px-3 py-1.5 text-xs rounded-md border border-[var(--rule)] bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--ink)] hover:border-slate-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-navy)]"
-            >
-              <Search className="w-3.5 h-3.5 text-[var(--muted)]" aria-hidden="true" />
-              <span className="hidden sm:inline">Search...</span>
-              <kbd className="hidden md:inline-flex items-center px-1.5 py-0.5 font-mono text-[10px] bg-[var(--surface-raised)] border border-[var(--rule)] rounded text-[var(--muted)]">
-                ⌘K
-              </kbd>
-            </button>
-
-            {/* Document Vault Link */}
-            <Link
-              href="/documents"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:bg-[var(--surface-raised)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-navy)]"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#0C2340]" aria-hidden="true" />
-              Vault
-            </Link>
-
-            {/* Admissions 2026 Primary CTA */}
-            <Link
-              href="/admissions"
-              className="inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold rounded-md bg-[#8A1538] hover:bg-[#72112e] text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[#8A1538]"
-            >
-              Admissions 2026
-            </Link>
-
-            {/* Mobile Menu Toggle Button */}
-            <button
-              type="button"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={mobileOpen}
-              className="lg:hidden p-2 rounded-md text-[var(--ink)] hover:bg-[var(--surface)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-navy)]"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Accessible Mobile Sheet Drawer */}
       {mobileOpen && (
-        <div
+        <dialog
+          ref={drawer}
+          onCancel={() => setMobileOpen(false)}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="fixed inset-0 top-[calc(40px+5rem)] z-50 lg:hidden bg-black/50 animate-in fade-in duration-150"
+          className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none z-50 bg-transparent backdrop:bg-black/50 animate-in fade-in duration-120"
           onClick={() => setMobileOpen(false)}
         >
           <div
-            className="absolute top-0 right-0 w-full max-w-sm h-full bg-[var(--surface-raised)] border-l border-[var(--rule)] shadow-2xl p-5 overflow-y-auto flex flex-col gap-4 animate-in slide-in-from-right duration-200"
+            className="absolute top-0 right-0 w-full max-w-sm h-full bg-[var(--surface-raised)] border-l border-[var(--rule)] shadow-2xl p-5 overflow-y-auto flex flex-col gap-4 animate-in slide-in-from-right duration-120"
             onClick={(e) => e.stopPropagation()}
           >
+            <button type="button" onClick={() => setMobileOpen(false)} className="self-end inline-flex items-center gap-2 py-2 text-sm">Close menu <X size={18} aria-hidden="true" /></button>
             {/* Search Bar at top of Mobile Sheet */}
             <button
               type="button"
@@ -485,7 +473,7 @@ export default function InstitutionalNavbar() {
                     >
                       <span>{section.label}</span>
                       <ChevronDown
-                        className={`w-4 h-4 text-[var(--muted)] transition-transform duration-150 ${
+                        className={`w-4 h-4 text-[var(--muted)] transition-transform duration-120 ${
                           isExpanded ? 'rotate-180' : ''
                         }`}
                       />
@@ -500,7 +488,7 @@ export default function InstitutionalNavbar() {
                             onClick={() => setMobileOpen(false)}
                             className="flex flex-col py-1.5 px-2 rounded hover:bg-[var(--surface)] transition-colors"
                           >
-                            <span className="text-xs font-semibold text-[#0C2340] flex items-center justify-between">
+                            <span className="text-xs font-semibold text-[var(--ruby)] flex items-center justify-between">
                               <span>{item.title}</span>
                               {item.badge && (
                                 <span className="font-mono text-[10px] text-[var(--brand-crimson)]">
@@ -527,19 +515,19 @@ export default function InstitutionalNavbar() {
                 onClick={() => setMobileOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-md border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)]"
               >
-                <FileText className="w-4 h-4 text-[#0C2340]" />
+                <FileText className="w-4 h-4 text-[var(--ruby)]" />
                 Access Document Vault (5,822 items)
               </Link>
               <Link
                 href="/admissions"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center py-2.5 text-xs font-semibold rounded-md bg-[#8A1538] text-white"
+                className="w-full flex items-center justify-center py-2.5 text-xs font-semibold rounded-md bg-[var(--brand-crimson)] text-white"
               >
                 B.Tech Admissions (EAPCET: PULE)
               </Link>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </header>
   );

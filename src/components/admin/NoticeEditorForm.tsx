@@ -204,7 +204,7 @@ export default function NoticeEditorForm({
         <button
           type="submit"
           disabled={isPending}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold bg-[var(--brand-crimson)] text-white hover:bg-[#70102d] disabled:opacity-60 transition-colors cursor-pointer shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded text-sm font-semibold bg-[var(--brand-crimson)] text-white hover:bg-[var(--burgundy)] disabled:opacity-60 transition-colors cursor-pointer shrink-0"
         >
           <Save className="w-4 h-4" aria-hidden="true" />
           {isPending
@@ -218,9 +218,9 @@ export default function NoticeEditorForm({
       {!isLiveDatabase && (
         <div
           role="note"
-          className="flex items-start gap-3 p-4 rounded-md border border-[var(--brass-gold)]/40 bg-[var(--brass-gold)]/10 text-xs text-[var(--ink)]"
+          className="flex items-start gap-3 p-4 rounded-md border border-[var(--ruby)]/40 bg-[var(--ruby)]/10 text-xs text-[var(--ink)]"
         >
-          <Info className="w-4 h-4 text-[var(--brass-gold)] shrink-0 mt-0.5" aria-hidden="true" />
+          <Info className="w-4 h-4 text-[var(--ruby)] shrink-0 mt-0.5" aria-hidden="true" />
           <span>
             Live Supabase database persistence is unavailable in offline preview mode. You can draft
             and preview Markdown sanitization below; saving requires active Supabase credentials.
@@ -234,7 +234,7 @@ export default function NoticeEditorForm({
           className={`flex items-start gap-2.5 p-3.5 rounded border text-xs ${
             feedback.type === 'error'
               ? 'bg-[var(--brand-crimson)]/5 border-[var(--brand-crimson)]/30 text-[var(--brand-crimson)]'
-              : 'bg-[var(--primary-navy)]/5 border-[var(--primary-navy)]/20 text-[var(--primary-navy)]'
+              : 'bg-[var(--ruby)]/5 border-[var(--ruby)]/20 text-[var(--ruby)]'
           }`}
         >
           {feedback.type === 'error' ? (
@@ -259,7 +259,7 @@ export default function NoticeEditorForm({
             value={title}
             onChange={(e) => handleTitleChange(e.target.value)}
             placeholder="e.g., B.Tech R20 End Semester Supplementary Examination Fee Notification"
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
           {fieldErrors.title && (
             <p className="mt-1 text-xs text-[var(--brand-crimson)]">{fieldErrors.title[0]}</p>
@@ -279,7 +279,7 @@ export default function NoticeEditorForm({
               setSlug(e.target.value);
             }}
             placeholder="auto-generated-slug"
-            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
           {fieldErrors.slug && (
             <p className="mt-1 text-xs text-[var(--brand-crimson)]">{fieldErrors.slug[0]}</p>
@@ -294,7 +294,7 @@ export default function NoticeEditorForm({
             id="notice-dept"
             value={departmentCode}
             onChange={(e) => setDepartmentCode(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             {DEPARTMENTS.map((d) => (
               <option key={d.code} value={d.code}>
@@ -312,7 +312,7 @@ export default function NoticeEditorForm({
             id="notice-cat"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             {CATEGORIES.map((c) => (
               <option key={c} value={c}>
@@ -330,7 +330,7 @@ export default function NoticeEditorForm({
             id="notice-prio"
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             {PRIORITIES.map((p) => (
               <option key={p} value={p}>
@@ -351,7 +351,7 @@ export default function NoticeEditorForm({
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             placeholder="Brief 1-2 sentence digest displayed in the Academic Gazette feed..."
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -364,7 +364,7 @@ export default function NoticeEditorForm({
             type="datetime-local"
             value={publishedAt}
             onChange={(e) => setPublishedAt(e.target.value)}
-            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -377,7 +377,7 @@ export default function NoticeEditorForm({
             type="datetime-local"
             value={expiresAt}
             onChange={(e) => setExpiresAt(e.target.value)}
-            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -388,7 +388,7 @@ export default function NoticeEditorForm({
               type="checkbox"
               checked={isTicker}
               onChange={(e) => setIsTicker(e.target.checked)}
-              className="w-4 h-4 rounded accent-[var(--primary-navy)]"
+              className="w-4 h-4 rounded accent-[var(--ruby)]"
             />
             <span>Feature in Homepage Ticker</span>
           </label>
@@ -408,7 +408,7 @@ export default function NoticeEditorForm({
               type="checkbox"
               checked={isActive}
               onChange={(e) => setIsActive(e.target.checked)}
-              className="w-4 h-4 rounded accent-[var(--primary-navy)]"
+              className="w-4 h-4 rounded accent-[var(--ruby)]"
             />
             <span>Active / Publicly Visible</span>
           </label>
@@ -418,7 +418,7 @@ export default function NoticeEditorForm({
       {/* PDF Attachment & Metadata */}
       <div className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-5 sm:p-6 space-y-4">
         <div className="flex items-center gap-2">
-          <Paperclip className="w-4 h-4 text-[var(--primary-navy)]" aria-hidden="true" />
+          <Paperclip className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
           <h2 className="font-serif text-lg font-semibold text-[var(--ink)]">
             PDF Circular Attachment Metadata
           </h2>
@@ -435,7 +435,7 @@ export default function NoticeEditorForm({
               value={attachmentUrl}
               onChange={(e) => setAttachmentUrl(e.target.value)}
               placeholder="https://www.gpcet.ac.in/wp-content/uploads/2026/10/notice.pdf"
-              className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+              className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
             />
             {fieldErrors.attachmentUrl && (
               <p className="mt-1 text-xs text-[var(--brand-crimson)]">{fieldErrors.attachmentUrl[0]}</p>
@@ -453,7 +453,7 @@ export default function NoticeEditorForm({
               value={attachmentSizeBytes}
               onChange={(e) => setAttachmentSizeBytes(e.target.value)}
               placeholder="e.g., 245760"
-              className="w-full px-3 py-2 font-mono text-xs tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+              className="w-full px-3 py-2 font-mono text-xs tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
             />
           </div>
 
@@ -481,7 +481,7 @@ export default function NoticeEditorForm({
       <div className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md overflow-hidden">
         <div className="px-5 py-3 border-b border-[var(--rule)] bg-[var(--surface)] flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-[var(--primary-navy)]" aria-hidden="true" />
+            <FileText className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
             <span className="text-xs font-semibold text-[var(--ink)]">
               Circular Body (GFM Markdown · rehype-sanitize AST)
             </span>
@@ -493,7 +493,7 @@ export default function NoticeEditorForm({
               onClick={() => setActiveTab('split')}
               className={`px-2.5 py-1 rounded-sm font-medium cursor-pointer ${
                 activeTab === 'split'
-                  ? 'bg-[var(--primary-navy)] text-white'
+                  ? 'bg-[var(--ruby)] text-white'
                   : 'text-[var(--muted)] hover:text-[var(--ink)]'
               }`}
             >
@@ -504,7 +504,7 @@ export default function NoticeEditorForm({
               onClick={() => setActiveTab('write')}
               className={`px-2.5 py-1 rounded-sm font-medium cursor-pointer ${
                 activeTab === 'write'
-                  ? 'bg-[var(--primary-navy)] text-white'
+                  ? 'bg-[var(--ruby)] text-white'
                   : 'text-[var(--muted)] hover:text-[var(--ink)]'
               }`}
             >
@@ -515,7 +515,7 @@ export default function NoticeEditorForm({
               onClick={() => setActiveTab('preview')}
               className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-sm font-medium cursor-pointer ${
                 activeTab === 'preview'
-                  ? 'bg-[var(--primary-navy)] text-white'
+                  ? 'bg-[var(--ruby)] text-white'
                   : 'text-[var(--muted)] hover:text-[var(--ink)]'
               }`}
             >
@@ -541,7 +541,7 @@ export default function NoticeEditorForm({
                 rows={16}
                 value={contentMarkdown}
                 onChange={(e) => setContentMarkdown(e.target.value)}
-                className="w-full h-full min-h-[340px] p-3 font-mono text-xs leading-relaxed bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+                className="w-full h-full min-h-[340px] p-3 font-mono text-xs leading-relaxed bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
               />
               {fieldErrors.contentMarkdown && (
                 <p className="mt-1.5 text-xs text-[var(--brand-crimson)]">

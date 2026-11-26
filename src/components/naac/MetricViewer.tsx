@@ -21,13 +21,13 @@ export default function MetricViewer({
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/accreditation/naac"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
           <span>Back to NAAC Criteria 1–7 Explorer</span>
         </Link>
 
-        <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold px-2.5 py-1 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--brass-gold)]">
+        <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold px-2.5 py-1 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
           <Award className="w-3.5 h-3.5" aria-hidden="true" />
           Criterion {metric.criterionNumber} · NAAC &apos;A+&apos; SSR
         </span>
@@ -35,7 +35,7 @@ export default function MetricViewer({
 
       {/* Metric Header */}
       <header className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
-        <div className="font-mono text-xs text-[var(--primary-navy)] font-semibold">
+        <div className="font-mono text-xs text-[var(--ruby)] font-semibold">
           NAAC SELF STUDY REPORT · CRITERION {metric.criterionNumber}
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[var(--ink)] mt-2">
@@ -50,7 +50,7 @@ export default function MetricViewer({
             </span>
           )}
           {metric.tablesCount > 0 && (
-            <span className="inline-flex items-center gap-1.5 text-[var(--primary-navy)] font-semibold">
+            <span className="inline-flex items-center gap-1.5 text-[var(--ruby)] font-semibold">
               <Table2 className="w-3.5 h-3.5" aria-hidden="true" />
               {metric.tablesCount} Verified Data Table{metric.tablesCount > 1 ? 's' : ''}
             </span>
@@ -74,7 +74,7 @@ export default function MetricViewer({
           aria-label={`Criterion ${metric.criterionNumber} metrics`}
           className="lg:col-span-4 bg-[var(--surface)] border border-[var(--rule)] rounded-md p-5 sticky top-24"
         >
-          <div className="font-mono text-xs font-semibold text-[var(--primary-navy)] pb-3 border-b border-[var(--rule)]">
+          <div className="font-mono text-xs font-semibold text-[var(--ruby)] pb-3 border-b border-[var(--rule)]">
             CRITERION {metric.criterionNumber} METRICS ({siblingMetrics.length})
           </div>
           <ul className="divide-y divide-[var(--rule)] mt-1 max-h-[60vh] overflow-y-auto">
@@ -88,7 +88,7 @@ export default function MetricViewer({
                     className={`block py-2.5 text-xs transition-colors ${
                       isCurrent
                         ? 'font-bold text-[var(--brand-crimson)]'
-                        : 'text-[var(--ink)] hover:text-[var(--primary-navy)]'
+                        : 'text-[var(--ink)] hover:text-[var(--ruby)]'
                     }`}
                   >
                     {item.title}

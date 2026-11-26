@@ -44,27 +44,27 @@ export default function CatchAllNotFound() {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6">
-      <div className="rounded-xl border border-slate-200 bg-white p-8 sm:p-12 shadow-xs space-y-8">
+      <div className="rounded-xl border border-[var(--rule)] bg-white p-8 sm:p-12 shadow-xs space-y-8">
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded text-xs font-mono font-semibold uppercase tracking-wider bg-amber-50 text-amber-900 border border-amber-200">
             <FileQuestion className="w-3.5 h-3.5 text-amber-700" />
             <span>404 - Document Not Found</span>
           </div>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-serif font-medium tracking-tight text-[var(--ink)]">
             The requested institutional record could not be located
           </h1>
 
-          <p className="text-base text-slate-600 leading-relaxed">
+          <p className="text-base text-[var(--muted)] leading-relaxed">
             The page you requested may have been reorganized during academic curriculum
             updates or consolidated under the autonomous portal modernization.
           </p>
         </div>
 
         {/* Major Institutional Hubs for Direct Recovery */}
-        <div className="space-y-4 pt-4 border-t border-slate-100">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
-            <Search className="w-3.5 h-3.5 text-slate-400" />
+        <div className="space-y-4 pt-4 border-t border-[var(--rule)]">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-[var(--muted)] flex items-center gap-2">
+            <Search className="w-3.5 h-3.5 text-[var(--muted)]" />
             <span>Primary Institutional Repositories</span>
           </h2>
 
@@ -75,18 +75,18 @@ export default function CatchAllNotFound() {
                 <Link
                   key={hub.href}
                   href={hub.href}
-                  className="group flex flex-col justify-between p-4 rounded-lg border border-slate-200 hover:border-slate-400 bg-slate-50/50 hover:bg-slate-50 transition-all"
+                  className="group flex flex-col justify-between p-4 rounded-lg border border-[var(--rule)] hover:border-slate-400 bg-[var(--surface)]/50 hover:bg-[var(--surface)] transition-all"
                 >
                   <div className="space-y-1">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-slate-950">
-                      <Icon className="w-4 h-4 text-slate-500 group-hover:text-slate-800 transition-colors" />
+                    <div className="flex items-center gap-2 text-sm font-semibold text-[var(--ink)] group-hover:text-[var(--ruby)]">
+                      <Icon className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--ruby)] transition-colors" />
                       <span>{hub.title}</span>
                     </div>
-                    <p className="text-xs text-slate-500 leading-normal">
+                    <p className="text-xs text-[var(--muted)] leading-normal">
                       {hub.description}
                     </p>
                   </div>
-                  <div className="mt-3 flex items-center gap-1 text-xs font-medium text-slate-700 group-hover:text-slate-950">
+                  <div className="mt-3 flex items-center gap-1 text-xs font-medium text-[var(--muted)] group-hover:text-[var(--ruby)]">
                     <span>Explore Section</span>
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -97,16 +97,16 @@ export default function CatchAllNotFound() {
         </div>
 
         {/* Return Action */}
-        <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+        <div className="pt-6 border-t border-[var(--rule)] flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium transition-colors shadow-xs"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[var(--ruby)] hover:bg-slate-800 text-white text-xs font-medium transition-colors shadow-xs"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Return to Institutional Homepage</span>
           </Link>
 
-          <span className="text-xs text-slate-500 font-mono">
+          <span className="text-xs text-[var(--muted)] font-mono">
             Autonomous Institution • JNTUA Affiliated
           </span>
         </div>

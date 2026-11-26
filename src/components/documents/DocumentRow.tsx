@@ -92,8 +92,8 @@ export function getMimeBadge(mimeType: string, filename: string): { label: strin
 
 function MimeIcon({ kind }: { kind: 'pdf' | 'img' | 'video' | 'doc' }) {
   if (kind === 'pdf') return <FileText className="w-3.5 h-3.5 text-[var(--brand-crimson)] shrink-0" aria-hidden="true" />;
-  if (kind === 'img') return <ImageIcon className="w-3.5 h-3.5 text-[var(--primary-navy)] shrink-0" aria-hidden="true" />;
-  if (kind === 'video') return <Film className="w-3.5 h-3.5 text-[var(--brass-gold)] shrink-0" aria-hidden="true" />;
+  if (kind === 'img') return <ImageIcon className="w-3.5 h-3.5 text-[var(--ruby)] shrink-0" aria-hidden="true" />;
+  if (kind === 'video') return <Film className="w-3.5 h-3.5 text-[var(--ruby)] shrink-0" aria-hidden="true" />;
   return <FileSpreadsheet className="w-3.5 h-3.5 text-[var(--muted)] shrink-0" aria-hidden="true" />;
 }
 
@@ -137,12 +137,12 @@ export default function DocumentRow({ item }: { item: VaultDocumentItem }) {
       <td className="py-3.5 px-4 align-top whitespace-nowrap font-mono text-xs text-[var(--muted)]">
         <div className="flex items-center gap-1.5">
           {dept && (
-            <span className="px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--primary-navy)] font-semibold text-[11px]">
+            <span className="px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] font-semibold text-[11px]">
               {dept}
             </span>
           )}
           {reg && (
-            <span className="px-1.5 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--brass-gold)] font-semibold text-[11px]">
+            <span className="px-1.5 py-0.5 rounded-sm bg-[var(--ruby)]/10 border border-[var(--ruby)]/30 text-[var(--ruby)] font-semibold text-[11px]">
               {reg}
             </span>
           )}
@@ -168,7 +168,7 @@ export default function DocumentRow({ item }: { item: VaultDocumentItem }) {
           href={safeHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold bg-[var(--primary-navy)] hover:bg-[#08192e] text-white transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors"
         >
           <span>Open</span>
           <ExternalLink className="w-3 h-3" aria-hidden="true" />

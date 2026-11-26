@@ -102,20 +102,20 @@ export default async function CatchAllContentPage({ params }: PageProps) {
   return (
     <article className="space-y-8">
       {/* Hierarchical Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-[var(--muted)]">
         {breadcrumbs.map((crumb, idx) => {
           const isLast = idx === breadcrumbs.length - 1;
           return (
             <div key={crumb.href} className="inline-flex items-center gap-1.5">
-              {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />}
+              {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-[var(--muted)] shrink-0" aria-hidden="true" />}
               {isLast ? (
-                <span className="font-semibold text-slate-800" aria-current="page">
+                <span className="font-semibold text-[var(--ruby)]" aria-current="page">
                   {crumb.label}
                 </span>
               ) : (
                 <Link
                   href={crumb.href}
-                  className="hover:text-slate-900 underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
+                  className="hover:text-[var(--ink)] underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
                 >
                   {crumb.label}
                 </Link>
@@ -126,38 +126,38 @@ export default async function CatchAllContentPage({ params }: PageProps) {
       </nav>
 
       {/* Institutional Document Header */}
-      <header className="border-b border-slate-200 pb-6">
+      <header className="section-masthead border-b border-[var(--rule)] pb-6">
         <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-800 border border-slate-200 uppercase tracking-wider font-mono">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[var(--surface)] text-[var(--ruby)] border border-[var(--rule)] uppercase tracking-wider font-mono">
             {frontmatter.section}
           </span>
-          <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-mono">
+          <span className="inline-flex items-center gap-1 text-[11px] text-[var(--muted)] font-mono">
             <ShieldCheck className="w-3 h-3 text-emerald-600" />
             Autonomous Verified
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+        <h1 className="text-3xl sm:text-4xl font-serif font-medium tracking-tight text-[var(--ink)] mb-4">
           {frontmatter.title}
         </h1>
 
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-500">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[var(--muted)]">
           {formattedDate && (
             <div className="inline-flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+              <Calendar className="w-3.5 h-3.5 text-[var(--muted)]" aria-hidden="true" />
               <span>Last updated {formattedDate}</span>
             </div>
           )}
 
           {frontmatter.tables_count > 0 && (
-            <div className="inline-flex items-center gap-1.5 text-slate-700 font-medium">
-              <Table2 className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
+            <div className="inline-flex items-center gap-1.5 text-[var(--muted)] font-medium">
+              <Table2 className="w-3.5 h-3.5 text-[var(--muted)]" aria-hidden="true" />
               <span>{frontmatter.tables_count} Academic Table{frontmatter.tables_count > 1 ? 's' : ''}</span>
             </div>
           )}
 
           {frontmatter.pdfs_count > 0 && (
-            <div className="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+            <div className="inline-flex items-center gap-1.5 text-[var(--muted)] font-medium">
               <FileText className="w-3.5 h-3.5 text-red-600" aria-hidden="true" />
               <span>{frontmatter.pdfs_count} Verified PDF{frontmatter.pdfs_count > 1 ? 's' : ''}</span>
             </div>
@@ -184,9 +184,9 @@ export default async function CatchAllContentPage({ params }: PageProps) {
             aria-label="Table of contents"
             className="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24 space-y-4"
           >
-            <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-xs">
-              <div className="flex items-center gap-1.5 pb-3 border-b border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-900">
-                <Compass className="w-4 h-4 text-slate-500" aria-hidden="true" />
+            <div className="rounded-lg border border-[var(--rule)] bg-white p-5 shadow-xs">
+              <div className="flex items-center gap-1.5 pb-3 border-b border-[var(--rule)] text-xs font-bold uppercase tracking-wider text-[var(--ink)]">
+                <Compass className="w-4 h-4 text-[var(--muted)]" aria-hidden="true" />
                 <span>On This Page</span>
               </div>
 
@@ -194,14 +194,14 @@ export default async function CatchAllContentPage({ params }: PageProps) {
                 {toc.map((item) => (
                   <li
                     key={item.id}
-                    className={item.level === 3 ? 'pl-3 text-slate-500 border-l border-slate-100' : ''}
+                    className={item.level === 3 ? 'pl-3 text-[var(--muted)] border-l border-[var(--rule)]' : ''}
                   >
                     <a
                       href={`#${item.id}`}
-                      className="group flex items-center justify-between text-slate-600 hover:text-slate-950 font-medium transition-colors"
+                      className="group flex items-center justify-between text-[var(--muted)] hover:text-[var(--ruby)] font-medium transition-colors"
                     >
                       <span className="truncate">{item.text}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 text-slate-400 shrink-0 transition-opacity" />
+                      <ArrowUpRight className="w-3 h-3 opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] shrink-0 transition-opacity" />
                     </a>
                   </li>
                 ))}

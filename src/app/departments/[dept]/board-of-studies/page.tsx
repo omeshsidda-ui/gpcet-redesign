@@ -77,7 +77,7 @@ export default async function DepartmentBosPage({ params }: DeptBosPageProps) {
                   href={String(doc.fileUrl || '').replace(/^http:\/\//i, 'https://')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)] shrink-0"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)] shrink-0"
                 >
                   <span>PDF</span>
                   <ExternalLink className="w-3 h-3" aria-hidden="true" />
@@ -91,7 +91,7 @@ export default async function DepartmentBosPage({ params }: DeptBosPageProps) {
       <div>
         <Link
           href="/academics/academic-council"
-          className="text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+          className="text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
         >
           View Institutional Academic Council →
         </Link>

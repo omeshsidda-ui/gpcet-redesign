@@ -120,7 +120,7 @@ export default function NoticeListClient({
 
         <Link
           href="/admin/notices/new"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded text-xs font-semibold bg-[var(--brand-crimson)] text-white hover:bg-[#70102d] transition-colors shrink-0"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded text-xs font-semibold bg-[var(--brand-crimson)] text-white hover:bg-[var(--burgundy)] transition-colors shrink-0"
         >
           <FilePlus2 className="w-4 h-4" aria-hidden="true" />
           Publish New Circular
@@ -130,9 +130,9 @@ export default function NoticeListClient({
       {!isLiveDatabase && (
         <div
           role="note"
-          className="flex items-start gap-3 p-4 rounded-md border border-[var(--brass-gold)]/40 bg-[var(--brass-gold)]/10 text-xs text-[var(--ink)]"
+          className="flex items-start gap-3 p-4 rounded-md border border-[var(--ruby)]/40 bg-[var(--ruby)]/10 text-xs text-[var(--ink)]"
         >
-          <Info className="w-4 h-4 text-[var(--brass-gold)] shrink-0 mt-0.5" aria-hidden="true" />
+          <Info className="w-4 h-4 text-[var(--ruby)] shrink-0 mt-0.5" aria-hidden="true" />
           <div>
             <p className="font-semibold">Offline Seed Preview Mode</p>
             <p className="mt-0.5 text-[var(--muted)]">
@@ -150,7 +150,7 @@ export default function NoticeListClient({
           className={`flex items-start gap-2.5 p-3.5 rounded border text-xs ${
             feedback.type === 'error'
               ? 'bg-[var(--brand-crimson)]/5 border-[var(--brand-crimson)]/30 text-[var(--brand-crimson)]'
-              : 'bg-[var(--primary-navy)]/5 border-[var(--primary-navy)]/20 text-[var(--primary-navy)]'
+              : 'bg-[var(--ruby)]/5 border-[var(--ruby)]/20 text-[var(--ruby)]'
           }`}
         >
           {feedback.type === 'error' ? (
@@ -179,7 +179,7 @@ export default function NoticeListClient({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Title, slug, or summary..."
-              className="w-full pl-9 pr-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] placeholder:text-[var(--muted)]/60 focus:outline-none focus:border-[var(--primary-navy)]"
+              className="w-full pl-9 pr-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] placeholder:text-[var(--muted)]/60 focus:outline-none focus:border-[var(--ruby)]"
             />
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function NoticeListClient({
             id="notice-category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             {CATEGORIES.map((c) => (
               <option key={c.value} value={c.value}>
@@ -210,7 +210,7 @@ export default function NoticeListClient({
             id="notice-priority"
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             {PRIORITIES.map((p) => (
               <option key={p.value} value={p.value}>
@@ -226,7 +226,7 @@ export default function NoticeListClient({
               type="checkbox"
               checked={tickerOnly}
               onChange={(e) => setTickerOnly(e.target.checked)}
-              className="w-4 h-4 rounded border-[var(--rule)] accent-[var(--primary-navy)]"
+              className="w-4 h-4 rounded border-[var(--rule)] accent-[var(--ruby)]"
             />
             <span>Ticker only</span>
           </label>
@@ -291,7 +291,7 @@ export default function NoticeListClient({
                                 </span>
                               )}
                               {notice.attachmentUrl && (
-                                <span className="inline-flex items-center gap-1 text-[var(--primary-navy)]">
+                                <span className="inline-flex items-center gap-1 text-[var(--ruby)]">
                                   <Paperclip className="w-3 h-3" aria-hidden="true" />
                                   PDF
                                 </span>
@@ -313,7 +313,7 @@ export default function NoticeListClient({
                             notice.priority === 'urgent'
                               ? 'bg-[var(--brand-crimson)] text-white'
                               : notice.priority === 'high'
-                              ? 'bg-[var(--brass-gold)]/20 text-[var(--ink)] border border-[var(--brass-gold)]/40'
+                              ? 'bg-[var(--ruby)]/20 text-[var(--ink)] border border-[var(--ruby)]/40'
                               : 'bg-[var(--surface)] text-[var(--muted)] border border-[var(--rule)]'
                           }`}
                         >
@@ -334,7 +334,7 @@ export default function NoticeListClient({
                           aria-label={`${notice.isTicker ? 'Remove from' : 'Add to'} homepage ticker: ${notice.title}`}
                           className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold border transition-colors cursor-pointer disabled:opacity-50 ${
                             notice.isTicker
-                              ? 'bg-[var(--primary-navy)] text-white border-[var(--primary-navy)]'
+                              ? 'bg-[var(--ruby)] text-white border-[var(--ruby)]'
                               : 'bg-[var(--bg)] text-[var(--muted)] border-[var(--rule)] hover:text-[var(--ink)]'
                           }`}
                         >
@@ -346,7 +346,7 @@ export default function NoticeListClient({
                       <td className="px-4 py-3.5 align-top whitespace-nowrap text-right">
                         <Link
                           href={`/admin/notices/${notice.id}`}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:border-[var(--primary-navy)] transition-colors"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:border-[var(--ruby)] transition-colors"
                         >
                           <Pencil className="w-3 h-3" aria-hidden="true" />
                           Edit

@@ -174,8 +174,8 @@ Powered by the **Vercel Workflow SDK**:
 ## 6. Frontend Art Direction & Anti-Slop Design System
 
 To ensure an elite, handcrafted academic feel and eliminate generic AI templates:
-1. **The Civic Monolith & Gazette**: 58/42 asymmetric editorial split on desktop, collapsing cleanly to 16px/20px margins on mobile.
-2. **Strict 75 / 20 / 5 Color Distribution**: 75% Alabaster (`#FBFBFD`) and Stone (`#F1F3F6`) canvas; 20% Midnight Ink (`#0A1124`) and Imperial Navy (`#0C2340`); <5% Academic Oxblood (`#8A1538`) and Burnished Brass (`#B8860B`). Banned cream/terracotta and neon purple gradients.
+1. The homepage pairs a ruby editorial title panel with local campus photography. College figures and the live gazette follow in a separate spread.
+2. The shared shell uses the official crest, ivory canvas, charcoal ink and a crimson/ruby action hierarchy. The [design system](./references/design-system-and-anti-slop.md) documents the tokens.
 3. **Typographic Pairing**: Dignified display serif (*Newsreader* / *Erode*) for headlines; crisp geometric sans (*Plus Jakarta Sans*) for UI reading; tabular monospace (*JetBrains Mono*) for regulation codes and metrics.
 4. **Authoritative Planning Documentation**:
    - Implementation Plan: [`docs/PLAN.md`](./PLAN.md)

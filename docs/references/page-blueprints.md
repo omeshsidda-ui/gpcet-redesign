@@ -16,21 +16,8 @@ The homepage rejects standard marketing fluff. It functions as an **Institutiona
 +---------------------------------------------------------------------------------------------------+
 | INSTITUTIONAL NAVBAR: [Crest] Academics  Departments  Admissions  Placements  Accreditation [⌘K] |
 +---------------------------------------------------------------------------------------------------+
-| HERO SPREAD (75vh):                                                                               |
-|                                                                                                   |
-| <--- Left Column (58%): Institutional Mandate --->   <--- Right Column (42%): Academic Gazette -> |
-|                                                     |                                             |
-| [Newsreader Serif 54px]                             | [URGENT DISPATCH & AUTONOMOUS CIRCULARS]    |
-| An Autonomous Engineering                           | • B.Tech IV Year II Sem Regular Timetable   |
-| Citadel in Rayalaseema.                             |   PDF | Exam Cell | 2026-10-30              |
-|                                                     | • R20 Regulation Academic Calendar 2026-27  |
-| Grounded in academic rigor, technical invention,    |   PDF | Autonomous Office | 2026-10-28      |
-| and civic responsibility since 2007.                | • Infosys & TCS Campus Drive Shortlist      |
-|                                                     |   PDF | Training & Placements | 2026-10-25  |
-| [Tabular Stats Bar]                                 | • AICTE Idea Lab Student Innovation Cohort  |
-| CSE Intake: 360 | NAAC: A+ | NBA: 5 Programs        |   PDF | Research Cell | 2026-10-22          |
-|                                                     |                                             |
-| [Primary CTA: Access Document Vault] [Departments]  | [View All 5,822 Cataloged Documents →]     |
+| Ruby title panel and department/admissions links | Captioned Kurnool campus photograph            |
+| College at a glance                              | Academic gazette and official circulars       |
 +---------------------------------------------------------------------------------------------------+
 | MONOLITHIC REGISTER: Academic Departments (8 Disciplines)                                         |
 | [Structured horizontal table: Code | Department | Degrees | Intake | Faculty | NBA | Action]      |
@@ -60,7 +47,7 @@ The homepage rejects standard marketing fluff. It functions as an **Institutiona
 ### Key Components for Homepage:
 1. `TopInstitutionalBar.tsx`: Regulatory banner with autonomous credentials and quick student portals.
 2. `InstitutionalNavbar.tsx`: Accessible mega-menu with hierarchical dropdowns and mobile sheet drawer.
-3. `AsymmetricHeroSpread.tsx`: 58/42 split hero layout with masked headline animation.
+3. `AsymmetricHeroSpread.tsx`: 46/54 campus and title spread with masked headline animation.
 4. `LiveAcademicGazette.tsx`: Real-time circular feed parsed directly from cached notices with direct PDF links.
 5. `DepartmentalMatrix.tsx`: Tabular register replacing generic 3-card grids.
 6. `LeadershipDiscourse.tsx`: Curated quotes with local leadership portraits from `public/assets/leadership/`.

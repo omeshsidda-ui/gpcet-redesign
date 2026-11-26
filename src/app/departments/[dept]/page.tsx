@@ -63,7 +63,7 @@ export default async function DepartmentOverviewPage({ params }: DeptOverviewPro
           className="bg-[var(--surface-raised)] hover:bg-[var(--surface)] p-5 transition-colors flex flex-col justify-between gap-3"
         >
           <div>
-            <div className="font-mono text-xs text-[var(--primary-navy)] font-semibold tabular-nums">
+            <div className="font-mono text-xs text-[var(--ruby)] font-semibold tabular-nums">
               {department.facultyCount} RECORDS
             </div>
             <div className="font-serif text-lg font-medium text-[var(--ink)] mt-1">
@@ -80,7 +80,7 @@ export default async function DepartmentOverviewPage({ params }: DeptOverviewPro
           className="bg-[var(--surface-raised)] hover:bg-[var(--surface)] p-5 transition-colors flex flex-col justify-between gap-3"
         >
           <div>
-            <div className="font-mono text-xs text-[var(--primary-navy)] font-semibold">
+            <div className="font-mono text-xs text-[var(--ruby)] font-semibold">
               INFRASTRUCTURE
             </div>
             <div className="font-serif text-lg font-medium text-[var(--ink)] mt-1">
@@ -97,7 +97,7 @@ export default async function DepartmentOverviewPage({ params }: DeptOverviewPro
           className="bg-[var(--surface-raised)] hover:bg-[var(--surface)] p-5 transition-colors flex flex-col justify-between gap-3"
         >
           <div>
-            <div className="font-mono text-xs text-[var(--primary-navy)] font-semibold">
+            <div className="font-mono text-xs text-[var(--ruby)] font-semibold">
               AUTONOMOUS GOVERNANCE
             </div>
             <div className="font-serif text-lg font-medium text-[var(--ink)] mt-1">
@@ -114,7 +114,7 @@ export default async function DepartmentOverviewPage({ params }: DeptOverviewPro
           className="bg-[var(--surface-raised)] hover:bg-[var(--surface)] p-5 transition-colors flex flex-col justify-between gap-3"
         >
           <div>
-            <div className="font-mono text-xs text-[var(--primary-navy)] font-semibold">
+            <div className="font-mono text-xs text-[var(--ruby)] font-semibold">
               R18 – R26 SERIES
             </div>
             <div className="font-serif text-lg font-medium text-[var(--ink)] mt-1">

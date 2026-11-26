@@ -26,7 +26,7 @@ export default function ResearchExcellenceBand() {
             </p>
             <Link
               href="/research/research-home"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
             >
               <span>Research &amp; Development Cell</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -51,7 +51,7 @@ export default function ResearchExcellenceBand() {
 
             <div className="p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)]">
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)]">
                   <Cpu className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
                   <span>AICTE IDEA LAB · R&amp;D CELL · IEEE STUDENT BRANCH</span>
                 </div>
@@ -73,24 +73,24 @@ export default function ResearchExcellenceBand() {
               <div className="mt-6 pt-5 border-t border-[var(--rule)] grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Link
                   href="/accreditation/aicte-idea-lab"
-                  className="group flex items-center justify-between p-3 rounded border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--primary-navy)] transition-colors"
+                  className="group flex items-center justify-between p-3 rounded border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--ruby)] transition-colors"
                 >
                   <span className="text-xs font-semibold text-[var(--ink)]">AICTE IDEA Lab</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--primary-navy)]" aria-hidden="true" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--ruby)]" aria-hidden="true" />
                 </Link>
                 <Link
                   href="/accreditation/naac/3-4-3"
-                  className="group flex items-center justify-between p-3 rounded border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--primary-navy)] transition-colors"
+                  className="group flex items-center justify-between p-3 rounded border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--ruby)] transition-colors"
                 >
                   <span className="text-xs font-semibold text-[var(--ink)]">Publications (3.4.3)</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--primary-navy)]" aria-hidden="true" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--ruby)]" aria-hidden="true" />
                 </Link>
                 <Link
                   href="/research/research-funds"
-                  className="group flex items-center justify-between p-3 rounded border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--primary-navy)] transition-colors"
+                  className="group flex items-center justify-between p-3 rounded border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--ruby)] transition-colors"
                 >
                   <span className="text-xs font-semibold text-[var(--ink)]">Funded Grants</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--primary-navy)]" aria-hidden="true" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[var(--muted)] group-hover:text-[var(--ruby)]" aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function ResearchExcellenceBand() {
               </div>
 
               <div className="p-5">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[var(--primary-navy)]">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[var(--ruby)]">
                   <Library className="w-4 h-4" aria-hidden="true" />
                   <span>Central &amp; Digital Library</span>
                 </div>
@@ -149,7 +149,7 @@ export default function ResearchExcellenceBand() {
                 <div className="mt-4">
                   <Link
                     href="/campus-life"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
                   >
                     <span>Explore Campus &amp; Library Facilities</span>
                     <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -162,7 +162,7 @@ export default function ResearchExcellenceBand() {
             <div className="bg-[var(--surface)] border border-[var(--rule)] rounded-md p-5">
               <div className="flex items-center justify-between pb-3 border-b border-[var(--rule)]">
                 <span className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--ink)]">
-                  <Award className="w-4 h-4 text-[var(--brass-gold)]" aria-hidden="true" />
+                  <Award className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Statutory &amp; Accreditation Index</span>
                 </span>
                 <span className="font-mono text-[11px] text-[var(--muted)]">Cycle 2</span>

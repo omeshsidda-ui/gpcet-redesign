@@ -6,7 +6,7 @@ export default function CatchAllLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#FBFBFD] text-slate-900 selection:bg-slate-200">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--ink)] selection:bg-slate-200">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {children}
       </main>

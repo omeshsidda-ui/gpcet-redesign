@@ -17,7 +17,7 @@ export default async function DepartmentsIndexPage() {
   return (
     <div className="bg-[var(--bg)] min-h-screen py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
-        <header className="pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <header className="section-masthead pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-7">
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-medium tracking-tight text-[var(--ink)]">
               Academic Departments &amp; Faculties
@@ -34,11 +34,11 @@ export default async function DepartmentsIndexPage() {
               <div className="text-[11px] text-[var(--muted)] font-sans">Departments</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--primary-navy)]">{totalFaculty}</div>
+              <div className="text-xl font-bold text-[var(--ruby)]">{totalFaculty}</div>
               <div className="text-[11px] text-[var(--muted)] font-sans">Faculty Roster</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--brass-gold)]">5</div>
+              <div className="text-xl font-bold text-[var(--distinction-ink)]">5</div>
               <div className="text-[11px] text-[var(--muted)] font-sans">NBA Programs</div>
             </div>
           </div>
@@ -53,11 +53,11 @@ export default async function DepartmentsIndexPage() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-xs font-semibold text-[var(--primary-navy)] tabular-nums">
+                  <span className="font-mono text-xs font-semibold text-[var(--ruby)] tabular-nums">
                     CODE {dept.deptNumber} · {dept.shortName} · ESTD. {dept.establishedYear}
                   </span>
                   {dept.nbaAccredited && (
-                    <span className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--brass-gold)]">
+                    <span className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
                       <Award className="w-3 h-3" aria-hidden="true" />
                       NBA
                     </span>
@@ -87,7 +87,7 @@ export default async function DepartmentsIndexPage() {
                     <div className="text-[11px] text-[var(--muted)] font-sans">Intake</div>
                   </div>
                   <div>
-                    <div className="font-semibold text-[var(--primary-navy)]">
+                    <div className="font-semibold text-[var(--ruby)]">
                       {dept.facultyCount} Members
                     </div>
                     <div className="text-[11px] text-[var(--muted)] font-sans">Faculty</div>
@@ -96,7 +96,7 @@ export default async function DepartmentsIndexPage() {
 
                 <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
                   <span className="inline-flex items-center gap-1.5 text-[var(--muted)]">
-                    <Users className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+                    <Users className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                     HOD: <strong className="text-[var(--ink)]">{dept.hodName}</strong>
                   </span>
 
@@ -109,7 +109,7 @@ export default async function DepartmentsIndexPage() {
                     </Link>
                     <Link
                       href={`/departments/${dept.code}`}
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[var(--primary-navy)] hover:bg-[#08192e] text-white font-semibold transition-colors"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white font-semibold transition-colors"
                     >
                       <span>Open Portal</span>
                       <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />

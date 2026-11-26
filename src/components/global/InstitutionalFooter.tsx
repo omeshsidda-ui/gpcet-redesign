@@ -16,7 +16,7 @@ export default function InstitutionalFooter() {
   return (
     <footer
       aria-label="Institutional Footer and Statutory Disclosures"
-      className="bg-[#0C2340] text-slate-300 border-t border-white/10 text-xs mt-auto transition-colors"
+      className="bg-[var(--ruby)] text-stone-200 border-t border-white/10 text-xs mt-auto transition-colors"
     >
       {/* Upper Footer: Core Coordinates & Structured Navigation Columns */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
@@ -24,34 +24,35 @@ export default function InstitutionalFooter() {
           {/* Column 1: Institutional Authority & Campus Coordinates (Spans 2 cols on desktop) */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <div>
+              <img src="/assets/brand/gpcet-logo.png" width={64} height={64} alt="" className="mb-4 size-16 object-contain bg-white p-1" />
               <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white block">
                 G. Pullaiah College of Engineering &amp; Technology
               </span>
-              <span className="text-amber-300 font-semibold tracking-wider uppercase text-[11px] mt-1 block">
+              <span className="text-rose-100 font-semibold tracking-wider uppercase text-[11px] mt-1 block">
                 Autonomous Institution · Estd. 2007
               </span>
             </div>
 
-            <p className="text-slate-300 text-xs leading-relaxed max-w-sm">
+            <p className="text-stone-200 text-xs leading-relaxed max-w-sm">
               Accredited with &apos;A+&apos; Grade by NAAC (3.38 CGPA) and recognized as an Autonomous
               Institution by UGC. Approved by AICTE, New Delhi and permanently affiliated to JNTUA, Ananthapuramu.
             </p>
 
             {/* Campus Coordinates */}
-            <div className="flex flex-col gap-2.5 text-xs text-slate-300 pt-2 border-t border-white/10">
+            <div className="flex flex-col gap-2.5 text-xs text-stone-200 pt-2 border-t border-white/10">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <MapPin className="w-4 h-4 text-rose-100 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>
                   Near Venkayapalli, Pasupula Village, Nandikotkur Road,<br />
                   Kurnool – 518 452, Andhra Pradesh, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-amber-300 flex-shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 text-rose-100 flex-shrink-0" aria-hidden="true" />
                 <span>+91 9988776600 · 08518-285011</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-amber-300 flex-shrink-0" aria-hidden="true" />
+                <Mail className="w-4 h-4 text-rose-100 flex-shrink-0" aria-hidden="true" />
                 <a
                   href="mailto:principal@gpcet.ac.in"
                   className="hover:text-white underline underline-offset-2 transition-colors"
@@ -63,10 +64,10 @@ export default function InstitutionalFooter() {
 
             {/* Counseling Codes */}
             <div className="flex items-center gap-3 pt-2 text-[11px] font-mono">
-              <span className="px-2 py-1 rounded bg-white/10 border border-white/15 text-amber-300 font-semibold">
+              <span className="px-2 py-1 rounded bg-white/10 border border-white/15 text-rose-100 font-semibold">
                 EAPCET: PULE
               </span>
-              <span className="px-2 py-1 rounded bg-white/10 border border-white/15 text-slate-200">
+              <span className="px-2 py-1 rounded bg-white/10 border border-white/15 text-stone-100">
                 COLLEGE CODE: GP
               </span>
             </div>
@@ -83,7 +84,7 @@ export default function InstitutionalFooter() {
                   href="/documents?category=syllabus"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Syllabi &amp; Curriculum (R20)
                 </Link>
               </li>
@@ -92,7 +93,7 @@ export default function InstitutionalFooter() {
                   href="/documents?category=timetable"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Exam Cell Timetables
                 </Link>
               </li>
@@ -101,7 +102,7 @@ export default function InstitutionalFooter() {
                   href="/documents?category=calendar"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Academic Calendars 2026-27
                 </Link>
               </li>
@@ -110,7 +111,7 @@ export default function InstitutionalFooter() {
                   href="/academics/regulations"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Autonomous Regulations
                 </Link>
               </li>
@@ -119,7 +120,7 @@ export default function InstitutionalFooter() {
                   href="/academics/council"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Board of Studies (BoS)
                 </Link>
               </li>
@@ -128,7 +129,7 @@ export default function InstitutionalFooter() {
                   href="https://jntua.ac.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1.5 text-slate-400"
+                  className="hover:text-white transition-colors flex items-center gap-1.5 text-stone-300"
                 >
                   <ExternalLink className="w-3 h-3" aria-hidden="true" />
                   JNTUA University Portal
@@ -197,7 +198,7 @@ export default function InstitutionalFooter() {
                   href="/statutory/rti"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Right to Information (RTI Act)
                 </Link>
               </li>
@@ -206,7 +207,7 @@ export default function InstitutionalFooter() {
                   href="/statutory/mandatory-disclosure"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   AICTE Mandatory Disclosure
                 </Link>
               </li>
@@ -215,7 +216,7 @@ export default function InstitutionalFooter() {
                   href="/accreditation/naac"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   NAAC SSR Portfolio (Cycle 2)
                 </Link>
               </li>
@@ -224,16 +225,16 @@ export default function InstitutionalFooter() {
                   href="/accreditation/nba"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   NBA Tier-1 Accreditation
                 </Link>
               </li>
               <li>
                 <Link
                   href="/statutory/anti-ragging"
-                  className="hover:text-white transition-colors flex items-center gap-1.5 text-amber-300"
+                  className="hover:text-white transition-colors flex items-center gap-1.5 text-rose-100"
                 >
-                  <ChevronRight className="w-3 h-3 text-amber-300" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-rose-100" aria-hidden="true" />
                   Anti-Ragging Committee
                 </Link>
               </li>
@@ -242,7 +243,7 @@ export default function InstitutionalFooter() {
                   href="/statutory/grievance"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   Grievance Redressal Mechanism
                 </Link>
               </li>
@@ -251,7 +252,7 @@ export default function InstitutionalFooter() {
                   href="/statutory/nirf"
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  <ChevronRight className="w-3 h-3 text-slate-400" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-stone-300" aria-hidden="true" />
                   NIRF Data Submissions
                 </Link>
               </li>
@@ -261,7 +262,7 @@ export default function InstitutionalFooter() {
 
         {/* Official Statutory Accreditation Seals Band */}
         <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-5 text-center">
+          <div className="text-[11px] font-semibold text-stone-200 uppercase tracking-wider mb-5 text-center">
             Recognitions, Accreditations &amp; Institutional Governance
           </div>
 
@@ -375,15 +376,15 @@ export default function InstitutionalFooter() {
       </div>
 
       {/* Bottom Legal, Accessibility & Engineering Strip */}
-      <div className="bg-[#071324] border-t border-white/5 py-5 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+      <div className="bg-[var(--burgundy)] border-t border-white/5 py-5 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-stone-300">
           <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3 text-center sm:text-left">
             <span>© 2026 G. Pullaiah College of Engineering &amp; Technology (Autonomous).</span>
             <span className="hidden sm:inline" aria-hidden="true">·</span>
             <span>All rights reserved.</span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-stone-300">
             <Link href="/statutory/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>

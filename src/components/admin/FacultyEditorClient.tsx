@@ -190,9 +190,9 @@ export default function FacultyEditorClient({
       {!isLiveDatabase && (
         <div
           role="note"
-          className="flex items-start gap-3 p-4 rounded-md border border-[var(--brass-gold)]/40 bg-[var(--brass-gold)]/10 text-xs text-[var(--ink)]"
+          className="flex items-start gap-3 p-4 rounded-md border border-[var(--ruby)]/40 bg-[var(--ruby)]/10 text-xs text-[var(--ink)]"
         >
-          <Info className="w-4 h-4 text-[var(--brass-gold)] shrink-0 mt-0.5" aria-hidden="true" />
+          <Info className="w-4 h-4 text-[var(--ruby)] shrink-0 mt-0.5" aria-hidden="true" />
           <div>
             <p className="font-semibold">Offline Roster Preview Mode</p>
             <p className="mt-0.5 text-[var(--muted)]">
@@ -210,7 +210,7 @@ export default function FacultyEditorClient({
           className={`flex items-start gap-2.5 p-3.5 rounded border text-xs ${
             feedback.type === 'error'
               ? 'bg-[var(--brand-crimson)]/5 border-[var(--brand-crimson)]/30 text-[var(--brand-crimson)]'
-              : 'bg-[var(--primary-navy)]/5 border-[var(--primary-navy)]/20 text-[var(--primary-navy)]'
+              : 'bg-[var(--ruby)]/5 border-[var(--ruby)]/20 text-[var(--ruby)]'
           }`}
         >
           {feedback.type === 'error' ? (
@@ -239,7 +239,7 @@ export default function FacultyEditorClient({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Name, qualification, designation..."
-              className="w-full pl-9 pr-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+              className="w-full pl-9 pr-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
             />
           </div>
         </div>
@@ -252,7 +252,7 @@ export default function FacultyEditorClient({
             id="faculty-dept"
             value={departmentFilter}
             onChange={(e) => setDepartmentFilter(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             <option value="all">All 8 Departments</option>
             {departments.map((d) => (
@@ -271,7 +271,7 @@ export default function FacultyEditorClient({
             id="faculty-cadre"
             value={cadreFilter}
             onChange={(e) => setCadreFilter(e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             <option value="all">All Cadres</option>
             {CADRES.map((c) => (
@@ -290,7 +290,7 @@ export default function FacultyEditorClient({
             id="faculty-status"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as 'all' | 'active' | 'inactive')}
-            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           >
             <option value="all">All Statuses</option>
             <option value="active">Active Only</option>
@@ -362,7 +362,7 @@ export default function FacultyEditorClient({
                     <td className="px-4 py-3">
                       <div className="font-semibold text-[var(--ink)]">{member.name}</div>
                       {member.isHod && (
-                        <span className="inline-block mt-0.5 font-mono text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded bg-[var(--brass-gold)]/20 text-[var(--ink)] border border-[var(--brass-gold)]/40">
+                        <span className="inline-block mt-0.5 font-mono text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded bg-[var(--ruby)]/20 text-[var(--ink)] border border-[var(--ruby)]/40">
                           HOD
                         </span>
                       )}
@@ -383,7 +383,7 @@ export default function FacultyEditorClient({
                       <span
                         className={`font-mono text-[11px] font-semibold uppercase px-2 py-0.5 rounded ${
                           member.isActive
-                            ? 'bg-[var(--primary-navy)]/10 text-[var(--primary-navy)]'
+                            ? 'bg-[var(--ruby)]/10 text-[var(--ruby)]'
                             : 'bg-[var(--brand-crimson)]/10 text-[var(--brand-crimson)]'
                         }`}
                       >
@@ -395,7 +395,7 @@ export default function FacultyEditorClient({
                         type="button"
                         onClick={() => openEditor(member)}
                         aria-label={`Edit ${member.name}`}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:border-[var(--primary-navy)] transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:border-[var(--ruby)] transition-colors cursor-pointer"
                       >
                         <Pencil className="w-3 h-3" aria-hidden="true" />
                         Edit
@@ -418,7 +418,7 @@ export default function FacultyEditorClient({
           aria-labelledby="edit-faculty-heading"
         >
           <div className="w-full max-w-lg bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md shadow-lg overflow-hidden">
-            <div className="px-5 py-4 bg-[var(--primary-navy)] text-white flex items-center justify-between gap-3">
+            <div className="px-5 py-4 bg-[var(--ruby)] text-white flex items-center justify-between gap-3">
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-wider text-slate-300">
                   {editing.departmentCode.toUpperCase()} · S.No {editing.sno}
@@ -448,7 +448,7 @@ export default function FacultyEditorClient({
                   required
                   value={editDesignation}
                   onChange={(e) => setEditDesignation(e.target.value)}
-                  className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+                  className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
                 />
               </div>
 
@@ -461,7 +461,7 @@ export default function FacultyEditorClient({
                     id="edit-cadre"
                     value={editCadre}
                     onChange={(e) => setEditCadre(e.target.value)}
-                    className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+                    className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
                   >
                     {CADRES.map((c) => (
                       <option key={c.value} value={c.value}>
@@ -483,7 +483,7 @@ export default function FacultyEditorClient({
                     max={60}
                     value={editExperience}
                     onChange={(e) => setEditExperience(e.target.value)}
-                    className="w-full px-3 py-2 font-mono text-sm tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+                    className="w-full px-3 py-2 font-mono text-sm tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
                   />
                 </div>
               </div>
@@ -498,7 +498,7 @@ export default function FacultyEditorClient({
                   value={editQualification}
                   onChange={(e) => setEditQualification(e.target.value)}
                   placeholder="e.g., Ph.D (CSE), M.Tech"
-                  className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--primary-navy)]"
+                  className="w-full px-3 py-2 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
                 />
               </div>
 
@@ -508,7 +508,7 @@ export default function FacultyEditorClient({
                     type="checkbox"
                     checked={editIsActive}
                     onChange={(e) => setEditIsActive(e.target.checked)}
-                    className="w-4 h-4 rounded accent-[var(--primary-navy)]"
+                    className="w-4 h-4 rounded accent-[var(--ruby)]"
                   />
                   <span>Active on Public Roster</span>
                 </label>
@@ -518,7 +518,7 @@ export default function FacultyEditorClient({
                     type="checkbox"
                     checked={editIsHod}
                     onChange={(e) => setEditIsHod(e.target.checked)}
-                    className="w-4 h-4 rounded accent-[var(--brass-gold)]"
+                    className="w-4 h-4 rounded accent-[var(--ruby)]"
                   />
                   <span>Department HOD</span>
                 </label>
@@ -535,7 +535,7 @@ export default function FacultyEditorClient({
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="px-4 py-2 rounded text-xs font-semibold bg-[var(--primary-navy)] text-white hover:bg-[#091a30] disabled:opacity-50 cursor-pointer"
+                  className="px-4 py-2 rounded text-xs font-semibold bg-[var(--ruby)] text-white hover:bg-[var(--burgundy)] disabled:opacity-50 cursor-pointer"
                 >
                   {isPending ? 'Saving...' : 'Save Faculty Record'}
                 </button>

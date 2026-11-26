@@ -52,7 +52,7 @@ export default function DocumentsVaultPage() {
     <div className="bg-[var(--bg)] min-h-screen py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
         {/* Institutional Vault Header */}
-        <header className="pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <header className="section-masthead pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-7">
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-medium tracking-tight text-[var(--ink)]">
               Central Syllabus &amp; Document Vault
@@ -72,7 +72,7 @@ export default function DocumentsVaultPage() {
               <div className="text-[11px] text-[var(--muted)] font-sans">Syllabi</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--primary-navy)]">
+              <div className="text-xl font-bold text-[var(--ruby)]">
                 {(categories.academic_calendar || 42).toLocaleString('en-US')}
               </div>
               <div className="text-[11px] text-[var(--muted)] font-sans">Calendars</div>

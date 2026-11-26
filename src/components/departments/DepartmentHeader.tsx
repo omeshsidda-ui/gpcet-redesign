@@ -9,7 +9,7 @@ interface DepartmentHeaderProps {
 
 export default function DepartmentHeader({ department }: DepartmentHeaderProps) {
   return (
-    <header className="bg-[var(--surface-raised)] border-b border-[var(--rule)]">
+    <header className="section-masthead bg-[var(--surface)] border-b border-[var(--rule)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="text-xs text-[var(--muted)] flex items-center gap-2 mb-4">
@@ -21,7 +21,7 @@ export default function DepartmentHeader({ department }: DepartmentHeaderProps) 
             Departments
           </Link>
           <span aria-hidden="true">/</span>
-          <span className="font-mono font-semibold text-[var(--primary-navy)]">
+          <span className="font-mono font-semibold text-[var(--ruby)]">
             {department.shortName}
           </span>
         </nav>
@@ -29,11 +29,11 @@ export default function DepartmentHeader({ department }: DepartmentHeaderProps) 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-8">
             <div className="flex flex-wrap items-center gap-2.5 mb-3">
-              <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--primary-navy)] tabular-nums">
+              <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums">
                 DEPT {department.deptNumber} · {department.shortName}
               </span>
               {department.nbaAccredited && (
-                <span className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--brass-gold)]">
+                <span className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
                   <Award className="w-3.5 h-3.5" aria-hidden="true" />
                   NBA Accredited
                 </span>
@@ -50,7 +50,7 @@ export default function DepartmentHeader({ department }: DepartmentHeaderProps) 
 
             <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-1.5 text-xs text-[var(--muted)]">
               <span className="inline-flex items-center gap-1.5 text-[var(--ink)] font-medium">
-                <Users className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+                <Users className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                 HOD: {department.hodName} ({department.hodDesignation})
               </span>
               <a
@@ -69,7 +69,7 @@ export default function DepartmentHeader({ department }: DepartmentHeaderProps) 
               <div className="text-[11px] text-[var(--muted)] font-sans">Annual Intake</div>
             </div>
             <div>
-              <div className="text-lg font-bold text-[var(--primary-navy)]">
+              <div className="text-lg font-bold text-[var(--ruby)]">
                 {department.facultyCount}
               </div>
               <div className="text-[11px] text-[var(--muted)] font-sans">Faculty</div>

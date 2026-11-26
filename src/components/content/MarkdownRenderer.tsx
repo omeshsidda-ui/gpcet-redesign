@@ -95,45 +95,45 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
   const preprocessed = normalizeMarkdownTables(content);
 
   return (
-    <div className={`prose-institutional max-w-none text-slate-800 ${className}`}>
+    <div className={`prose-institutional max-w-none text-[var(--ink)] ${className}`}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeSanitize, academicSanitizeSchema]]}
         components={{
           table: ({ node, ...props }) => (
             <div
-              className="my-6 w-full overflow-x-auto rounded-md border border-slate-200 bg-white shadow-xs focus:outline-none focus:ring-1 focus:ring-slate-400"
+              className="my-6 w-full overflow-x-auto rounded-md border border-[var(--rule)] bg-white shadow-xs focus:outline-none focus:ring-1 focus:ring-slate-400"
               tabIndex={0}
               role="region"
               aria-label="Academic data table"
             >
               <table
-                className="w-full text-left text-sm border-collapse divide-y divide-slate-200"
+                className="w-full text-left text-sm border-collapse divide-y divide-[var(--rule)]"
                 {...props}
               />
             </div>
           ),
           thead: ({ node, ...props }) => (
             <thead
-              className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-700"
+              className="bg-[var(--surface)] text-xs font-semibold uppercase tracking-wider text-[var(--muted)]"
               {...props}
             />
           ),
           th: ({ node, ...props }) => (
             <th
               scope="col"
-              className="px-4 py-3 text-left font-semibold text-slate-700 uppercase tracking-wider border-b border-slate-200 first:sticky first:left-0 first:z-10 first:bg-slate-50 first:shadow-[1px_0_0_0_#cbd5e1]"
+              className="px-4 py-3 text-left font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--rule)] first:sticky first:left-0 first:z-10 first:bg-[var(--surface)] first:shadow-[1px_0_0_0_var(--rule)]"
               {...props}
             />
           ),
           td: ({ node, ...props }) => (
             <td
-              className="px-4 py-3 text-sm text-slate-800 tabular-nums border-b border-slate-100 align-top first:sticky first:left-0 first:z-10 first:bg-white first:shadow-[1px_0_0_0_#e2e8f0]"
+              className="px-4 py-3 text-sm text-[var(--ink)] tabular-nums border-b border-[var(--rule)] align-top first:sticky first:left-0 first:z-10 first:bg-white first:shadow-[1px_0_0_0_var(--rule)]"
               {...props}
             />
           ),
           tr: ({ node, ...props }) => (
-            <tr className="hover:bg-slate-50/70 transition-colors" {...props} />
+            <tr className="hover:bg-[var(--surface)]/70 transition-colors" {...props} />
           ),
           a: ({ node, href, children, ...props }) => {
             let safeHref = href || '';
@@ -167,16 +167,20 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             }
 
             if (isExternal) {
+              const imageOnly = node?.children.length === 1 && node.children[0].type === 'element'
+                && node.children[0].tagName === 'img' && !node.children[0].properties.alt;
+              const imageLabel = imageOnly ? `Open photograph: ${safeHref.split('/').pop()?.split('?')[0] || 'campus image'}` : undefined;
               return (
                 <a
                   href={safeHref}
+                  aria-label={imageLabel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-baseline gap-1 text-slate-800 hover:text-slate-950 font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
+                  className="inline-flex items-baseline gap-1 text-[var(--ruby)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
                   {...props}
                 >
                   <span>{children}</span>
-                  <ExternalLink className="inline-block w-3 h-3 self-center text-slate-400 shrink-0" aria-hidden="true" />
+                  <ExternalLink className="inline-block w-3 h-3 self-center text-[var(--muted)] shrink-0" aria-hidden="true" />
                 </a>
               );
             }
@@ -184,7 +188,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             return (
               <a
                 href={safeHref}
-                className="text-slate-900 hover:text-slate-950 font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
+                className="text-[var(--ink)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
                 {...props}
               >
                 {children}
@@ -196,7 +200,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             return (
               <h2
                 id={id}
-                className="group flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-900 mt-10 mb-4 scroll-mt-20 border-b border-slate-200 pb-2"
+                className="group flex items-center gap-2 font-serif text-3xl font-medium tracking-tight text-[var(--ink)] mt-10 mb-4 scroll-mt-20 border-b border-[var(--rule)] pb-2"
                 {...props}
               >
                 <span>{children}</span>
@@ -204,7 +208,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
                   <a
                     href={`#${id}`}
                     aria-label={`Link to ${children}`}
-                    className="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-700 transition-opacity"
+                    className="opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity"
                   >
                     <Hash className="w-4 h-4" />
                   </a>
@@ -217,7 +221,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             return (
               <h3
                 id={id}
-                className="group flex items-center gap-2 text-xl font-semibold tracking-tight text-slate-900 mt-8 mb-3 scroll-mt-20"
+                className="group flex items-center gap-2 font-serif text-2xl font-medium tracking-tight text-[var(--ink)] mt-8 mb-3 scroll-mt-20"
                 {...props}
               >
                 <span>{children}</span>
@@ -225,7 +229,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
                   <a
                     href={`#${id}`}
                     aria-label={`Link to ${children}`}
-                    className="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-700 transition-opacity"
+                    className="opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity"
                   >
                     <Hash className="w-3.5 h-3.5" />
                   </a>
@@ -234,33 +238,33 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             );
           },
           p: ({ node, ...props }) => (
-            <p className="text-base leading-relaxed text-slate-700 my-4 max-w-prose" {...props} />
+            <p className="text-base leading-relaxed text-[var(--muted)] my-4 max-w-prose" {...props} />
           ),
           ul: ({ node, ...props }) => (
-            <ul className="list-disc list-outside pl-6 my-4 space-y-2 text-slate-700" {...props} />
+            <ul className="list-disc list-outside pl-6 my-4 space-y-2 text-[var(--muted)]" {...props} />
           ),
           ol: ({ node, ...props }) => (
-            <ol className="list-decimal list-outside pl-6 my-4 space-y-2 text-slate-700" {...props} />
+            <ol className="list-decimal list-outside pl-6 my-4 space-y-2 text-[var(--muted)]" {...props} />
           ),
           li: ({ node, ...props }) => (
             <li className="leading-relaxed" {...props} />
           ),
           blockquote: ({ node, ...props }) => (
             <blockquote
-              className="border-l-4 border-slate-300 pl-4 py-1 my-5 italic text-slate-600 bg-slate-50/70 rounded-r-md"
+              className="border-l-2 border-[var(--brand-crimson)] pl-4 py-1 my-5 italic text-[var(--muted)] bg-[var(--surface)]/70 rounded-r-md"
               {...props}
             />
           ),
           code: ({ node, className, children, ...props }) => (
             <code
-              className="font-mono text-xs bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded border border-slate-200 tabular-nums"
+              className="font-mono text-xs bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-0.5 rounded border border-[var(--rule)] tabular-nums"
               {...props}
             >
               {children}
             </code>
           ),
           hr: ({ node, ...props }) => (
-            <hr className="my-8 border-slate-200" {...props} />
+            <hr className="my-8 border-[var(--rule)]" {...props} />
           ),
         }}
       >

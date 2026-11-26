@@ -70,7 +70,7 @@ export default async function DepartmentSyllabusPage({ params }: DeptSyllabusPag
               <tr>
                 <td colSpan={4} className="py-10 px-4 text-center text-sm text-[var(--muted)]">
                   No syllabus PDFs matched directly for {department.shortName}. Browse the{' '}
-                  <Link href="/documents?category=syllabus" className="underline text-[var(--primary-navy)]">
+                  <Link href="/documents?category=syllabus" className="underline text-[var(--ruby)]">
                     Central Syllabus Vault
                   </Link>
                   .
@@ -102,7 +102,7 @@ export default async function DepartmentSyllabusPage({ params }: DeptSyllabusPag
                       </div>
                     </td>
                     <td className="py-3.5 px-4 font-mono text-xs">
-                      <span className="px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--primary-navy)] font-semibold">
+                      <span className="px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] font-semibold">
                         {reg || 'Autonomous'}
                       </span>
                     </td>
@@ -114,7 +114,7 @@ export default async function DepartmentSyllabusPage({ params }: DeptSyllabusPag
                         href={safeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[var(--primary-navy)] hover:bg-[#08192e] text-white text-xs font-semibold transition-colors"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white text-xs font-semibold transition-colors"
                       >
                         <span>PDF</span>
                         <ExternalLink className="w-3 h-3" aria-hidden="true" />

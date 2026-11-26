@@ -243,7 +243,7 @@ export default function DocumentVaultClient({
             }}
             placeholder="Search by subject, code (e.g., 20A05401), regulation (R20, R23), or circular title..."
             aria-label="Search cataloged documents"
-            className="w-full pl-10 pr-10 py-3 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded-md text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--primary-navy)]"
+            className="w-full pl-10 pr-10 py-3 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded-md text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--ruby)]"
           />
           {query && (
             <button
@@ -278,8 +278,8 @@ export default function DocumentVaultClient({
                 aria-pressed={active}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition-colors ${
                   active
-                    ? 'bg-[var(--primary-navy)] text-white border-[var(--primary-navy)]'
-                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--rule)] hover:border-[var(--primary-navy)]/50'
+                    ? 'bg-[var(--ruby)] text-white border-[var(--ruby)]'
+                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--rule)] hover:border-[var(--ruby)]/50'
                 }`}
               >
                 <span>{chip.label}</span>
@@ -458,7 +458,7 @@ export default function DocumentVaultClient({
                     href={safeHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)]"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)]"
                   >
                     <span>Open Document</span>
                     <ExternalLink className="w-3 h-3" aria-hidden="true" />

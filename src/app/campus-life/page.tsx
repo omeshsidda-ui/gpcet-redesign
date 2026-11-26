@@ -24,7 +24,7 @@ export default function CampusLifePage() {
     <div className="bg-[var(--bg)] min-h-screen py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         {/* Header */}
-        <header className="pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <header className="section-masthead pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-7">
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-medium tracking-tight text-[var(--ink)]">
               Campus Life, Libraries &amp; Student Infrastructure
@@ -41,7 +41,7 @@ export default function CampusLifePage() {
               <div className="text-[11px] text-[var(--muted)] font-sans">Library Books</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--primary-navy)]">3,118</div>
+              <div className="text-xl font-bold text-[var(--ruby)]">3,118</div>
               <div className="text-[11px] text-[var(--muted)] font-sans">E-Journals</div>
             </div>
             <div>
@@ -52,15 +52,15 @@ export default function CampusLifePage() {
         </header>
 
         {/* Campus Visual Showcase */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <figure className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md overflow-hidden">
-            <div className="aspect-[16/10] bg-[var(--surface)] overflow-hidden">
+        <section className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-4">
+          <figure className="grid grid-rows-[1fr_auto] bg-white border-b border-[var(--rule)] first:md:row-span-2">
+            <div className="relative min-h-40 md:min-h-32 bg-[var(--surface)] overflow-hidden">
               <img
                 src="/assets/campus/GPCET-building.jpg"
                 alt="GPCET Academic Campus Building"
                 width={640}
                 height={400}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <figcaption className="px-4 py-3 text-xs font-medium text-[var(--ink)] border-t border-[var(--rule)]">
@@ -68,14 +68,14 @@ export default function CampusLifePage() {
             </figcaption>
           </figure>
 
-          <figure className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md overflow-hidden">
-            <div className="aspect-[16/10] bg-[var(--surface)] overflow-hidden">
+          <figure className="grid grid-rows-[1fr_auto] bg-white border-b border-[var(--rule)] first:md:row-span-2">
+            <div className="relative min-h-40 md:min-h-32 bg-[var(--surface)] overflow-hidden">
               <img
                 src="/assets/campus/1-CENTRAL-LIBRARY.jpg"
                 alt="GPCET Central Library"
                 width={640}
                 height={400}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <figcaption className="px-4 py-3 text-xs font-medium text-[var(--ink)] border-t border-[var(--rule)]">
@@ -83,14 +83,14 @@ export default function CampusLifePage() {
             </figcaption>
           </figure>
 
-          <figure className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md overflow-hidden">
-            <div className="aspect-[16/10] bg-[var(--surface)] overflow-hidden">
+          <figure className="grid grid-rows-[1fr_auto] bg-white border-b border-[var(--rule)] first:md:row-span-2">
+            <div className="relative min-h-40 md:min-h-32 bg-[var(--surface)] overflow-hidden">
               <img
                 src="/assets/campus/2-DIGITAL-LIBRARY.jpg"
                 alt="GPCET Digital Library"
                 width={640}
                 height={400}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <figcaption className="px-4 py-3 text-xs font-medium text-[var(--ink)] border-t border-[var(--rule)]">
@@ -102,7 +102,7 @@ export default function CampusLifePage() {
         {/* Central & Digital Library Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)] mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
               <BookOpen className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>CENTRAL &amp; DIGITAL LIBRARY</span>
             </div>
@@ -111,13 +111,13 @@ export default function CampusLifePage() {
           <div className="lg:col-span-5 lg:border-l lg:border-[var(--rule)] lg:pl-8 space-y-4">
             {digitalLibMd && <MarkdownRenderer content={digitalLibMd.content} />}
             <div className="pt-4 border-t border-[var(--rule)] flex flex-col gap-2 text-xs">
-              <Link href="/campus-life/library-nptel" className="font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]">
+              <Link href="/campus-life/library-nptel" className="font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]">
                 NPTEL Video Lecture Repository →
               </Link>
-              <Link href="/campus-life/library-delnet" className="font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]">
+              <Link href="/campus-life/library-delnet" className="font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]">
                 DELNET &amp; Inter-Library Loan →
               </Link>
-              <Link href="/campus-life/library-timings" className="font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]">
+              <Link href="/campus-life/library-timings" className="font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]">
                 Library Timings &amp; Contact →
               </Link>
             </div>
@@ -127,7 +127,7 @@ export default function CampusLifePage() {
         {/* Transport & Medical */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-7 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)] mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
               <Bus className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>CAMPUS TRANSIT FLEET</span>
             </div>
@@ -135,7 +135,7 @@ export default function CampusLifePage() {
           </div>
 
           <div className="lg:col-span-5 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)] mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
               <HeartPulse className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>MEDICAL CENTER &amp; AMBULANCE</span>
             </div>
@@ -146,41 +146,41 @@ export default function CampusLifePage() {
         {/* Student Clubs, Gym & Alumni */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--rule)] border border-[var(--rule)] rounded-md overflow-hidden">
           <div className="bg-[var(--surface-raised)] p-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)] mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
               <Dumbbell className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>FITNESS &amp; SPORTS</span>
             </div>
             {gymMd && <MarkdownRenderer content={gymMd.content} />}
             <Link
               href="/campus-life/sports"
-              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)]"
+              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)]"
             >
               Sports Facilities <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </Link>
           </div>
 
           <div className="bg-[var(--surface-raised)] p-6">
-            <div className="text-xs font-mono font-semibold text-[var(--primary-navy)] mb-2">
+            <div className="text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
               STUDENT CLUBS &amp; KALANJALI
             </div>
             {kalanjaliMd && <MarkdownRenderer content={kalanjaliMd.content} />}
             <Link
               href="/campus-life/c-club"
-              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)]"
+              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)]"
             >
               Coding &amp; Technical Clubs <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </Link>
           </div>
 
           <div className="bg-[var(--surface-raised)] p-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)] mb-2">
-              <Users className="w-4 h-4 text-[var(--brass-gold)]" aria-hidden="true" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+              <Users className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
               <span>ALUMNI ASSOCIATION</span>
             </div>
             {alumniMd && <MarkdownRenderer content={alumniMd.content} />}
             <Link
               href="/campus-life/alumni-contribution"
-              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)]"
+              className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)]"
             >
               Alumni Contributions <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </Link>

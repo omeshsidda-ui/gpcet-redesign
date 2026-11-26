@@ -112,7 +112,7 @@ export default function FacultyRosterTable({
               onChange={(e) => setQuery(e.target.value)}
               placeholder={`Search ${deptName} faculty by name, designation, or degree...`}
               aria-label="Search department faculty"
-              className="w-full pl-9 pr-9 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--primary-navy)]"
+              className="w-full pl-9 pr-9 py-2.5 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--ruby)]"
             />
             {query && (
               <button
@@ -184,8 +184,8 @@ export default function FacultyRosterTable({
                 aria-pressed={active}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition-colors ${
                   active
-                    ? 'bg-[var(--primary-navy)] text-white border-[var(--primary-navy)]'
-                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--rule)] hover:border-[var(--primary-navy)]/50'
+                    ? 'bg-[var(--ruby)] text-white border-[var(--ruby)]'
+                    : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--rule)] hover:border-[var(--ruby)]/50'
                 }`}
               >
                 <span>{f.label}</span>
@@ -246,14 +246,14 @@ export default function FacultyRosterTable({
                       {member.highestQualification || '—'}
                     </td>
                     <td className="py-3.5 px-4">
-                      <span className="inline-flex px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[11px] font-medium text-[var(--primary-navy)]">
+                      <span className="inline-flex px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[11px] font-medium text-[var(--ruby)]">
                         {formatCadreLabel(member.cadre)}
                       </span>
                     </td>
                     <td className="py-3.5 px-4 text-right whitespace-nowrap">
                       <Link
                         href={`/departments/${deptCode}/faculty/${member.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)]"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)]"
                       >
                         <span>Profile</span>
                         <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -274,7 +274,7 @@ export default function FacultyRosterTable({
               <Link
                 key={member.id}
                 href={`/departments/${deptCode}/faculty/${member.slug}`}
-                className="group bg-[var(--surface-raised)] border border-[var(--rule)] hover:border-[var(--primary-navy)] rounded-md p-4 flex items-start gap-3.5 transition-colors"
+                className="group bg-[var(--surface-raised)] border border-[var(--rule)] hover:border-[var(--ruby)] rounded-md p-4 flex items-start gap-3.5 transition-colors"
               >
                 {safePhoto ? (
                   <img
@@ -286,7 +286,7 @@ export default function FacultyRosterTable({
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-13 h-13 rounded-full bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center font-mono text-xs font-bold text-[var(--primary-navy)] shrink-0">
+                  <div className="w-13 h-13 rounded-full bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center font-mono text-xs font-bold text-[var(--ruby)] shrink-0">
                     {getInitials(member.name)}
                   </div>
                 )}
@@ -298,7 +298,7 @@ export default function FacultyRosterTable({
                   <div className="text-xs text-[var(--muted)] mt-0.5 truncate">
                     {member.designation}
                   </div>
-                  <div className="font-mono text-[11px] text-[var(--primary-navy)] mt-1.5">
+                  <div className="font-mono text-[11px] text-[var(--ruby)] mt-1.5">
                     {member.highestQualification || deptCode.toUpperCase()}
                   </div>
                 </div>

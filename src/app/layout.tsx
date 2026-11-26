@@ -47,14 +47,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'GPCET Institutional Web Council' }],
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   icons: {
-    icon: '/favicon.ico',
+    icon: '/assets/brand/gpcet-logo.png',
   },
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0C2340',
+  themeColor: '#8B0E1A',
 };
 
 export default function RootLayout({
@@ -67,7 +67,7 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased font-sans flex flex-col selection:bg-[#0C2340] selection:text-white">
+      <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased font-sans flex flex-col selection:bg-[var(--ruby)] selection:text-white">
         {/* Accessible Skip-to-content target */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content

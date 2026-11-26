@@ -73,7 +73,7 @@ export function MarkdownRenderer({ content, className = '' }) {
 
   return React.createElement(
     'div',
-    { className: `prose-institutional max-w-none text-slate-800 ${className}` },
+    { className: `prose-institutional max-w-none text-[var(--ink)] ${className}` },
     React.createElement(
       ReactMarkdown,
       {
@@ -85,37 +85,37 @@ export function MarkdownRenderer({ content, className = '' }) {
               'div',
               {
                 className:
-                  'my-6 w-full overflow-x-auto rounded-md border border-slate-200 bg-white shadow-xs focus:outline-none focus:ring-1 focus:ring-slate-400',
+                  'my-6 w-full overflow-x-auto rounded-md border border-[var(--rule)] bg-white shadow-xs focus:outline-none focus:ring-1 focus:ring-slate-400',
                 tabIndex: 0,
                 role: 'region',
                 'aria-label': 'Academic data table',
               },
               React.createElement('table', {
-                className: 'w-full text-left text-sm border-collapse divide-y divide-slate-200',
+                className: 'w-full text-left text-sm border-collapse divide-y divide-[var(--rule)]',
                 ...props,
               })
             ),
           thead: ({ node, ...props }) =>
             React.createElement('thead', {
-              className: 'bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-700',
+              className: 'bg-[var(--surface)] text-xs font-semibold uppercase tracking-wider text-[var(--muted)]',
               ...props,
             }),
           th: ({ node, ...props }) =>
             React.createElement('th', {
               scope: 'col',
               className:
-                'px-4 py-3 text-left font-semibold text-slate-700 uppercase tracking-wider border-b border-slate-200 first:sticky first:left-0 first:z-10 first:bg-slate-50 first:shadow-[1px_0_0_0_#cbd5e1]',
+                'px-4 py-3 text-left font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--rule)] first:sticky first:left-0 first:z-10 first:bg-[var(--surface)] first:shadow-[1px_0_0_0_var(--rule)]',
               ...props,
             }),
           td: ({ node, ...props }) =>
             React.createElement('td', {
               className:
-                'px-4 py-3 text-sm text-slate-800 tabular-nums border-b border-slate-100 align-top first:sticky first:left-0 first:z-10 first:bg-white first:shadow-[1px_0_0_0_#e2e8f0]',
+                'px-4 py-3 text-sm text-[var(--ink)] tabular-nums border-b border-[var(--rule)] align-top first:sticky first:left-0 first:z-10 first:bg-white first:shadow-[1px_0_0_0_var(--rule)]',
               ...props,
             }),
           tr: ({ node, ...props }) =>
             React.createElement('tr', {
-              className: 'hover:bg-slate-50/70 transition-colors',
+              className: 'hover:bg-[var(--surface)]/70 transition-colors',
               ...props,
             }),
           a: ({ node, href, children, ...props }) => {
@@ -158,19 +158,23 @@ export function MarkdownRenderer({ content, className = '' }) {
             }
 
             if (isExternal) {
+              const imageOnly = node?.children.length === 1 && node.children[0].type === 'element'
+                && node.children[0].tagName === 'img' && !node.children[0].properties.alt;
+              const imageLabel = imageOnly ? `Open photograph: ${safeHref.split('/').pop()?.split('?')[0] || 'campus image'}` : undefined;
               return React.createElement(
                 'a',
                 {
                   href: safeHref,
+                  'aria-label': imageLabel,
                   target: '_blank',
                   rel: 'noopener noreferrer',
                   className:
-                    'inline-flex items-baseline gap-1 text-slate-800 hover:text-slate-950 font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors',
+                    'inline-flex items-baseline gap-1 text-[var(--ruby)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors',
                   ...props,
                 },
                 React.createElement('span', null, children),
                 React.createElement(ExternalLink, {
-                  className: 'inline-block w-3 h-3 self-center text-slate-400 shrink-0',
+                  className: 'inline-block w-3 h-3 self-center text-[var(--muted)] shrink-0',
                   'aria-hidden': 'true',
                 })
               );
@@ -181,7 +185,7 @@ export function MarkdownRenderer({ content, className = '' }) {
               {
                 href: safeHref,
                 className:
-                  'text-slate-900 hover:text-slate-950 font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors',
+                  'text-[var(--ink)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors',
                 ...props,
               },
               children
@@ -194,7 +198,7 @@ export function MarkdownRenderer({ content, className = '' }) {
               {
                 id,
                 className:
-                  'group flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-900 mt-10 mb-4 scroll-mt-20 border-b border-slate-200 pb-2',
+                  'group flex items-center gap-2 font-serif text-3xl font-medium tracking-tight text-[var(--ink)] mt-10 mb-4 scroll-mt-20 border-b border-[var(--rule)] pb-2',
                 ...props,
               },
               React.createElement('span', null, children),
@@ -205,7 +209,7 @@ export function MarkdownRenderer({ content, className = '' }) {
                       href: `#${id}`,
                       'aria-label': `Link to ${children}`,
                       className:
-                        'opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-700 transition-opacity',
+                        'opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity',
                     },
                     React.createElement(Hash, { className: 'w-4 h-4' })
                   )
@@ -219,7 +223,7 @@ export function MarkdownRenderer({ content, className = '' }) {
               {
                 id,
                 className:
-                  'group flex items-center gap-2 text-xl font-semibold tracking-tight text-slate-900 mt-8 mb-3 scroll-mt-20',
+                  'group flex items-center gap-2 font-serif text-2xl font-medium tracking-tight text-[var(--ink)] mt-8 mb-3 scroll-mt-20',
                 ...props,
               },
               React.createElement('span', null, children),
@@ -230,7 +234,7 @@ export function MarkdownRenderer({ content, className = '' }) {
                       href: `#${id}`,
                       'aria-label': `Link to ${children}`,
                       className:
-                        'opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-700 transition-opacity',
+                        'opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity',
                     },
                     React.createElement(Hash, { className: 'w-3.5 h-3.5' })
                   )
@@ -239,17 +243,17 @@ export function MarkdownRenderer({ content, className = '' }) {
           },
           p: ({ node, ...props }) =>
             React.createElement('p', {
-              className: 'text-base leading-relaxed text-slate-700 my-4 max-w-prose',
+              className: 'text-base leading-relaxed text-[var(--muted)] my-4 max-w-prose',
               ...props,
             }),
           ul: ({ node, ...props }) =>
             React.createElement('ul', {
-              className: 'list-disc list-outside pl-6 my-4 space-y-2 text-slate-700',
+              className: 'list-disc list-outside pl-6 my-4 space-y-2 text-[var(--muted)]',
               ...props,
             }),
           ol: ({ node, ...props }) =>
             React.createElement('ol', {
-              className: 'list-decimal list-outside pl-6 my-4 space-y-2 text-slate-700',
+              className: 'list-decimal list-outside pl-6 my-4 space-y-2 text-[var(--muted)]',
               ...props,
             }),
           li: ({ node, ...props }) =>
@@ -257,7 +261,7 @@ export function MarkdownRenderer({ content, className = '' }) {
           blockquote: ({ node, ...props }) =>
             React.createElement('blockquote', {
               className:
-                'border-l-4 border-slate-300 pl-4 py-1 my-5 italic text-slate-600 bg-slate-50/70 rounded-r-md',
+                'border-l-2 border-[var(--brand-crimson)] pl-4 py-1 my-5 italic text-[var(--muted)] bg-[var(--surface)]/70 rounded-r-md',
               ...props,
             }),
           code: ({ node, className, children, ...props }) =>
@@ -265,13 +269,13 @@ export function MarkdownRenderer({ content, className = '' }) {
               'code',
               {
                 className:
-                  'font-mono text-xs bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded border border-slate-200 tabular-nums',
+                  'font-mono text-xs bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-0.5 rounded border border-[var(--rule)] tabular-nums',
                 ...props,
               },
               children
             ),
           hr: ({ node, ...props }) =>
-            React.createElement('hr', { className: 'my-8 border-slate-200', ...props }),
+            React.createElement('hr', { className: 'my-8 border-[var(--rule)]', ...props }),
         },
       },
       preprocessed

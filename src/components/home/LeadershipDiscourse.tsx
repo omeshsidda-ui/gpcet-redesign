@@ -72,7 +72,7 @@ export default function LeadershipDiscourse() {
             </p>
             <Link
               href="/administration"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
             >
               <span>Governing Body &amp; Administration</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -81,13 +81,13 @@ export default function LeadershipDiscourse() {
         </div>
 
         {/* 2x2 Architectural Grid separated by hairlines */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--rule)] border border-[var(--rule)] rounded-md overflow-hidden">
+        <div className="mt-8 grid lg:grid-cols-2 gap-x-12">
           {LEADERSHIP_PROFILES.map((leader) => (
             <article
               key={leader.name}
-              className="bg-[var(--surface-raised)] p-6 sm:p-8 flex flex-col justify-between gap-6"
+              className="py-7 flex flex-col justify-between gap-5 border-t border-[var(--ruby)]"
             >
-              <blockquote className="font-serif text-base sm:text-lg leading-relaxed text-[var(--ink)]">
+              <blockquote className="font-serif text-xl sm:text-2xl leading-relaxed text-[var(--ink)]">
                 &ldquo;{leader.quote}&rdquo;
               </blockquote>
 
@@ -96,9 +96,9 @@ export default function LeadershipDiscourse() {
                   <img
                     src={leader.portraitSrc}
                     alt={`${leader.name}, ${leader.role}`}
-                    width={56}
-                    height={56}
-                    className="w-14 h-14 rounded-full object-cover border border-[var(--rule)] shrink-0 bg-[var(--surface)]"
+                    width={64}
+                    height={80}
+                    className="w-16 h-20 object-cover object-top border border-[var(--rule)] shrink-0 bg-[var(--surface)]"
                     loading="lazy"
                   />
                   <div>
@@ -115,7 +115,7 @@ export default function LeadershipDiscourse() {
                 <Link
                   href={leader.profileHref}
                   aria-label={`View ${leader.name} institutional section`}
-                  className="p-2 rounded border border-[var(--rule)] text-[var(--primary-navy)] hover:bg-[var(--surface)] transition-colors shrink-0"
+                  className="p-2 rounded border border-[var(--rule)] text-[var(--ruby)] hover:bg-[var(--surface)] transition-colors shrink-0"
                 >
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>

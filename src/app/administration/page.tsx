@@ -30,7 +30,7 @@ export default function AdministrationPage() {
     <div className="bg-[var(--bg)] min-h-screen py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         {/* Header */}
-        <header className="pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <header className="section-masthead pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-8">
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-medium tracking-tight text-[var(--ink)]">
               Administration &amp; Institutional Governance
@@ -45,7 +45,7 @@ export default function AdministrationPage() {
               href="https://www.gpcet.ac.in/wp-content/uploads/2025/12/Mandatory-Disclousre-25-26.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[var(--primary-navy)] hover:bg-[#08192e] text-white text-xs font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white text-xs font-semibold transition-colors"
             >
               <FileText className="w-4 h-4" aria-hidden="true" />
               <span>AICTE Mandatory Disclosure (2025–26)</span>
@@ -57,7 +57,7 @@ export default function AdministrationPage() {
         {/* Management & Principal Strip */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8 space-y-6">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)]">
+            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)]">
               <Users className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>FOUNDATION &amp; MANAGEMENT</span>
             </div>
@@ -118,8 +118,8 @@ export default function AdministrationPage() {
 
             {/* Statutory Committees Index */}
             <div className="bg-[var(--surface)] border border-[var(--rule)] rounded-md p-6">
-              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--primary-navy)] pb-3 border-b border-[var(--rule)]">
-                <ShieldCheck className="w-4 h-4 text-[var(--brass-gold)]" aria-hidden="true" />
+              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] pb-3 border-b border-[var(--rule)]">
+                <ShieldCheck className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                 <span>STATUTORY COMMITTEES &amp; CELLS</span>
               </div>
               <ul className="divide-y divide-[var(--rule)] mt-1 text-xs">

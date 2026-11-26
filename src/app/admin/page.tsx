@@ -108,7 +108,7 @@ export default async function AdminOverviewPage() {
             </>
           ) : (
             <>
-              <Database className="w-3.5 h-3.5 text-[var(--brass-gold)]" aria-hidden="true" />
+              <Database className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               <span className="font-mono text-[var(--ink)]">Offline JSON Preview</span>
             </>
           )}
@@ -140,7 +140,7 @@ export default async function AdminOverviewPage() {
 
           <div className="p-5">
             <div className="text-xs font-medium text-[var(--muted)]">Faculty Roster</div>
-            <div className="mt-2 font-mono text-2xl sm:text-3xl font-bold text-[var(--primary-navy)] tabular-nums">
+            <div className="mt-2 font-mono text-2xl sm:text-3xl font-bold text-[var(--ruby)] tabular-nums">
               {facultyCount}
             </div>
             <div className="mt-1 font-mono text-[11px] text-[var(--muted)]">
@@ -193,10 +193,10 @@ export default async function AdminOverviewPage() {
 
           <Link
             href="/admin/notices"
-            className="group bg-[var(--surface-raised)] border border-[var(--rule)] hover:border-[var(--primary-navy)] rounded-md p-5 transition-colors flex flex-col justify-between"
+            className="group bg-[var(--surface-raised)] border border-[var(--rule)] hover:border-[var(--ruby)] rounded-md p-5 transition-colors flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between text-[var(--primary-navy)]">
+              <div className="flex items-center justify-between text-[var(--ruby)]">
                 <Megaphone className="w-5 h-5" aria-hidden="true" />
                 <ArrowRight
                   className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity"
@@ -215,10 +215,10 @@ export default async function AdminOverviewPage() {
 
           <Link
             href="/admin/faculty"
-            className="group bg-[var(--surface-raised)] border border-[var(--rule)] hover:border-[var(--primary-navy)] rounded-md p-5 transition-colors flex flex-col justify-between"
+            className="group bg-[var(--surface-raised)] border border-[var(--rule)] hover:border-[var(--ruby)] rounded-md p-5 transition-colors flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between text-[var(--primary-navy)]">
+              <div className="flex items-center justify-between text-[var(--ruby)]">
                 <Users className="w-5 h-5" aria-hidden="true" />
                 <ArrowRight
                   className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity"

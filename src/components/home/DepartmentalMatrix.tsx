@@ -53,13 +53,13 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                 <strong className="text-[var(--ink)]">{totalFaculty}</strong> Verified Faculty
               </span>
               <span>
-                <strong className="text-[var(--primary-navy)]">5</strong> NBA Accredited
+                <strong className="text-[var(--ruby)]">5</strong> NBA Accredited
               </span>
             </div>
 
             <Link
               href="/departments"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-navy)] hover:text-[var(--brand-crimson)] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
             >
               <span>Full Departmental Directory</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -91,7 +91,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                       isSelected ? 'bg-[var(--surface)]' : 'hover:bg-[var(--surface)]/60'
                     }`}
                   >
-                    <td className="py-4 px-4 font-mono text-xs font-semibold text-[var(--primary-navy)] tabular-nums whitespace-nowrap">
+                    <td className="py-4 px-4 font-mono text-xs font-semibold text-[var(--ruby)] tabular-nums whitespace-nowrap">
                       {dept.deptNumber} · {dept.shortName}
                     </td>
                     <td className="py-4 px-4">
@@ -124,7 +124,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                       <span
                         className={`inline-flex items-center px-2 py-0.5 rounded-sm font-mono text-[11px] font-medium border ${
                           dept.nbaAccredited
-                            ? 'bg-[#B8860B]/10 text-[var(--brass-gold)] border-[#B8860B]/30'
+                            ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
                             : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
                         }`}
                       >
@@ -149,7 +149,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                         </button>
                         <Link
                           href={`/departments/${dept.code}`}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded bg-[var(--primary-navy)] hover:bg-[#08192e] text-white transition-colors"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors"
                         >
                           <span>Portal</span>
                           <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -171,7 +171,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
               <div key={dept.code} className="p-4">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="font-mono text-[11px] font-semibold text-[var(--primary-navy)]">
+                    <span className="font-mono text-[11px] font-semibold text-[var(--ruby)]">
                       {dept.deptNumber} · {dept.shortName}
                     </span>
                     <h3 className="text-base font-semibold text-[var(--ink)] mt-0.5">
@@ -181,7 +181,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                   <span
                     className={`shrink-0 font-mono text-[10px] px-1.5 py-0.5 rounded-sm border ${
                       dept.nbaAccredited
-                        ? 'bg-[#B8860B]/10 text-[var(--brass-gold)] border-[#B8860B]/30'
+                        ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
                         : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
                     }`}
                   >
@@ -198,7 +198,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                 <div className="mt-3 flex items-center gap-2">
                   <Link
                     href={`/departments/${dept.code}`}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded bg-[var(--primary-navy)] text-white"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded bg-[var(--ruby)] text-white"
                   >
                     Open Portal
                     <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -223,11 +223,11 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
             id="dept-quick-drawer"
             role="region"
             aria-label={`${selectedDept.name} quick summary`}
-            className="mt-4 p-5 sm:p-6 bg-[var(--surface)] border border-[var(--primary-navy)]/20 rounded-md"
+            className="mt-4 p-5 sm:p-6 bg-[var(--surface)] border border-[var(--ruby)]/20 rounded-md"
           >
             <div className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--rule)]">
               <div>
-                <div className="font-mono text-xs text-[var(--primary-navy)] font-semibold">
+                <div className="font-mono text-xs text-[var(--ruby)] font-semibold">
                   {selectedDept.shortName} · Estd. {selectedDept.establishedYear}
                 </div>
                 <h3 className="font-serif text-xl sm:text-2xl font-medium text-[var(--ink)] mt-0.5">
@@ -255,7 +255,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
 
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs text-[var(--muted)]">
                   <span className="inline-flex items-center gap-1.5 text-[var(--ink)] font-medium">
-                    <Users className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+                    <Users className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                     Head of Department: {selectedDept.hodName} ({selectedDept.hodDesignation})
                   </span>
                   <a
@@ -271,28 +271,28 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
               <div className="lg:col-span-5 grid grid-cols-2 gap-2.5 self-start">
                 <Link
                   href={`/departments/${selectedDept.code}/faculty`}
-                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--primary-navy)] text-xs font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-xs font-semibold text-[var(--ink)] transition-colors"
                 >
-                  <Users className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+                  <Users className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Faculty ({selectedDept.facultyCount})</span>
                 </Link>
                 <Link
                   href={`/departments/${selectedDept.code}/laboratories`}
-                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--primary-navy)] text-xs font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-xs font-semibold text-[var(--ink)] transition-colors"
                 >
-                  <FlaskConical className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+                  <FlaskConical className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Laboratories</span>
                 </Link>
                 <Link
                   href={`/departments/${selectedDept.code}/board-of-studies`}
-                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--primary-navy)] text-xs font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-xs font-semibold text-[var(--ink)] transition-colors"
                 >
-                  <BookOpen className="w-3.5 h-3.5 text-[var(--primary-navy)]" aria-hidden="true" />
+                  <BookOpen className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Board of Studies</span>
                 </Link>
                 <Link
                   href={`/departments/${selectedDept.code}/syllabus`}
-                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--primary-navy)] text-xs font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-xs font-semibold text-[var(--ink)] transition-colors"
                 >
                   <FileText className="w-3.5 h-3.5 text-[var(--brand-crimson)]" aria-hidden="true" />
                   <span>Syllabus &amp; R20</span>

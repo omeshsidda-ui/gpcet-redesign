@@ -25,10 +25,10 @@ export default function DepartmentTabs({ deptCode, facultyCount }: DepartmentTab
   return (
     <nav
       aria-label="Department sections"
-      className="sticky top-20 z-30 bg-[var(--surface)] border-b border-[var(--rule)]"
+      className="lg:sticky top-0 z-30 bg-[var(--surface)] border-b border-[var(--rule)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-x-auto">
-        <div className="flex items-center gap-1 min-w-max py-1">
+        <div className="flex items-center gap-1 flex-wrap py-1">
           {tabs.map((tab) => {
             const isActive = tab.exact
               ? pathname === tab.href

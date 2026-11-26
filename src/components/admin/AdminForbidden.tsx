@@ -78,7 +78,7 @@ export default function AdminForbidden({
               <form action={signOutAdminAction}>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded bg-[var(--primary-navy)] text-white hover:bg-[#091a30] transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded bg-[var(--ruby)] text-white hover:bg-[var(--burgundy)] transition-colors cursor-pointer"
                 >
                   <LogOut className="w-3.5 h-3.5" aria-hidden="true" />
                   Sign Out &amp; Switch Account

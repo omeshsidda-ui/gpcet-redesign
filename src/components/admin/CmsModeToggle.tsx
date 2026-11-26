@@ -104,19 +104,19 @@ export default function CmsModeToggle({
           onClick={() => handleModeChange('scraper')}
           className={`text-left p-4 rounded-md border transition-colors ${
             mode === 'scraper'
-              ? 'border-[var(--primary-navy)] bg-[var(--primary-navy)]/5'
+              ? 'border-[var(--ruby)] bg-[var(--ruby)]/5'
               : 'border-[var(--rule)] bg-[var(--surface)]/50 hover:bg-[var(--surface)]'
           } ${!canSwitchMode ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'}`}
         >
           <div className="flex items-center justify-between gap-2">
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--ink)]">
-              <Globe className="w-4 h-4 text-[var(--primary-navy)]" aria-hidden="true" />
+              <Globe className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
               Scraper Sync Mode
             </span>
             <span
               className={`font-mono text-[11px] font-semibold px-2 py-0.5 rounded ${
                 mode === 'scraper'
-                  ? 'bg-[var(--primary-navy)] text-white'
+                  ? 'bg-[var(--ruby)] text-white'
                   : 'bg-[var(--surface)] text-[var(--muted)] border border-[var(--rule)]'
               }`}
             >
@@ -184,7 +184,7 @@ export default function CmsModeToggle({
           className={`mt-4 flex items-start gap-2.5 p-3 rounded border text-xs ${
             feedback.type === 'error'
               ? 'bg-[var(--brand-crimson)]/5 border-[var(--brand-crimson)]/30 text-[var(--brand-crimson)]'
-              : 'bg-[var(--primary-navy)]/5 border-[var(--primary-navy)]/20 text-[var(--primary-navy)]'
+              : 'bg-[var(--ruby)]/5 border-[var(--ruby)]/20 text-[var(--ruby)]'
           }`}
         >
           {feedback.type === 'error' ? (

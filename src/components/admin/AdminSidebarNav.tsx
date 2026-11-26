@@ -83,11 +83,11 @@ export default function AdminSidebarNav({
       {/* Mobile / Tablet Admin Subheader */}
       <div className="lg:hidden bg-[var(--surface-raised)] border-b border-[var(--rule)] px-4 py-3 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5 min-w-0">
-          <ShieldCheck className="w-4 h-4 text-[var(--primary-navy)] shrink-0" aria-hidden="true" />
+          <ShieldCheck className="w-4 h-4 text-[var(--ruby)] shrink-0" aria-hidden="true" />
           <span className="font-serif font-semibold text-sm text-[var(--ink)] truncate">
             Staff CMS
           </span>
-          <span className="font-mono text-[11px] uppercase px-1.5 py-0.5 rounded bg-[var(--primary-navy)] text-white">
+          <span className="font-mono text-[11px] uppercase px-1.5 py-0.5 rounded bg-[var(--ruby)] text-white">
             {staffRole}
           </span>
         </div>
@@ -132,7 +132,7 @@ export default function AdminSidebarNav({
                 aria-current={active ? 'page' : undefined}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded text-sm font-medium transition-colors ${
                   active
-                    ? 'bg-[var(--primary-navy)] text-white'
+                    ? 'bg-[var(--ruby)] text-white'
                     : 'text-[var(--ink)] hover:bg-[var(--surface)]'
                 }`}
               >
@@ -164,7 +164,7 @@ export default function AdminSidebarNav({
         className="hidden lg:flex lg:flex-col lg:w-64 lg:shrink-0 bg-[var(--surface-raised)] border-r border-[var(--rule)]"
       >
         <div className="p-5 border-b border-[var(--rule)]">
-          <div className="flex items-center gap-2 text-[var(--primary-navy)]">
+          <div className="flex items-center gap-2 text-[var(--ruby)]">
             <ShieldCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
             <span className="font-mono text-xs font-semibold tracking-wider uppercase">
               GPCET Staff CMS
@@ -174,7 +174,7 @@ export default function AdminSidebarNav({
             Institutional Governance &amp; Publishing
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
-            <span className="font-mono text-[11px] font-semibold uppercase px-2 py-0.5 rounded bg-[var(--primary-navy)] text-white">
+            <span className="font-mono text-[11px] font-semibold uppercase px-2 py-0.5 rounded bg-[var(--ruby)] text-white">
               {staffRole}
             </span>
             {departmentCode && (
@@ -199,7 +199,7 @@ export default function AdminSidebarNav({
                 aria-current={active ? 'page' : undefined}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded text-sm font-medium transition-colors ${
                   active
-                    ? 'bg-[var(--primary-navy)] text-white'
+                    ? 'bg-[var(--ruby)] text-white'
                     : 'text-[var(--ink)] hover:bg-[var(--surface)]'
                 }`}
               >
