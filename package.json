@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --import tsx --test \"tests/**/*.test.{js,ts}\"",
+    "test": "node --import tsx --test tests/*.test.js",
     "test:contracts": "node scripts/test-data-contracts.js",
     "seed:generate": "node scripts/seed-supabase.js",
     "search:build": "node scripts/build-search-index.js",
