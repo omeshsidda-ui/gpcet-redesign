@@ -1,8 +1,8 @@
 # Actionable Implementation Checklist: GPCET Redesign
 
-## Next Immediate Steps (Coordinator Final Acceptance Gate & Production Cutover)
-> **Action 1 (Final Acceptance Gate)**: Run `npm test && npm run test:contracts && npx tsc --noEmit && npm run build` and verify live `npm run start` HTTP smoke checks across public and admin routes.
-> **Action 2 (Production Deployment & CMS Cutover)**: Apply `supabase/migrations/*.sql`, generate and execute `supabase/seed.sql` via `npm run seed:generate`, configure `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, and `ADMIN_SYNC_TOKEN`, then switch `/admin#cutover-settings` to Native CMS Mode per [ADR-006](./decisions/006-production-cms-cutover.md).
+## Next Immediate Steps (Production Deployment & Vercel Cutover)
+> **Completed**: Phases 1–6 (Next.js 15 App Router portal, fail-safe hybrid data layer, RFC 9457 REST APIs, durable WordPress notice sync, Staff Admin CMS, Edge CSP middleware, crimson-red UI redesign `b4b801d` with official crest logo `/assets/brand/gpcet-logo.png`, and repository cleanup) are **100% complete** (`81/81` tests passing). Live Supabase project **`gpcet-redesign`** (`ref: qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`) is provisioned and seeded with **8 departments**, **452 faculty**, and **5,822 documents**.
+> **Remaining Action**: Deploy to **Vercel**, configure `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, and `ADMIN_SYNC_TOKEN`, provision staff `app_metadata.role` users, and switch `/admin#cutover-settings` to Native CMS Mode per [ADR-006](./decisions/006-production-cms-cutover.md).
 
 ---
 
@@ -16,7 +16,7 @@
 | **Delta** | Durable Workflow Lead (`workflow`, `senior-backend`) | `src/lib/workflow/sync-notices.ts`, `src/app/api/v1/admin/sync/notices/route.ts`, cache invalidation | 🟢 Complete & Verified |
 | **Epsilon** | Frontend Design Specialist (`frontend-design`, `impeccable`) | Next.js 15 UI, tokens, Global Shell, Gazette hero, Dept matrix, Document vault, NAAC/NBA/Admissions/Placements pages | 🟢 Complete & Verified |
 | **Admin CMS** | Staff CMS & Cutover Lead (`supabase`, `code-security`) | `src/app/admin/**`, `src/lib/auth/admin-auth.ts`, `src/lib/actions/admin-actions.ts`, ADR-006 | 🟢 Complete & Verified |
-| **Zeta (Agent 7)** | Security, QA, A11y & Docs Sync Lead (`security-review`, `web-design-guidelines`, `docs-sync`) | `src/middleware.ts`, `tests/security-and-pages.test.js` (80/80 tests passing), Anti-slop & WCAG AA audit, Docs sync | 🟢 Complete & Verified |
+| **Zeta (Agent 7)** | Security, QA, A11y & Docs Sync Lead (`security-review`, `web-design-guidelines`, `docs-sync`) | `src/middleware.ts`, `tests/security-and-pages.test.js` (81/81 tests passing), Anti-slop & WCAG AA audit, Docs sync | 🟢 Complete & Verified |
 
 ---
 
@@ -93,7 +93,10 @@
 ## Phase 6: Staff Admin CMS, Security Verification & Handoff (`Admin CMS & Subagent Zeta`)
 - [x] Implement authenticated Staff Admin CMS (`src/app/admin/**`, `src/lib/auth/admin-auth.ts`, `src/lib/actions/admin-actions.ts`, `src/components/admin/**`) and record `docs/decisions/006-production-cms-cutover.md`.
 - [x] Implement `src/middleware.ts` enforcing strict HTTP security headers (`Content-Security-Policy`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`) and Supabase SSR cookie refresh on `/admin/*`.
-- [x] Author and run full automated test suite across `tests/*.test.js` (13 test files, 80 tests passing via `npm test` covering middleware CSP/headers, inquiry rate limiting, client-bundle `service_role` isolation, admin RBAC/CSRF, RFC 9457 errors, Route Handlers, Zod schemas, RLS migrations, offline fallback across 452 faculty & 5,822 documents, MiniSearch <180 KB index, durable workflow sync, and NAAC Criteria 1–7).
+- [x] Author and run full automated test suite across `tests/*.test.js` (13 test files, 81 tests passing via `npm test` covering middleware CSP/headers, inquiry rate limiting, client-bundle `service_role` isolation, admin RBAC/CSRF, RFC 9457 errors, Route Handlers, Zod schemas, RLS migrations, offline fallback across 452 faculty & 5,822 documents, MiniSearch <180 KB index, durable workflow sync, NAAC Criteria 1–7, and reserved-route redirect protection).
+- [x] Complete crimson-red institutional UI redesign (`b4b801d`) with official GPCET crest (`public/assets/brand/gpcet-logo.png`), warm ivory canvas, and native `<dialog>` navigation/search modals.
+- [x] Provision live Supabase project (`gpcet-redesign`, ref `qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`) and seed 8 departments, 452 faculty profiles, and 5,822 academic documents.
+- [x] Remove legacy Orca workspace files, untrack `tsconfig.tsbuildinfo`, and execute `docs-sync` across all authoritative project docs.
 - [x] Verify `rehype-sanitize` (`MarkdownRenderer.tsx`) and `sanitizeScrapedMarkdown()` (`src/lib/institutional-content.ts`) neutralize `<script>`, `<iframe>`, `javascript:` URLs, inline event handlers, and `[fusion_*]` shortcodes.
 - [x] Audit anti-slop compliance and WCAG AA accessibility (removed cosmetic status dot in `TopInstitutionalBar.tsx` and `backdrop-blur-sm` scrims; verified skip-to-content, focus-visible rings, `tabular-nums`, keyboard navigation, and responsive Mobile/Tablet/Desktop layouts).
 - [x] Run `docs-sync` to synchronize `docs/TODO.md`, `docs/CHANGELOG.md`, `docs/ARCHITECTURE.md`, and `SESSION_HANDOFF.md`.

@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## 2026-11-26
+## [1.0.1] - 2026-11-26
 
-- Introduced the official GPCET crest, crimson institutional masthead and campus photograph on the homepage.
-- Updated public indexes, academic registers, Markdown pages and staff screens to share the editorial palette. Search and compact navigation use native modal dialogs.
+### Changed & Cleaned
+- **Crimson-Red UI Redesign & Official Crest (`b4b801d`)**: Introduced the official GPCET square crest (`public/assets/brand/gpcet-logo.png`) and wordmark (`public/assets/brand/gpcet-wordmark.png`), crimson/ruby masthead (`--ruby: #8B0E1A`, `--brand-crimson: #B12B2C`, `--burgundy: #6E0A14`) on warm ivory (`--bg: #FCF9F7`, `--surface: #F5EFEA`), 46/54 homepage campus photograph spread, and native `<dialog>` modals for compact navigation and search.
+- **Live Supabase Provisioning**: Provisioned Supabase project `gpcet-redesign` (`ref: qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`) with migrations applied and 8 departments, 452 faculty profiles, and 5,822 documents seeded; guarded placeholder credentials in `src/lib/data/documents.js` (`5597a71`) and updated CI test glob (`e4dc76a`).
+- **Repository Cleanup & Documentation Sync**: Removed legacy `.orca/`, `scripts/orca-squad.ps1`, and `.agents/skills/orca-*`; untracked `tsconfig.tsbuildinfo` via `.gitignore`; synchronized `AGENTS.md`, `GEMINI.md`, `README.md`, `PROJECT_CONTEXT.md`, `NEXTJS_REDESIGN_PLAN.md`, `SESSION_HANDOFF.md`, and `docs/` (`PLAN.md`, `TODO.md`, `ARCHITECTURE.md`, `CHANGELOG.md`).
 
-## [Unreleased] - 2026-11-02
+---
+
+## [1.0.0] - 2026-11-26
 
 ### Added
 - **Documentation & Context Synchronization Suite**:

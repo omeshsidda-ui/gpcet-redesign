@@ -29,10 +29,12 @@ You are not merely a frontend coder; you are the lead product designer and UI en
 - 🚫 **No Hero Badges / Eyebrows by Default**: Prohibit tracked-out ALL-CAPS kicker badges unless explicitly requested.
 
 ### Implementation Standards
-- **Typography & Hierarchy**: Pair a contemporary display sans (*Plus Jakarta Sans* / *Inter*) with dignified serif accents (*Merriweather*) where appropriate. Keep line lengths under 80 characters.
-- **Responsive Adaptations**: Design distinct mobile sheets, collapsible sidebars, and desktop mega-menus. No clipped tables or awkward horizontal scrolling.
+- **Typography & Hierarchy**: Pair the dignified display serif (*Newsreader*) with operational UI sans (*Plus Jakarta Sans*) and tabular monospace (*JetBrains Mono*). Keep body line lengths under 80 characters.
+- **Institutional Color & Crest Identity**: Use GPCET's crimson-red and ivory editorial palette (`--bg: #FCF9F7`, `--surface: #F5EFEA`, `--ink: #181112`, `--ruby: #8B0E1A`, `--brand-crimson: #B12B2C`, `--burgundy: #6E0A14`, `--brass-gold: #B8860B`) paired with the official square crest (`/assets/brand/gpcet-logo.png`).
+- **Responsive Adaptations**: Design distinct mobile sheets/native `<dialog>` drawers, collapsible sidebars, and desktop mega-menus. No clipped tables or awkward horizontal scrolling.
 - **Interactive State Completeness**: Every button, link, and input must supply hover, focus-visible, active, and disabled states.
 - **Accessibility (WCAG AA)**: Minimum 4.5:1 text contrast, semantic landmarks (`<main>`, `<nav>`, `<aside>`), and accessible ARIA attributes on modals and disclosures.
+- **Automated Verification**: Run `npm test` (executes `node --import tsx --test "tests/**/*.test.{js,ts}"`), `npm run test:contracts`, `npx tsc --noEmit`, and `npm run build`.
 
 ### Visual QA Loop
 - Always execute `npm run dev` to test interfaces in a real browser.
@@ -132,7 +134,9 @@ project/
     │   ├── 002-auth-architecture.md
     │   ├── 003-nextjs-app-router-migration.md
     │   ├── 004-durable-workflow-and-cache-invalidation.md
-    │   └── 005-fail-safe-hybrid-data-access-pattern.md
+    │   ├── 005-fail-safe-hybrid-data-access-pattern.md
+    │   ├── 006-markdown-ast-rendering-and-table-normalization.md
+    │   └── 006-production-cms-cutover.md
     │
     └── references/            # Design system tokens, anti-slop rules, and page blueprints
         ├── design-system-and-anti-slop.md
@@ -153,7 +157,7 @@ After every substantial implementation, refactor, database change, API change, o
 
 ## 5. Complete Workspace Skills Catalog & Execution Matrix
 
-The following 26 specialized skills are installed in [`.agents/skills/`](./.agents/skills/) and available on-demand:
+The following core skills (among 38 total installed in [`.agents/skills/`](./.agents/skills/)) are available on-demand:
 
 ### 🎨 Frontend & Design Skills
 | Skill | Directory | Upstream Source | Primary Responsibility | Trigger Phrases |
@@ -187,15 +191,6 @@ The following 26 specialized skills are installed in [`.agents/skills/`](./.agen
 | **`secret-scanning`** | `skills/secret-scanning` | `github/awesome-copilot` | Pre-commit credential leak detection, API token scanning, and push protection setup. | "scan secrets", "secret leak", "push protection", "credential check" |
 | **`owasp-top-10`** | `skills/owasp-top-10` | `microsoft/hve-core` | Structured 2025 OWASP Top 10 normative references and web security remediation guides. | "OWASP", "OWASP Top 10", "web security checklist", "access control review" |
 | **`sarif-parsing`** | `skills/sarif-parsing` | `trailofbits/skills` | Parsing, aggregating, and deduplicating SARIF outputs from CodeQL and Semgrep runs. | "parse sarif", "read scan results", "aggregate findings", "process sarif" |
-
-### ⚡ Orca ADE & Multi-Agent Orchestration Skills
-| Skill | Directory | Upstream Source | Primary Responsibility | Trigger Phrases |
-| :--- | :--- | :--- | :--- | :--- |
-| **`orca-cli`** | `skills/orca-cli` | `stablyai/orca` | Operate Orca-managed worktrees, folder contexts, terminals, repos, automations, artifacts, and embedded browser. | "orca", "orca-cli", "$orca-cli", "orca worktree", "child worktree", "terminal send", "terminal wait" |
-| **`orca-orchestration`** | `skills/orca-orchestration` | `stablyai/orca` | Multi-agent fleet orchestration, supervisor-worker protocols, task DAGs, worker dispatches, and mailboxes. | "orchestration", "orca orchestration", "worker-start", "dispatch worker", "task dag", "worker_done" |
-| **`orca-browser`** | `skills/orca-browser` | `stablyai/orca` | Drive Orca's embedded Chromium browser, snapshot accessibility trees (`@e1`), visual QA, and Design Mode CSS. | "orca browser", "browser snapshot", "embedded browser", "inspect element orca", "visual qa orca" |
-| **`orca-computer-use`** | `skills/orca-computer-use` | `stablyai/orca` | GUI automation for visible external desktop application windows and OS dialogs via `orca computer`. | "orca computer", "computer-use", "gui automation", "desktop click", "native window" |
-| **`orca-100x-playbook`** | `skills/orca-100x-playbook` | Custom In-House | 100x developer workflow: prompt fan-out, parallel spikes, coordinator-worker hierarchy, and mobile AFK ops. | "100x", "100x dev", "orca playbook", "100x workflow", "parallel agents", "fleet orchestration" |
 
 ### 📝 Documentation, ADRs & Continuity Skills
 | Skill | Directory | Upstream Source | Primary Responsibility | Trigger Phrases |

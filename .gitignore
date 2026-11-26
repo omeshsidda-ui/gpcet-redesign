@@ -3,6 +3,9 @@ node_modules/
 .pnp
 .pnp.js
 
+# TypeScript incremental build info
+tsconfig.tsbuildinfo
+
 # Testing
 coverage/
 

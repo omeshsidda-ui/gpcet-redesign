@@ -1,5 +1,7 @@
 # Project Context & Knowledge Base: GPCET Website Scraper & Redesign
 
+> **Current Project Status (2026-11-26)**: **Phase 0 (Content Extraction Pipeline)** and **Phases 1–6 (Next.js 15 App Router Portal, Supabase PostgreSQL Backend, Staff Admin CMS, Durable Sync, Security Hardening, and Crimson-Red Editorial Redesign with Official Crest Logo)** are **100% complete and verified**. Live Supabase project `gpcet-redesign` (`ref: qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`) is provisioned and seeded with 8 departments, 452 faculty profiles, and 5,822 documents.
+
 ## 1. Project Background & Objective
 - **Institution**: G. Pullaiah College of Engineering and Technology (GPCET), Kurnool, Andhra Pradesh, India.
   - Autonomous engineering college affiliated with JNTUA (Jawaharlal Nehru Technological University, Anantapur).
@@ -144,7 +146,7 @@ npm run scrape:all       # Run entire pipeline end-to-end
 
 ## 6. Installed Agent Skills Ecosystem (Frontend, Backend & Security)
 
-The workspace is equipped with a comprehensive suite of 26 specialized skills located in [`.agents/skills/`](./.agents/skills/), fully configured for AI pair programming across frontend design, backend systems, database engineering, and application security:
+The workspace is equipped with a suite of 38 specialized skills located in [`.agents/skills/`](./.agents/skills/), configured for AI pair programming across frontend design, backend systems, database engineering, and application security:
 
 ### A. Frontend Design & Anti-AI-Slop Suite
 - [`frontend-design`](./.agents/skills/frontend-design/SKILL.md) *(Anthropic)*: Drives foundational art direction, typography pairings, color systems, and eliminates generic templates.
@@ -182,7 +184,8 @@ The workspace is equipped with a comprehensive suite of 26 specialized skills lo
 
 ---
 
-## 7. Next Steps & Authoritative Implementation Plans
+## 7. Current Implementation & Deployment References
+- Production State & Session Handoff: [`SESSION_HANDOFF.md`](./SESSION_HANDOFF.md)
 - Master Next.js 15 Redesign Plan: [`NEXTJS_REDESIGN_PLAN.md`](./NEXTJS_REDESIGN_PLAN.md)
 - High-Level Implementation Plan: [`docs/PLAN.md`](./docs/PLAN.md)
 - Actionable Phase-by-Phase Checklist: [`docs/TODO.md`](./docs/TODO.md)

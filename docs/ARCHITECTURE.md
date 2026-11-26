@@ -2,7 +2,7 @@
 
 ## 1. High-Level Enterprise Architecture
 
-The GPCET Institutional Web Portal is architected as an **enterprise-grade, zero-downtime, hybrid platform** built on **Next.js 15 (App Router)** and **React 19**, deployed on Vercel with **Supabase (PostgreSQL 15+)** and an offline JSON/Markdown ingestion cache.
+The GPCET Institutional Web Portal is architected as an **enterprise-grade, zero-downtime, hybrid platform** built on **Next.js 15 (App Router)** and **React 19**, targeting Vercel deployment with live **Supabase PostgreSQL 15+** (`gpcet-redesign`, ref `qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`, seeded with 8 departments, 452 faculty, and 5,822 documents) and an offline JSON/Markdown ingestion cache.
 
 ```mermaid
 flowchart TD

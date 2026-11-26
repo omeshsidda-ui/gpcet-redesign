@@ -1,8 +1,9 @@
 # GPCET Institutional Web Portal: Next.js 15 App Router & Anti-Slop Design System Architecture
 
+> **Implementation Status (2026-11-26)**: **Implemented & Verified (`b4b801d`)**. All Phases 1–6 (App Router public portals, Document Vault, 452 faculty dossiers, Staff Admin CMS, durable sync, Edge CSP middleware, and the crimson-red visual system with the official crest `/assets/brand/gpcet-logo.png`) are live in code. Live Supabase project `gpcet-redesign` (`ref: qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`) is seeded with 8 departments, 452 faculty, and 5,822 documents. Note: Earlier `#0C2340` / Imperial Navy references in the original blueprint below were superseded in commit `b4b801d` by the GPCET Crimson/Ruby & Warm Ivory palette documented in [`docs/references/design-system-and-anti-slop.md`](./docs/references/design-system-and-anti-slop.md).
 > **Institutional Truth**: G. Pullaiah College of Engineering & Technology (GPCET), Kurnool, Andhra Pradesh. Autonomous engineering institution affiliated with JNTU Anantapur, accredited by NAAC with **'A+' Grade** (Cycle 2), and NBA accredited across undergraduate programs (CSE, ECE, EEE, ME, CE).  
 > **Source Corpus**: 936 ingested Markdown pages, 452 verified faculty records across 8 departments, 5,822 indexed media/syllabus documents, and 630 normalized academic data tables.  
-> **Architectural Paradigm**: Next.js 15 (App Router) + React 19 + TypeScript 5.5 + Tailwind CSS v4 + Zero-JS Server Components by default.
+> **Architectural Paradigm**: Next.js 15 (App Router) + React 19 + TypeScript 5.7 + Tailwind CSS v4 + Zero-JS Server Components by default.
 
 ---
 
@@ -46,41 +47,43 @@ For an elite autonomous engineering college with two decades of regional legacy,
 
 ## 2. Premium Design Tokens & Color Architecture
 
-Color proportions follow the strict **75 / 20 / 5** institutional distribution rule: 75% neutral architectural ground, 20% high-contrast ink & structural navy, and less than 5% high-visibility crimson/brass accent reserved strictly for primary actions, critical alerts, and accreditation seals.
+Color proportions follow the strict **75 / 20 / 5** institutional distribution rule: 75% neutral architectural ground, 20% high-contrast ink & structural ruby, and less than 5% high-visibility crimson/brass accent reserved strictly for primary actions, critical alerts, and accreditation seals.
 
 ```
-       75% Surface Ground                    20% Ink & Structural Navy       <5% Accent
+       75% Surface Ground                    20% Ink & Structural Ruby       <5% Accent
 [--------------------------------------------|------------------------|--------]
-  --bg / --surface (Alabaster / Slate)         --ink / --primary-navy   --crimson / --brass
+  --bg / --surface (Ivory / Stone-Rose)        --ink / --ruby           --brand-crimson / --brass-gold
 ```
 
 ### The Institutional Palette
 
 | Token Role | CSS Variable | Light Mode (Default) | Dark Mode (Nocturne) | WCAG Contrast Ratio & Purpose |
 | :--- | :--- | :--- | :--- | :--- |
-| **Ground** | `--bg` | `#FBFBFD` (Alabaster) | `#070B14` (Deep Obsidian) | Base background; crisp, glare-free architectural canvas. |
-| **Surface Step** | `--surface` | `#F1F3F6` (Muted Stone) | `#0E1524` (Midnight Slate) | Subtle 3-point lightness shift for sidebars, filters, table headers. No borders needed. |
-| **Surface Raised**| `--surface-raised`| `#FFFFFF` (Pure White) | `#141D30` (Navy Charcoal) | Elevated cards, document rows, active modals. Hard clean edge. |
-| **Ink (Primary)** | `--ink` | `#0A1124` (Midnight Ink) | `#F8FAFC` (Crisp Alabaster) | **14.2:1** contrast. Primary headlines, body text, table data. |
-| **Muted Ink** | `--muted` | `#4B5565` (Slate Graphite)| `#94A3B8` (Silver Slate) | **5.8:1** contrast. Metadata, timestamps, file sizes, course codes. |
-| **Primary Navy** | `--primary-navy` | `#0C2340` (Imperial Navy)| `#1A3B66` (Structural Cobalt)| Civic foundation; masthead, primary navigation, formal leadership bands. |
-| **Brand Crimson**| `--brand-crimson`| `#8A1538` (Academic Oxblood)| `#A82246` (Vivid Crimson) | **5.1:1** on light ground. Selective action buttons, critical notices, crest core. |
-| **Heritage Brass**| `--brass-gold` | `#B8860B` (Burnished Brass)| `#D4AF37` (Antique Gold) | **4.6:1** contrast. Exclusively for NAAC 'A+' seals, Autonomous status, BoS pins. |
-| **Hairline Rule** | `--rule` | `rgba(10, 17, 36, 0.08)` | `rgba(248, 250, 252, 0.1)` | Structural dividers; only 1px where semantic separation is mandatory. |
+| **Ground** | `--bg` | `#FCF9F7` (Warm Ivory) | `#211619` (Deep Claret) | Base background; crisp, glare-free architectural canvas. |
+| **Surface Step** | `--surface` | `#F5EFEA` (Stone-Rose) | `#302125` (Dark Plum) | Subtle lightness shift for sidebars, filters, table headers. |
+| **Surface Raised**| `--surface-raised`| `#FFFFFF` (Pure White) | `#402C30` (Wine Charcoal) | Elevated cards, document rows, active modals. Hard clean edge. |
+| **Ink (Primary)** | `--ink` | `#181112` (Charcoal Ink) | `#F8FAFC` (Crisp Alabaster) | Primary headings, body text, table data. |
+| **Muted Ink** | `--muted` | `#5C4B4E` (Warm Slate)| `#DAC7CA` (Rose Slate) | Metadata, timestamps, file sizes, course codes. |
+| **Architectural Ruby** | `--ruby` | `#8B0E1A` (GPCET Ruby)| `#81323C` (Muted Ruby)| Masthead, hero spread, section rules, footer, and focus rings. |
+| **Brand Crimson**| `--brand-crimson`| `#B12B2C` (GPCET Crimson)| `#F39DA1` (Soft Rose) | Selective action buttons, active states, critical notices. |
+| **Pressed Burgundy**| `--burgundy` | `#6E0A14` (Deep Burgundy)| `#6E0A14` (Deep Burgundy)| Caption bands and pressed surfaces. |
+| **Heritage Brass**| `--brass-gold` | `#B8860B` (Burnished Brass)| `#D4AF37` (Antique Gold) | Exclusively for NAAC 'A+' seals, Autonomous status (`--distinction-ink: #785707`). |
+| **Hairline Rule** | `--rule` | `rgba(140, 20, 32, 0.12)` | `rgba(248, 250, 252, 0.1)` | Structural dividers; only 1px where semantic separation is mandatory. |
 
 ```css
-/* styles/tokens.css */
-@layer base {
-  :root {
-    --bg: #FBFBFD;
-    --surface: #F1F3F6;
-    --surface-raised: #FFFFFF;
-    --ink: #0A1124;
-    --muted: #4B5565;
-    --primary-navy: #0C2340;
-    --brand-crimson: #8A1538;
-    --brass-gold: #B8860B;
-    --rule: rgba(10, 17, 36, 0.08);
+/* src/app/globals.css */
+:root {
+  --bg: #FCF9F7;
+  --surface: #F5EFEA;
+  --surface-raised: #FFFFFF;
+  --ink: #181112;
+  --muted: #5C4B4E;
+  --ruby: #8B0E1A;
+  --brand-crimson: #B12B2C;
+  --burgundy: #6E0A14;
+  --brass-gold: #B8860B;
+  --distinction-ink: #785707;
+  --rule: rgba(140, 20, 32, 0.12);
 
     /* Typography Scale */
     --font-display: 'Newsreader', Georgia, serif;
@@ -94,17 +97,16 @@ Color proportions follow the strict **75 / 20 / 5** institutional distribution r
   }
 
   .dark {
-    --bg: #070B14;
-    --surface: #0E1524;
-    --surface-raised: #141D30;
+    --bg: #211619;
+    --surface: #302125;
+    --surface-raised: #402C30;
     --ink: #F8FAFC;
-    --muted: #94A3B8;
-    --primary-navy: #1A3B66;
-    --brand-crimson: #A82246;
+    --muted: #DAC7CA;
+    --ruby: #81323C;
+    --brand-crimson: #F39DA1;
     --brass-gold: #D4AF37;
     --rule: rgba(248, 250, 252, 0.1);
   }
-}
 ```
 
 ---
@@ -292,31 +294,23 @@ The homepage rejects the standard AI blueprint of centered hero + 3-card feature
 #### Section 1: Top Institutional Bar
 - **Purpose**: Establishes regulatory authority immediately.
 - **Content**: Autonomous status banner, affiliation with JNTUA Anantapur, NAAC Grade A+ recognition, EAPCET Code: `PULE`, quick links to Student Examination Results Portal and Grievance Cell.
-- **Design Tokens**: Background `--primary-navy` (`#0C2340`), text pure white (`#FFFFFF`), subtle brass accent on NAAC Grade.
+- **Design Tokens**: Background `--ruby` (`#8B0E1A`), text pure white (`#FFFFFF`), subtle brass accent on NAAC Grade.
 
 #### Section 2: Institutional Navbar & Mega-Menu
 - **Purpose**: Clean, accessible hierarchy across 936 content nodes.
 - **Structure**:
-  - Left: Official GPCET crest + Typography wordmark.
-  - Center: Semantic dropdowns (`Academics`, `Departments`, `Admissions`, `Placements`, `Accreditation`, `Campus Life`, `About`).
-  - Right: Global Search Trigger (`Cmd + K`) displaying index status ("5,822 documents · 452 faculty").
-- **Interaction**: Keyboard accessible (`Tab`, `Escape`, arrow navigation), zero click delay, `aria-expanded` attributes.
+  - Left: Official GPCET square crest (`/assets/brand/gpcet-logo.png`) + Newsreader college wordmark.
+  - Center/Row 2: Semantic dropdowns (`Academics`, `Departments`, `Admissions`, `Placements & Research`, `Accreditation`).
+  - Right: Global Search Trigger (`Cmd + K`), Document Vault link, and Admissions 2026 CTA.
+- **Interaction**: Keyboard accessible (`Tab`, `Escape`, native `<dialog>` mobile drawer), zero click delay, `aria-expanded` attributes.
 
 #### Section 3: Asymmetric Hero Spread
-- **Left Column (58% width)**:
-  - Display Headline: *"An Autonomous Engineering Citadel in Rayalaseema."* set in *Newsreader* (52px on desktop, tight leading `1.05`).
-  - Standfirst: Two-sentence institutional statement describing 18 years of technical education, affiliated with JNTUA and accredited by NAAC with 'A+' Grade.
-  - Institutional Key Indicators (Tabular Font):
-    - `360` Computer Science & Engineering Intake
-    - `A+` NAAC Accreditation (Cycle 2)
-    - `5` NBA-Accredited Engineering Disciplines
-    - `50+` Top-tier Recruiter Partnerships
-  - Primary Action Buttons:
-    - Primary Button (`bg-[#8A1538]` Crimson): *"Access Syllabus & Documents"* $\rightarrow$ `/documents`
-    - Secondary Button (`border border-[#0C2340]` Navy): *"Explore Departments"* $\rightarrow$ `/departments`
-- **Right Column (42% width)**:
-  - **Live Academic Gazette Desk**: Displays the 5 latest autonomous circulars, exam notifications, and timetables parsed from `cache/`.
-  - Each entry includes: Category tag (`EXAM CELL`, `AUTONOMOUS`, `CIRCULAR`), Title, Release Date, and a direct download icon with file size indicator.
+- **Left Column (46% width)**:
+  - Display Headline: *"An Autonomous Engineering Citadel in Rayalaseema."* set in *Newsreader* on `--ruby` (`#8B0E1A`) panel with `--burgundy` (`#6E0A14`) caption bar.
+  - Standfirst: Institutional statement describing 18+ years of technical education, affiliated with JNTUA and accredited by NAAC with 'A+' Grade.
+  - Primary Action Button: `--bg` / `--ruby` action CTA $\rightarrow$ `/documents` and `/departments`.
+- **Right Column (54% width)**:
+  - Captioned campus photograph (`/assets/campus/GPCET-building.jpg`) followed by tabular institutional metrics (`360` CSE Intake, `A+` NAAC, `5` NBA Programs, `452` Faculty / `5,822` Docs) and **Live Academic Gazette** circulars.
 
 #### Section 4: Monolithic Department Register
 - Replaces generic 3-card grids with an architectural, tabular register.
@@ -479,7 +473,7 @@ Per `design-taste-frontend` and `impeccable`, motion must be **authored, singula
 
 ### Micro-Interactions Quality Standards
 1. **Buttons & Links**: Crisp 120ms transitions on `:hover` and `:active`. Never lower text opacity on hover; instead, shift surface tone or deepen ink contrast.
-2. **Focus Visibility (WCAG 2.4.7)**: All interactive elements display a dual-ring focus outline: `outline: 2px solid var(--primary-navy); outline-offset: 2px;`.
+2. **Focus Visibility (WCAG 2.4.7)**: All interactive elements display a dual-ring focus outline: `outline: 2px solid var(--ruby); outline-offset: 2px; box-shadow: 0 0 0 2px white;`.
 3. **Tabular Counters**: Numeric values (e.g., student counts, document counts) transition cleanly using CSS `tabular-nums`.
 4. **Accessibility First**: Enforce `@media (prefers-reduced-motion: reduce)` globally, disabling all transform reveals and substituting instantaneous opacity fades.
 
@@ -537,7 +531,7 @@ Per `AGENTS.md` and application security engineering guidelines:
 
 #### Phase 1: Scaffolding & Design Token Setup
 - Configure `next.config.ts` for optimized image domains and static export readiness.
-- Setup `src/app/globals.css` with the complete CSS variable token system (`--bg`, `--surface`, `--ink`, `--primary-navy`, `--brand-crimson`, `--brass-gold`).
+- Setup `src/app/globals.css` with the complete CSS variable token system (`--bg`, `--surface`, `--surface-raised`, `--ink`, `--muted`, `--ruby`, `--brand-crimson`, `--burgundy`, `--brass-gold`, `--distinction-ink`, `--rule`).
 - Load self-hosted or preconnected Google/Fontshare fonts (*Newsreader* + *Plus Jakarta Sans* + *JetBrains Mono*).
 
 #### Phase 2: Typed Data Access Layer (`src/lib/`)

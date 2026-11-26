@@ -1,5 +1,6 @@
 # Master Implementation & Multi-Subagent Orchestration Plan: GPCET Web Portal Redesign
 
+> **Implementation Status (2026-11-26)**: **Completed & Verified**. All phases (Alpha through Zeta + Staff Admin CMS + Crimson-Red UI Redesign `b4b801d`) are implemented, tested (`81/81`), built (`1,565` static/SSG routes), and seeded into Supabase project `gpcet-redesign` (`qoodtfpikxrfqdaxndem`, Mumbai `ap-south-1`).
 > **Target Platform**: Next.js 15 (App Router) + React 19 + TypeScript + Tailwind CSS v4 + Supabase PostgreSQL + Vercel Workflow SDK  
 > **Source Corpus**: 936 ingested Markdown pages, 452 structured faculty profiles, 5,822 indexed documents, 2,784 URL redirects  
 > **Quality Standard**: Zero-tolerance for fragile "AI-slop" backends. Resilient, typed, fail-safe, production-grade architecture.
@@ -153,7 +154,7 @@ To execute this redesign without context bottlenecks, the coordinator agent dele
   1. Initialize Next.js 15 App Router dependencies in `package.json`:
      - `next@15.x`, `react@19.x`, `react-dom@19.x`, `tailwindcss@3.4 / 4.x`, `lucide-react`, `zod`.
   2. Setup design tokens and typography in `src/app/globals.css`:
-     - Commit `--bg`, `--surface`, `--ink`, `--primary-navy`, `--brand-crimson`, `--brass-gold`.
+     - Commit `--bg`, `--surface`, `--surface-raised`, `--ink`, `--muted`, `--ruby`, `--brand-crimson`, `--burgundy`, `--brass-gold`, `--distinction-ink`, `--rule`.
   3. Implement global shell components:
      - `src/components/global/TopInstitutionalBar.tsx` (Autonomous status, JNTUA badge).
      - `src/components/global/InstitutionalNavbar.tsx` (Accessible desktop mega-menu & mobile sheet).
