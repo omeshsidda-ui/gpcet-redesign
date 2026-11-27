@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Search,
-  Menu,
   X,
   ChevronDown,
   ArrowRight,
@@ -253,25 +252,91 @@ const NAVIGATION_SECTIONS: NavItem[] = [
 export default function InstitutionalNavbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const menuTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const skipRestoreFocusRef = useRef(false);
   const hoverOpenedRef = useRef<string | null>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
   const drawer = useRef<HTMLDialogElement>(null);
   const pathname = usePathname();
 
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const closeMobileDrawerImmediate = () => {
+    clearCloseTimer();
+    setIsClosing(false);
+    setMobileOpen(false);
+  };
+
+  const closeMobileDrawer = () => {
+    if (!mobileOpen || isClosing) return;
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      closeMobileDrawerImmediate();
+      return;
+    }
+    clearCloseTimer();
+    setIsClosing(true);
+    closeTimerRef.current = setTimeout(() => {
+      closeTimerRef.current = null;
+      setIsClosing(false);
+      setMobileOpen(false);
+    }, 200);
+  };
+
+  const openMobileDrawer = () => {
+    clearCloseTimer();
+    skipRestoreFocusRef.current = false;
+    setIsClosing(false);
+    setMobileOpen(true);
+  };
+
+  // Track vertical scroll for sticky header elevation
+  useEffect(() => {
+    const updateScrolled = () => {
+      const next = window.scrollY > 12;
+      setScrolled((prev) => (prev === next ? prev : next));
+    };
+    updateScrolled();
+    window.addEventListener('scroll', updateScrolled, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrolled);
+  }, []);
+
   // Close menus on route navigation
   useEffect(() => {
     hoverOpenedRef.current = null;
     setActiveMenu(null);
-    setMobileOpen(false);
+    if (drawer.current?.open) {
+      skipRestoreFocusRef.current = true;
+    }
+    closeMobileDrawerImmediate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useEffect(() => {
     if (!mobileOpen) return;
-    drawer.current?.showModal();
+    const dialogEl = drawer.current;
+    if (dialogEl && !dialogEl.open) {
+      dialogEl.showModal();
+    }
     return () => {
-      menuButton.current?.focus({ preventScroll: true });
+      if (dialogEl?.open) {
+        dialogEl.close();
+      }
+      if (!skipRestoreFocusRef.current) {
+        menuButton.current?.focus({ preventScroll: true });
+      }
+      skipRestoreFocusRef.current = false;
     };
   }, [mobileOpen]);
 
@@ -284,25 +349,31 @@ export default function InstitutionalNavbar() {
           ?.focus();
         hoverOpenedRef.current = null;
         setActiveMenu(null);
-        setMobileOpen(false);
+        closeMobileDrawerImmediate();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     const desktop = window.matchMedia('(min-width: 64rem)');
     const closeDrawer = () => {
-      if (desktop.matches) setMobileOpen(false);
+      if (desktop.matches) {
+        skipRestoreFocusRef.current = true;
+        closeMobileDrawerImmediate();
+      }
     };
     desktop.addEventListener('change', closeDrawer);
     return () => desktop.removeEventListener('change', closeDrawer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     return () => {
       if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
   }, []);
 
@@ -338,8 +409,13 @@ export default function InstitutionalNavbar() {
     window.dispatchEvent(new CustomEvent('open-search-modal'));
   };
 
+  const isHamburgerOpen = mobileOpen && !isClosing;
+
   return (
-    <header className="sticky top-0 z-40 bg-[var(--surface-raised)] border-b border-[var(--ink)]/12">
+    <header
+      data-scrolled={scrolled ? 'true' : 'false'}
+      className="sticky top-0 z-40 bg-[var(--surface-raised)] border-b border-[var(--ink)]/12 transition-[box-shadow,border-color] duration-200"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Top Masthead Row */}
         <div className="flex items-center justify-between gap-3 py-2.5 sm:py-3">
@@ -373,7 +449,7 @@ export default function InstitutionalNavbar() {
               onClick={openSearchModal}
               title="Search institutional vault (Cmd + K)"
               aria-label="Search documents and faculty (Press Cmd+K)"
-              className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-2 text-[13px] rounded-sm border border-[var(--ink)]/15 bg-[var(--bg)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface)] hover:border-[var(--ink)]/30 transition-colors duration-120"
+              className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-2 text-[13px] rounded-sm border border-[var(--ink)]/15 bg-[var(--bg)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface)] hover:border-[var(--ink)]/30 active:scale-[0.985] active:no-underline transition-[background-color,border-color,color,scale] duration-120"
             >
               <Search className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[var(--muted)]" aria-hidden="true" />
               <span className="hidden sm:inline">Search...</span>
@@ -384,7 +460,7 @@ export default function InstitutionalNavbar() {
 
             <Link
               href="/documents"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-[13px] font-medium rounded-sm text-[var(--ink)] hover:text-[var(--ruby)] hover:bg-[var(--surface)] transition-colors duration-120 whitespace-nowrap"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-[13px] font-medium rounded-sm text-[var(--ink)] hover:text-[var(--ruby)] hover:bg-[var(--surface)] active:scale-[0.985] active:no-underline transition-[background-color,color,scale] duration-120 whitespace-nowrap"
             >
               <FileText className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               <span>Document Vault</span>
@@ -392,7 +468,7 @@ export default function InstitutionalNavbar() {
 
             <Link
               href="/admissions"
-              className="hidden lg:inline-flex items-center justify-center px-4 py-2 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors duration-120 whitespace-nowrap"
+              className="hidden lg:inline-flex items-center justify-center px-4 py-2 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white active:scale-[0.985] active:no-underline transition-[background-color,scale] duration-120 whitespace-nowrap"
             >
               Admissions 2026
             </Link>
@@ -400,12 +476,34 @@ export default function InstitutionalNavbar() {
             <button
               type="button"
               ref={menuButton}
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={mobileOpen}
-              className="lg:hidden p-2 rounded-sm border border-[var(--ink)]/12 text-[var(--ink)] hover:bg-[var(--surface)] transition-colors duration-120"
+              onClick={() => (isHamburgerOpen ? closeMobileDrawer() : openMobileDrawer())}
+              aria-label={isHamburgerOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isHamburgerOpen}
+              className="group lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-sm border border-[var(--ink)]/12 text-[var(--ink)] hover:bg-[var(--surface)] active:scale-[0.97] transition-[background-color,border-color,scale] duration-150"
             >
-              {mobileOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
+              <span className="relative block w-[18px] h-[14px]" aria-hidden="true">
+                <span
+                  className={`absolute left-0 top-0 h-[2px] w-full rounded-[0.5px] bg-current transition-transform duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isHamburgerOpen
+                      ? 'translate-y-[6px] rotate-45'
+                      : 'group-hover:translate-y-[1px]'
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 top-[6px] h-[2px] w-full rounded-[0.5px] bg-current origin-center transition-[scale,opacity] duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isHamburgerOpen
+                      ? 'scale-x-0 opacity-0'
+                      : 'group-hover:scale-x-[0.82]'
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] w-full rounded-[0.5px] bg-current transition-transform duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isHamburgerOpen
+                      ? '-translate-y-[6px] -rotate-45'
+                      : 'group-hover:-translate-y-[1px]'
+                  }`}
+                />
+              </span>
             </button>
           </div>
         </div>
@@ -458,7 +556,7 @@ export default function InstitutionalNavbar() {
                   >
                     <span>{section.label}</span>
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-100 ${
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                         isOpen ? 'rotate-180 text-[var(--ruby)]' : 'text-[var(--muted)]'
                       }`}
                       aria-hidden="true"
@@ -469,7 +567,7 @@ export default function InstitutionalNavbar() {
                   {isOpen && (
                     <div
                       aria-label={`${section.label} menu`}
-                      className={`absolute top-full mt-px z-50 bg-[var(--surface-raised)] border border-[var(--ink)]/15 border-t-2 border-t-[var(--ruby)] shadow-xl rounded-sm overflow-hidden ${
+                      className={`animate-panel-reveal absolute top-full mt-px z-50 bg-[var(--surface-raised)] border border-[var(--ink)]/15 border-t-2 border-t-[var(--ruby)] shadow-xl rounded-sm overflow-hidden ${
                         isDepartments ? 'left-0 right-0 w-full' : 'left-0 w-[440px]'
                       }`}
                     >
@@ -481,10 +579,13 @@ export default function InstitutionalNavbar() {
                         <Link
                           href={section.overviewHref}
                           onClick={() => setActiveMenu(null)}
-                          className="inline-flex items-center gap-1 text-[12.5px] font-medium text-[var(--ruby)] hover:text-[var(--burgundy)] hover:underline underline-offset-2 transition-colors duration-150"
+                          className="group/overview inline-flex items-center gap-1 text-[12.5px] font-medium text-[var(--ruby)] hover:text-[var(--burgundy)] hover:underline underline-offset-2 transition-colors duration-150"
                         >
                           <span>{section.overviewLabel}</span>
-                          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                          <ArrowRight
+                            className="w-3.5 h-3.5 transition-transform duration-150 group-hover/overview:translate-x-0.5"
+                            aria-hidden="true"
+                          />
                         </Link>
                       </div>
 
@@ -509,9 +610,9 @@ export default function InstitutionalNavbar() {
                               key={item.title}
                               href={item.href}
                               onClick={() => setActiveMenu(null)}
-                              className={`group flex flex-col justify-start px-4 ${
+                              className={`group relative flex flex-col justify-start px-4 ${
                                 isDepartments ? 'py-3.5' : 'py-2.5'
-                              } hover:bg-[var(--surface)]/75 transition-colors duration-150 focus-visible:outline-none focus-visible:bg-[var(--surface)] ${deptCellBorders}`}
+                              } hover:bg-[var(--surface)]/75 transition-colors duration-150 focus-visible:outline-none focus-visible:bg-[var(--surface)] before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-[var(--ruby)] before:origin-center before:scale-y-0 hover:before:scale-y-100 focus-visible:before:scale-y-100 before:transition-transform before:duration-150 ${deptCellBorders}`}
                             >
                               {(item.code || item.badge) && (
                                 <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -529,8 +630,12 @@ export default function InstitutionalNavbar() {
                                   )}
                                 </div>
                               )}
-                              <span className="text-[13.5px] font-semibold text-[var(--ink)] group-hover:text-[var(--ruby)] leading-snug transition-colors duration-150">
-                                {item.title}
+                              <span className="flex items-center justify-between gap-2 text-[13.5px] font-semibold text-[var(--ink)] group-hover:text-[var(--ruby)] leading-snug transition-colors duration-150">
+                                <span>{item.title}</span>
+                                <ArrowRight
+                                  className="w-3.5 h-3.5 text-[var(--ruby)] opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-[opacity,translate] duration-150 shrink-0"
+                                  aria-hidden="true"
+                                />
                               </span>
                               <p className="text-[12.5px] text-[var(--muted)] leading-snug mt-1">
                                 {item.description}
@@ -571,15 +676,22 @@ export default function InstitutionalNavbar() {
       {mobileOpen && (
         <dialog
           ref={drawer}
-          onCancel={() => setMobileOpen(false)}
+          onCancel={(e) => {
+            e.preventDefault();
+            closeMobileDrawer();
+          }}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
-          className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none z-50 bg-transparent backdrop:bg-[#181112]/55"
-          onClick={() => setMobileOpen(false)}
+          className={`${
+            isClosing ? 'animate-dialog-backdrop-out' : 'animate-dialog-backdrop'
+          } fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none z-50 bg-transparent backdrop:bg-[#181112]/55`}
+          onClick={closeMobileDrawer}
         >
           <div
-            className="absolute top-0 right-0 w-full max-w-sm h-full bg-[var(--surface-raised)] border-l border-[var(--ink)]/15 shadow-2xl p-5 overflow-y-auto flex flex-col gap-4"
+            className={`${
+              isClosing ? 'pointer-events-none animate-drawer-slide-out' : 'animate-drawer-slide'
+            } absolute inset-y-0 right-0 w-full max-w-sm bg-[var(--surface-raised)] border-l border-[var(--ink)]/15 shadow-2xl p-5 overflow-y-auto overscroll-contain flex flex-col gap-4`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
@@ -598,9 +710,9 @@ export default function InstitutionalNavbar() {
               </div>
               <button
                 type="button"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobileDrawer}
                 aria-label="Close navigation menu"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-[13px] font-medium text-[var(--ink)] hover:text-[var(--ruby)] hover:bg-[var(--surface)] rounded-sm transition-colors duration-120"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-[13px] font-medium text-[var(--ink)] hover:text-[var(--ruby)] hover:bg-[var(--surface)] active:scale-[0.97] rounded-sm transition-[background-color,color,scale] duration-120"
               >
                 <span>Close</span>
                 <X className="w-4 h-4" aria-hidden="true" />
@@ -611,10 +723,11 @@ export default function InstitutionalNavbar() {
             <button
               type="button"
               onClick={() => {
-                setMobileOpen(false);
+                skipRestoreFocusRef.current = true;
+                closeMobileDrawerImmediate();
                 openSearchModal();
               }}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-[13px] rounded-sm border border-[var(--ink)]/15 bg-[var(--bg)] text-[var(--muted)] hover:text-[var(--ink)] transition-colors duration-120"
+              className="w-full flex items-center justify-between px-3 py-2.5 text-[13px] rounded-sm border border-[var(--ink)]/15 bg-[var(--bg)] text-[var(--muted)] hover:text-[var(--ink)] active:scale-[0.985] active:no-underline transition-[background-color,color,scale] duration-120"
             >
               <span className="flex items-center gap-2">
                 <Search className="w-4 h-4" aria-hidden="true" />
@@ -626,7 +739,7 @@ export default function InstitutionalNavbar() {
             </button>
 
             {/* Accordion Navigation Groups */}
-            <nav aria-label="Mobile sections" className="flex flex-col divide-y divide-[var(--rule)]">
+            <nav aria-label="Mobile sections" className="shrink-0 flex flex-col divide-y divide-[var(--rule)]">
               {NAVIGATION_SECTIONS.map((section) => {
                 const isExpanded = mobileExpanded === section.label;
                 return (
@@ -639,7 +752,7 @@ export default function InstitutionalNavbar() {
                     >
                       <span>{section.label}</span>
                       <ChevronDown
-                        className={`w-4 h-4 text-[var(--muted)] transition-transform duration-120 ${
+                        className={`w-4 h-4 text-[var(--muted)] transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                           isExpanded ? 'rotate-180 text-[var(--ruby)]' : ''
                         }`}
                         aria-hidden="true"
@@ -647,28 +760,35 @@ export default function InstitutionalNavbar() {
                     </button>
 
                     {isExpanded && (
-                      <div className="pl-2 pt-1 pb-2.5 flex flex-col divide-y divide-[var(--rule)]">
+                      <div className="animate-panel-reveal pl-2 pt-1 pb-2.5 flex flex-col divide-y divide-[var(--rule)]">
                         {section.items.map((item) => (
                           <Link
                             key={item.title}
                             href={item.href}
-                            onClick={() => setMobileOpen(false)}
+                            onClick={() => {
+                              skipRestoreFocusRef.current = true;
+                              closeMobileDrawerImmediate();
+                            }}
                             className="flex flex-col py-2.5 px-2 hover:bg-[var(--surface)] transition-colors duration-120"
                           >
-                            <span className="text-[13px] font-semibold text-[var(--ink)] flex items-baseline justify-between gap-2">
-                              <span className="flex items-baseline gap-2 min-w-0">
-                                {item.code && (
-                                  <span className="font-mono text-[10.5px] font-medium text-[var(--ruby)] whitespace-nowrap shrink-0">
+                            {(item.code || item.badge) && (
+                              <div className="flex items-center justify-between gap-2 mb-1">
+                                {item.code ? (
+                                  <span className="font-mono text-[10.5px] font-semibold text-[var(--ruby)] whitespace-nowrap shrink-0">
                                     {item.code}
                                   </span>
+                                ) : (
+                                  <span />
                                 )}
-                                <span className="leading-snug">{item.title}</span>
-                              </span>
-                              {item.badge && (
-                                <span className="font-sans text-[11px] font-medium text-[var(--muted)] tabular-nums whitespace-nowrap shrink-0">
-                                  {item.badge}
-                                </span>
-                              )}
+                                {item.badge && (
+                                  <span className="font-sans text-[11px] font-medium text-[var(--muted)] tabular-nums whitespace-nowrap shrink-0">
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </div>
+                            )}
+                            <span className="text-[13.5px] font-semibold text-[var(--ink)] leading-snug">
+                              {item.title}
                             </span>
                             <span className="text-[12px] text-[var(--muted)] leading-snug mt-0.5">
                               {item.description}
@@ -686,16 +806,22 @@ export default function InstitutionalNavbar() {
             <div className="mt-auto pt-4 border-t border-[var(--rule)] flex flex-col gap-2">
               <Link
                 href="/documents"
-                onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-3 text-[13px] font-semibold rounded-sm border border-[var(--ink)]/15 bg-[var(--bg)] text-[var(--ink)] hover:bg-[var(--surface)] transition-colors duration-120"
+                onClick={() => {
+                  skipRestoreFocusRef.current = true;
+                  closeMobileDrawerImmediate();
+                }}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-3 text-[13px] font-semibold rounded-sm border border-[var(--ink)]/15 bg-[var(--bg)] text-[var(--ink)] hover:bg-[var(--surface)] active:scale-[0.985] active:no-underline transition-[background-color,scale] duration-120"
               >
                 <FileText className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                 <span>Access Document Vault (5,822 items)</span>
               </Link>
               <Link
                 href="/admissions"
-                onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center py-2.5 px-3 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors duration-120"
+                onClick={() => {
+                  skipRestoreFocusRef.current = true;
+                  closeMobileDrawerImmediate();
+                }}
+                className="w-full flex items-center justify-center py-2.5 px-3 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white active:scale-[0.985] active:no-underline transition-[background-color,scale] duration-120"
               >
                 Admissions 2026 (EAPCET: PULE)
               </Link>

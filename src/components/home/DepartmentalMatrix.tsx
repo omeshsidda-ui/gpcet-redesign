@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ChevronDown, ChevronUp, Users, Mail, BookOpen, FlaskConical, FileText, X } from 'lucide-react';
+import EditorialReveal from '@/components/ui/EditorialReveal';
 import type { EnrichedDepartment } from '@/lib/institutional-content';
 
 interface DepartmentalMatrixProps {
@@ -31,207 +32,226 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header organized along the 42% axis */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 border-b border-[var(--rule)] items-end">
-          <div className="lg:col-span-5">
-            <h2
-              id="departments-register-heading"
-              className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[var(--ink)]"
-            >
-              Academic Departments
-            </h2>
-            <p className="mt-2.5 text-[15px] text-[var(--muted)] leading-relaxed">
-              Eight autonomous disciplines uniting foundational sciences, core engineering, and management.
-            </p>
-          </div>
-
-          <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 font-sans text-[13.5px] text-[var(--muted)] tabular-nums">
-              <span>
-                <strong className="font-semibold text-[var(--ink)]">{departments.length}</strong> Disciplines
-              </span>
-              <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
-              <span>
-                <strong className="font-semibold text-[var(--ink)]">{totalFaculty}</strong> Verified Faculty
-              </span>
-              <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
-              <span>
-                <strong className="font-semibold text-[var(--ruby)]">5</strong> NBA Accredited
-              </span>
+        <EditorialReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 border-b border-[var(--rule)] items-end">
+            <div className="lg:col-span-5">
+              <h2
+                id="departments-register-heading"
+                className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[var(--ink)]"
+              >
+                Academic Departments
+              </h2>
+              <p className="mt-2.5 text-[15px] text-[var(--muted)] leading-relaxed">
+                Eight autonomous disciplines uniting foundational sciences, core engineering, and management.
+              </p>
             </div>
 
-            <Link
-              href="/departments"
-              className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-4 decoration-[var(--ruby)]/30 hover:decoration-[var(--brand-crimson)] transition-colors"
-            >
-              <span>Full Departmental Directory</span>
-              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
+            <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 font-sans text-[13.5px] text-[var(--muted)] tabular-nums">
+                <span>
+                  <strong className="font-semibold text-[var(--ink)]">{departments.length}</strong> Disciplines
+                </span>
+                <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
+                <span>
+                  <strong className="font-semibold text-[var(--ink)]">{totalFaculty}</strong> Verified Faculty
+                </span>
+                <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
+                <span>
+                  <strong className="font-semibold text-[var(--ruby)]">5</strong> NBA Accredited
+                </span>
+              </div>
 
-        {/* Desktop Monolithic Tabular Register */}
-        <div className="hidden md:block overflow-x-auto bg-[var(--surface-raised)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm mt-8">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-[13px] font-semibold text-[var(--ink)]">
-                <th scope="col" className="py-3.5 px-4">Code</th>
-                <th scope="col" className="py-3.5 px-4">Department</th>
-                <th scope="col" className="py-3.5 px-4">Degrees</th>
-                <th scope="col" className="py-3.5 px-4">Intake</th>
-                <th scope="col" className="py-3.5 px-4">Faculty</th>
-                <th scope="col" className="py-3.5 px-4">Accreditation</th>
-                <th scope="col" className="py-3.5 px-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[var(--rule)] text-[14px]">
-              {departments.map((dept) => {
-                const isSelected = selectedDept?.code === dept.code;
-                return (
-                  <tr
-                    key={dept.code}
-                    className={`transition-colors ${
-                      isSelected ? 'bg-[var(--surface)]' : 'hover:bg-[var(--surface)]/55'
-                    }`}
-                  >
-                    <td className="py-4 px-4 font-sans text-[13px] font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums whitespace-nowrap">
-                      {dept.deptNumber} · {dept.shortName}
-                    </td>
-                    <td className="py-4 px-4">
-                      <Link
-                        href={`/departments/${dept.code}`}
-                        className="text-[15px] font-semibold text-[var(--ink)] hover:text-[var(--ruby)] transition-colors"
-                      >
-                        {dept.name}
-                      </Link>
-                      <div className="text-[13px] text-[var(--muted)] mt-0.5">
-                        HOD: {dept.hodName} · Estd.{' '}
-                        <span className="font-sans tabular-nums">{dept.establishedYear}</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-4 text-[13.5px] text-[var(--ink)] whitespace-nowrap">
-                      {dept.degrees}
-                    </td>
-                    <td className="py-4 px-4 font-sans text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
-                      {dept.intakeLabel}
-                    </td>
-                    <td className="py-4 px-4 font-sans text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
-                      <Link
-                        href={`/departments/${dept.code}/faculty`}
-                        className="hover:text-[var(--ruby)] underline decoration-[var(--rule)] underline-offset-4"
-                      >
-                        {dept.facultyCount} Members
-                      </Link>
-                    </td>
-                    <td className="py-4 px-4 whitespace-nowrap">
-                      <span
-                        className={`inline-flex items-center px-2 py-0.5 rounded-sm font-sans text-xs font-medium border ${
-                          dept.nbaAccredited
-                            ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
-                            : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
-                        }`}
-                      >
-                        {dept.nbaStatusLabel}
-                      </span>
-                    </td>
-                    <td className="py-4 px-4 text-right whitespace-nowrap">
-                      <div className="inline-flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => setSelectedDept(isSelected ? null : dept)}
-                          aria-expanded={isSelected}
-                          aria-controls="dept-quick-drawer"
-                          className={`inline-flex items-center gap-1 px-2.5 py-1.5 text-[13px] font-medium rounded-sm border transition-colors ${
-                            isSelected
-                              ? 'border-[var(--ruby)] bg-[var(--surface-raised)] text-[var(--ruby)]'
-                              : 'border-[var(--rule)] bg-[var(--bg)] text-[var(--ink)] hover:border-[var(--ruby)] hover:bg-[var(--surface)]'
-                          }`}
-                        >
-                          <span>Quick View</span>
-                          {isSelected ? (
-                            <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" />
-                          ) : (
-                            <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />
-                          )}
-                        </button>
+              <Link
+                href="/departments"
+                className="group inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-4 decoration-[var(--ruby)]/30 hover:decoration-[var(--brand-crimson)] transition-colors active:scale-[0.985]"
+              >
+                <span>Full Departmental Directory</span>
+                <ArrowRight
+                  className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
+          </div>
+        </EditorialReveal>
+
+        <EditorialReveal delayMs={80}>
+          {/* Desktop Monolithic Tabular Register */}
+          <div className="hidden md:block overflow-x-auto bg-[var(--surface-raised)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm mt-8">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-[13px] font-semibold text-[var(--ink)]">
+                  <th scope="col" className="py-3.5 px-4">Code</th>
+                  <th scope="col" className="py-3.5 px-4">Department</th>
+                  <th scope="col" className="py-3.5 px-4">Degrees</th>
+                  <th scope="col" className="py-3.5 px-4">Intake</th>
+                  <th scope="col" className="py-3.5 px-4">Faculty</th>
+                  <th scope="col" className="py-3.5 px-4">Accreditation</th>
+                  <th scope="col" className="py-3.5 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--rule)] text-[14px]">
+                {departments.map((dept) => {
+                  const isSelected = selectedDept?.code === dept.code;
+                  return (
+                    <tr
+                      key={dept.code}
+                      className={`transition-colors ${
+                        isSelected ? 'bg-[var(--surface)]' : 'hover:bg-[var(--surface)]/55'
+                      }`}
+                    >
+                      <td className="py-4 px-4 font-sans text-[13px] font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums whitespace-nowrap">
+                        {dept.deptNumber} · {dept.shortName}
+                      </td>
+                      <td className="py-4 px-4">
                         <Link
                           href={`/departments/${dept.code}`}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors"
+                          className="text-[15px] font-semibold text-[var(--ink)] hover:text-[var(--ruby)] transition-colors"
                         >
-                          <span>Portal</span>
-                          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                          {dept.name}
                         </Link>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+                        <div className="text-[13px] text-[var(--muted)] mt-0.5">
+                          HOD: {dept.hodName} · Estd.{' '}
+                          <span className="font-sans tabular-nums">{dept.establishedYear}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4 text-[13.5px] text-[var(--ink)] whitespace-nowrap">
+                        {dept.degrees}
+                      </td>
+                      <td className="py-4 px-4 font-sans text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
+                        {dept.intakeLabel}
+                      </td>
+                      <td className="py-4 px-4 font-sans text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
+                        <Link
+                          href={`/departments/${dept.code}/faculty`}
+                          className="hover:text-[var(--ruby)] underline decoration-[var(--rule)] underline-offset-4"
+                        >
+                          {dept.facultyCount} Members
+                        </Link>
+                      </td>
+                      <td className="py-4 px-4 whitespace-nowrap">
+                        <span
+                          className={`inline-flex items-center px-2 py-0.5 rounded-sm font-sans text-xs font-medium border ${
+                            dept.nbaAccredited
+                              ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
+                              : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
+                          }`}
+                        >
+                          {dept.nbaStatusLabel}
+                        </span>
+                      </td>
+                      <td className="py-4 px-4 text-right whitespace-nowrap">
+                        <div className="inline-flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedDept(isSelected ? null : dept)}
+                            aria-expanded={isSelected}
+                            aria-controls="dept-quick-drawer"
+                            className={`inline-flex items-center gap-1 px-2.5 py-1.5 text-[13px] font-medium rounded-sm border transition-all duration-150 active:scale-[0.985] ${
+                              isSelected
+                                ? 'border-[var(--ruby)] bg-[var(--surface-raised)] text-[var(--ruby)]'
+                                : 'border-[var(--rule)] bg-[var(--bg)] text-[var(--ink)] hover:border-[var(--ruby)] hover:bg-[var(--surface)]'
+                            }`}
+                          >
+                            <span>Quick View</span>
+                            {isSelected ? (
+                              <ChevronUp className="w-3.5 h-3.5 transition-transform duration-150" aria-hidden="true" />
+                            ) : (
+                              <ChevronDown className="w-3.5 h-3.5 transition-transform duration-150" aria-hidden="true" />
+                            )}
+                          </button>
+                          <Link
+                            href={`/departments/${dept.code}`}
+                            className="group inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-all duration-150 active:scale-[0.985]"
+                          >
+                            <span>Portal</span>
+                            <ArrowRight
+                              className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
+                              aria-hidden="true"
+                            />
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
 
-        {/* Mobile Structured Register List (No clipped tables) */}
-        <div className="md:hidden mt-6 divide-y divide-[var(--rule)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm bg-[var(--surface-raised)]">
-          {departments.map((dept) => {
-            const isSelected = selectedDept?.code === dept.code;
-            return (
-              <div key={dept.code} className="p-4">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="font-sans text-xs font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums">
-                      {dept.deptNumber} · {dept.shortName}
+          {/* Mobile Structured Register List (No clipped tables) */}
+          <div className="md:hidden mt-6 divide-y divide-[var(--rule)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm bg-[var(--surface-raised)]">
+            {departments.map((dept) => {
+              const isSelected = selectedDept?.code === dept.code;
+              return (
+                <div key={dept.code} className="p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="font-sans text-xs font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums">
+                        {dept.deptNumber} · {dept.shortName}
+                      </span>
+                      <h3 className="font-serif text-lg font-medium text-[var(--ink)] mt-0.5 leading-snug">
+                        <Link href={`/departments/${dept.code}`}>{dept.name}</Link>
+                      </h3>
+                    </div>
+                    <span
+                      className={`shrink-0 font-sans text-[11px] font-semibold tracking-[0.05em] px-2 py-0.5 rounded-sm border ${
+                        dept.nbaAccredited
+                          ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
+                          : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
+                      }`}
+                    >
+                      {dept.nbaAccredited ? 'NBA' : dept.shortName}
                     </span>
-                    <h3 className="font-serif text-lg font-medium text-[var(--ink)] mt-0.5 leading-snug">
-                      <Link href={`/departments/${dept.code}`}>{dept.name}</Link>
-                    </h3>
                   </div>
-                  <span
-                    className={`shrink-0 font-sans text-[11px] font-semibold tracking-[0.05em] px-2 py-0.5 rounded-sm border ${
-                      dept.nbaAccredited
-                        ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
-                        : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
-                    }`}
-                  >
-                    {dept.nbaAccredited ? 'NBA' : dept.shortName}
-                  </span>
-                </div>
 
-                <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] text-[var(--muted)] font-sans tabular-nums">
-                  <span className="font-medium text-[var(--ink)]/85">{dept.degrees}</span>
-                  <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
-                  <span>Intake: {dept.intakeLabel}</span>
-                  <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
-                  <span>{dept.facultyCount} Faculty</span>
-                </div>
+                  <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] text-[var(--muted)] font-sans tabular-nums">
+                    <span className="font-medium text-[var(--ink)]/85">{dept.degrees}</span>
+                    <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
+                    <span>Intake: {dept.intakeLabel}</span>
+                    <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
+                    <span>{dept.facultyCount} Faculty</span>
+                  </div>
 
-                <div className="mt-3.5 flex items-center gap-2">
-                  <Link
-                    href={`/departments/${dept.code}`}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] text-white"
-                  >
-                    Open Portal
-                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedDept(isSelected ? null : dept)}
-                    aria-expanded={isSelected}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-sm border border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)]"
-                  >
-                    HOD &amp; Summary
-                  </button>
+                  <div className="mt-3.5 flex items-center gap-2">
+                    <Link
+                      href={`/departments/${dept.code}`}
+                      className="group inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold rounded-sm bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-all duration-150 active:scale-[0.985]"
+                    >
+                      <span>Open Portal</span>
+                      <ArrowRight
+                        className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedDept(isSelected ? null : dept)}
+                      aria-expanded={isSelected}
+                      aria-controls="dept-quick-drawer"
+                      className={`inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-sm border transition-all duration-150 active:scale-[0.985] ${
+                        isSelected
+                          ? 'border-[var(--ruby)] bg-[var(--surface-raised)] text-[var(--ruby)]'
+                          : 'border-[var(--rule)] bg-[var(--surface)] text-[var(--ink)] hover:border-[var(--ruby)]'
+                      }`}
+                    >
+                      HOD &amp; Summary
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </EditorialReveal>
 
         {/* Accessible Quick-View HOD & Summary Dossier Drawer */}
         {selectedDept && (
           <div
+            key={selectedDept.code}
             id="dept-quick-drawer"
             role="region"
             aria-label={`${selectedDept.name} quick summary`}
-            className="mt-5 p-6 sm:p-7 bg-[var(--surface)] border border-[var(--rule)] border-t-2 border-t-[var(--ruby)] rounded-sm"
+            className="animate-panel-reveal mt-5 p-6 sm:p-7 bg-[var(--surface)] border border-[var(--rule)] border-t-2 border-t-[var(--ruby)] rounded-sm"
           >
             <div className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--rule)]">
               <div>
@@ -246,7 +266,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                 type="button"
                 onClick={() => setSelectedDept(null)}
                 aria-label="Close department quick view"
-                className="p-2 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--muted)] hover:text-[var(--ink)] hover:border-[var(--ink)]/30 transition-colors"
+                className="p-2 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--muted)] hover:text-[var(--ink)] hover:border-[var(--ink)]/30 transition-all duration-150 active:scale-[0.985]"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -281,28 +301,28 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
               <div className="lg:col-span-5 grid grid-cols-2 gap-2.5 self-start">
                 <Link
                   href={`/departments/${selectedDept.code}/faculty`}
-                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-all duration-150 active:scale-[0.985]"
                 >
                   <Users className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Faculty ({selectedDept.facultyCount})</span>
                 </Link>
                 <Link
                   href={`/departments/${selectedDept.code}/laboratories`}
-                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-all duration-150 active:scale-[0.985]"
                 >
                   <FlaskConical className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Laboratories</span>
                 </Link>
                 <Link
                   href={`/departments/${selectedDept.code}/board-of-studies`}
-                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-all duration-150 active:scale-[0.985]"
                 >
                   <BookOpen className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Board of Studies</span>
                 </Link>
                 <Link
                   href={`/departments/${selectedDept.code}/syllabus`}
-                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-colors"
+                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] hover:border-[var(--ruby)] text-[13px] font-semibold text-[var(--ink)] transition-all duration-150 active:scale-[0.985]"
                 >
                   <FileText className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
                   <span>Syllabus &amp; R20</span>

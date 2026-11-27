@@ -445,12 +445,12 @@ export default function GlobalSearchModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Institutional Search Command Palette"
-      className="fixed inset-0 m-0 max-w-none max-h-none w-full h-dvh z-50 bg-transparent backdrop:bg-[#181112]/60 flex items-start justify-center pt-10 sm:pt-20 p-4"
+      className="animate-dialog-backdrop fixed inset-0 m-0 max-w-none max-h-none w-full h-dvh z-50 bg-transparent backdrop:bg-[#181112]/60 flex items-start justify-center pt-10 sm:pt-20 p-4"
       onClick={() => setIsOpen(false)}
       onKeyDown={handleModalKeyDown}
     >
       <div
-        className="w-full max-w-2xl bg-[var(--surface-raised)] border border-[var(--ink)]/15 rounded-sm shadow-2xl overflow-hidden flex flex-col max-h-[85vh]"
+        className="animate-modal-pop w-full max-w-2xl bg-[var(--surface-raised)] border border-[var(--ink)]/15 rounded-sm shadow-2xl overflow-hidden flex flex-col max-h-[85vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
@@ -533,18 +533,24 @@ export default function GlobalSearchModal() {
                   aria-selected={isSelected}
                   onClick={() => navigateTo(doc.href)}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-start justify-between gap-4 px-4 sm:px-5 py-3.5 cursor-pointer transition-colors duration-120 ${
+                  className={`flex items-start justify-between gap-4 px-4 sm:px-5 py-3.5 cursor-pointer transition-[background-color,color] duration-150 ease-out ${
                     isSelected ? 'bg-[var(--surface)]' : 'hover:bg-[var(--surface)]/60'
                   }`}
                 >
                   <div className="flex items-start gap-3 min-w-0">
-                    <div className="mt-0.5 p-1.5 rounded-sm bg-[var(--bg)] border border-[var(--rule)] shrink-0">
+                    <div
+                      className={`mt-0.5 p-1.5 rounded-sm border shrink-0 transition-colors duration-150 ${
+                        isSelected
+                          ? 'bg-[var(--surface-raised)] border-[var(--ruby)]/25'
+                          : 'bg-[var(--bg)] border-[var(--rule)]'
+                      }`}
+                    >
                       {getCategoryIcon(doc.category)}
                     </div>
                     <div className="min-w-0 flex flex-col">
                       <div className="flex items-baseline gap-2 flex-wrap">
                         <span
-                          className={`text-[14.5px] font-semibold leading-snug ${
+                          className={`text-[14.5px] font-semibold leading-snug transition-colors duration-150 ${
                             isSelected ? 'text-[var(--ruby)]' : 'text-[var(--ink)]'
                           }`}
                         >
@@ -572,9 +578,12 @@ export default function GlobalSearchModal() {
                     <span className="text-[11px] font-medium text-[var(--muted)]">
                       {doc.category}
                     </span>
-                    {isSelected && (
-                      <CornerDownLeft className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
-                    )}
+                    <CornerDownLeft
+                      className={`w-3.5 h-3.5 text-[var(--ruby)] transition-[opacity,translate] duration-150 ease-out ${
+                        isSelected ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1'
+                      }`}
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               );

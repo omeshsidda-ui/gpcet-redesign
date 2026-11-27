@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import EditorialReveal from '@/components/ui/EditorialReveal';
 
 interface LeaderStatement {
   name: string;
@@ -57,72 +58,83 @@ export default function LeadershipDiscourse() {
       className="bg-[var(--surface)] border-b border-[var(--rule)] py-16 sm:py-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 border-b border-[var(--rule)] items-end">
-          <div className="lg:col-span-5">
-            <h2
-              id="leadership-discourse-heading"
-              className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[var(--ink)]"
-            >
-              Leadership &amp; Institutional Vision
-            </h2>
+        <EditorialReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 border-b border-[var(--rule)] items-end">
+            <div className="lg:col-span-5">
+              <h2
+                id="leadership-discourse-heading"
+                className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[var(--ink)]"
+              >
+                Leadership &amp; Institutional Vision
+              </h2>
+            </div>
+            <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
+              <p className="text-[15px] text-[var(--muted)] leading-relaxed max-w-[60ch]">
+                Stewardship from the Sri Sai Krishna Educational Society Governing Body and Academic Council.
+              </p>
+              <Link
+                href="/administration"
+                className="group inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-4 decoration-[var(--ruby)]/30 hover:decoration-[var(--brand-crimson)] transition-colors active:scale-[0.985]"
+              >
+                <span>Governing Body &amp; Administration</span>
+                <ArrowRight
+                  className="w-3.5 h-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
           </div>
-          <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-[15px] text-[var(--muted)] leading-relaxed max-w-[60ch]">
-              Stewardship from the Sri Sai Krishna Educational Society Governing Body and Academic Council.
-            </p>
-            <Link
-              href="/administration"
-              className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-4 decoration-[var(--ruby)]/30 hover:decoration-[var(--brand-crimson)] transition-colors"
-            >
-              <span>Governing Body &amp; Administration</span>
-              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
+        </EditorialReveal>
 
         {/* 2x2 Architectural Grid separated by hairlines */}
         <div className="mt-10 grid lg:grid-cols-2 gap-x-14 gap-y-2">
-          {LEADERSHIP_PROFILES.map((leader) => (
-            <article
-              key={leader.name}
-              className="py-8 flex flex-col justify-between gap-6 border-t-2 border-[var(--ruby)]"
-            >
-              <blockquote className="font-serif italic text-[1.25rem] sm:text-[1.45rem] font-normal leading-[1.48] text-[var(--ink)]">
-                &ldquo;{leader.quote}&rdquo;
-              </blockquote>
+          {LEADERSHIP_PROFILES.map((leader, idx) => (
+            <EditorialReveal key={leader.name} delayMs={idx * 70} className="h-full">
+              <article className="group/card h-full py-8 flex flex-col justify-between gap-6 border-t-2 border-[var(--ruby)]">
+                <blockquote className="font-serif italic text-[1.25rem] sm:text-[1.45rem] font-normal leading-[1.48] text-[var(--ink)]">
+                  &ldquo;{leader.quote}&rdquo;
+                </blockquote>
 
-              <div className="flex items-center justify-between gap-4 pt-5 border-t border-[var(--rule)]">
-                <div className="flex items-center gap-4">
-                  <img
-                    src={leader.portraitSrc}
-                    alt={`${leader.name}, ${leader.role}`}
-                    width={64}
-                    height={80}
-                    className="w-16 h-20 object-cover object-top border border-[var(--ink)]/20 p-0.5 bg-[var(--surface-raised)] rounded-sm shrink-0"
-                    loading="lazy"
-                  />
-                  <div>
-                    <div className="font-serif text-lg font-medium text-[var(--ink)] leading-snug">
-                      {leader.name}
+                <div className="flex items-center justify-between gap-4 pt-5 border-t border-[var(--rule)]">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-20 border border-[var(--ink)]/20 p-0.5 bg-[var(--surface-raised)] rounded-sm shrink-0 transition-colors duration-200 group-hover/card:border-[var(--ruby)]/45">
+                      <div className="w-full h-full overflow-hidden">
+                        <img
+                          src={leader.portraitSrc}
+                          alt={`${leader.name}, ${leader.role}`}
+                          width={64}
+                          height={80}
+                          className="w-full h-full object-cover object-top transition-transform duration-300 ease-out group-hover/card:scale-[1.03]"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
-                    <div className="text-[13px] font-semibold text-[var(--ruby)] mt-0.5">
-                      {leader.role}
-                    </div>
-                    <div className="text-[13px] text-[var(--muted)] mt-0.5 leading-snug">
-                      {leader.credentials}
+                    <div>
+                      <div className="font-serif text-lg font-medium text-[var(--ink)] leading-snug">
+                        {leader.name}
+                      </div>
+                      <div className="text-[13px] font-semibold text-[var(--ruby)] mt-0.5">
+                        {leader.role}
+                      </div>
+                      <div className="text-[13px] text-[var(--muted)] mt-0.5 leading-snug">
+                        {leader.credentials}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <Link
-                  href={leader.profileHref}
-                  aria-label={`View ${leader.name} institutional section`}
-                  className="p-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ruby)] hover:border-[var(--ruby)] hover:bg-[var(--bg)] transition-colors shrink-0"
-                >
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Link>
-              </div>
-            </article>
+                  <Link
+                    href={leader.profileHref}
+                    aria-label={`View ${leader.name} institutional section`}
+                    className="group inline-flex items-center justify-center p-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ruby)] hover:border-[var(--ruby)] hover:bg-[var(--bg)] transition-all duration-150 active:scale-[0.985] shrink-0"
+                  >
+                    <ArrowRight
+                      className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </div>
+              </article>
+            </EditorialReveal>
           ))}
         </div>
       </div>

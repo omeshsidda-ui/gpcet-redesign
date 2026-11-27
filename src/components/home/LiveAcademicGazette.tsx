@@ -123,7 +123,7 @@ export default function LiveAcademicGazette({
                       {notice.title}
                     </span>
                     <ExternalLink
-                      className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--ruby)] shrink-0 mt-0.5"
+                      className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--ruby)] group-hover:translate-x-0.5 transition-all duration-150 shrink-0 mt-0.5"
                       aria-hidden="true"
                     />
                   </a>
@@ -136,7 +136,7 @@ export default function LiveAcademicGazette({
                       {notice.title}
                     </span>
                     <ArrowRight
-                      className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--ruby)] shrink-0 mt-0.5"
+                      className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--ruby)] group-hover:translate-x-0.5 transition-all duration-150 shrink-0 mt-0.5"
                       aria-hidden="true"
                     />
                   </Link>
@@ -170,13 +170,13 @@ export default function LiveAcademicGazette({
                     href={safeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start justify-between gap-3"
+                    className="group flex items-start justify-between gap-3 focus-visible:outline-none focus-visible:underline"
                   >
                     <span className="text-[13.5px] sm:text-[14px] font-medium text-[var(--ink)] group-hover:text-[var(--ruby)] transition-colors leading-snug">
                       {doc.title}
                     </span>
-                    <span className="inline-flex items-center gap-1 font-sans text-[11px] font-semibold tracking-[0.06em] px-2 py-0.5 rounded-[2px] border border-[var(--rule)] bg-[var(--surface)] text-[var(--ruby)] group-hover:border-[var(--ruby)] shrink-0 mt-0.5 transition-colors">
-                      <FileText className="w-3 h-3" aria-hidden="true" />
+                    <span className="inline-flex items-center gap-1 font-sans text-[11px] font-semibold tracking-[0.06em] px-2 py-0.5 rounded-[2px] border border-[var(--rule)] bg-[var(--surface)] text-[var(--ruby)] group-hover:border-[var(--ruby)] group-hover:translate-x-0.5 shrink-0 mt-0.5 transition-all duration-150">
+                      <FileText className="w-3 h-3 transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true" />
                       PDF
                     </span>
                   </a>
@@ -195,7 +195,7 @@ export default function LiveAcademicGazette({
       <div className="px-6 py-4 bg-[var(--surface)] border-t border-[var(--rule)] flex items-center justify-between">
         <Link
           href="/documents"
-          className="inline-flex items-center justify-between w-full text-[13.5px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
+          className="group inline-flex items-center justify-between w-full text-[13.5px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-all duration-150 active:scale-[0.985]"
         >
           <span>
             View All{' '}
@@ -204,7 +204,10 @@ export default function LiveAcademicGazette({
             </span>{' '}
             Cataloged Documents
           </span>
-          <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          <ArrowRight
+            className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
         </Link>
       </div>
     </aside>

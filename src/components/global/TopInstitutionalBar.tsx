@@ -78,14 +78,22 @@ export default function TopInstitutionalBar() {
               onClick={handleCopyCode}
               title="Copy EAPCET Code PULE"
               aria-label={copied ? 'EAPCET code PULE copied to clipboard' : 'Copy EAPCET code PULE'}
-              className="inline-flex items-center justify-center p-0.5 text-stone-300 hover:text-white transition-colors duration-120 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none"
+              className="inline-flex items-center justify-center gap-1 px-1 py-0.5 text-stone-300 hover:text-white active:scale-[0.97] transition-[color,scale] duration-150 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none"
             >
               {copied ? (
-                <Check className="w-3.5 h-3.5 text-amber-300" aria-hidden="true" />
+                <span className="inline-flex items-center gap-1 text-[#FFDF88] animate-copy-feedback">
+                  <Check className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <span className="text-[10.5px] font-semibold tracking-tight leading-none">
+                    Copied
+                  </span>
+                </span>
               ) : (
                 <Copy className="w-3.5 h-3.5" aria-hidden="true" />
               )}
             </button>
+            <span className="sr-only" role="status" aria-live="polite">
+              {copied ? 'EAPCET code PULE copied to clipboard' : ''}
+            </span>
           </div>
 
           {/* Quick Portals Links (hidden on xs so mobile bar stays uncluttered; accessible in drawer) */}
