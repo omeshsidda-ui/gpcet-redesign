@@ -45,13 +45,15 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
           </div>
 
           <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-sans text-[13.5px] text-[var(--muted)] tabular-nums">
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 font-sans text-[13.5px] text-[var(--muted)] tabular-nums">
               <span>
                 <strong className="font-semibold text-[var(--ink)]">{departments.length}</strong> Disciplines
               </span>
+              <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
               <span>
                 <strong className="font-semibold text-[var(--ink)]">{totalFaculty}</strong> Verified Faculty
               </span>
+              <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
               <span>
                 <strong className="font-semibold text-[var(--ruby)]">5</strong> NBA Accredited
               </span>
@@ -92,7 +94,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                     }`}
                   >
                     <td className="py-4 px-4 font-sans text-[13px] font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums whitespace-nowrap">
-                      {dept.deptNumber} · <span className="font-mono">{dept.shortName}</span>
+                      {dept.deptNumber} · {dept.shortName}
                     </td>
                     <td className="py-4 px-4">
                       <Link
@@ -168,7 +170,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
         </div>
 
         {/* Mobile Structured Register List (No clipped tables) */}
-        <div className="md:hidden mt-8 divide-y divide-[var(--rule)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm bg-[var(--surface-raised)]">
+        <div className="md:hidden mt-6 divide-y divide-[var(--rule)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm bg-[var(--surface-raised)]">
           {departments.map((dept) => {
             const isSelected = selectedDept?.code === dept.code;
             return (
@@ -176,7 +178,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <span className="font-sans text-xs font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums">
-                      {dept.deptNumber} · <span className="font-mono">{dept.shortName}</span>
+                      {dept.deptNumber} · {dept.shortName}
                     </span>
                     <h3 className="font-serif text-lg font-medium text-[var(--ink)] mt-0.5 leading-snug">
                       <Link href={`/departments/${dept.code}`}>{dept.name}</Link>
@@ -193,9 +195,11 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                   </span>
                 </div>
 
-                <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-[var(--muted)] font-sans tabular-nums">
-                  <span>{dept.degrees}</span>
+                <div className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13.5px] text-[var(--muted)] font-sans tabular-nums">
+                  <span className="font-medium text-[var(--ink)]/85">{dept.degrees}</span>
+                  <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
                   <span>Intake: {dept.intakeLabel}</span>
+                  <span className="text-[var(--ink)]/25" aria-hidden="true">·</span>
                   <span>{dept.facultyCount} Faculty</span>
                 </div>
 
@@ -232,7 +236,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
             <div className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--rule)]">
               <div>
                 <div className="font-sans text-xs text-[var(--ruby)] font-semibold tracking-[0.04em] tabular-nums">
-                  <span className="font-mono">{selectedDept.shortName}</span> · Estd. {selectedDept.establishedYear}
+                  {selectedDept.shortName} · Estd. {selectedDept.establishedYear}
                 </div>
                 <h3 className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ink)] mt-1 leading-snug">
                   {selectedDept.name}
