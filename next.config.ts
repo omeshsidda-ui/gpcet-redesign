@@ -6,20 +6,45 @@ import { withWorkflow } from 'workflow/next';
 // First-class App Router routes that must never be shadowed by legacy WordPress redirects
 const RESERVED_APP_ROUTES = new Set([
   '/',
+  '/sitemap.xml',
   '/documents',
   '/departments',
   '/accreditation',
   '/accreditation/naac',
   '/accreditation/nba',
+  '/accreditation/autonomous',
   '/administration',
   '/admissions',
+  '/admissions/lateral-entry',
+  '/admissions/pg',
   '/campus-life',
   '/placements',
+  '/research',
+  '/research/chapters',
+  '/statutory/mandatory-disclosure',
+  '/statutory/privacy',
+  '/statutory/terms',
+  '/statutory/accessibility',
   '/admin',
   '/admin/login',
   '/admin/notices',
   '/admin/faculty',
 ]);
+
+// Explicit canonical institutional redirects resolving navigation, statutory, and legacy paths
+const EXPLICIT_REDIRECTS: Array<{ source: string; destination: string; permanent: boolean }> = [
+  { source: '/academics/council', destination: '/academics/academic-council', permanent: true },
+  { source: '/academics/regulations', destination: '/academics/regulations-and-syllabus', permanent: true },
+  { source: '/admissions/fees', destination: '/admissions/fee-structure', permanent: true },
+  { source: '/research/idea-lab', destination: '/accreditation/aicte-idea-lab', permanent: true },
+  { source: '/statutory/rti', destination: '/administration/rti', permanent: true },
+  { source: '/statutory/anti-ragging', destination: '/administration/anti-ragging', permanent: true },
+  { source: '/statutory/nirf', destination: '/accreditation/nirf', permanent: true },
+  { source: '/statutory/grievance', destination: '/administration/women-grievance', permanent: true },
+  { source: '/contact', destination: '/archive-or-orphan/contact-us', permanent: true },
+];
+
+const EXPLICIT_REDIRECT_SOURCES = new Set(EXPLICIT_REDIRECTS.map((r) => r.source));
 
 function isReservedAppRoute(pathname: string): boolean {
   if (RESERVED_APP_ROUTES.has(pathname)) {
@@ -28,7 +53,7 @@ function isReservedAppRoute(pathname: string): boolean {
   if (pathname.startsWith('/api/') || pathname.startsWith('/admin/')) {
     return true;
   }
-  if (/^\/departments\/(cse|ai|ece|eee|me|civil|hs|mba)(\/(faculty|laboratories|board-of-studies|syllabus|events))?$/.test(pathname)) {
+  if (/^\/departments\/(cse|ai|ece|eee|me|civil|hs|mba)(\/(faculty(\/[^/]+)?|laboratories|board-of-studies|syllabus|events))?$/.test(pathname)) {
     return true;
   }
   return false;
@@ -71,8 +96,8 @@ function getLegacyRedirects(): Array<{ source: string; destination: string; perm
         source = source.slice(0, -1);
       }
 
-      // Never shadow first-class App Router pages (e.g. '/', '/accreditation')
-      if (isReservedAppRoute(source)) {
+      // Never shadow first-class App Router pages or explicit institutional redirects
+      if (isReservedAppRoute(source) || EXPLICIT_REDIRECT_SOURCES.has(source)) {
         continue;
       }
 
@@ -129,9 +154,9 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // 2,784 legacy WordPress redirects executed at the edge
+  // Explicit institutional redirects + legacy WordPress redirects executed at the edge
   async redirects() {
-    return getLegacyRedirects();
+    return [...EXPLICIT_REDIRECTS, ...getLegacyRedirects()];
   },
 };
 

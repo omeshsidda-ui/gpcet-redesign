@@ -48,9 +48,14 @@ test('20261102000003_rls_policies.sql enables RLS on all tables and uses secure 
 });
 
 test('generateSeedSql produces seed SQL with 452 faculty and 8 departments', () => {
+  const manifest = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), 'src', 'data', 'media-manifest.json'), 'utf8')
+  );
   const seed = generateSeedSql();
   assert.strictEqual(seed.totalFaculty, 452);
-  assert.strictEqual(seed.manifestTotal, 5822);
+  assert.strictEqual(seed.manifestTotal, manifest.items.length);
+  assert.strictEqual(seed.manifestTotal, manifest.totalMediaCount);
+  assert.ok(seed.manifestTotal >= 5822);
   assert.ok(seed.sql.includes("VALUES ('cse', 'Computer Science and Engineering'"));
   assert.ok(seed.sql.includes('INSERT INTO public.faculty'));
 });

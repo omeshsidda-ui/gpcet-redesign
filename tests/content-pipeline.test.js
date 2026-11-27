@@ -24,6 +24,7 @@ import {
   MarkdownRenderer,
   normalizeMarkdownTables,
 } from '../src/components/content/MarkdownRenderer.js';
+import { sanitizeScrapedMarkdown } from '../src/lib/institutional-content.ts';
 
 test('ContentFrontmatterSchema validates valid academic metadata and applies coercion', () => {
   const valid = {
@@ -207,6 +208,95 @@ test('MarkdownRenderer strictly neutralizes XSS injection vectors', () => {
     assert(!html.includes('<iframe'), `Iframe leaked: ${attack}`);
     assert(!html.includes('javascript:'), `Javascript pseudoprotocol leaked: ${attack}`);
   }
+});
+
+test('sanitizeScrapedMarkdown strips Avada #tab-* multiline anchors, data:image table placeholders, jQuery marquee snippets, and empty bullets', () => {
+  const dirtyAvadaMd = `
+Placements
+Flash News
+[Welcome to G.Pullaiah College of Engineering and Technology (Autonomous): Kurnool](https://www.gpcet.ac.in/welcome/)
+[financial_assistance_letters](/departments/cse/financial-assistance-letters)
+
+### **About GPCET**
+
+-   [College History](/archive-or-orphan/college-history)
+-   [Courses Offered](/archive-or-orphan/programmes)
+
+-   [
+
+    #### B.Tech Programmes
+
+    ](#tab-1144625d3c53e445905)
+-   **[
+
+    #### Qualifications
+
+    ](#tab-effcfcb90c42de4a8cb)**
+-   ****[
+
+    #### Overview
+
+    ](#tab-15e4373d00413eaaddb)****
+-   [ ](#tab-0000000000000000000)
+
+jQuery(function(){ jQuery('.marquee').marquee({ duration: 5000, gap: 20 }); });
+
+-   ![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E "placeholder")
+-   [
+    ![](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
+    ](https://www.gpcet.ac.in/wp-content/uploads/2023/01/real.png)
+
+## Placement Highlights
+
+| S.No | Recruiter Logo | Company |
+| --- | --- | --- |
+| 1 | ![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E) | Wipro |
+| 2 | [![Infosys](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)](https://www.infosys.com) | Infosys |
+
+Verified placement summary remains intact.
+`;
+
+  const cleaned = sanitizeScrapedMarkdown(dirtyAvadaMd);
+
+  assert(!cleaned.includes('#tab-'), 'Avada #tab-* anchors must be stripped');
+  assert(!cleaned.includes('B.Tech Programmes'), 'Empty #tab-* header label must be stripped');
+  assert(!cleaned.includes('Qualifications'), 'Bold-wrapped #tab-* header label must be stripped');
+  assert(!cleaned.includes('data:image/'), 'Residual data:image placeholders must be stripped');
+  assert(!cleaned.includes('jQuery('), 'Inline jQuery marquee snippet must be stripped');
+  assert(!cleaned.includes('marquee('), 'Nested marquee call must be stripped');
+  assert(!cleaned.includes('Flash News'), 'Avada Flash News line must be stripped');
+  assert(!cleaned.includes('financial_assistance_letters'), 'Avada financial_assistance_letters line must be stripped');
+  assert(!/^[ \t]*[-*+][ \t]*$/m.test(cleaned), 'Orphaned empty list bullets must be stripped');
+  assert(!/\n{3,}/.test(cleaned), 'Consecutive blank lines must collapse to at most two newlines');
+
+  // Verify real content and pipe-table structure remain valid
+  assert(cleaned.includes('## Placement Highlights'), 'Real heading must be preserved');
+  assert(cleaned.includes('Verified placement summary remains intact.'), 'Real body copy must be preserved');
+  assert(cleaned.includes('| 1 |  | Wipro |'), 'Pipe-table row structure must remain intact after stripping data:image');
+  assert(cleaned.includes('| 2 |  | Infosys |'), 'Pipe-table row structure must remain intact after stripping linked data:image');
+
+  const html = renderToString(React.createElement(MarkdownRenderer, { content: cleaned }));
+  assert(html.includes('<table'), 'Cleaned table must still render as a valid HTML table');
+  assert(html.includes('Wipro') && html.includes('Infosys'), 'Table cell text must render cleanly');
+  assert(!html.includes('data:image/'), 'Rendered HTML must contain zero data:image placeholders');
+});
+
+test('MarkdownRenderer renders dead campus intranet and private-IP URLs as muted unavailable archive text', () => {
+  const mdWithIntranetLinks = `
+| S.No | Subject | Mid 1 | Mid 2 |
+| --- | --- | --- | --- |
+| 1 | Engineering Mechanics | [Objective](http://103.24.127.196:8085/Resources/mech/mid%20latest/em-obj.PDF) | [Verified Paper](https://www.gpcet.ac.in/wp-content/uploads/2024/03/em-mid2.pdf) |
+| 2 | Internal Portal | [LAN Notice](http://192.168.1.50:8080/notices) | [Private Doc](http://10.10.2.15/syllabus.pdf) |
+`;
+
+  const html = renderToString(React.createElement(MarkdownRenderer, { content: mdWithIntranetLinks }));
+
+  assert(!html.includes('http://103.24.127.196:8085'), 'Dead campus IP href must not be rendered as a link');
+  assert(!html.includes('http://192.168.1.50:8080'), 'Private 192.168 IP href must not be rendered as a link');
+  assert(!html.includes('http://10.10.2.15'), 'Private 10.x IP href must not be rendered as a link');
+  assert(html.includes('(Campus Intranet Archive)'), 'Unavailable indicator must be shown');
+  assert(html.includes('Objective') && html.includes('LAN Notice') && html.includes('Private Doc'), 'Original link label text must be preserved');
+  assert(html.includes('https://www.gpcet.ac.in/wp-content/uploads/2024/03/em-mid2.pdf'), 'Valid HTTPS PDF link must still be rendered');
 });
 
 test('ACCEPTANCE GATE: All scraped markdown pages resolve without runtime parsing errors', () => {

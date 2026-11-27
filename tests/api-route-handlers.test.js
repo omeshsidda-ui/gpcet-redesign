@@ -1,5 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert';
+import fs from 'node:fs';
+import path from 'node:path';
 import { GET as getHealth } from '../src/app/api/v1/health/route.ts';
 import { GET as getFaculty } from '../src/app/api/v1/faculty/route.ts';
 import { GET as getFacultyBySlug } from '../src/app/api/v1/faculty/[slug]/route.ts';
@@ -7,6 +9,10 @@ import { GET as getDocuments } from '../src/app/api/v1/documents/route.ts';
 import { GET as getNotices } from '../src/app/api/v1/notices/route.ts';
 import { POST as postInquiry } from '../src/app/api/v1/inquiries/route.ts';
 import { GET as getAssetProxy } from '../src/app/api/v1/assets/proxy/route.ts';
+
+const mediaManifest = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'src', 'data', 'media-manifest.json'), 'utf8')
+);
 
 test('GET /api/v1/health returns liveness probe and offline cache status', async () => {
   const req = new Request('http://localhost:3000/api/v1/health');
@@ -21,7 +27,9 @@ test('GET /api/v1/health returns liveness probe and offline cache status', async
   assert.ok(['healthy', 'degraded'].includes(json.data.status));
   assert.strictEqual(json.data.version, '1.0.0');
   assert.strictEqual(json.data.offlineCache.facultyCount, 452);
-  assert.strictEqual(json.data.offlineCache.documentCount, 5822);
+  assert.strictEqual(json.data.offlineCache.documentCount, mediaManifest.items.length);
+  assert.strictEqual(json.data.offlineCache.documentCount, mediaManifest.totalMediaCount);
+  assert.ok(json.data.offlineCache.documentCount >= 5822);
   assert.ok(json.data.timestamp);
 });
 
@@ -91,7 +99,7 @@ test('GET /api/v1/faculty/[slug] returns scholar dossier or RFC 9457 404', async
   assert.strictEqual(problem.status, 404);
 });
 
-test('GET /api/v1/documents searches across 5,822 documents with pagination', async () => {
+test('GET /api/v1/documents searches across cataloged documents with pagination', async () => {
   const req = new Request('http://localhost:3000/api/v1/documents?category=syllabus&limit=15');
   const res = await getDocuments(req);
 

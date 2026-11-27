@@ -81,12 +81,12 @@ export default function InstitutionalFooter() {
                 <span className="leading-relaxed">
                   Near Venkayapalli, Pasupula Village, Nandikotkur Road,
                   <br />
-                  Kurnool – 518 452, Andhra Pradesh, India
+                  Kurnool – 518 002, Andhra Pradesh, India
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-rose-100 shrink-0" aria-hidden="true" />
-                <span className="font-sans text-[13.5px] tabular-nums">+91 9988776600 · 08518-285011</span>
+                <span className="font-sans text-[13.5px] tabular-nums">08518-285088 · +91 86397 56663</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-rose-100 shrink-0" aria-hidden="true" />

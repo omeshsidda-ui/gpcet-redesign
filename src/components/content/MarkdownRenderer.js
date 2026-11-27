@@ -43,11 +43,44 @@ export const academicSanitizeSchema = {
   },
 };
 
+const LEGACY_CAMPUS_HOSTS = new Set([
+  '103.24.127.196',
+  '103.24.127.194',
+  '103.206.112.59',
+]);
+
+function isDeadIntranetUrl(href) {
+  if (!href) return false;
+  let host = '';
+  try {
+    const parsed = new URL(href);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return false;
+    host = parsed.hostname.toLowerCase();
+  } catch {
+    const match = href.match(/^https?:\/\/([^/:?#\s]+)/i);
+    if (!match) return false;
+    host = match[1].toLowerCase();
+  }
+
+  if (LEGACY_CAMPUS_HOSTS.has(host)) return true;
+  if (/^(10\.|192\.168\.|127\.|169\.254\.)/.test(host)) return true;
+  if (/^172\.(1[6-9]|2\d|3[01])\./.test(host)) return true;
+  return false;
+}
+
 export function normalizeMarkdownTables(markdown) {
   if (!markdown || typeof markdown !== 'string') {
     return '';
   }
-  return markdown.replace(/\|\s+\|\s*/g, '|\n| ');
+  return markdown
+    .split('\n')
+    .map((line) => {
+      if (/\|[ \t]+\|[ \t]*:?-{3,}/.test(line)) {
+        return line.replace(/\| \|[ \t]*(?!$)/g, '|\n| ');
+      }
+      return line;
+    })
+    .join('\n');
 }
 
 function extractHeadingText(node) {
@@ -127,6 +160,26 @@ export function MarkdownRenderer({ content, className = '' }) {
             let safeHref = href || '';
             if (safeHref.startsWith('http://www.gpcet.ac.in/')) {
               safeHref = safeHref.replace('http://', 'https://');
+            } else if (safeHref.startsWith('http://gpcet.ac.in/')) {
+              safeHref = safeHref.replace('http://', 'https://');
+            }
+
+            if (isDeadIntranetUrl(safeHref)) {
+              return React.createElement(
+                'span',
+                {
+                  className: 'inline-flex flex-wrap items-baseline gap-1 text-[var(--muted)]',
+                  title: 'Legacy campus intranet resource unavailable outside campus LAN',
+                },
+                React.createElement('span', null, children),
+                React.createElement(
+                  'span',
+                  {
+                    className: 'text-[11px] font-sans font-normal text-[var(--muted)]/85',
+                  },
+                  '(Campus Intranet Archive)'
+                )
+              );
             }
 
             const isPdf = /\.pdf(\?.*)?$/i.test(safeHref);

@@ -45,14 +45,14 @@ export function normalizeCadre(designation, isHod = false) {
   return 'assistant_professor';
 }
 
-// Canonical GPCET Departments
+// Canonical GPCET Departments (verified against https://www.gpcet.ac.in/programmes/)
 export const DEPARTMENTS = [
   {
     code: 'cse',
     name: 'Computer Science and Engineering',
     shortName: 'CSE',
     establishedYear: 2007,
-    intakeUg: 180,
+    intakeUg: 540,
     intakePg: 18,
     nbaAccredited: true,
     vision: 'To emerge as a Center of Excellence in Computer Science and Engineering by producing globally competent professionals.',
@@ -62,14 +62,14 @@ export const DEPARTMENTS = [
       'To inculcate ethical values, leadership qualities, and lifelong learning.'
     ],
     contactEmail: 'hodcse@gpcet.ac.in',
-    contactPhone: '+91 9988776601'
+    contactPhone: '08518-285088'
   },
   {
     code: 'ai',
     name: 'Artificial Intelligence & Data Science',
     shortName: 'AI & DS',
     establishedYear: 2020,
-    intakeUg: 60,
+    intakeUg: 180,
     intakePg: 0,
     nbaAccredited: false,
     vision: 'To pioneer foundational and applied intelligence engineering solving modern societal challenges.',
@@ -78,7 +78,7 @@ export const DEPARTMENTS = [
       'To foster interdisciplinary problem-solving and ethical algorithmic development.'
     ],
     contactEmail: 'hodai@gpcet.ac.in',
-    contactPhone: '+91 9988776602'
+    contactPhone: '08518-285088'
   },
   {
     code: 'ece',
@@ -86,7 +86,7 @@ export const DEPARTMENTS = [
     shortName: 'ECE',
     establishedYear: 2007,
     intakeUg: 180,
-    intakePg: 18,
+    intakePg: 6,
     nbaAccredited: true,
     vision: 'To produce highly skilled electronics and communication engineers meeting global industry standards.',
     mission: [
@@ -94,15 +94,15 @@ export const DEPARTMENTS = [
       'To encourage innovation and patents through dedicated project labs.'
     ],
     contactEmail: 'hodece@gpcet.ac.in',
-    contactPhone: '+91 9988776603'
+    contactPhone: '08518-285088'
   },
   {
     code: 'eee',
     name: 'Electrical and Electronics Engineering',
     shortName: 'EEE',
     establishedYear: 2007,
-    intakeUg: 120,
-    intakePg: 0,
+    intakeUg: 60,
+    intakePg: 6,
     nbaAccredited: true,
     vision: 'To lead the frontier of power systems, renewable energy, and electrical vehicle technology.',
     mission: [
@@ -110,30 +110,30 @@ export const DEPARTMENTS = [
       'To conduct active research in sustainable energy systems.'
     ],
     contactEmail: 'hodeee@gpcet.ac.in',
-    contactPhone: '+91 9988776604'
+    contactPhone: '08518-285088'
   },
   {
     code: 'me',
     name: 'Mechanical Engineering',
     shortName: 'ME',
-    establishedYear: 2007,
-    intakeUg: 60,
+    establishedYear: 2013,
+    intakeUg: 30,
     intakePg: 0,
-    nbaAccredited: true,
+    nbaAccredited: false,
     vision: 'To nurture world-class mechanical engineers adept in modern manufacturing, thermal systems, and robotics.',
     mission: [
       'To deliver high-impact engineering education with state-of-the-art machine shops.',
       'To promote sustainability and energy efficiency in industrial applications.'
     ],
     contactEmail: 'hodme@gpcet.ac.in',
-    contactPhone: '+91 9988776605'
+    contactPhone: '08518-285088'
   },
   {
     code: 'civil',
     name: 'Civil Engineering',
     shortName: 'CIVIL',
-    establishedYear: 2007,
-    intakeUg: 60,
+    establishedYear: 2011,
+    intakeUg: 30,
     intakePg: 0,
     nbaAccredited: true,
     vision: 'To shape sustainable infrastructure leaders dedicated to societal welfare and modern structural design.',
@@ -142,7 +142,7 @@ export const DEPARTMENTS = [
       'To foster smart city and green infrastructure research.'
     ],
     contactEmail: 'hodcivil@gpcet.ac.in',
-    contactPhone: '+91 9988776606'
+    contactPhone: '08518-285088'
   },
   {
     code: 'hs',
@@ -158,15 +158,15 @@ export const DEPARTMENTS = [
       'To train students in professional communication and human values.'
     ],
     contactEmail: 'hodhs@gpcet.ac.in',
-    contactPhone: '+91 9988776607'
+    contactPhone: '08518-285088'
   },
   {
     code: 'mba',
     name: 'Master of Business Administration',
     shortName: 'MBA',
-    establishedYear: 2008,
+    establishedYear: 2009,
     intakeUg: 0,
-    intakePg: 120,
+    intakePg: 60,
     nbaAccredited: false,
     vision: 'To develop ethical, innovative corporate leaders and entrepreneurs for dynamic global markets.',
     mission: [
@@ -174,7 +174,7 @@ export const DEPARTMENTS = [
       'To foster strategic vision, financial acumen, and leadership capabilities.'
     ],
     contactEmail: 'hodmba@gpcet.ac.in',
-    contactPhone: '+91 9988776608'
+    contactPhone: '08518-285088'
   }
 ];
 
@@ -219,6 +219,7 @@ VALUES (${values})
 ON CONFLICT (code) DO UPDATE SET
     name = EXCLUDED.name,
     short_name = EXCLUDED.short_name,
+    established_year = EXCLUDED.established_year,
     intake_ug = EXCLUDED.intake_ug,
     intake_pg = EXCLUDED.intake_pg,
     nba_accredited = EXCLUDED.nba_accredited,

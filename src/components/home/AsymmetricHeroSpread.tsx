@@ -1,17 +1,22 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { getDocumentStats } from '@/lib/data/documents.js';
 import LiveAcademicGazette, { GazetteDocument, GazetteNotice } from './LiveAcademicGazette';
 
 interface AsymmetricHeroSpreadProps {
   notices: GazetteNotice[];
   keyDocuments: GazetteDocument[];
   totalFacultyCount: number;
-  totalDocumentCount: number;
+  totalDocumentCount?: number;
 }
 
-export default function AsymmetricHeroSpread({
+export default async function AsymmetricHeroSpread({
   notices, keyDocuments, totalFacultyCount, totalDocumentCount,
 }: AsymmetricHeroSpreadProps) {
+  const resolvedDocumentCount =
+    typeof totalDocumentCount === 'number' && totalDocumentCount > 0
+      ? totalDocumentCount
+      : (await getDocumentStats()).totalMediaCount;
   return (
     <section aria-labelledby="hero-institutional-title">
       <div className="campus-spread">
@@ -61,8 +66,9 @@ export default function AsymmetricHeroSpread({
           <dl className="border-t-2 border-[var(--ruby)]">
             {[
               ['NAAC Cycle 2', 'A+ · 3.38'],
-              ['NBA-accredited B.Tech programs', '5'],
-              ['Annual CSE intake', '360'],
+              ['NBA-accredited B.Tech programs', '4'],
+              ['B.Tech CSE intake', '540'],
+              ['Total sanctioned intake', '1,110'],
               ['Faculty members', totalFacultyCount.toLocaleString('en-US')],
             ].map(([label, value]) => (
               <div
@@ -87,7 +93,7 @@ export default function AsymmetricHeroSpread({
         <LiveAcademicGazette
           notices={notices}
           keyDocuments={keyDocuments}
-          totalCatalogedCount={totalDocumentCount}
+          totalCatalogedCount={resolvedDocumentCount}
         />
       </div>
     </section>

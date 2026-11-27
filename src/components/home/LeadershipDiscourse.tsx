@@ -15,7 +15,7 @@ const LEADERSHIP_PROFILES: LeaderStatement[] = [
   {
     name: 'Sri G. Pullaiah',
     role: 'Founder, Secretary & Correspondent',
-    credentials: 'AP State Best Teacher Awardee · Ravindra Vidya Niketan & GPCET',
+    credentials: 'AP State Best Teacher Awardee · Sri Sai Krishna Educational Society & GPCET',
     portraitSrc: '/assets/leadership/chairman.jpg',
     quote:
       'Founded on the enduring motto "Join to Learn and Leave to Serve," GPCET unites traditional academic discipline, punctuality, and moral character with modern engineering education for the youth of Rayalaseema.',
@@ -68,7 +68,7 @@ export default function LeadershipDiscourse() {
           </div>
           <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
             <p className="text-[15px] text-[var(--muted)] leading-relaxed max-w-[60ch]">
-              Stewardship from the Ravindra Educational Society Governing Body and Academic Council.
+              Stewardship from the Sri Sai Krishna Educational Society Governing Body and Academic Council.
             </p>
             <Link
               href="/administration"

@@ -17,6 +17,8 @@ import {
   getEnrichedDepartments,
   sanitizeScrapedMarkdown,
 } from '../src/lib/institutional-content.ts';
+import { getAllContentRoutes, getContentBySlug } from '../src/lib/content.ts';
+import sitemap from '../src/app/sitemap.ts';
 
 const root = process.cwd();
 
@@ -283,10 +285,192 @@ test('next.config.ts legacy redirects never shadow first-class App Router routes
       ? await exportedConfig('phase-production-build', { defaultConfig: {} })
       : exportedConfig;
   const redirects = await resolvedConfig.redirects();
-  const sources = new Set(redirects.map((r) => r.source));
+  const redirectMap = new Map(redirects.map((r) => [r.source, r.destination]));
 
-  for (const reserved of ['/', '/accreditation', '/documents', '/departments/cse', '/admissions', '/placements', '/admin/login']) {
-    assert.equal(sources.has(reserved), false, `Legacy redirect must not shadow ${reserved}`);
+  const reservedRoutes = [
+    '/',
+    '/sitemap.xml',
+    '/accreditation',
+    '/accreditation/naac',
+    '/accreditation/nba',
+    '/accreditation/autonomous',
+    '/documents',
+    '/departments',
+    '/departments/cse',
+    '/admissions',
+    '/admissions/lateral-entry',
+    '/admissions/pg',
+    '/placements',
+    '/research',
+    '/research/chapters',
+    '/campus-life',
+    '/statutory/mandatory-disclosure',
+    '/statutory/privacy',
+    '/statutory/terms',
+    '/statutory/accessibility',
+    '/admin/login',
+  ];
+
+  for (const reserved of reservedRoutes) {
+    assert.equal(redirectMap.has(reserved), false, `Legacy redirect must not shadow ${reserved}`);
   }
+
+  const expectedCleanRedirects = [
+    ['/academics/council', '/academics/academic-council'],
+    ['/academics/regulations', '/academics/regulations-and-syllabus'],
+    ['/admissions/fees', '/admissions/fee-structure'],
+    ['/research/idea-lab', '/accreditation/aicte-idea-lab'],
+    ['/statutory/rti', '/administration/rti'],
+    ['/statutory/anti-ragging', '/administration/anti-ragging'],
+    ['/statutory/nirf', '/accreditation/nirf'],
+    ['/statutory/grievance', '/administration/women-grievance'],
+    ['/contact', '/archive-or-orphan/contact-us'],
+  ];
+
+  for (const [source, destination] of expectedCleanRedirects) {
+    assert.equal(
+      redirectMap.get(source),
+      destination,
+      `Expected explicit redirect ${source} -> ${destination}`
+    );
+  }
+
   assert.ok(redirects.length > 1800, 'Expected legacy WordPress redirects to remain active');
+});
+
+test('src/app/sitemap.ts generates deduplicated entries for core routes, all 8 department portals + sub-tabs, and content routes', async () => {
+  const entries = await sitemap();
+  assert.ok(Array.isArray(entries) && entries.length > 950, 'Expected full institutional sitemap');
+
+  const urls = entries.map((entry) => entry.url);
+  assert.equal(new Set(urls).size, urls.length, 'Sitemap must not contain duplicate URLs');
+
+  const baseUrl = (process.env.NEXT_PUBLIC_APP_URL || 'https://gpcet-redesign.vercel.app').replace(
+    /\/+$/,
+    ''
+  );
+  const urlSet = new Set(urls);
+
+  for (const expectedPath of [
+    '',
+    '/documents',
+    '/departments',
+    '/admissions',
+    '/admissions/lateral-entry',
+    '/admissions/pg',
+    '/placements',
+    '/research',
+    '/research/chapters',
+    '/accreditation',
+    '/accreditation/naac',
+    '/accreditation/nba',
+    '/accreditation/autonomous',
+    '/administration',
+    '/campus-life',
+    '/statutory/mandatory-disclosure',
+    '/statutory/privacy',
+    '/statutory/terms',
+    '/statutory/accessibility',
+  ]) {
+    assert.ok(urlSet.has(`${baseUrl}${expectedPath}`), `Sitemap missing ${expectedPath || '/'}`);
+  }
+
+  for (const dept of ['cse', 'ai', 'ece', 'eee', 'me', 'civil', 'hs', 'mba']) {
+    assert.ok(urlSet.has(`${baseUrl}/departments/${dept}`), `Sitemap missing /departments/${dept}`);
+    for (const tab of ['faculty', 'laboratories', 'board-of-studies', 'syllabus', 'events']) {
+      assert.ok(
+        urlSet.has(`${baseUrl}/departments/${dept}/${tab}`),
+        `Sitemap missing /departments/${dept}/${tab}`
+      );
+    }
+  }
+
+  for (const contentRoute of getAllContentRoutes().slice(0, 25)) {
+    if (!contentRoute.path.startsWith('/admin') && !contentRoute.path.startsWith('/api')) {
+      assert.ok(
+        urlSet.has(`${baseUrl}${contentRoute.path}`),
+        `Sitemap missing content route ${contentRoute.path}`
+      );
+    }
+  }
+});
+
+test('All global shell & campus-life links resolve cleanly without 404s and navbar reflects verified intakes', async () => {
+  const { default: exportedConfig } = await import('../next.config.ts');
+  const resolvedConfig =
+    typeof exportedConfig === 'function'
+      ? await exportedConfig('phase-production-build', { defaultConfig: {} })
+      : exportedConfig;
+  const redirects = await resolvedConfig.redirects();
+  const redirectMap = new Map(redirects.map((r) => [r.source, r.destination]));
+
+  const appPages = new Set([
+    '/',
+    '/sitemap.xml',
+    '/documents',
+    '/departments',
+    '/admissions',
+    '/admissions/lateral-entry',
+    '/admissions/pg',
+    '/placements',
+    '/research',
+    '/research/chapters',
+    '/accreditation',
+    '/accreditation/naac',
+    '/accreditation/nba',
+    '/accreditation/autonomous',
+    '/administration',
+    '/campus-life',
+    '/statutory/mandatory-disclosure',
+    '/statutory/privacy',
+    '/statutory/terms',
+    '/statutory/accessibility',
+  ]);
+  for (const dept of ['cse', 'ai', 'ece', 'eee', 'me', 'civil', 'hs', 'mba']) {
+    appPages.add(`/departments/${dept}`);
+  }
+
+  const shellFiles = [
+    path.join(root, 'src', 'components', 'global', 'TopInstitutionalBar.tsx'),
+    path.join(root, 'src', 'components', 'global', 'InstitutionalNavbar.tsx'),
+    path.join(root, 'src', 'components', 'global', 'InstitutionalFooter.tsx'),
+    path.join(root, 'src', 'app', 'campus-life', 'page.tsx'),
+  ];
+
+  const internalPaths = new Set();
+  for (const file of shellFiles) {
+    const src = fs.readFileSync(file, 'utf8');
+    for (const m of src.matchAll(/href=[\"'](\/[^\"'#?]*)/g)) {
+      internalPaths.add(m[1]);
+    }
+    for (const m of src.matchAll(/href:\s*['\"](\/[^'\"#?]*)/g)) {
+      internalPaths.add(m[1]);
+    }
+  }
+
+  for (const target of internalPaths) {
+    const resolved = redirectMap.get(target) || target;
+    const isValid =
+      appPages.has(resolved) || getContentBySlug(resolved.replace(/^\/+/, '').split('/')) !== null;
+    assert.ok(isValid, `Shell/campus link ${target} (resolved: ${resolved}) must not 404`);
+  }
+
+  const navbarSrc = fs.readFileSync(
+    path.join(root, 'src', 'components', 'global', 'InstitutionalNavbar.tsx'),
+    'utf8'
+  );
+  for (const expectedBadge of [
+    'NBA · 540+18',
+    '180 Seats',
+    'NBA · 180+6',
+    'NBA · 60+6',
+    '30 Seats',
+    'NBA · 30 Seats',
+    'PG · 60 Seats',
+    '/archive-or-orphan/aboutus',
+    '/campus-life',
+    '/archive-or-orphan/careers-vacancies',
+  ]) {
+    assert.ok(navbarSrc.includes(expectedBadge), `InstitutionalNavbar missing ${expectedBadge}`);
+  }
 });

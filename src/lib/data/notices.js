@@ -1,56 +1,90 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Institutional notices data adapter with fallback circulars
+// Institutional notices data adapter with verified active fallback circulars from gpcet.ac.in
 const SEED_NOTICES = [
+  {
+    id: 'not_002',
+    departmentCode: null,
+    title: 'IV B.Tech VII & VIII Semester Academic Calendar 2026–27',
+    slug: 'iv-btech-academic-calendar-2026-27',
+    summary: 'Official autonomous academic calendar for IV B.Tech VII and VIII semesters covering classwork, mid-term examinations, and end-semester schedules.',
+    contentMarkdown:
+      'The Office of Academic Affairs has published the **IV B.Tech Academic Calendar 2026–27** for VII and VIII semesters.\n\n- **Download Official Calendar**: [IV B.Tech Academic Calendar 2026-27 (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/IV-B.Tech-Academic-Calendar-2026-27-1.pdf)',
+    category: 'academic_calendar',
+    priority: 'high',
+    isTicker: true,
+    isPinned: true,
+    attachmentUrl: 'https://www.gpcet.ac.in/wp-content/uploads/2026/11/IV-B.Tech-Academic-Calendar-2026-27-1.pdf',
+    attachmentSizeBytes: 360328,
+    publishedAt: '2026-11-26T05:17:59.000Z',
+    expiresAt: null
+  },
+  {
+    id: 'not_003',
+    departmentCode: null,
+    title: 'M.Tech I Year (I & II Semester) Academic Calendar 2026–27',
+    slug: 'mtech-i-year-academic-calendar-2026-27',
+    summary: 'Official 2026–27 academic calendar for M.Tech I Year programs (CSE, DECS, and EPS) detailing instructional spells and assessment dates.',
+    contentMarkdown:
+      'G. Pullaiah College of Engineering & Technology (Autonomous) has released the **M.Tech I Year Academic Calendar 2026–27** for Computer Science & Engineering, Digital Electronics & Communication Systems, and Electrical Power Systems.\n\n- **Download Official Calendar**: [M.Tech I Year Academic Calendar 2026-27 (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/M.-Tech-I-Year-Academic-Calendar-2026-27.pdf)',
+    category: 'academic_calendar',
+    priority: 'high',
+    isTicker: true,
+    isPinned: false,
+    attachmentUrl: 'https://www.gpcet.ac.in/wp-content/uploads/2026/11/M.-Tech-I-Year-Academic-Calendar-2026-27.pdf',
+    attachmentSizeBytes: 418050,
+    publishedAt: '2026-11-13T05:20:41.000Z',
+    expiresAt: null
+  },
+  {
+    id: 'not_004',
+    departmentCode: null,
+    title: 'B.Tech R26 Autonomous Regulations & Branch-Wise Syllabi Published',
+    slug: 'btech-r26-autonomous-regulations-syllabi-2026',
+    summary: 'Updated R26 autonomous curriculum and syllabus handbooks published for CSE, CSE (AI), ECE, EEE, Civil, and Mechanical Engineering.',
+    contentMarkdown:
+      'Updated **R26 Autonomous Regulations and Syllabi** are now available for all six B.Tech engineering branches:\n\n- [Computer Science and Engineering (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/Computer-Science-Engineering.pdf)\n- [Computer Science and Engineering (AI) (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/Computer-Science-Engineering-AI.pdf)\n- [Electronics and Communication Engineering (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/Electronics-and-Communication-Engineering.pdf)\n- [Electrical and Electronics Engineering (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/Electrical-and-Electronics-Engineering.pdf)\n- [Civil Engineering (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/Civil-Engineering.pdf)\n- [Mechanical Engineering (PDF)](https://www.gpcet.ac.in/wp-content/uploads/2026/11/Mechanical-Engineering.pdf)',
+    category: 'circular',
+    priority: 'normal',
+    isTicker: false,
+    isPinned: false,
+    attachmentUrl: 'https://www.gpcet.ac.in/wp-content/uploads/2026/11/Computer-Science-Engineering.pdf',
+    attachmentSizeBytes: 2923526,
+    publishedAt: '2026-11-11T03:43:43.000Z',
+    expiresAt: null
+  },
+  {
+    id: 'not_33900',
+    departmentCode: null,
+    title: 'IEEE International Conference on Emerging Trends in Electronics, Computing and Intelligent Systems (ETECIS 2026) on Dec 18–19, 2026',
+    slug: 'ieee-international-conference-on-emerging-trends-in-electronics-computing-and-intelligent-systems-etecis-2026-on-dec-18-dec-19-2026',
+    summary: 'GPCET hosts ETECIS 2026 on December 18–19, 2026, bringing together researchers in electronics, computing, and intelligent systems.',
+    contentMarkdown:
+      'G. Pullaiah College of Engineering & Technology (Autonomous), Kurnool is hosting the **IEEE International Conference on Emerging Trends in Electronics, Computing and Intelligent Systems (ETECIS 2026)** on **December 18–19, 2026**.\n\n- **Conference Portal**: [ETECIS 2026 Official Conference Page](https://www.gpcet.ac.in/conf/index.html)',
+    category: 'event',
+    priority: 'urgent',
+    isTicker: true,
+    isPinned: true,
+    attachmentUrl: 'https://www.gpcet.ac.in/conf/index.html',
+    attachmentSizeBytes: null,
+    publishedAt: '2026-11-06T07:00:18.000Z',
+    expiresAt: null
+  },
   {
     id: 'not_001',
     departmentCode: null,
     title: 'EAPCET / ECET 2026 Admissions Counseling Schedule & Helpline Centers',
     slug: 'eapcet-admissions-schedule-2026',
-    summary: 'Detailed reporting dates, certificate verification centers, and B.Tech convenor quota seat intake matrix.',
+    summary: 'Reporting guidelines, certificate verification details, and sanctioned intake matrix (1,110 total seats) under EAPCET Counseling Code PULE.',
     contentMarkdown:
-      'G. Pullaiah College of Engineering & Technology (Autonomous) announces the reporting schedule and document verification guidelines for EAPCET and ECET 2026 convenor quota admissions.\n\n- **Counseling Code**: **GPCET**\n- **Required Documents**: Hall Ticket, Rank Card, SSC/Intermediate Marks Memos, Transfer Certificate, and Category/Income Certificates (if applicable).',
+      'G. Pullaiah College of Engineering & Technology (Autonomous) announces reporting and certificate verification guidelines for EAPCET, ECET, and ICET 2026 admissions across 6 UG and 4 PG programs (total annual intake: 1,110).\n\n- **Counseling Code**: **PULE**\n- **Admissions Helpline**: `08518-285088` · `+91 86397 56663`\n- **Required Documents**: Hall Ticket, Rank Card, SSC/Intermediate Marks Memos, Transfer Certificate, and Category/Income Certificates (if applicable).',
     category: 'admissions',
     priority: 'urgent',
     isTicker: true,
-    isPinned: true,
-    attachmentUrl: 'https://www.gpcet.ac.in/wp-content/uploads/2026/10/admissions-notice.pdf',
-    attachmentSizeBytes: null,
-    publishedAt: '2026-10-15T09:00:00.000Z',
-    expiresAt: null
-  },
-  {
-    id: 'not_002',
-    departmentCode: null,
-    title: 'JNTUA Autonomous End Semester Examinations Schedule (R20 & R23)',
-    slug: 'jntua-autonomous-end-sem-exams-schedule',
-    summary: 'Timetable for regular and supplementary examinations across all B.Tech branches.',
-    contentMarkdown:
-      'The Office of the Controller of Examinations has released the autonomous end-semester examination timetables for B.Tech R20 and R23 regulations across CSE, AI, ECE, EEE, ME, and Civil Engineering.',
-    category: 'examination',
-    priority: 'high',
-    isTicker: true,
-    isPinned: true,
-    attachmentUrl: 'https://www.gpcet.ac.in/wp-content/uploads/2026/10/exam-timetable.pdf',
-    attachmentSizeBytes: null,
-    publishedAt: '2026-10-12T09:00:00.000Z',
-    expiresAt: null
-  },
-  {
-    id: 'not_003',
-    departmentCode: 'cse',
-    title: 'National Level Technical Symposium & Hackathon - GPCET Invenio 2026',
-    slug: 'gpcet-invenio-technical-symposium-2026',
-    summary: 'Department of Computer Science & AI invites student registrations for 36-hour hackathon and paper presentations.',
-    contentMarkdown:
-      'The Departments of Computer Science & Engineering and Artificial Intelligence invite undergraduate students to participate in **GPCET Invenio 2026**, featuring a 36-hour hackathon, technical paper presentations, and coding contests.',
-    category: 'event',
-    priority: 'normal',
-    isTicker: false,
     isPinned: false,
     attachmentUrl: null,
     attachmentSizeBytes: null,
-    publishedAt: '2026-10-10T09:00:00.000Z',
+    publishedAt: '2026-10-15T09:00:00.000Z',
     expiresAt: null
   }
 ];

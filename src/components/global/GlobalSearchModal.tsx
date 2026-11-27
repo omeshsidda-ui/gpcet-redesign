@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useTransition } from 'react';
+import React, { useState, useEffect, useRef, useTransition, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Search,
@@ -24,200 +24,207 @@ interface SearchDoc {
   keywords?: string;
 }
 
-const STATIC_CATALOG: SearchDoc[] = [
-  // Portals & Major Gateways
-  {
-    id: 'p-vault',
-    title: 'Central Syllabus & Document Vault',
-    category: 'Portals',
-    description: 'Direct access to 5,822 cataloged academic circulars, regulations, and timetables.',
-    href: '/documents',
-    badge: '5,822 Items',
-    keywords: 'syllabus curriculum regulations pdfs downloads circulars notices',
-  },
-  {
-    id: 'p-admissions',
-    title: 'B.Tech Admissions 2026-27',
-    category: 'Portals',
-    description: 'EAPCET Counseling Code PULE, eligibility rules, fee structures, and seat matrix.',
-    href: '/admissions',
-    badge: 'Code: PULE',
-    keywords: 'admissions eapcet eamcet pule seats lateral entry ecet fees scholarships',
-  },
-  {
-    id: 'p-exam-cell',
-    title: 'Autonomous Examination Cell',
-    category: 'Portals',
-    description: 'Semester timetables, results, hall tickets, and revaluation circulars.',
-    href: '/documents?category=timetable',
-    badge: 'Exam Cell',
-    keywords: 'exams timetables hall tickets marks memos results autonomous controller',
-  },
-  {
-    id: 'p-naac',
-    title: 'NAAC SSR Portfolio (Grade A+)',
-    category: 'Accreditation',
-    description: 'Institutional Cycle 2 SSR documentation, metrics 1.1.2 through 7.3.1.',
-    href: '/accreditation/naac',
-    badge: '3.38 CGPA',
-    keywords: 'naac ssr criteria a+ accreditation iqac assessment cycle 2 metrics',
-  },
-  {
-    id: 'p-nba',
-    title: 'NBA Tier-1 Accreditation',
-    category: 'Accreditation',
-    description: 'National Board of Accreditation for CSE, ECE, EEE, ME, and CE programs.',
-    href: '/accreditation/nba',
-    badge: 'Tier-1 NBA',
-    keywords: 'nba outcome based education tier 1 compliance accreditation',
-  },
-  {
-    id: 'p-idea-lab',
-    title: 'AICTE IDEA Lab',
-    category: 'Portals',
-    description: 'Advanced prototyping facility, 3D printers, laser cutters, and student projects.',
-    href: '/research/idea-lab',
-    badge: 'Research',
-    keywords: 'idea lab aicte 3d printing prototyping fabrication patents innovations',
-  },
-  {
-    id: 'p-placements',
-    title: 'Career Development & Placement Cell',
-    category: 'Portals',
-    description: 'Campus placement statistics, recruitment drives, and corporate partners.',
-    href: '/placements',
-    badge: 'Placements',
-    keywords: 'placements jobs campus drives tcs infosys wipro packages offers',
-  },
-  {
-    id: 'p-rti',
-    title: 'Right to Information (RTI Act 2005)',
-    category: 'Portals',
-    description: 'Public Information Officers, Appellate Authority, and statutory disclosures.',
-    href: '/statutory/rti',
-    badge: 'Statutory',
-    keywords: 'rti right to information pio legal compliance disclosure',
-  },
+function createStaticCatalog(documentCount: number | null): SearchDoc[] {
+  const countLabel = documentCount !== null ? documentCount.toLocaleString('en-US') : null;
+  return [
+    // Portals & Major Gateways
+    {
+      id: 'p-vault',
+      title: 'Central Syllabus & Document Vault',
+      category: 'Portals',
+      description: countLabel
+        ? `Direct access to ${countLabel} cataloged academic circulars, regulations, and timetables.`
+        : 'Direct access to cataloged academic circulars, regulations, and timetables.',
+      href: '/documents',
+      badge: countLabel ? `${countLabel} Items` : 'Full Vault',
+      keywords: 'syllabus curriculum regulations pdfs downloads circulars notices',
+    },
+    {
+      id: 'p-admissions',
+      title: 'B.Tech Admissions 2026-27',
+      category: 'Portals',
+      description: 'EAPCET Counseling Code PULE, eligibility rules, fee structures, and seat matrix.',
+      href: '/admissions',
+      badge: 'Code: PULE',
+      keywords: 'admissions eapcet eamcet pule seats lateral entry ecet fees scholarships',
+    },
+    {
+      id: 'p-exam-cell',
+      title: 'Autonomous Examination Cell',
+      category: 'Portals',
+      description: 'Semester timetables, results, hall tickets, and revaluation circulars.',
+      href: '/documents?category=timetable',
+      badge: 'Exam Cell',
+      keywords: 'exams timetables hall tickets marks memos results autonomous controller',
+    },
+    {
+      id: 'p-naac',
+      title: 'NAAC SSR Portfolio (Grade A+)',
+      category: 'Accreditation',
+      description: 'Institutional Cycle 2 SSR documentation, metrics 1.1.2 through 7.3.1.',
+      href: '/accreditation/naac',
+      badge: '3.38 CGPA',
+      keywords: 'naac ssr criteria a+ accreditation iqac assessment cycle 2 metrics',
+    },
+    {
+      id: 'p-nba',
+      title: 'NBA Tier-1 Accreditation',
+      category: 'Accreditation',
+      description: 'National Board of Accreditation for CSE, ECE, EEE, and CE programs.',
+      href: '/accreditation/nba',
+      badge: 'Tier-1 NBA',
+      keywords: 'nba outcome based education tier 1 compliance accreditation',
+    },
+    {
+      id: 'p-idea-lab',
+      title: 'AICTE IDEA Lab',
+      category: 'Portals',
+      description: 'Advanced prototyping facility, 3D printers, laser cutters, and student projects.',
+      href: '/accreditation/aicte-idea-lab',
+      badge: 'Research',
+      keywords: 'idea lab aicte 3d printing prototyping fabrication patents innovations',
+    },
+    {
+      id: 'p-placements',
+      title: 'Career Development & Placement Cell',
+      category: 'Portals',
+      description: 'Campus placement statistics, recruitment drives, and corporate partners.',
+      href: '/placements',
+      badge: 'Placements',
+      keywords: 'placements jobs campus drives tcs infosys wipro packages offers',
+    },
+    {
+      id: 'p-rti',
+      title: 'Right to Information (RTI Act 2005)',
+      category: 'Portals',
+      description: 'Public Information Officers, Appellate Authority, and statutory disclosures.',
+      href: '/statutory/rti',
+      badge: 'Statutory',
+      keywords: 'rti right to information pio legal compliance disclosure',
+    },
 
-  // 8 Engineering Departments
-  {
-    id: 'd-cse',
-    title: 'Computer Science and Engineering (CSE)',
-    category: 'Departments',
-    description: 'Intake: 360 Seats · NBA Accredited · HOD: Dr. K. Sreenivasulu.',
-    href: '/departments/cse',
-    badge: '360 Seats',
-    keywords: 'cse computer science software coding ai cloud hod sreenivasulu',
-  },
-  {
-    id: 'd-ai',
-    title: 'Artificial Intelligence & Data Science (AI & DS)',
-    category: 'Departments',
-    description: 'Intake: 180 Seats · Deep Learning, GPU clusters, and modern data pipelines.',
-    href: '/departments/ai',
-    badge: '180 Seats',
-    keywords: 'ai ds data science machine learning python neural networks artificial intelligence',
-  },
-  {
-    id: 'd-ece',
-    title: 'Electronics & Communication Engineering (ECE)',
-    category: 'Departments',
-    description: 'Intake: 180 Seats · NBA Accredited · VLSI, Embedded Systems, Communications.',
-    href: '/departments/ece',
-    badge: '180 Seats',
-    keywords: 'ece electronics communication vlsi embedded systems signal processing',
-  },
-  {
-    id: 'd-eee',
-    title: 'Electrical & Electronics Engineering (EEE)',
-    category: 'Departments',
-    description: 'Intake: 60 Seats · NBA Accredited · Power Systems, Smart Grids, EV Technology.',
-    href: '/departments/eee',
-    badge: '60 Seats',
-    keywords: 'eee electrical electronics power grid ev electric vehicles renewable energy',
-  },
-  {
-    id: 'd-me',
-    title: 'Mechanical Engineering (ME)',
-    category: 'Departments',
-    description: 'Intake: 60 Seats · NBA Accredited · CAD/CAM, Robotics, Thermal Dynamics.',
-    href: '/departments/me',
-    badge: '60 Seats',
-    keywords: 'mechanical me robotics cad cam manufacturing thermal engines fluid',
-  },
-  {
-    id: 'd-civil',
-    title: 'Civil Engineering (CE)',
-    category: 'Departments',
-    description: 'Intake: 60 Seats · NBA Accredited · Structural Design, Surveying, Green Concrete.',
-    href: '/departments/civil',
-    badge: '60 Seats',
-    keywords: 'civil ce structures surveying construction geotechnical environment concrete',
-  },
-  {
-    id: 'd-hs',
-    title: 'Humanities & Sciences (H&S)',
-    category: 'Departments',
-    description: 'Basic Engineering Sciences: Mathematics, Physics, Chemistry, English Communication.',
-    href: '/departments/hs',
-    badge: 'Foundations',
-    keywords: 'humanities sciences physics chemistry maths english basic sciences',
-  },
-  {
-    id: 'd-mba',
-    title: 'Master of Business Administration (MBA)',
-    category: 'Departments',
-    description: 'PG Management: Finance, Human Resources, and Marketing disciplines.',
-    href: '/departments/mba',
-    badge: '180 Seats',
-    keywords: 'mba management business pg finance hr marketing icet',
-  },
+    // 8 Engineering Departments
+    {
+      id: 'd-cse',
+      title: 'Computer Science and Engineering (CSE)',
+      category: 'Departments',
+      description: 'Intake: 540 UG + 18 PG Seats · NBA Accredited · HOD: Dr. M. Srilakshmi.',
+      href: '/departments/cse',
+      badge: '540 Seats',
+      keywords: 'cse computer science software coding ai cloud hod srilakshmi',
+    },
+    {
+      id: 'd-ai',
+      title: 'Artificial Intelligence & Data Science (AI & DS)',
+      category: 'Departments',
+      description: 'Intake: 180 Seats · Deep Learning, GPU clusters, and modern data pipelines.',
+      href: '/departments/ai',
+      badge: '180 Seats',
+      keywords: 'ai ds data science machine learning python neural networks artificial intelligence',
+    },
+    {
+      id: 'd-ece',
+      title: 'Electronics & Communication Engineering (ECE)',
+      category: 'Departments',
+      description: 'Intake: 180 UG + 6 PG Seats · NBA Accredited · VLSI, Embedded Systems, Communications.',
+      href: '/departments/ece',
+      badge: '180 Seats',
+      keywords: 'ece electronics communication vlsi embedded systems signal processing',
+    },
+    {
+      id: 'd-eee',
+      title: 'Electrical & Electronics Engineering (EEE)',
+      category: 'Departments',
+      description: 'Intake: 60 UG + 6 PG Seats · NBA Accredited · Power Systems, Smart Grids, EV Technology.',
+      href: '/departments/eee',
+      badge: '60 Seats',
+      keywords: 'eee electrical electronics power grid ev electric vehicles renewable energy',
+    },
+    {
+      id: 'd-me',
+      title: 'Mechanical Engineering (ME)',
+      category: 'Departments',
+      description: 'Intake: 30 Seats · CAD/CAM, Robotics, Thermal Dynamics.',
+      href: '/departments/me',
+      badge: '30 Seats',
+      keywords: 'mechanical me robotics cad cam manufacturing thermal engines fluid',
+    },
+    {
+      id: 'd-civil',
+      title: 'Civil Engineering (CE)',
+      category: 'Departments',
+      description: 'Intake: 30 Seats · NBA Accredited · Structural Design, Surveying, Green Concrete.',
+      href: '/departments/civil',
+      badge: '30 Seats',
+      keywords: 'civil ce structures surveying construction geotechnical environment concrete',
+    },
+    {
+      id: 'd-hs',
+      title: 'Humanities & Sciences (H&S)',
+      category: 'Departments',
+      description: 'Basic Engineering Sciences: Mathematics, Physics, Chemistry, English Communication.',
+      href: '/departments/hs',
+      badge: 'Foundations',
+      keywords: 'humanities sciences physics chemistry maths english basic sciences',
+    },
+    {
+      id: 'd-mba',
+      title: 'Master of Business Administration (MBA)',
+      category: 'Departments',
+      description: 'Intake: 60 Seats · PG Management: Finance, Human Resources, and Marketing disciplines.',
+      href: '/departments/mba',
+      badge: '60 Seats',
+      keywords: 'mba management business pg finance hr marketing icet',
+    },
 
-  // Key Academic Documents & Regulations
-  {
-    id: 'doc-r20',
-    title: 'R20 Academic Regulations & Course Structures',
-    category: 'Documents',
-    description: 'Official autonomous curriculum framework for 4-year B.Tech degree programs.',
-    href: '/documents?category=syllabus&q=R20',
-    badge: 'R20 Regulation',
-    keywords: 'r20 syllabus regulations credits grading course structure',
-  },
-  {
-    id: 'doc-r19',
-    title: 'R19 Academic Regulations & Curriculum',
-    category: 'Documents',
-    description: 'B.Tech autonomous curriculum guidelines for R19 batch scholars.',
-    href: '/documents?category=syllabus&q=R19',
-    badge: 'R19 Regulation',
-    keywords: 'r19 regulations syllabus curriculum previous batches',
-  },
-  {
-    id: 'doc-cal-26',
-    title: 'Academic Calendar 2026-27 (UG & PG)',
-    category: 'Documents',
-    description: 'Instructional commencement, mid-term examinations, and semester closure dates.',
-    href: '/documents?category=calendar',
-    badge: 'Calendar 2026',
-    keywords: 'calendar academic schedule holidays semester dates working days',
-  },
-  {
-    id: 'doc-aicte-md',
-    title: 'AICTE Mandatory Disclosure Report 2026',
-    category: 'Documents',
-    description: 'Official statutory disclosure for approvals, intake, facilities, and governance.',
-    href: '/statutory/mandatory-disclosure',
-    badge: 'AICTE Compliance',
-    keywords: 'aicte mandatory disclosure approvals compliance land buildings library',
-  },
-];
+    // Key Academic Documents & Regulations
+    {
+      id: 'doc-r20',
+      title: 'R20 Academic Regulations & Course Structures',
+      category: 'Documents',
+      description: 'Official autonomous curriculum framework for 4-year B.Tech degree programs.',
+      href: '/documents?category=syllabus&q=R20',
+      badge: 'R20 Regulation',
+      keywords: 'r20 syllabus regulations credits grading course structure',
+    },
+    {
+      id: 'doc-r19',
+      title: 'R19 Academic Regulations & Curriculum',
+      category: 'Documents',
+      description: 'B.Tech autonomous curriculum guidelines for R19 batch scholars.',
+      href: '/documents?category=syllabus&q=R19',
+      badge: 'R19 Regulation',
+      keywords: 'r19 regulations syllabus curriculum previous batches',
+    },
+    {
+      id: 'doc-cal-26',
+      title: 'Academic Calendar 2026-27 (UG & PG)',
+      category: 'Documents',
+      description: 'Instructional commencement, mid-term examinations, and semester closure dates.',
+      href: '/documents?category=calendar',
+      badge: 'Calendar 2026',
+      keywords: 'calendar academic schedule holidays semester dates working days',
+    },
+    {
+      id: 'doc-aicte-md',
+      title: 'AICTE Mandatory Disclosure Report 2026',
+      category: 'Documents',
+      description: 'Official statutory disclosure for approvals, intake, facilities, and governance.',
+      href: '/statutory/mandatory-disclosure',
+      badge: 'AICTE Compliance',
+      keywords: 'aicte mandatory disclosure approvals compliance land buildings library',
+    },
+  ];
+}
 
 const SHORT_CODE_BADGES = new Set(['CSE', 'AI', 'ECE', 'EEE', 'ME', 'CIVIL', 'H&S', 'MBA']);
 
 export default function GlobalSearchModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<SearchDoc[]>(STATIC_CATALOG.slice(0, 8));
+  const [documentCount, setDocumentCount] = useState<number | null>(null);
+  const staticCatalog = useMemo(() => createStaticCatalog(documentCount), [documentCount]);
+  const [results, setResults] = useState<SearchDoc[]>(() => createStaticCatalog(null).slice(0, 8));
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [, startTransition] = useTransition();
 
@@ -227,7 +234,7 @@ export default function GlobalSearchModal() {
   const listRef = useRef<HTMLDivElement>(null);
   const miniSearchRef = useRef<MiniSearch<SearchDoc> | null>(null);
 
-  // Initialize MiniSearch Index with static catalog and lazy-load faculty records
+  // Initialize MiniSearch Index with static catalog, live manifest count, and lazy-loaded faculty records
   useEffect(() => {
     const miniSearch = new MiniSearch<SearchDoc>({
       fields: ['title', 'category', 'description', 'badge', 'keywords'],
@@ -239,8 +246,28 @@ export default function GlobalSearchModal() {
       },
     });
 
-    miniSearch.addAll(STATIC_CATALOG);
+    miniSearch.addAll(createStaticCatalog(null));
     miniSearchRef.current = miniSearch;
+
+    const abortController = new AbortController();
+
+    const loadLiveDocumentCount = async () => {
+      try {
+        const res = await fetch('/api/v1/health', { signal: abortController.signal });
+        if (!res.ok) return;
+        const json = await res.json();
+        const liveCount = json?.data?.offlineCache?.documentCount;
+        if (typeof liveCount === 'number' && liveCount > 0) {
+          setDocumentCount(liveCount);
+          const updatedVaultDoc = createStaticCatalog(liveCount)[0];
+          if (miniSearchRef.current?.has(updatedVaultDoc.id)) {
+            miniSearchRef.current.replace(updatedVaultDoc);
+          }
+        }
+      } catch {
+        // Retain graceful fallback if offline or aborted
+      }
+    };
 
     const loadExtraData = async () => {
       try {
@@ -283,12 +310,19 @@ export default function GlobalSearchModal() {
     };
 
     if (typeof window !== 'undefined') {
+      void loadLiveDocumentCount();
       if (window.requestIdleCallback) {
         const idleId = window.requestIdleCallback(loadExtraData);
-        return () => window.cancelIdleCallback?.(idleId);
+        return () => {
+          abortController.abort();
+          window.cancelIdleCallback?.(idleId);
+        };
       }
       const timeoutId = setTimeout(loadExtraData, 500);
-      return () => clearTimeout(timeoutId);
+      return () => {
+        abortController.abort();
+        clearTimeout(timeoutId);
+      };
     }
   }, []);
 
@@ -319,7 +353,6 @@ export default function GlobalSearchModal() {
   useEffect(() => {
     if (isOpen) {
       setQuery('');
-      setResults(STATIC_CATALOG.slice(0, 8));
       setSelectedIndex(0);
       const trigger = document.activeElement;
       dialog.current?.showModal();
@@ -332,6 +365,13 @@ export default function GlobalSearchModal() {
     }
   }, [isOpen]);
 
+  // Keep empty-query catalog synced with live manifest count
+  useEffect(() => {
+    if (isOpen && !query.trim()) {
+      setResults(staticCatalog.slice(0, 8));
+    }
+  }, [isOpen, query, staticCatalog]);
+
   useEffect(() => {
     if (isOpen) {
       document.getElementById(`search-result-${selectedIndex}`)?.scrollIntoView({ block: 'nearest' });
@@ -343,7 +383,7 @@ export default function GlobalSearchModal() {
     setQuery(val);
     startTransition(() => {
       if (!val.trim()) {
-        setResults(STATIC_CATALOG.slice(0, 8));
+        setResults(staticCatalog.slice(0, 8));
         setSelectedIndex(0);
         return;
       }
@@ -561,7 +601,9 @@ export default function GlobalSearchModal() {
           </div>
 
           <div className="font-sans text-[12px] text-[var(--ink)] font-medium tabular-nums">
-            GPCET Vault · 5,822 Items
+            {documentCount !== null
+              ? `GPCET Vault · ${documentCount.toLocaleString('en-US')} Items`
+              : 'GPCET Document Vault'}
           </div>
         </div>
       </div>

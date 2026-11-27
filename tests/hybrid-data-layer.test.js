@@ -1,9 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert';
+import fs from 'node:fs';
+import path from 'node:path';
 import { getFacultyRoster, getFacultyBySlug, getDepartmentHod } from '../src/lib/data/faculty.js';
 import { searchDocuments, getDocumentStats } from '../src/lib/data/documents.js';
 import { getAllDepartments, getDepartmentByCode } from '../src/lib/data/departments.js';
 import { getActiveNotices } from '../src/lib/data/notices.js';
+
+const mediaManifest = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'src', 'data', 'media-manifest.json'), 'utf8')
+);
 
 test('getFacultyRoster returns all 452 faculty on default hybrid read', async () => {
   const result = await getFacultyRoster({ limit: 500 });
@@ -35,9 +41,11 @@ test('getDepartmentHod returns department HOD or Dean', async () => {
   assert(cseHod.isHod === true);
 });
 
-test('searchDocuments searches across 5,822 cataloged documents with pagination', async () => {
+test('searchDocuments searches across cataloged documents with pagination', async () => {
   const stats = await getDocumentStats();
-  assert.strictEqual(stats.totalMediaCount, 5822);
+  assert.strictEqual(stats.totalMediaCount, mediaManifest.items.length);
+  assert.strictEqual(stats.totalMediaCount, mediaManifest.totalMediaCount);
+  assert(stats.totalMediaCount >= 5822);
   assert(stats.categories.syllabus > 0);
 
   const syllabusRes = await searchDocuments({ category: 'syllabus', limit: 10 });

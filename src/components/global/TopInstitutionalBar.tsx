@@ -101,21 +101,21 @@ export default function TopInstitutionalBar() {
             </Link>
             <span className="text-white/30" aria-hidden="true">·</span>
             <Link
-              href="/statutory/rti"
+              href="/administration/rti"
               className="hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               RTI Act
             </Link>
             <span className="text-white/30 hidden md:inline" aria-hidden="true">·</span>
             <Link
-              href="/statutory/grievance"
+              href="/administration/women-grievance"
               className="hidden md:inline hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               Grievance
             </Link>
             <span className="text-white/30" aria-hidden="true">·</span>
             <Link
-              href="/contact"
+              href="/archive-or-orphan/contact-us"
               className="hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               Contact

@@ -37,9 +37,9 @@ const NAVIGATION_SECTIONS: NavItem[] = [
     items: [
       {
         title: 'Academic Regulations',
-        description: 'Autonomous curriculum guidelines for R20, R19, and R18 series.',
-        href: '/academics/regulations',
-        code: 'R20/R19',
+        description: 'Autonomous curriculum guidelines for R26 through R18 series.',
+        href: '/academics/regulations-and-syllabus',
+        code: 'R26–R18',
       },
       {
         title: 'Academic Calendars',
@@ -61,7 +61,17 @@ const NAVIGATION_SECTIONS: NavItem[] = [
       {
         title: 'Academic Council & BoS',
         description: 'Statutory board of studies meeting minutes and curriculum resolutions.',
-        href: '/academics/council',
+        href: '/academics/academic-council',
+      },
+      {
+        title: 'About GPCET',
+        description: 'Institutional profile, 10.17-acre campus, and academic heritage since 2007.',
+        href: '/archive-or-orphan/aboutus',
+      },
+      {
+        title: 'Campus Life & Student Resources',
+        description: 'Central & Digital Libraries, Makers’ Forge, GATE prep, transit & student clubs.',
+        href: '/campus-life',
       },
     ],
   },
@@ -76,7 +86,7 @@ const NAVIGATION_SECTIONS: NavItem[] = [
         description: 'UG & PG programs, state-of-the-art computational clusters.',
         href: '/departments/cse',
         code: 'CSE',
-        badge: 'NBA · 360 Seats',
+        badge: 'NBA · 540+18',
       },
       {
         title: 'Artificial Intelligence & Data Science',
@@ -90,28 +100,28 @@ const NAVIGATION_SECTIONS: NavItem[] = [
         description: 'VLSI design, digital signal processing, satellite communications.',
         href: '/departments/ece',
         code: 'ECE',
-        badge: 'NBA · 180 Seats',
+        badge: 'NBA · 180+6',
       },
       {
         title: 'Electrical & Electronics',
         description: 'Power systems, smart grid testbeds, EV battery engineering.',
         href: '/departments/eee',
         code: 'EEE',
-        badge: 'NBA · 60 Seats',
+        badge: 'NBA · 60+6',
       },
       {
         title: 'Mechanical Engineering',
         description: 'Robotics, advanced manufacturing, thermal & fluid research labs.',
         href: '/departments/me',
         code: 'ME',
-        badge: 'NBA · 60 Seats',
+        badge: '30 Seats',
       },
       {
         title: 'Civil Engineering',
         description: 'Structural engineering, CAD suites, GIS, geotechnical testing.',
         href: '/departments/civil',
         code: 'CIVIL',
-        badge: 'NBA · 60 Seats',
+        badge: 'NBA · 30 Seats',
       },
       {
         title: 'Humanities & Sciences',
@@ -125,7 +135,7 @@ const NAVIGATION_SECTIONS: NavItem[] = [
         description: 'Master of Business Administration: Finance, Marketing, HR disciplines.',
         href: '/departments/mba',
         code: 'MBA',
-        badge: 'PG · 180 Seats',
+        badge: 'PG · 60 Seats',
       },
     ],
   },
@@ -154,7 +164,7 @@ const NAVIGATION_SECTIONS: NavItem[] = [
       {
         title: 'Fee Structure & Scholarships',
         description: 'Tuition fees, government JVD reimbursement, and institutional merit aid.',
-        href: '/admissions/fees',
+        href: '/admissions/fee-structure',
       },
       {
         title: 'Online Admission Inquiry',
@@ -178,18 +188,23 @@ const NAVIGATION_SECTIONS: NavItem[] = [
       {
         title: 'AICTE IDEA Lab',
         description: 'Institutional fabrication, 3D printing, and rapid prototyping hub.',
-        href: '/research/idea-lab',
+        href: '/accreditation/aicte-idea-lab',
         badge: 'AICTE Supported',
       },
       {
         title: 'Research & Development Cell',
-        description: 'Faculty publications, Scopus citations, and funded patent grants.',
+        description: 'Faculty publications, funded grants, and JNTUA Ph.D. centers.',
         href: '/research',
       },
       {
         title: 'IEEE & Professional Bodies',
-        description: 'IEEE Student Branch, CSI, and ISTE collegiate chapters.',
+        description: 'IEEE Student Branch, IE(I), CSI, and ISTE collegiate chapters.',
         href: '/research/chapters',
+      },
+      {
+        title: 'Careers / Faculty Vacancies',
+        description: 'Faculty recruitment circulars, bio-data forms, and open academic positions.',
+        href: '/archive-or-orphan/careers-vacancies',
       },
     ],
   },
@@ -225,6 +240,11 @@ const NAVIGATION_SECTIONS: NavItem[] = [
         title: 'IQAC Cell',
         description: 'Internal Quality Assurance Cell protocols, feedback reports, and audits.',
         href: '/accreditation/iqac',
+      },
+      {
+        title: 'Right to Information (RTI)',
+        description: 'Statutory Public Information Officer and RTI disclosure documents.',
+        href: '/administration/rti',
       },
     ],
   },
@@ -400,7 +420,15 @@ export default function InstitutionalNavbar() {
               const isOpen = activeMenu === section.label;
               const isRouteActive =
                 pathname?.startsWith(section.matchPrefix) ||
-                (section.label === 'Placements & Research' && pathname?.startsWith('/research'));
+                (section.label === 'Academics' &&
+                  (pathname?.startsWith('/campus-life') ||
+                    pathname?.startsWith('/documents') ||
+                    pathname === '/archive-or-orphan/aboutus')) ||
+                (section.label === 'Placements & Research' &&
+                  (pathname?.startsWith('/research') ||
+                    pathname === '/archive-or-orphan/careers-vacancies')) ||
+                (section.label === 'Accreditation' &&
+                  (pathname?.startsWith('/statutory') || pathname === '/administration/rti'));
               const isDepartments = section.label === 'Departments';
 
               return (
@@ -481,7 +509,9 @@ export default function InstitutionalNavbar() {
                               key={item.title}
                               href={item.href}
                               onClick={() => setActiveMenu(null)}
-                              className={`group flex flex-col justify-start px-4 py-3.5 hover:bg-[var(--surface)]/75 transition-colors duration-150 focus-visible:outline-none focus-visible:bg-[var(--surface)] ${deptCellBorders}`}
+                              className={`group flex flex-col justify-start px-4 ${
+                                isDepartments ? 'py-3.5' : 'py-2.5'
+                              } hover:bg-[var(--surface)]/75 transition-colors duration-150 focus-visible:outline-none focus-visible:bg-[var(--surface)] ${deptCellBorders}`}
                             >
                               {(item.code || item.badge) && (
                                 <div className="flex items-center justify-between gap-2 mb-1.5">

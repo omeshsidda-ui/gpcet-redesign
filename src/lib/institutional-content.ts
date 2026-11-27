@@ -81,8 +81,81 @@ export function decodeHtmlEntities(input: string): string {
 }
 
 /**
+ * Removes residual inline jQuery(function(){...}); / jQuery(document).ready(...)
+ * marquee snippets left behind by WordPress/Avada scraping using balanced
+ * parenthesis scanning so nested object literals never leave dangling `});`.
+ */
+function stripJQuerySnippets(text: string): string {
+  const triggerRegex = /jQuery\s*\(\s*(?:function\s*\(|document\s*\)\s*\.ready\s*\(\s*function\s*\()/gi;
+  let result = '';
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = triggerRegex.exec(text)) !== null) {
+    const startIdx = match.index;
+    const openParenIdx = text.indexOf('(', startIdx);
+    if (openParenIdx === -1) break;
+
+    let depth = 0;
+    let inQuote: string | null = null;
+    let escaped = false;
+    let endIdx = -1;
+
+    for (let i = openParenIdx; i < text.length; i++) {
+      const ch = text[i];
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (inQuote) {
+        if (ch === '\\') {
+          escaped = true;
+        } else if (ch === inQuote) {
+          inQuote = null;
+        }
+        continue;
+      }
+      if (ch === "'" || ch === '"' || ch === '`') {
+        inQuote = ch;
+        continue;
+      }
+      if (ch === '(') {
+        depth++;
+      } else if (ch === ')') {
+        depth--;
+        if (depth === 0) {
+          endIdx = i + 1;
+          break;
+        }
+      }
+    }
+
+    if (endIdx !== -1) {
+      // Consume optional trailing `;` and horizontal whitespace
+      while (endIdx < text.length && (text[endIdx] === ';' || text[endIdx] === ' ' || text[endIdx] === '\t')) {
+        endIdx++;
+      }
+      result += text.slice(lastIndex, startIdx);
+      lastIndex = endIdx;
+      triggerRegex.lastIndex = endIdx;
+    } else {
+      // Unbalanced single-line fallback: strip through end of current line
+      const lineEnd = text.indexOf('\n', startIdx);
+      const stopAt = lineEnd === -1 ? text.length : lineEnd;
+      result += text.slice(lastIndex, startIdx);
+      lastIndex = stopAt;
+      triggerRegex.lastIndex = stopAt;
+    }
+  }
+
+  result += text.slice(lastIndex);
+  return result;
+}
+
+/**
  * Cleans legacy WordPress sidebar blocks, SVG lazy-load placeholders,
- * empty anchors, and raw shortcodes from scraped markdown content.
+ * empty anchors, Avada #tab-* navigation blocks, inline jQuery snippets,
+ * and raw shortcodes from scraped markdown content.
  */
 export function sanitizeScrapedMarkdown(raw: string): string {
   if (!raw || typeof raw !== 'string') return '';
@@ -94,19 +167,25 @@ export function sanitizeScrapedMarkdown(raw: string): string {
     .replace(/<iframe\b[^>]*>[\s\S]*?<\/iframe>/gi, '')
     .replace(/<\/?iframe\b[^>]*>/gi, '')
     // Neutralize javascript: URI schemes in Markdown links
-    .replace(/\]\(\s*javascript:[^)]*\)/gi, '](#)')
-    // Strip data:image/svg+xml and 1x1 gif lazy-load placeholders (wrapped or bare)
-    .replace(/\[!\[[^\]]*\]\(data:image\/[^)]*\)\]\(([^)]+)\)/g, '')
-    .replace(/!\[[^\]]*\]\(data:image\/[^)]*\)/g, '')
-    // Strip empty anchor tags like [](# "Facebook") or [](#)
-    .replace(/\[\]\(#[^)]*\)/g, '')
+    .replace(/\]\(\s*javascript:[^)]*\)/gi, '](#)');
+
+  // Strip residual jQuery(function(){...}); marquee snippets
+  text = stripJQuerySnippets(text)
+    // Strip data:image/svg+xml and 1x1 gif lazy-load placeholders (wrapped in links or standalone, single/multi-line)
+    .replace(/\[[ \t\r\n]*!\[[^\[\]]*\]\(\s*data:image\/(?:[^()]|\([^()]*\))*\)[ \t\r\n]*\]\([^)]*\)/gi, '')
+    .replace(/!\[[^\[\]]*\]\(\s*data:image\/(?:[^()]|\([^()]*\))*\)/gi, '')
+    // Strip Avada #tab-* empty/navigation tab links (single-line or multi-line, optional bullets & bold markers)
+    .replace(/(?:^|\n)[ \t]*(?:[-*+][ \t]+)?\*{0,4}\[[^\[\]]*\]\(#tab-[a-z0-9_-]+\)\*{0,4}[ \t]*(?=\n|$)/gi, '')
+    .replace(/\*{0,4}\[[^\[\]]*\]\(#tab-[a-z0-9_-]+\)\*{0,4}/gi, '')
+    // Strip empty anchor tags like [](# "Facebook"), [ ](#), or [](#)
+    .replace(/\[\s*\]\(#[^)]*\)/g, '')
     // Strip WordPress/Avada [fusion_*], [vc_*], and [ms_*] shortcodes
     .replace(/\[\/?(?:ms|fusion|vc)_[^\]]*\]/gi, '')
     // Strip leading breadcrumb/banner lines injected by Avada theme
-    .replace(/^Placements\s*$/gm, '')
-    .replace(/^Flash News\s*$/gm, '')
-    .replace(/^\[Welcome to G\.Pullaiah College[^\]]*\]\([^)]*\)\s*$/gm, '')
-    .replace(/^\[financial[_\\]*assistance[_\\]*letters\]\([^)]*\)\s*$/gm, '')
+    .replace(/^[ \t]*Placements[ \t]*$/gm, '')
+    .replace(/^[ \t]*Flash News[ \t]*$/gm, '')
+    .replace(/^[ \t]*\[Welcome to G\.Pullaiah College[^\]]*\]\([^)]*\)[ \t]*$/gm, '')
+    .replace(/^[ \t]*\[financial[_\\]*assistance[_\\]*letters\]\([^)]*\)[ \t]*$/gim, '')
     // Upgrade legacy http://www.gpcet.ac.in links
     .replace(/http:\/\/www\.gpcet\.ac\.in\//g, 'https://www.gpcet.ac.in/')
     .replace(/http:\/\/gpcet\.ac\.in\//g, 'https://gpcet.ac.in/');
@@ -146,8 +225,8 @@ export function sanitizeScrapedMarkdown(raw: string): string {
       skippingSidebar = false;
     }
 
-    // Skip broken Avada tab anchor links like - [\n #### Overview \n](#tab-...)
-    if (/^\(#tab-[a-z0-9]+\)$/i.test(trimmed)) {
+    // Skip any leftover Avada tab anchor fragments
+    if (/^\]?\(#tab-[a-z0-9_-]+\)\*{0,4}$/i.test(trimmed)) {
       continue;
     }
 
@@ -156,6 +235,9 @@ export function sanitizeScrapedMarkdown(raw: string): string {
 
   return cleanedLines
     .join('\n')
+    // Clean up orphaned empty list bullets left behind after stripping placeholders
+    .replace(/^[ \t]*[-*+][ \t]*$/gm, '')
+    .replace(/^[ \t]*[-*+][ \t]+\*{2,}[ \t]*$/gm, '')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
