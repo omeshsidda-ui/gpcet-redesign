@@ -30,7 +30,7 @@ export default function NaacHubPage() {
 
         <header className="section-masthead pb-6 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[var(--distinction-ink)]">
+            <div className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold tracking-[0.05em] text-[var(--distinction-ink)] tabular-nums">
               <Award className="w-4 h-4" aria-hidden="true" />
               <span>NAAC CYCLE 2 · GRADE &apos;A+&apos; (3.38 CGPA)</span>
             </div>

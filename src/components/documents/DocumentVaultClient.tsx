@@ -212,6 +212,11 @@ export default function DocumentVaultClient({
   const safePage = Math.min(page, totalPages);
   const startIndex = (safePage - 1) * pageSize;
   const visibleItems = filteredItems.slice(startIndex, startIndex + pageSize);
+  const hasActiveFilters =
+    query.trim().length > 0 ||
+    category !== 'all' ||
+    department !== 'all' ||
+    regulation !== 'all';
 
   const handleResetFilters = () => {
     setQuery('');
@@ -243,7 +248,7 @@ export default function DocumentVaultClient({
             }}
             placeholder="Search by subject, code (e.g., 20A05401), regulation (R20, R23), or circular title..."
             aria-label="Search cataloged documents"
-            className="w-full pl-10 pr-10 py-3 text-sm bg-[var(--bg)] border border-[var(--rule)] rounded-md text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--ruby)]"
+            className="w-full pl-10 pr-10 py-3 text-[14px] bg-[var(--bg)] border border-[var(--rule)] rounded-md text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:border-[var(--ruby)] transition-colors"
           />
           {query && (
             <button
@@ -254,7 +259,7 @@ export default function DocumentVaultClient({
                 updateUrlParams({ q: '' });
               }}
               aria-label="Clear search query"
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--muted)] hover:text-[var(--ink)]"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--muted)] hover:text-[var(--ink)] rounded-sm"
             >
               <X className="w-4 h-4" />
             </button>
@@ -276,7 +281,7 @@ export default function DocumentVaultClient({
                   updateUrlParams({ category: chip.id });
                 }}
                 aria-pressed={active}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition-colors ${
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded text-[12.5px] font-semibold border transition-colors ${
                   active
                     ? 'bg-[var(--ruby)] text-white border-[var(--ruby)]'
                     : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--rule)] hover:border-[var(--ruby)]/50'
@@ -284,8 +289,8 @@ export default function DocumentVaultClient({
               >
                 <span>{chip.label}</span>
                 <span
-                  className={`font-mono text-[11px] tabular-nums ${
-                    active ? 'text-slate-200' : 'text-[var(--muted)]'
+                  className={`font-sans text-[11.5px] font-medium tabular-nums ${
+                    active ? 'text-white/80' : 'text-[var(--muted)]'
                   }`}
                 >
                   {count.toLocaleString('en-US')}
@@ -296,9 +301,9 @@ export default function DocumentVaultClient({
         </div>
 
         {/* Department, Regulation & Page Size Selects */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t border-[var(--rule)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-4 border-t border-[var(--rule)]">
           <div>
-            <label htmlFor="vault-dept-select" className="block text-xs font-semibold text-[var(--muted)] mb-1">
+            <label htmlFor="vault-dept-select" className="block text-[12px] font-semibold text-[var(--muted)] mb-1.5">
               Department Scope
             </label>
             <select
@@ -310,7 +315,7 @@ export default function DocumentVaultClient({
                 setPage(1);
                 updateUrlParams({ dept: val });
               }}
-              className="w-full px-3 py-2 text-xs font-medium bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)]"
+              className="w-full px-3 py-2 text-[13px] font-medium bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)] transition-colors"
             >
               {DEPARTMENTS.map((d) => (
                 <option key={d.code} value={d.code}>
@@ -321,7 +326,7 @@ export default function DocumentVaultClient({
           </div>
 
           <div>
-            <label htmlFor="vault-reg-select" className="block text-xs font-semibold text-[var(--muted)] mb-1">
+            <label htmlFor="vault-reg-select" className="block text-[12px] font-semibold text-[var(--muted)] mb-1.5">
               Regulation Series
             </label>
             <select
@@ -333,7 +338,7 @@ export default function DocumentVaultClient({
                 setPage(1);
                 updateUrlParams({ reg: val });
               }}
-              className="w-full px-3 py-2 text-xs font-medium bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)]"
+              className="w-full px-3 py-2 text-[13px] font-medium bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)] transition-colors"
             >
               {REGULATIONS.map((r) => (
                 <option key={r} value={r}>
@@ -344,7 +349,7 @@ export default function DocumentVaultClient({
           </div>
 
           <div>
-            <label htmlFor="vault-pagesize-select" className="block text-xs font-semibold text-[var(--muted)] mb-1">
+            <label htmlFor="vault-pagesize-select" className="block text-[12px] font-semibold text-[var(--muted)] mb-1.5">
               Rows per Page
             </label>
             <select
@@ -354,11 +359,11 @@ export default function DocumentVaultClient({
                 setPageSize(Number(e.target.value));
                 setPage(1);
               }}
-              className="w-full px-3 py-2 text-xs font-medium bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] font-mono"
+              className="w-full px-3 py-2 text-[13px] font-medium bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] tabular-nums focus:outline-none focus:border-[var(--ruby)] transition-colors"
             >
               {PAGE_SIZES.map((sz) => (
                 <option key={sz} value={sz}>
-                  {sz} items / page
+                  {sz} items per page
                 </option>
               ))}
             </select>
@@ -368,7 +373,8 @@ export default function DocumentVaultClient({
             <button
               type="button"
               onClick={handleResetFilters}
-              className="w-full px-3 py-2 text-xs font-semibold rounded border border-[var(--rule)] bg-[var(--surface)] hover:bg-[var(--bg)] text-[var(--ink)] transition-colors"
+              disabled={!hasActiveFilters}
+              className="w-full px-3 py-2 text-[13px] font-semibold rounded border border-[var(--rule)] bg-[var(--surface)] hover:bg-[var(--bg)] hover:border-[var(--ruby)]/40 disabled:opacity-50 text-[var(--ink)] transition-colors"
             >
               Reset All Filters
             </button>
@@ -377,18 +383,21 @@ export default function DocumentVaultClient({
       </div>
 
       {/* Results Summary Strip */}
-      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--muted)]">
-        <div className="font-mono tabular-nums">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-[13px] text-[var(--muted)]">
+        <div className="font-sans tabular-nums">
           Showing{' '}
-          <strong className="text-[var(--ink)]">
+          <strong className="font-semibold text-[var(--ink)]">
             {filteredItems.length === 0 ? 0 : startIndex + 1}–
             {Math.min(startIndex + pageSize, filteredItems.length)}
           </strong>{' '}
-          of <strong className="text-[var(--ink)]">{filteredItems.length.toLocaleString('en-US')}</strong>{' '}
+          of{' '}
+          <strong className="font-semibold text-[var(--ink)]">
+            {filteredItems.length.toLocaleString('en-US')}
+          </strong>{' '}
           matching documents (Total cataloged: {totalCount.toLocaleString('en-US')})
         </div>
-        <div className="font-mono tabular-nums">
-          Page {safePage} of {totalPages}
+        <div className="font-sans tabular-nums font-medium">
+          Page <strong className="font-semibold text-[var(--ink)]">{safePage}</strong> of {totalPages}
         </div>
       </div>
 
@@ -396,20 +405,41 @@ export default function DocumentVaultClient({
       <div className="hidden md:block overflow-x-auto bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-xs font-semibold text-[var(--muted)]">
+            <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-[11.5px] font-semibold uppercase tracking-[0.05em] text-[var(--muted)]">
               <th scope="col" className="py-3 px-4">Document Title &amp; File</th>
               <th scope="col" className="py-3 px-4">Category</th>
               <th scope="col" className="py-3 px-4">Dept / Reg</th>
-              <th scope="col" className="py-3 px-4 font-mono">Date</th>
-              <th scope="col" className="py-3 px-4 font-mono">Format &amp; Size</th>
+              <th scope="col" className="py-3 px-4">Date</th>
+              <th scope="col" className="py-3 px-4">Format &amp; Size</th>
               <th scope="col" className="py-3 px-4 text-right">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-[var(--rule)]">
             {visibleItems.length === 0 ? (
               <tr>
-                <td colSpan={6} className="py-12 px-4 text-center text-sm text-[var(--muted)]">
-                  No matching documents found for your active filters. Try clearing filters or searching a broader term.
+                <td colSpan={6} className="py-14 px-6 text-center">
+                  <div className="max-w-md mx-auto space-y-2.5">
+                    <div className="w-9 h-9 mx-auto rounded bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center text-[var(--muted)]">
+                      <Search className="w-4 h-4" aria-hidden="true" />
+                    </div>
+                    <p className="font-serif text-lg font-medium text-[var(--ink)]">
+                      No matching documents found
+                    </p>
+                    <p className="text-[13px] text-[var(--muted)] leading-relaxed">
+                      No cataloged files match the active search or facet filters. Try broadening your query or resetting the filters below.
+                    </p>
+                    {hasActiveFilters && (
+                      <div className="pt-1">
+                        <button
+                          type="button"
+                          onClick={handleResetFilters}
+                          className="inline-flex items-center px-3.5 py-1.5 rounded text-xs font-semibold bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors"
+                        >
+                          Clear active filters
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </td>
               </tr>
             ) : (
@@ -422,8 +452,27 @@ export default function DocumentVaultClient({
       {/* Mobile Document Register */}
       <div className="md:hidden divide-y divide-[var(--rule)] bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md">
         {visibleItems.length === 0 ? (
-          <div className="py-10 px-4 text-center text-sm text-[var(--muted)]">
-            No matching documents found.
+          <div className="py-12 px-5 text-center space-y-2.5">
+            <div className="w-9 h-9 mx-auto rounded bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center text-[var(--muted)]">
+              <Search className="w-4 h-4" aria-hidden="true" />
+            </div>
+            <p className="font-serif text-lg font-medium text-[var(--ink)]">
+              No matching documents found
+            </p>
+            <p className="text-[13px] text-[var(--muted)] leading-relaxed">
+              Try clearing your active filters or searching a broader subject term.
+            </p>
+            {hasActiveFilters && (
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="inline-flex items-center px-3.5 py-1.5 rounded text-xs font-semibold bg-[var(--ruby)] hover:bg-[var(--burgundy)] text-white transition-colors"
+                >
+                  Clear active filters
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           visibleItems.map((item) => {
@@ -433,24 +482,29 @@ export default function DocumentVaultClient({
             const mime = getMimeBadge(item.mimeType, item.filename);
 
             return (
-              <div key={item.id} className="p-4 space-y-2">
-                <div className="flex items-start justify-between gap-2">
+              <div key={item.id} className="p-4 space-y-2.5">
+                <div className="flex items-start justify-between gap-2.5">
                   <a
                     href={safeHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-[var(--ink)] hover:text-[var(--brand-crimson)] leading-snug"
+                    className="text-[14.5px] font-semibold text-[var(--ink)] hover:text-[var(--brand-crimson)] leading-snug"
                   >
                     {item.title || item.filename}
                   </a>
-                  <span className="font-mono text-[10px] font-semibold px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] shrink-0">
+                  <span className="text-[11px] font-semibold tracking-[0.04em] uppercase px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ink)] shrink-0">
                     {mime.label}
                   </span>
                 </div>
-                <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-[var(--muted)] tabular-nums">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] font-sans text-[var(--muted)] tabular-nums">
                   <span>{getCategoryDisplayLabel(item.category)}</span>
                   {dept && <span>· {dept}</span>}
-                  {reg && <span>· {reg}</span>}
+                  {reg && (
+                    <>
+                      <span>·</span>
+                      <span className="font-mono text-[11px] font-semibold text-[var(--ruby)]">{reg}</span>
+                    </>
+                  )}
                   <span>· {formatFileSize(item.fileSize)}</span>
                 </div>
                 <div>
@@ -480,21 +534,21 @@ export default function DocumentVaultClient({
             type="button"
             disabled={safePage <= 1}
             onClick={() => setPage((p) => Math.max(1, p - 1))}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ink)] disabled:opacity-40 hover:bg-[var(--surface)] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-semibold rounded border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ink)] disabled:opacity-40 hover:bg-[var(--surface)] transition-colors"
           >
             <ChevronLeft className="w-4 h-4" aria-hidden="true" />
             <span>Previous</span>
           </button>
 
-          <span className="font-mono text-xs text-[var(--muted)] tabular-nums">
-            Page {safePage} / {totalPages}
+          <span className="font-sans text-[13px] font-medium text-[var(--muted)] tabular-nums">
+            Page <strong className="font-semibold text-[var(--ink)]">{safePage}</strong> of {totalPages}
           </span>
 
           <button
             type="button"
             disabled={safePage >= totalPages}
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ink)] disabled:opacity-40 hover:bg-[var(--surface)] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-semibold rounded border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ink)] disabled:opacity-40 hover:bg-[var(--surface)] transition-colors"
           >
             <span>Next</span>
             <ChevronRight className="w-4 h-4" aria-hidden="true" />

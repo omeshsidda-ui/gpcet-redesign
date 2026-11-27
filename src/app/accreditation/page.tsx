@@ -55,7 +55,7 @@ export default function AccreditationGatewayPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--rule)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm overflow-hidden">
           <article className="bg-[var(--surface-raised)] p-6 sm:p-8 flex flex-col justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-[var(--distinction-ink)]">
+              <div className="inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-wide text-[var(--distinction-ink)] tabular-nums">
                 <Award className="w-4 h-4" aria-hidden="true" />
                 <span>NAAC Cycle 2 · Grade &apos;A+&apos; (3.38 CGPA)</span>
               </div>
@@ -90,7 +90,7 @@ export default function AccreditationGatewayPage() {
 
           <article className="bg-[var(--surface-raised)] p-6 sm:p-8 flex flex-col justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-[var(--ruby)]">
+              <div className="inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-wide text-[var(--ruby)]">
                 <ShieldCheck className="w-4 h-4 text-[var(--distinction-ink)]" aria-hidden="true" />
                 <span>NBA Tier-1 Accredited · 5 UG Programs</span>
               </div>

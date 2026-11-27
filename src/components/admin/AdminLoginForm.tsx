@@ -67,7 +67,7 @@ export default function AdminLoginForm({ supabaseConfigured }: AdminLoginFormPro
         {/* Institutional Header Band */}
         <div className="bg-[var(--ruby)] text-white px-6 py-5 border-b border-white/10">
           <img src="/assets/brand/gpcet-logo.png" width={64} height={64} alt="" className="mb-4 size-16 object-contain bg-white p-1" />
-          <div className="flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase text-stone-200">
+          <div className="flex items-center gap-2 font-sans text-[11px] font-semibold tracking-[0.06em] uppercase text-stone-200">
             <Lock className="w-3.5 h-3.5 text-rose-100" aria-hidden="true" />
             <span>GPCET Staff Authentication</span>
           </div>

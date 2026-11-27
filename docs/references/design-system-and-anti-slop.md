@@ -51,7 +51,7 @@ The official 250 × 250 crest sits on white beside the full college name. Preser
 
 ## 3. Typographic System & Optical Hierarchy
 
-Typography creates the authoritative collegiate dignity of GPCET. It pairs a **dignified optical serif** with a **crisp operational sans** and **tabular monospace numbers**:
+Typography creates the authoritative collegiate dignity of GPCET. It pairs a **dignified optical serif** with a **crisp operational sans** (with native tabular figures) and a **disciplined technical monospace**:
 
 ### 1. Dignified Display Serif (*Newsreader* / *Erode*)
 - Used for: Masthead hero title, department titles, Chairman/Principal quotes, convocation statements.
@@ -59,12 +59,13 @@ Typography creates the authoritative collegiate dignity of GPCET. It pairs a **d
 - Font source: Google Fonts (*Newsreader*) or Fontshare (*Erode*).
 
 ### 2. Operational UI Sans (*Instrument Sans*)
-- Used for: Navigation links, mega-menu groups, department tabs, document table data, button text, body paragraphs.
+- Used for: Navigation links, mega-menu groups, department tabs, document table data, result counts, dates, file sizes, phone numbers, academic credentials, form inputs, button text, and body paragraphs.
 - Characteristics: Crisp geometric-humanist proportions, open apertures, clean legibility at UI and reading sizes. Body copy constrained to max `68ch`–`72ch` measure in primary `--ink`.
+- Tabular Figures: Apply `.tabular-nums` (`font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1, "lnum" 1;`) directly on *Instrument Sans* for counts, pagination, dates, file sizes, phone numbers, and numeric columns without reaching for `font-mono`.
 
-### 3. Tabular & Regulation Monospace (*JetBrains Mono*)
-- Used for: Regulation codes (`R20`, `R19`), NAAC metric IDs (`3.4.3`, `5.3.3`), course codes (`20A05401`), file sizes (`2.4 MB`), dates (`2026-10-31`), intake numbers (`360`).
-- Features: `font-feature-settings: "tnum" 1;` ensures clean vertical tabular alignment.
+### 3. Technical & Code Monospace (*IBM Plex Mono*)
+- **Strictly Reserved For**: Actual alphanumeric codes (`PULE`, `R20`, `R19`, `CSE`), course identifiers (`20A05401`), NAAC metric IDs (`3.4.3`, `5.3.3`), inline `<code>` / `<pre>` blocks, and `<kbd>` keyboard shortcuts (`⌘K`).
+- **Never Used For**: Prose sentences, result summary lines (`Showing 1–25 of 5,822...`), pagination controls, table column headers, dates, file sizes, phone numbers, qualification labels, status badges, or `<input>` / `<select>` form controls.
 
 ### Typographic Scale Tokens
 
@@ -76,7 +77,8 @@ Typography creates the authoritative collegiate dignity of GPCET. It pairs a **d
   --text-lead: clamp(1.125rem, 1.4vw, 1.35rem);     /* Leading: 1.55 | Tracking: normal */
   --text-body: 1rem;                                /* Leading: 1.65 | Measure: max 70ch */
   --text-meta: 0.8125rem;                           /* Leading: 1.4  | Weight: 500 */
-  --text-code: 0.8125rem;                           /* Tabular mono  | Weight: 500 */
+  --text-caption: 0.75rem;                          /* Leading: 1.4  | Weight: 500 */
+  --text-code: 0.8125rem;                           /* IBM Plex Mono | Weight: 500 */
 }
 ```
 
@@ -119,5 +121,5 @@ On initial page mount, the main serif title enters with a sharp exponential ease
 ### B. Micro-Interaction Standards
 1. **Button Transitions**: 120ms sharp ease-out on `:hover` and `:active`. Never fade text opacity; change surface background tone or ink depth.
 2. **Focus Visibility (WCAG 2.4.7)**: Dual-ring outline: `outline: 2px solid var(--ruby); outline-offset: 2px;`.
-3. **Tabular Numerals**: Numeric counters and file sizes transition cleanly without width jitter.
+3. **Tabular Numerals**: Numeric counters, dates, and file sizes use *Instrument Sans* with `.tabular-nums` so numbers align vertically without width jitter or monospace heaviness.
 4. **Reduced Motion**: Under `@media (prefers-reduced-motion: reduce)`, all transforms and staggers collapse to instant opacity transitions.

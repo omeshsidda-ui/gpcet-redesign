@@ -57,7 +57,7 @@ export default function AdministrationPage() {
         {/* Management & Principal Strip */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8 space-y-6">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)]">
+            <div className="flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)]">
               <Users className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>FOUNDATION &amp; MANAGEMENT</span>
             </div>
@@ -118,7 +118,7 @@ export default function AdministrationPage() {
 
             {/* Statutory Committees Index */}
             <div className="bg-[var(--surface)] border border-[var(--rule)] rounded-md p-6">
-              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] pb-3 border-b border-[var(--rule)]">
+              <div className="flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] pb-3 border-b border-[var(--rule)]">
                 <ShieldCheck className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                 <span>STATUTORY COMMITTEES &amp; CELLS</span>
               </div>
@@ -130,7 +130,7 @@ export default function AdministrationPage() {
                       className="py-2.5 flex items-center justify-between font-medium text-[var(--ink)] hover:text-[var(--brand-crimson)] transition-colors"
                     >
                       <span>{c.label}</span>
-                      <span className="font-mono text-[var(--muted)]">→</span>
+                      <span className="font-sans text-[var(--muted)]" aria-hidden="true">→</span>
                     </Link>
                   </li>
                 ))}

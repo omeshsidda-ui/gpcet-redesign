@@ -109,7 +109,7 @@ export default function DocumentRow({ item }: { item: VaultDocumentItem }) {
     <tr className="hover:bg-[var(--surface)]/70 transition-colors">
       <td className="py-3.5 px-4 align-top">
         <div className="flex items-start gap-2.5">
-          <div className="mt-0.5">
+          <div className="mt-1">
             <MimeIcon kind={mime.kind} />
           </div>
           <div className="min-w-0">
@@ -117,11 +117,11 @@ export default function DocumentRow({ item }: { item: VaultDocumentItem }) {
               href={safeHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-[var(--ink)] hover:text-[var(--brand-crimson)] transition-colors leading-snug block"
+              className="text-[14.5px] font-semibold text-[var(--ink)] hover:text-[var(--brand-crimson)] transition-colors leading-snug block"
             >
               {item.title || item.filename}
             </a>
-            <div className="font-mono text-[11px] text-[var(--muted)] mt-0.5 break-all">
+            <div className="font-sans text-[12px] text-[var(--muted)] mt-0.5 break-all">
               {item.filename}
             </div>
           </div>
@@ -129,20 +129,20 @@ export default function DocumentRow({ item }: { item: VaultDocumentItem }) {
       </td>
 
       <td className="py-3.5 px-4 align-top whitespace-nowrap">
-        <span className="inline-flex items-center px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[11px] font-medium text-[var(--ink)]">
+        <span className="inline-flex items-center px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[12px] font-medium text-[var(--ink)]">
           {getCategoryDisplayLabel(item.category)}
         </span>
       </td>
 
-      <td className="py-3.5 px-4 align-top whitespace-nowrap font-mono text-xs text-[var(--muted)]">
+      <td className="py-3.5 px-4 align-top whitespace-nowrap font-sans text-[12.5px] text-[var(--muted)]">
         <div className="flex items-center gap-1.5">
           {dept && (
-            <span className="px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] font-semibold text-[11px]">
+            <span className="px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] font-semibold text-[11px] tracking-[0.04em]">
               {dept}
             </span>
           )}
           {reg && (
-            <span className="px-1.5 py-0.5 rounded-sm bg-[var(--ruby)]/10 border border-[var(--ruby)]/30 text-[var(--ruby)] font-semibold text-[11px]">
+            <span className="font-mono px-1.5 py-0.5 rounded-sm bg-[var(--ruby)]/10 border border-[var(--ruby)]/30 text-[var(--ruby)] font-semibold text-[11px]">
               {reg}
             </span>
           )}
@@ -150,13 +150,13 @@ export default function DocumentRow({ item }: { item: VaultDocumentItem }) {
         </div>
       </td>
 
-      <td className="py-3.5 px-4 align-top whitespace-nowrap font-mono text-xs text-[var(--muted)] tabular-nums">
+      <td className="py-3.5 px-4 align-top whitespace-nowrap font-sans text-[13px] text-[var(--muted)] tabular-nums">
         {dateLabel}
       </td>
 
       <td className="py-3.5 px-4 align-top whitespace-nowrap">
-        <div className="flex items-center gap-1.5 font-mono text-xs tabular-nums">
-          <span className="px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[10px] font-semibold text-[var(--ink)]">
+        <div className="flex items-center gap-2 font-sans text-[13px] tabular-nums">
+          <span className="px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[11px] font-semibold tracking-[0.04em] uppercase text-[var(--ink)]">
             {mime.label}
           </span>
           <span className="text-[var(--muted)]">{sizeLabel}</span>

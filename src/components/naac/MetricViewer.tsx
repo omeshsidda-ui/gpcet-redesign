@@ -10,11 +10,20 @@ interface MetricViewerProps {
   siblingMetrics: NaacMetricItem[];
 }
 
+function extractNaacMetricId(slug: string, title: string): string | null {
+  const slugMatch = slug.match(/^(\d+(?:-\d+)+)$/);
+  if (slugMatch) return slugMatch[1].replace(/-/g, '.');
+  const titleMatch = title.match(/\b(\d+\.\d+(?:\.\d+)?)\b/);
+  return titleMatch ? titleMatch[1] : null;
+}
+
 export default function MetricViewer({
   metric,
   content,
   siblingMetrics,
 }: MetricViewerProps) {
+  const metricId = extractNaacMetricId(metric.slug, metric.title);
+
   return (
     <div className="space-y-8">
       {/* Breadcrumb & Back Navigation */}
@@ -27,7 +36,7 @@ export default function MetricViewer({
           <span>Back to NAAC Criteria 1–7 Explorer</span>
         </Link>
 
-        <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold px-2.5 py-1 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
+        <span className="inline-flex items-center gap-1.5 font-sans text-[12px] font-semibold tabular-nums px-2.5 py-1 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
           <Award className="w-3.5 h-3.5" aria-hidden="true" />
           Criterion {metric.criterionNumber} · NAAC &apos;A+&apos; SSR
         </span>
@@ -35,14 +44,22 @@ export default function MetricViewer({
 
       {/* Metric Header */}
       <header className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
-        <div className="font-mono text-xs text-[var(--ruby)] font-semibold">
-          NAAC SELF STUDY REPORT · CRITERION {metric.criterionNumber}
+        <div className="font-sans text-[12.5px] text-[var(--ruby)] font-semibold tabular-nums flex flex-wrap items-center gap-2">
+          <span>NAAC Self Study Report · Criterion {metric.criterionNumber}</span>
+          {metricId && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span className="font-mono text-[11.5px] px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)]">
+                {metricId}
+              </span>
+            </>
+          )}
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[var(--ink)] mt-2">
           {metric.title}
         </h1>
 
-        <div className="mt-4 pt-4 border-t border-[var(--rule)] flex flex-wrap items-center gap-6 font-mono text-xs text-[var(--muted)] tabular-nums">
+        <div className="mt-4 pt-4 border-t border-[var(--rule)] flex flex-wrap items-center gap-6 font-sans text-[13px] text-[var(--muted)] tabular-nums">
           {metric.pdfsCount > 0 && (
             <span className="inline-flex items-center gap-1.5 text-[var(--brand-crimson)] font-semibold">
               <FileText className="w-3.5 h-3.5" aria-hidden="true" />
@@ -74,8 +91,8 @@ export default function MetricViewer({
           aria-label={`Criterion ${metric.criterionNumber} metrics`}
           className="lg:col-span-4 bg-[var(--surface)] border border-[var(--rule)] rounded-md p-5 sticky top-24"
         >
-          <div className="font-mono text-xs font-semibold text-[var(--ruby)] pb-3 border-b border-[var(--rule)]">
-            CRITERION {metric.criterionNumber} METRICS ({siblingMetrics.length})
+          <div className="font-sans text-[12.5px] font-semibold text-[var(--ruby)] pb-3 border-b border-[var(--rule)] tabular-nums">
+            Criterion {metric.criterionNumber} Metrics ({siblingMetrics.length})
           </div>
           <ul className="divide-y divide-[var(--rule)] mt-1 max-h-[60vh] overflow-y-auto">
             {siblingMetrics.map((item) => {

@@ -29,7 +29,7 @@ export default async function NbaAccreditationPage() {
 
         <header className="section-masthead pb-6 border-b border-[var(--rule)] flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[var(--distinction-ink)]">
+            <div className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold tracking-[0.05em] text-[var(--distinction-ink)]">
               <Award className="w-4 h-4" aria-hidden="true" />
               <span>NATIONAL BOARD OF ACCREDITATION · OUTCOME-BASED EDUCATION</span>
             </div>
@@ -60,11 +60,11 @@ export default async function NbaAccreditationPage() {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-xs font-semibold text-[var(--muted)]">
-                <th scope="col" className="py-3.5 px-4 font-mono">Code</th>
+                <th scope="col" className="py-3.5 px-4">Code</th>
                 <th scope="col" className="py-3.5 px-4">Accredited Engineering Program</th>
-                <th scope="col" className="py-3.5 px-4 font-mono">Estd.</th>
-                <th scope="col" className="py-3.5 px-4 font-mono">Intake</th>
-                <th scope="col" className="py-3.5 px-4 font-mono">Faculty</th>
+                <th scope="col" className="py-3.5 px-4">Estd.</th>
+                <th scope="col" className="py-3.5 px-4">Intake</th>
+                <th scope="col" className="py-3.5 px-4">Faculty</th>
                 <th scope="col" className="py-3.5 px-4">Head of Department</th>
                 <th scope="col" className="py-3.5 px-4 text-right">Department Portal</th>
               </tr>
@@ -72,19 +72,19 @@ export default async function NbaAccreditationPage() {
             <tbody className="divide-y divide-[var(--rule)] text-sm">
               {nbaDepts.map((dept) => (
                 <tr key={dept.code} className="hover:bg-[var(--surface)]/60 transition-colors">
-                  <td className="py-4 px-4 font-mono text-xs font-semibold text-[var(--ruby)]">
-                    {dept.deptNumber} · {dept.shortName}
+                  <td className="py-4 px-4 font-sans text-xs font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums">
+                    {dept.deptNumber} · <span className="font-mono">{dept.shortName}</span>
                   </td>
                   <td className="py-4 px-4 font-semibold text-[var(--ink)]">
                     B.Tech in {dept.name}
                   </td>
-                  <td className="py-4 px-4 font-mono text-xs text-[var(--muted)] tabular-nums">
+                  <td className="py-4 px-4 font-sans text-xs text-[var(--muted)] tabular-nums">
                     {dept.establishedYear}
                   </td>
-                  <td className="py-4 px-4 font-mono text-xs text-[var(--ink)] tabular-nums">
+                  <td className="py-4 px-4 font-sans text-xs text-[var(--ink)] tabular-nums">
                     {dept.intakeLabel}
                   </td>
-                  <td className="py-4 px-4 font-mono text-xs text-[var(--ink)] tabular-nums">
+                  <td className="py-4 px-4 font-sans text-xs text-[var(--ink)] tabular-nums">
                     {dept.facultyCount}
                   </td>
                   <td className="py-4 px-4 text-xs text-[var(--muted)]">{dept.hodName}</td>

@@ -100,7 +100,7 @@ test('layout.tsx configures Google Fonts, skip-to-content, and shell components'
   const code = fs.readFileSync(path.join(root, 'src', 'app', 'layout.tsx'), 'utf8');
   assert.ok(code.includes('Newsreader'), 'Loads Newsreader serif font');
   assert.ok(code.includes('Instrument_Sans'), 'Loads Instrument Sans font');
-  assert.ok(code.includes('JetBrains_Mono'), 'Loads JetBrains Mono font');
+  assert.ok(code.includes('IBM_Plex_Mono'), 'Loads IBM Plex Mono font');
   assert.ok(code.includes('skip-to-content'), 'Includes skip-to-content accessibility link');
   assert.ok(code.includes('<TopInstitutionalBar />'), 'Mounts TopInstitutionalBar');
   assert.ok(code.includes('<InstitutionalNavbar />'), 'Mounts InstitutionalNavbar');

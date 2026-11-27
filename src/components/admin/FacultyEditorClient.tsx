@@ -181,7 +181,7 @@ export default function FacultyEditorClient({
           </h1>
           <p className="mt-1 text-sm text-[var(--muted)]">
             Maintain designations, academic cadres, qualifications, and active roster status across{' '}
-            <span className="font-mono tabular-nums text-[var(--ink)]">{faculty.length}</span>{' '}
+            <span className="font-sans font-semibold tabular-nums text-[var(--ink)]">{faculty.length}</span>{' '}
             faculty profiles.
           </p>
         </div>
@@ -302,7 +302,7 @@ export default function FacultyEditorClient({
       {/* Faculty Table */}
       <div className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md overflow-hidden">
         <div className="px-4 py-3 border-b border-[var(--rule)] bg-[var(--surface)]/60 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--muted)]">
-          <span className="font-mono tabular-nums">
+          <span className="font-sans tabular-nums">
             Showing {filtered.length === 0 ? 0 : (safePage - 1) * PAGE_SIZE + 1}–
             {Math.min(safePage * PAGE_SIZE, filtered.length)} of {filtered.length} matching records
           </span>
@@ -317,7 +317,7 @@ export default function FacultyEditorClient({
               <ChevronLeft className="w-3.5 h-3.5" aria-hidden="true" />
               Prev
             </button>
-            <span className="font-mono tabular-nums">
+            <span className="font-sans tabular-nums">
               Page {safePage} / {totalPages}
             </span>
             <button
@@ -356,13 +356,13 @@ export default function FacultyEditorClient({
               ) : (
                 pageItems.map((member) => (
                   <tr key={member.id} className="hover:bg-[var(--surface)]/40 transition-colors">
-                    <td className="px-4 py-3 font-mono text-xs text-[var(--muted)] tabular-nums whitespace-nowrap">
+                    <td className="px-4 py-3 font-sans text-xs text-[var(--muted)] tabular-nums whitespace-nowrap">
                       {member.sno}
                     </td>
                     <td className="px-4 py-3">
                       <div className="font-semibold text-[var(--ink)]">{member.name}</div>
                       {member.isHod && (
-                        <span className="inline-block mt-0.5 font-mono text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded bg-[var(--ruby)]/20 text-[var(--ink)] border border-[var(--ruby)]/40">
+                        <span className="inline-block mt-0.5 font-sans text-[10px] font-semibold tracking-[0.05em] uppercase px-1.5 py-0.5 rounded bg-[var(--ruby)]/20 text-[var(--ink)] border border-[var(--ruby)]/40">
                           HOD
                         </span>
                       )}
@@ -374,14 +374,14 @@ export default function FacultyEditorClient({
                     </td>
                     <td className="px-4 py-3">
                       <div className="text-sm text-[var(--ink)]">{member.designation}</div>
-                      <div className="font-mono text-[11px] text-[var(--muted)]">{member.cadre}</div>
+                      <div className="font-sans text-[11px] text-[var(--muted)]">{member.cadre}</div>
                     </td>
                     <td className="px-4 py-3 text-xs text-[var(--ink)] max-w-xs">
                       {member.highestQualification || '—'}
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap">
                       <span
-                        className={`font-mono text-[11px] font-semibold uppercase px-2 py-0.5 rounded ${
+                        className={`font-sans text-[11px] font-semibold tracking-[0.05em] uppercase px-2 py-0.5 rounded ${
                           member.isActive
                             ? 'bg-[var(--ruby)]/10 text-[var(--ruby)]'
                             : 'bg-[var(--brand-crimson)]/10 text-[var(--brand-crimson)]'
@@ -420,7 +420,7 @@ export default function FacultyEditorClient({
           <div className="w-full max-w-lg bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md shadow-lg overflow-hidden">
             <div className="px-5 py-4 bg-[var(--ruby)] text-white flex items-center justify-between gap-3">
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-wider text-slate-300">
+                <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.06em] text-slate-200 tabular-nums">
                   {editing.departmentCode.toUpperCase()} · S.No {editing.sno}
                 </p>
                 <h2 id="edit-faculty-heading" className="font-serif text-lg font-semibold">
@@ -483,7 +483,7 @@ export default function FacultyEditorClient({
                     max={60}
                     value={editExperience}
                     onChange={(e) => setEditExperience(e.target.value)}
-                    className="w-full px-3 py-2 font-mono text-sm tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
+                    className="w-full px-3 py-2 font-sans text-sm tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
                   />
                 </div>
               </div>

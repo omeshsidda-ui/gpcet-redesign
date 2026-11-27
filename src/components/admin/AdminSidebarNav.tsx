@@ -87,7 +87,7 @@ export default function AdminSidebarNav({
           <span className="font-serif font-semibold text-sm text-[var(--ink)] truncate">
             Staff CMS
           </span>
-          <span className="font-mono text-[11px] uppercase px-1.5 py-0.5 rounded bg-[var(--ruby)] text-white">
+          <span className="font-sans text-[11px] font-semibold tracking-[0.05em] uppercase px-1.5 py-0.5 rounded bg-[var(--ruby)] text-white">
             {staffRole}
           </span>
         </div>
@@ -142,7 +142,7 @@ export default function AdminSidebarNav({
             );
           })}
           <div className="pt-2 mt-2 border-t border-[var(--rule)] flex items-center justify-between gap-2">
-            <span className="font-mono text-xs text-[var(--muted)] truncate">
+            <span className="font-sans text-xs text-[var(--muted)] truncate">
               {userEmail || 'Staff Session'}
             </span>
             <form action={signOutAdminAction}>
@@ -166,7 +166,7 @@ export default function AdminSidebarNav({
         <div className="p-5 border-b border-[var(--rule)]">
           <div className="flex items-center gap-2 text-[var(--ruby)]">
             <ShieldCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
-            <span className="font-mono text-xs font-semibold tracking-wider uppercase">
+            <span className="font-sans text-xs font-semibold tracking-[0.06em] uppercase">
               GPCET Staff CMS
             </span>
           </div>
@@ -174,7 +174,7 @@ export default function AdminSidebarNav({
             Institutional Governance &amp; Publishing
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
-            <span className="font-mono text-[11px] font-semibold uppercase px-2 py-0.5 rounded bg-[var(--ruby)] text-white">
+            <span className="font-sans text-[11px] font-semibold tracking-[0.05em] uppercase px-2 py-0.5 rounded bg-[var(--ruby)] text-white">
               {staffRole}
             </span>
             {departmentCode && (
@@ -182,7 +182,7 @@ export default function AdminSidebarNav({
                 {departmentCode}
               </span>
             )}
-            <span className="font-mono text-[11px] px-2 py-0.5 rounded border border-[var(--rule)] text-[var(--muted)]">
+            <span className="font-sans text-[11px] font-medium px-2 py-0.5 rounded border border-[var(--rule)] text-[var(--muted)]">
               {configured ? 'Supabase Auth' : 'Preview'}
             </span>
           </div>
@@ -212,7 +212,7 @@ export default function AdminSidebarNav({
 
         <div className="p-4 border-t border-[var(--rule)] bg-[var(--surface)]/60">
           <div className="text-xs text-[var(--muted)]">Signed in as</div>
-          <div className="mt-0.5 font-mono text-xs font-medium text-[var(--ink)] truncate">
+          <div className="mt-0.5 font-sans text-xs font-medium text-[var(--ink)] truncate">
             {userEmail || 'Authenticated Staff'}
           </div>
           <form action={signOutAdminAction} className="mt-3">

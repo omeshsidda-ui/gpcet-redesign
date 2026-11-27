@@ -84,7 +84,7 @@ export default function LiveAcademicGazette({
               Autonomous Examination Cell &amp; Registrar Dispatches
             </p>
           </div>
-          <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-[2px] bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums shrink-0">
+          <span className="font-sans text-xs font-semibold px-2.5 py-1 rounded-[2px] bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums shrink-0">
             2026–27
           </span>
         </div>
@@ -98,7 +98,7 @@ export default function LiveAcademicGazette({
               <li key={notice.id} className="px-6 py-4 hover:bg-[var(--surface)]/55 transition-colors">
                 <div className="flex items-center justify-between gap-3 mb-1.5">
                   <span
-                    className={`font-mono text-[11px] font-semibold px-2 py-0.5 rounded-[2px] border ${
+                    className={`font-sans text-[11px] font-semibold tracking-[0.06em] px-2 py-0.5 rounded-[2px] border ${
                       isUrgent
                         ? 'bg-[var(--ruby)] text-white border-[var(--ruby)]'
                         : 'bg-[var(--surface)] text-[var(--ruby)] border-[var(--rule)]'
@@ -106,7 +106,7 @@ export default function LiveAcademicGazette({
                   >
                     {categoryBadgeLabel(notice.category)}
                   </span>
-                  <span className="font-mono text-xs text-[var(--muted)] tabular-nums inline-flex items-center gap-1.5">
+                  <span className="font-sans text-[12px] text-[var(--muted)] tabular-nums inline-flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
                     {formatDate(notice.publishedAt)}
                   </span>
@@ -157,10 +157,10 @@ export default function LiveAcademicGazette({
             return (
               <li key={doc.id} className="px-6 py-4 hover:bg-[var(--surface)]/55 transition-colors">
                 <div className="flex items-center justify-between gap-3 mb-1.5">
-                  <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-[2px] bg-[var(--surface)] text-[var(--muted)] border border-[var(--rule)]">
+                  <span className="font-sans text-[11px] font-semibold tracking-[0.06em] px-2 py-0.5 rounded-[2px] bg-[var(--surface)] text-[var(--muted)] border border-[var(--rule)]">
                     {categoryBadgeLabel(doc.category)}
                   </span>
-                  <span className="font-mono text-xs text-[var(--muted)] tabular-nums">
+                  <span className="font-sans text-[12px] text-[var(--muted)] tabular-nums">
                     {formatBytes(doc.fileSizeBytes)} · {formatDate(doc.date)}
                   </span>
                 </div>
@@ -175,7 +175,7 @@ export default function LiveAcademicGazette({
                     <span className="text-[13.5px] sm:text-[14px] font-medium text-[var(--ink)] group-hover:text-[var(--ruby)] transition-colors leading-snug">
                       {doc.title}
                     </span>
-                    <span className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold px-2 py-0.5 rounded-[2px] border border-[var(--rule)] bg-[var(--surface)] text-[var(--ruby)] group-hover:border-[var(--ruby)] shrink-0 mt-0.5 transition-colors">
+                    <span className="inline-flex items-center gap-1 font-sans text-[11px] font-semibold tracking-[0.06em] px-2 py-0.5 rounded-[2px] border border-[var(--rule)] bg-[var(--surface)] text-[var(--ruby)] group-hover:border-[var(--ruby)] shrink-0 mt-0.5 transition-colors">
                       <FileText className="w-3 h-3" aria-hidden="true" />
                       PDF
                     </span>

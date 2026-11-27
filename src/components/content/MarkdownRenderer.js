@@ -155,7 +155,7 @@ export function MarkdownRenderer({ content, className = '' }) {
                   'span',
                   {
                     className:
-                      'text-[10px] font-mono font-semibold tracking-wider uppercase bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-px rounded-sm border border-[var(--rule)] shrink-0',
+                      'text-[10px] font-sans font-semibold tracking-[0.06em] uppercase bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-px rounded-sm border border-[var(--rule)] shrink-0',
                   },
                   'PDF'
                 )

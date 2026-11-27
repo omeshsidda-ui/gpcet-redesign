@@ -10,6 +10,13 @@ interface CriteriaMatrixGridProps {
   totalMetrics: number;
 }
 
+function extractNaacMetricId(slug: string, title: string): string | null {
+  const slugMatch = slug.match(/^(\d+(?:-\d+)+)$/);
+  if (slugMatch) return slugMatch[1].replace(/-/g, '.');
+  const titleMatch = title.match(/\b(\d+\.\d+(?:\.\d+)?)\b/);
+  return titleMatch ? titleMatch[1] : null;
+}
+
 export default function CriteriaMatrixGrid({ groups, totalMetrics }: CriteriaMatrixGridProps) {
   const [selectedCriterion, setSelectedCriterion] = useState<number | 'all'>('all');
   const [query, setQuery] = useState('');
@@ -62,8 +69,8 @@ export default function CriteriaMatrixGrid({ groups, totalMetrics }: CriteriaMat
             )}
           </div>
 
-          <div className="font-mono text-xs text-[var(--muted)] tabular-nums">
-            <strong className="text-[var(--ink)]">{totalMetrics}</strong> Archived Metric Dossiers
+          <div className="font-sans text-[13px] text-[var(--muted)] tabular-nums">
+            <strong className="font-semibold text-[var(--ink)]">{totalMetrics}</strong> Archived Metric Dossiers
           </div>
         </div>
 
@@ -95,8 +102,8 @@ export default function CriteriaMatrixGrid({ groups, totalMetrics }: CriteriaMat
                     : 'bg-[var(--surface)] text-[var(--ink)] border-[var(--rule)] hover:border-[var(--ruby)]/50'
                 }`}
               >
-                <span className="font-mono tabular-nums">C{g.number}</span>
-                <span className={`font-mono text-[11px] tabular-nums ${active ? 'text-slate-200' : 'text-[var(--muted)]'}`}>
+                <span className="font-sans tabular-nums">C{g.number}</span>
+                <span className={`font-sans text-[11.5px] font-medium tabular-nums ${active ? 'text-white/80' : 'text-[var(--muted)]'}`}>
                   ({g.metrics.length})
                 </span>
               </button>
@@ -120,8 +127,8 @@ export default function CriteriaMatrixGrid({ groups, totalMetrics }: CriteriaMat
             >
               <div className="px-5 py-4 bg-[var(--surface)] border-b border-[var(--rule)] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
-                  <div className="font-mono text-xs font-semibold text-[var(--distinction-ink)] tabular-nums">
-                    CRITERION {group.number}
+                  <div className="font-sans text-[12px] font-semibold tracking-[0.03em] text-[var(--distinction-ink)] tabular-nums">
+                    Criterion {group.number}
                   </div>
                   <h2
                     id={`criterion-${group.number}-heading`}
@@ -129,50 +136,62 @@ export default function CriteriaMatrixGrid({ groups, totalMetrics }: CriteriaMat
                   >
                     {group.title}
                   </h2>
-                  <p className="text-xs text-[var(--muted)] mt-1">{group.focus}</p>
+                  <p className="text-[13px] text-[var(--muted)] mt-1">{group.focus}</p>
                 </div>
 
-                <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums self-start sm:self-center shrink-0">
+                <span className="font-sans text-[12px] font-semibold px-2.5 py-1 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums self-start sm:self-center shrink-0">
                   {group.metrics.length} Metrics
                 </span>
               </div>
 
               <div className="divide-y divide-[var(--rule)]">
-                {group.metrics.map((metric) => (
-                  <Link
-                    key={metric.slug}
-                    href={`/accreditation/naac/${metric.slug}`}
-                    className="px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-[var(--surface)]/60 transition-colors group"
-                  >
-                    <div className="min-w-0">
-                      <div className="text-sm font-semibold text-[var(--ink)] group-hover:text-[var(--brand-crimson)] transition-colors">
-                        {metric.title}
+                {group.metrics.map((metric) => {
+                  const metricId = extractNaacMetricId(metric.slug, metric.title);
+                  return (
+                    <Link
+                      key={metric.slug}
+                      href={`/accreditation/naac/${metric.slug}`}
+                      className="px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-[var(--surface)]/60 transition-colors group"
+                    >
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          {metricId && (
+                            <span className="font-mono text-[11.5px] font-semibold px-1.5 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums shrink-0">
+                              {metricId}
+                            </span>
+                          )}
+                          <span className="text-[14.5px] font-semibold text-[var(--ink)] group-hover:text-[var(--brand-crimson)] transition-colors">
+                            {metric.title}
+                          </span>
+                        </div>
+                        <div className="font-sans text-[12px] text-[var(--muted)] mt-0.5">
+                          {metricId
+                            ? `Criterion ${group.number} Evidence Dossier`
+                            : `Criterion ${group.number} SSR Portfolio`}
+                        </div>
                       </div>
-                      <div className="font-mono text-[11px] text-[var(--muted)] mt-0.5">
-                        /accreditation/naac/{metric.slug}
-                      </div>
-                    </div>
 
-                    <div className="flex items-center gap-4 shrink-0 font-mono text-xs text-[var(--muted)] tabular-nums">
-                      {metric.pdfsCount > 0 && (
-                        <span className="inline-flex items-center gap-1 text-[var(--brand-crimson)]">
-                          <FileText className="w-3.5 h-3.5" aria-hidden="true" />
-                          {metric.pdfsCount} PDF{metric.pdfsCount > 1 ? 's' : ''}
+                      <div className="flex items-center gap-4 shrink-0 font-sans text-[12.5px] text-[var(--muted)] tabular-nums">
+                        {metric.pdfsCount > 0 && (
+                          <span className="inline-flex items-center gap-1 text-[var(--brand-crimson)] font-medium">
+                            <FileText className="w-3.5 h-3.5" aria-hidden="true" />
+                            {metric.pdfsCount} PDF{metric.pdfsCount > 1 ? 's' : ''}
+                          </span>
+                        )}
+                        {metric.tablesCount > 0 && (
+                          <span className="inline-flex items-center gap-1 text-[var(--ruby)] font-medium">
+                            <Table2 className="w-3.5 h-3.5" aria-hidden="true" />
+                            {metric.tablesCount} Table{metric.tablesCount > 1 ? 's' : ''}
+                          </span>
+                        )}
+                        <span className="inline-flex items-center gap-1 font-semibold text-[var(--ruby)] group-hover:text-[var(--brand-crimson)]">
+                          Inspect
+                          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                         </span>
-                      )}
-                      {metric.tablesCount > 0 && (
-                        <span className="inline-flex items-center gap-1 text-[var(--ruby)]">
-                          <Table2 className="w-3.5 h-3.5" aria-hidden="true" />
-                          {metric.tablesCount} Table{metric.tablesCount > 1 ? 's' : ''}
-                        </span>
-                      )}
-                      <span className="inline-flex items-center gap-1 font-sans font-semibold text-[var(--ruby)] group-hover:text-[var(--brand-crimson)]">
-                        Inspect
-                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </span>
-                    </div>
-                  </Link>
-                ))}
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           ))

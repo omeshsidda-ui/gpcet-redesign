@@ -47,7 +47,7 @@ export default function AsymmetricHeroSpread({
             fetchPriority="high"
             alt="GPCET campus buildings in Kurnool"
           />
-          <figcaption className="font-mono tracking-tight">
+          <figcaption className="font-sans">
             <span>GPCET Campus</span>
             <span>Kurnool, Andhra Pradesh</span>
           </figcaption>
@@ -70,7 +70,7 @@ export default function AsymmetricHeroSpread({
                 className="flex items-baseline justify-between gap-4 py-4 border-b border-[var(--rule)]"
               >
                 <dt className="text-[15px] text-[var(--muted)] leading-snug">{label}</dt>
-                <dd className="font-mono text-2xl sm:text-[1.65rem] font-semibold text-[var(--ruby)] tabular-nums shrink-0">
+                <dd className="font-serif text-2xl sm:text-[1.75rem] font-medium text-[var(--ruby)] tabular-nums shrink-0">
                   {value}
                 </dd>
               </div>

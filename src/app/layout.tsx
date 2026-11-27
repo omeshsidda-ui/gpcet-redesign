@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Newsreader, Instrument_Sans, JetBrains_Mono } from 'next/font/google';
+import { Newsreader, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import TopInstitutionalBar from '@/components/global/TopInstitutionalBar';
 import InstitutionalNavbar from '@/components/global/InstitutionalNavbar';
@@ -20,11 +20,11 @@ const instrumentSans = Instrument_Sans({
   weight: ['400', '500', '600', '700'],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-ibm-plex-mono',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
 });
 
 export const metadata: Metadata = {
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${instrumentSans.variable} ${jetbrainsMono.variable}`}
+      className={`${newsreader.variable} ${instrumentSans.variable} ${ibmPlexMono.variable}`}
     >
       <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased font-sans text-[15.5px] sm:text-base leading-relaxed flex flex-col selection:bg-[var(--ruby)] selection:text-white">
         {/* Accessible Skip-to-content target */}

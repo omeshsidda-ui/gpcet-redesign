@@ -114,7 +114,7 @@ export default function CmsModeToggle({
               Scraper Sync Mode
             </span>
             <span
-              className={`font-mono text-[11px] font-semibold px-2 py-0.5 rounded ${
+              className={`font-sans text-[11px] font-semibold tracking-[0.05em] px-2 py-0.5 rounded ${
                 mode === 'scraper'
                   ? 'bg-[var(--ruby)] text-white'
                   : 'bg-[var(--surface)] text-[var(--muted)] border border-[var(--rule)]'
@@ -148,7 +148,7 @@ export default function CmsModeToggle({
               Native CMS Mode
             </span>
             <span
-              className={`font-mono text-[11px] font-semibold px-2 py-0.5 rounded ${
+              className={`font-sans text-[11px] font-semibold tracking-[0.05em] px-2 py-0.5 rounded ${
                 mode === 'native'
                   ? 'bg-[var(--brand-crimson)] text-white'
                   : 'bg-[var(--surface)] text-[var(--muted)] border border-[var(--rule)]'
@@ -165,9 +165,9 @@ export default function CmsModeToggle({
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--muted)]">
-        <div className="font-mono tabular-nums">
+        <div className="font-sans tabular-nums">
           Last manual cache sync:{' '}
-          <span className="text-[var(--ink)]">
+          <span className="font-medium text-[var(--ink)]">
             {lastSyncAt ? new Date(lastSyncAt).toLocaleString('en-IN') : 'Not triggered in session'}
           </span>
         </div>

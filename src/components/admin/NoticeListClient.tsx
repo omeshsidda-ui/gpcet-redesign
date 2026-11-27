@@ -236,7 +236,7 @@ export default function NoticeListClient({
       {/* Notices Table */}
       <div className="bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md overflow-hidden">
         <div className="px-4 py-3 border-b border-[var(--rule)] bg-[var(--surface)]/60 flex items-center justify-between text-xs text-[var(--muted)]">
-          <span className="font-mono tabular-nums">
+          <span className="font-sans tabular-nums">
             Showing {filtered.length} of {notices.length} circulars
           </span>
           <span>Click Ticker status to toggle homepage marquee visibility</span>
@@ -283,15 +283,15 @@ export default function NoticeListClient({
                                 {notice.summary}
                               </p>
                             )}
-                            <div className="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-[var(--muted)]">
-                              <span>/{notice.slug}</span>
+                            <div className="mt-1.5 flex flex-wrap items-center gap-2 font-sans text-[11px] text-[var(--muted)]">
+                              <span className="font-mono">/{notice.slug}</span>
                               {notice.departmentCode && (
-                                <span className="uppercase px-1.5 py-0.5 rounded bg-[var(--surface)] border border-[var(--rule)] text-[var(--ink)]">
+                                <span className="font-mono uppercase px-1.5 py-0.5 rounded bg-[var(--surface)] border border-[var(--rule)] text-[var(--ink)]">
                                   {notice.departmentCode}
                                 </span>
                               )}
                               {notice.attachmentUrl && (
-                                <span className="inline-flex items-center gap-1 text-[var(--ruby)]">
+                                <span className="inline-flex items-center gap-1 font-semibold text-[var(--ruby)]">
                                   <Paperclip className="w-3 h-3" aria-hidden="true" />
                                   PDF
                                 </span>
@@ -302,14 +302,14 @@ export default function NoticeListClient({
                       </td>
 
                       <td className="px-4 py-3.5 align-top whitespace-nowrap">
-                        <span className="font-mono text-xs px-2 py-0.5 rounded bg-[var(--surface)] border border-[var(--rule)] text-[var(--ink)]">
+                        <span className="font-sans text-xs font-medium px-2 py-0.5 rounded bg-[var(--surface)] border border-[var(--rule)] text-[var(--ink)]">
                           {notice.category}
                         </span>
                       </td>
 
                       <td className="px-4 py-3.5 align-top whitespace-nowrap">
                         <span
-                          className={`font-mono text-xs font-semibold uppercase px-2 py-0.5 rounded ${
+                          className={`font-sans text-[11px] font-semibold tracking-[0.05em] uppercase px-2 py-0.5 rounded ${
                             notice.priority === 'urgent'
                               ? 'bg-[var(--brand-crimson)] text-white'
                               : notice.priority === 'high'
@@ -321,7 +321,7 @@ export default function NoticeListClient({
                         </span>
                       </td>
 
-                      <td className="px-4 py-3.5 align-top whitespace-nowrap font-mono text-xs text-[var(--muted)] tabular-nums">
+                      <td className="px-4 py-3.5 align-top whitespace-nowrap font-sans text-xs text-[var(--muted)] tabular-nums">
                         {new Date(notice.publishedAt).toISOString().slice(0, 10)}
                       </td>
 

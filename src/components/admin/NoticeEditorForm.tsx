@@ -364,7 +364,7 @@ export default function NoticeEditorForm({
             type="datetime-local"
             value={publishedAt}
             onChange={(e) => setPublishedAt(e.target.value)}
-            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
+            className="w-full px-3 py-2 font-sans text-xs tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -377,7 +377,7 @@ export default function NoticeEditorForm({
             type="datetime-local"
             value={expiresAt}
             onChange={(e) => setExpiresAt(e.target.value)}
-            className="w-full px-3 py-2 font-mono text-xs bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
+            className="w-full px-3 py-2 font-sans text-xs tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -453,7 +453,7 @@ export default function NoticeEditorForm({
               value={attachmentSizeBytes}
               onChange={(e) => setAttachmentSizeBytes(e.target.value)}
               placeholder="e.g., 245760"
-              className="w-full px-3 py-2 font-mono text-xs tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
+              className="w-full px-3 py-2 font-sans text-xs tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
             />
           </div>
 
@@ -469,7 +469,7 @@ export default function NoticeEditorForm({
               className="block w-full text-xs text-[var(--muted)] file:mr-2 file:py-1.5 file:px-3 file:rounded file:border file:border-[var(--rule)] file:text-xs file:font-semibold file:bg-[var(--surface)] file:text-[var(--ink)] hover:file:bg-[var(--bg)] cursor-pointer"
             />
             {selectedPdfName && (
-              <p className="mt-1 font-mono text-[11px] text-[var(--muted)] truncate">
+              <p className="mt-1 font-sans text-[11px] tabular-nums text-[var(--muted)] truncate">
                 Read: {selectedPdfName} ({attachmentSizeBytes} B)
               </p>
             )}
@@ -553,7 +553,7 @@ export default function NoticeEditorForm({
 
           {activeTab !== 'write' && (
             <div className="p-5 bg-[var(--bg)]/60 overflow-y-auto max-h-[460px]">
-              <div className="mb-3 font-mono text-[11px] uppercase tracking-wider text-[var(--muted)]">
+              <div className="mb-3 font-sans text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--muted)]">
                 Sanitized Output Preview
               </div>
               <MarkdownRenderer content={contentMarkdown} />

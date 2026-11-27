@@ -60,11 +60,11 @@ export default function FacultyProfileView({
 
           <div className="space-y-1.5">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)]">
-                {deptCode.toUpperCase()} · S.NO {faculty.sno}
+              <span className="font-sans text-[12px] font-semibold px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums">
+                {deptCode.toUpperCase()} · S.No {faculty.sno}
               </span>
               {faculty.isHod && (
-                <span className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[var(--ruby)]/10 border border-[var(--ruby)]/30 text-[var(--ruby)]">
+                <span className="inline-flex items-center gap-1 font-sans text-[12px] font-semibold px-2 py-0.5 rounded-sm bg-[var(--ruby)]/10 border border-[var(--ruby)]/30 text-[var(--ruby)]">
                   <Award className="w-3.5 h-3.5" aria-hidden="true" />
                   Department Head / Dean
                 </span>
@@ -78,7 +78,7 @@ export default function FacultyProfileView({
               {faculty.designation}
             </p>
             {faculty.highestQualification && (
-              <p className="font-mono text-xs text-[var(--muted)]">
+              <p className="font-sans text-[13px] text-[var(--muted)]">
                 Academic Credentials: {faculty.highestQualification}
               </p>
             )}
@@ -99,7 +99,7 @@ export default function FacultyProfileView({
               <BookOpen className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               Qualification
             </dt>
-            <dd className="mt-1 font-mono text-xs text-[var(--ink)]">
+            <dd className="mt-1 font-sans text-[13.5px] font-medium text-[var(--ink)]">
               {faculty.highestQualification || 'Verified Institutional Faculty'}
             </dd>
           </div>

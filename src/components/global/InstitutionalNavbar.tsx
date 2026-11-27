@@ -45,7 +45,7 @@ const NAVIGATION_SECTIONS: NavItem[] = [
         title: 'Academic Calendars',
         description: 'Official semester schedules, examination dates, and instruction periods.',
         href: '/documents?category=calendar',
-        code: '2026-27',
+        badge: '2026-27',
       },
       {
         title: 'Curriculum & Syllabi Vault',
@@ -493,7 +493,7 @@ export default function InstitutionalNavbar() {
                                     <span />
                                   )}
                                   {item.badge && (
-                                    <span className="font-mono text-[11px] text-[var(--ink)]/70 tabular-nums shrink-0">
+                                    <span className="font-sans text-[11.5px] font-medium text-[var(--ink)]/70 tabular-nums shrink-0">
                                       {item.badge}
                                     </span>
                                   )}
@@ -635,7 +635,7 @@ export default function InstitutionalNavbar() {
                                 <span className="leading-snug">{item.title}</span>
                               </span>
                               {item.badge && (
-                                <span className="font-mono text-[10.5px] font-normal text-[var(--muted)] whitespace-nowrap shrink-0">
+                                <span className="font-sans text-[11px] font-medium text-[var(--muted)] tabular-nums whitespace-nowrap shrink-0">
                                   {item.badge}
                                 </span>
                               )}

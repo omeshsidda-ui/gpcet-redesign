@@ -22,7 +22,7 @@ export default function PlacementsPage() {
         {/* Header */}
         <header className="section-masthead pb-8 border-b border-[var(--rule)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-[var(--ruby)] mb-2.5">
+            <div className="inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-wide text-[var(--ruby)] mb-2.5">
               <Briefcase className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>Placement &amp; Training Center (PAT) · Careers &amp; Employability Center</span>
             </div>
@@ -74,7 +74,7 @@ export default function PlacementsPage() {
         {/* Academic & Industrial MoUs */}
         {mouMd && (
           <section className="bg-[var(--surface-raised)] border border-[var(--rule)] border-t-2 border-t-[var(--ink)] rounded-sm p-6 sm:p-8">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="flex items-center gap-2 text-xs font-sans font-semibold tracking-wide text-[var(--ruby)] mb-2">
               <Building2 className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
               <span>Corporate &amp; Academic Collaborations</span>
             </div>

@@ -86,7 +86,7 @@ export default function InstitutionalFooter() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-rose-100 shrink-0" aria-hidden="true" />
-                <span className="font-mono text-[13px] tabular-nums">+91 9988776600 · 08518-285011</span>
+                <span className="font-sans text-[13.5px] tabular-nums">+91 9988776600 · 08518-285011</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-rose-100 shrink-0" aria-hidden="true" />
@@ -100,12 +100,14 @@ export default function InstitutionalFooter() {
             </div>
 
             {/* Counseling Codes */}
-            <div className="flex flex-wrap items-center gap-2.5 pt-1 font-mono text-[12px]">
-              <span className="px-2.5 py-1 rounded-sm bg-white/10 border border-white/20 text-white font-semibold tracking-wide">
-                EAPCET: PULE
+            <div className="flex flex-wrap items-center gap-2.5 pt-1 text-[12px]">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-white/10 border border-white/20 text-white font-medium">
+                <span className="text-rose-100">EAPCET:</span>
+                <span className="font-mono font-semibold tracking-wide">PULE</span>
               </span>
-              <span className="px-2.5 py-1 rounded-sm bg-white/10 border border-white/20 text-stone-100 tracking-wide">
-                COLLEGE CODE: GP
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-white/10 border border-white/20 text-stone-100 font-medium">
+                <span className="text-rose-100">College Code:</span>
+                <span className="font-mono font-semibold tracking-wide text-white">GP</span>
               </span>
             </div>
           </div>

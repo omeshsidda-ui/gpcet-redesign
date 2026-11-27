@@ -28,18 +28,18 @@ export default async function DepartmentsIndexPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-5 grid grid-cols-3 gap-5 pt-5 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[var(--rule)] lg:pl-7 font-mono tabular-nums">
+          <div className="lg:col-span-5 grid grid-cols-3 gap-5 pt-5 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[var(--rule)] lg:pl-7 font-sans tabular-nums">
             <div>
-              <div className="text-2xl font-semibold text-[var(--ink)]">{departments.length}</div>
-              <div className="text-xs text-[var(--muted)] font-sans mt-1">Departments</div>
+              <div className="font-serif text-2xl sm:text-3xl font-normal text-[var(--ink)] tabular-nums">{departments.length}</div>
+              <div className="text-xs text-[var(--muted)] mt-1">Departments</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold text-[var(--ruby)]">{totalFaculty}</div>
-              <div className="text-xs text-[var(--muted)] font-sans mt-1">Faculty Roster</div>
+              <div className="font-serif text-2xl sm:text-3xl font-normal text-[var(--ruby)] tabular-nums">{totalFaculty}</div>
+              <div className="text-xs text-[var(--muted)] mt-1">Faculty Roster</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold text-[var(--distinction-ink)]">5</div>
-              <div className="text-xs text-[var(--muted)] font-sans mt-1">NBA Programs</div>
+              <div className="font-serif text-2xl sm:text-3xl font-normal text-[var(--distinction-ink)] tabular-nums">5</div>
+              <div className="text-xs text-[var(--muted)] mt-1">NBA Programs</div>
             </div>
           </div>
         </header>
@@ -53,11 +53,11 @@ export default async function DepartmentsIndexPage() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-xs font-semibold text-[var(--ruby)] tabular-nums">
-                    CODE {dept.deptNumber} · {dept.shortName} · ESTD. {dept.establishedYear}
+                  <span className="font-sans text-xs font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums">
+                    CODE {dept.deptNumber} · <span className="font-mono">{dept.shortName}</span> · ESTD. {dept.establishedYear}
                   </span>
                   {dept.nbaAccredited && (
-                    <span className="inline-flex items-center gap-1 font-mono text-xs font-semibold px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
+                    <span className="inline-flex items-center gap-1 font-sans text-[11px] font-semibold tracking-[0.06em] px-2 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
                       <Award className="w-3 h-3" aria-hidden="true" />
                       NBA
                     </span>
@@ -79,20 +79,20 @@ export default async function DepartmentsIndexPage() {
               </div>
 
               <div className="space-y-4 pt-5 border-t border-[var(--rule)]">
-                <div className="grid grid-cols-3 gap-4 font-mono text-[13px] tabular-nums">
+                <div className="grid grid-cols-3 gap-4 font-sans text-[13px] tabular-nums">
                   <div>
                     <div className="font-semibold text-[var(--ink)]">{dept.degrees}</div>
-                    <div className="text-xs text-[var(--muted)] font-sans mt-0.5">Programs</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">Programs</div>
                   </div>
                   <div>
                     <div className="font-semibold text-[var(--ink)]">{dept.intakeLabel}</div>
-                    <div className="text-xs text-[var(--muted)] font-sans mt-0.5">Intake</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">Intake</div>
                   </div>
                   <div>
                     <div className="font-semibold text-[var(--ruby)]">
                       {dept.facultyCount} Members
                     </div>
-                    <div className="text-xs text-[var(--muted)] font-sans mt-0.5">Faculty</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">Faculty</div>
                   </div>
                 </div>
 

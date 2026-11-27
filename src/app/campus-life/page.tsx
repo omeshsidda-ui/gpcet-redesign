@@ -35,18 +35,18 @@ export default function CampusLifePage() {
               transit network, on-campus medical care, and student technical clubs.
             </p>
           </div>
-          <div className="lg:col-span-5 grid grid-cols-3 gap-4 pt-4 lg:pt-0 lg:border-l lg:border-[var(--rule)] lg:pl-6 font-mono tabular-nums">
+          <div className="lg:col-span-5 grid grid-cols-3 gap-4 pt-4 lg:pt-0 lg:border-l lg:border-[var(--rule)] lg:pl-6 font-sans tabular-nums">
             <div>
-              <div className="text-xl font-bold text-[var(--ink)]">36,808</div>
-              <div className="text-[11px] text-[var(--muted)] font-sans">Library Books</div>
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ink)] tabular-nums">36,808</div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">Library Books</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--ruby)]">3,118</div>
-              <div className="text-[11px] text-[var(--muted)] font-sans">E-Journals</div>
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ruby)] tabular-nums">3,118</div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">E-Journals</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--brand-crimson)]">15</div>
-              <div className="text-[11px] text-[var(--muted)] font-sans">Campus Buses</div>
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--brand-crimson)] tabular-nums">15</div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">Campus Buses</div>
             </div>
           </div>
         </header>
@@ -102,7 +102,7 @@ export default function CampusLifePage() {
         {/* Central & Digital Library Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] mb-2">
               <BookOpen className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>CENTRAL &amp; DIGITAL LIBRARY</span>
             </div>
@@ -127,7 +127,7 @@ export default function CampusLifePage() {
         {/* Transport & Medical */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-7 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] mb-2">
               <Bus className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>CAMPUS TRANSIT FLEET</span>
             </div>
@@ -135,7 +135,7 @@ export default function CampusLifePage() {
           </div>
 
           <div className="lg:col-span-5 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] mb-2">
               <HeartPulse className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>MEDICAL CENTER &amp; AMBULANCE</span>
             </div>
@@ -146,7 +146,7 @@ export default function CampusLifePage() {
         {/* Student Clubs, Gym & Alumni */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--rule)] border border-[var(--rule)] rounded-md overflow-hidden">
           <div className="bg-[var(--surface-raised)] p-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] mb-2">
               <Dumbbell className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
               <span>FITNESS &amp; SPORTS</span>
             </div>
@@ -160,7 +160,7 @@ export default function CampusLifePage() {
           </div>
 
           <div className="bg-[var(--surface-raised)] p-6">
-            <div className="text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] mb-2">
               STUDENT CLUBS &amp; KALANJALI
             </div>
             {kalanjaliMd && <MarkdownRenderer content={kalanjaliMd.content} />}
@@ -173,7 +173,7 @@ export default function CampusLifePage() {
           </div>
 
           <div className="bg-[var(--surface-raised)] p-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)] mb-2">
+            <div className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.06em] text-[var(--ruby)] mb-2">
               <Users className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
               <span>ALUMNI ASSOCIATION</span>
             </div>

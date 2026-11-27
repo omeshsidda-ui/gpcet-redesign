@@ -128,10 +128,10 @@ export default async function CatchAllContentPage({ params }: PageProps) {
       {/* Institutional Document Header */}
       <header className="section-masthead border-b border-[var(--rule)] pb-7">
         <div className="flex flex-wrap items-center gap-3 mb-3.5">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-sm text-xs font-semibold bg-[var(--surface)] text-[var(--ruby)] border border-[var(--rule)] font-mono">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-sm font-sans text-[11px] font-semibold tracking-[0.06em] uppercase bg-[var(--surface)] text-[var(--ruby)] border border-[var(--rule)]">
             {frontmatter.section}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-xs text-[var(--muted)] font-mono">
+          <span className="inline-flex items-center gap-1.5 font-sans text-xs font-medium text-[var(--muted)]">
             <ShieldCheck className="w-3.5 h-3.5 text-[var(--distinction-ink)]" aria-hidden="true" />
             <span>Autonomous Verified</span>
           </span>

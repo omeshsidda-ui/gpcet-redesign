@@ -88,7 +88,7 @@ export default async function AdminOverviewPage() {
       {/* Masthead */}
       <header className="border-b border-[var(--rule)] pb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
         <div>
-          <p className="font-mono text-xs text-[var(--muted)] uppercase tracking-wider">
+          <p className="font-sans text-xs font-semibold text-[var(--muted)] uppercase tracking-[0.06em]">
             GPCET Autonomous · Administration
           </p>
           <h1 className="mt-1 font-serif text-3xl sm:text-4xl font-semibold text-[var(--ink)] tracking-tight">
@@ -104,12 +104,12 @@ export default async function AdminOverviewPage() {
           {isLiveDatabase ? (
             <>
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" />
-              <span className="font-mono text-[var(--ink)]">Live Supabase Connected</span>
+              <span className="font-sans font-medium text-[var(--ink)]">Live Supabase Connected</span>
             </>
           ) : (
             <>
               <Database className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
-              <span className="font-mono text-[var(--ink)]">Offline JSON Preview</span>
+              <span className="font-sans font-medium text-[var(--ink)]">Offline JSON Preview</span>
             </>
           )}
         </div>
@@ -120,40 +120,40 @@ export default async function AdminOverviewPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 border border-[var(--rule)] rounded-md bg-[var(--surface-raised)] divide-y sm:divide-y-0 sm:divide-x divide-[var(--rule)]">
           <div className="p-5">
             <div className="text-xs font-medium text-[var(--muted)]">Active Circulars</div>
-            <div className="mt-2 font-mono text-2xl sm:text-3xl font-bold text-[var(--ink)] tabular-nums">
+            <div className="mt-2 font-serif text-3xl font-normal text-[var(--ink)] tabular-nums">
               {noticeCount}
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[var(--muted)]">
+            <div className="mt-1 font-sans text-xs text-[var(--muted)]">
               Gazette &amp; Exam Cell
             </div>
           </div>
 
           <div className="p-5">
             <div className="text-xs font-medium text-[var(--muted)]">Homepage Ticker</div>
-            <div className="mt-2 font-mono text-2xl sm:text-3xl font-bold text-[var(--brand-crimson)] tabular-nums">
+            <div className="mt-2 font-serif text-3xl font-normal text-[var(--brand-crimson)] tabular-nums">
               {tickerCount}
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[var(--muted)]">
+            <div className="mt-1 font-sans text-xs text-[var(--muted)]">
               Pinned Marquee Items
             </div>
           </div>
 
           <div className="p-5">
             <div className="text-xs font-medium text-[var(--muted)]">Faculty Roster</div>
-            <div className="mt-2 font-mono text-2xl sm:text-3xl font-bold text-[var(--ruby)] tabular-nums">
+            <div className="mt-2 font-serif text-3xl font-normal text-[var(--ruby)] tabular-nums">
               {facultyCount}
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[var(--muted)]">
+            <div className="mt-1 font-sans text-xs text-[var(--muted)]">
               Across {departments.length} Departments
             </div>
           </div>
 
           <div className="p-5">
             <div className="text-xs font-medium text-[var(--muted)]">CMS Source Mode</div>
-            <div className="mt-2 font-mono text-lg sm:text-xl font-bold text-[var(--ink)] uppercase">
+            <div className="mt-2 font-serif text-2xl font-normal text-[var(--ink)]">
               {syncState.mode === 'native' ? 'Native CMS' : 'Scraper Sync'}
             </div>
-            <div className="mt-1 font-mono text-[11px] text-[var(--muted)]">
+            <div className="mt-1 font-sans text-xs text-[var(--muted)]">
               {syncState.mode === 'native' ? 'Direct Supabase' : 'WP Durable Poll'}
             </div>
           </div>

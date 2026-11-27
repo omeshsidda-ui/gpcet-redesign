@@ -21,7 +21,7 @@ export default function DepartmentHeader({ department }: DepartmentHeaderProps) 
             Departments
           </Link>
           <span aria-hidden="true">/</span>
-          <span className="font-mono font-semibold text-[var(--ruby)]">
+          <span className="font-sans font-semibold text-[var(--ruby)]">
             {department.shortName}
           </span>
         </nav>
@@ -29,16 +29,16 @@ export default function DepartmentHeader({ department }: DepartmentHeaderProps) 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7">
             <div className="flex flex-wrap items-center gap-2 mb-3.5">
-              <span className="font-mono text-xs font-semibold px-2.5 py-0.5 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums">
-                DEPT {department.deptNumber} · {department.shortName}
+              <span className="font-sans text-[12px] font-semibold px-2.5 py-0.5 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ruby)] tabular-nums">
+                Dept. {department.deptNumber} · {department.shortName}
               </span>
               {department.nbaAccredited && (
-                <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold px-2.5 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
+                <span className="inline-flex items-center gap-1.5 font-sans text-[12px] font-semibold px-2.5 py-0.5 rounded-sm bg-[#B8860B]/10 border border-[#B8860B]/30 text-[var(--distinction-ink)]">
                   <Award className="w-3.5 h-3.5" aria-hidden="true" />
                   NBA Accredited
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5 font-mono text-xs font-medium px-2.5 py-0.5 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ink)]/80 tabular-nums">
+              <span className="inline-flex items-center gap-1.5 font-sans text-[12px] font-medium px-2.5 py-0.5 rounded-sm bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--ink)]/80 tabular-nums">
                 <Calendar className="w-3.5 h-3.5 text-[var(--muted)]" aria-hidden="true" />
                 Estd. {department.establishedYear}
               </span>

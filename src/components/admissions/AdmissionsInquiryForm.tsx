@@ -101,8 +101,11 @@ export default function AdmissionsInquiryForm() {
           </h3>
         </div>
         <p className="text-sm text-[var(--muted)] leading-relaxed">{confirmation.message}</p>
-        <div className="font-mono text-xs bg-[var(--surface)] border border-[var(--rule)] rounded px-3 py-2 text-[var(--ink)]">
-          Reference ID: {confirmation.inquiryId}
+        <div className="font-sans text-[13px] bg-[var(--surface)] border border-[var(--rule)] rounded px-3.5 py-2.5 text-[var(--ink)] tabular-nums">
+          Reference ID:{' '}
+          <span className="font-mono font-semibold text-[var(--ruby)]">
+            {confirmation.inquiryId}
+          </span>
         </div>
         <button
           type="button"
@@ -144,7 +147,7 @@ export default function AdmissionsInquiryForm() {
             <ul className="list-disc pl-6 space-y-0.5">
               {fieldErrors.map((fe, idx) => (
                 <li key={idx}>
-                  <span className="font-mono">{fe.field}</span>: {fe.message}
+                  <span className="font-semibold">{fe.field}</span>: {fe.message}
                 </li>
               ))}
             </ul>
@@ -208,7 +211,7 @@ export default function AdmissionsInquiryForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+91 9876543210"
-            className="w-full px-3 py-2.5 text-sm font-mono bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
+            className="w-full px-3 py-2.5 text-sm font-sans tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
 
@@ -257,7 +260,7 @@ export default function AdmissionsInquiryForm() {
             value={eamcetRank}
             onChange={(e) => setEamcetRank(e.target.value)}
             placeholder="e.g., 14500"
-            className="w-full px-3 py-2.5 text-sm font-mono bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
+            className="w-full px-3 py-2.5 text-sm font-sans tabular-nums bg-[var(--bg)] border border-[var(--rule)] rounded text-[var(--ink)] focus:outline-none focus:border-[var(--ruby)]"
           />
         </div>
       </div>

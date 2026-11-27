@@ -60,8 +60,8 @@ export default async function DepartmentSyllabusPage({ params }: DeptSyllabusPag
           <thead>
             <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-xs font-semibold text-[var(--muted)]">
               <th scope="col" className="py-3 px-4">Syllabus / Curriculum Document</th>
-              <th scope="col" className="py-3 px-4 font-mono">Regulation</th>
-              <th scope="col" className="py-3 px-4 font-mono">Size</th>
+              <th scope="col" className="py-3 px-4">Regulation</th>
+              <th scope="col" className="py-3 px-4">Size</th>
               <th scope="col" className="py-3 px-4 text-right">Download</th>
             </tr>
           </thead>
@@ -95,18 +95,22 @@ export default async function DepartmentSyllabusPage({ params }: DeptSyllabusPag
                           >
                             {title}
                           </a>
-                          <div className="font-mono text-[11px] text-[var(--muted)] mt-0.5">
+                          <div className="font-sans text-xs text-[var(--muted)] mt-0.5">
                             {doc.filename}
                           </div>
                         </div>
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-xs">
-                      <span className="px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] font-semibold">
+                    <td className="py-3.5 px-4 text-xs">
+                      <span
+                        className={`px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[var(--ruby)] font-semibold ${
+                          reg ? 'font-mono' : 'font-sans'
+                        }`}
+                      >
                         {reg || 'Autonomous'}
                       </span>
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-xs text-[var(--muted)] tabular-nums">
+                    <td className="py-3.5 px-4 font-sans text-xs text-[var(--muted)] tabular-nums">
                       {formatFileSize(doc.fileSizeBytes)}
                     </td>
                     <td className="py-3.5 px-4 text-right whitespace-nowrap">

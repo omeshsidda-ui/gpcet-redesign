@@ -189,7 +189,7 @@ export default function FacultyRosterTable({
                 }`}
               >
                 <span>{f.label}</span>
-                <span className={`font-mono text-[11px] tabular-nums ${active ? 'text-slate-200' : 'text-[var(--muted)]'}`}>
+                <span className={`font-sans text-[11.5px] font-medium tabular-nums ${active ? 'text-white/80' : 'text-[var(--muted)]'}`}>
                   {count}
                 </span>
               </button>
@@ -199,9 +199,9 @@ export default function FacultyRosterTable({
       </div>
 
       {/* Count Readout */}
-      <div className="text-xs font-mono text-[var(--muted)] tabular-nums">
-        Displaying <strong className="text-[var(--ink)]">{filtered.length}</strong> of{' '}
-        <strong className="text-[var(--ink)]">{faculty.length}</strong> department faculty records
+      <div className="text-[13px] font-sans text-[var(--muted)] tabular-nums">
+        Displaying <strong className="font-semibold text-[var(--ink)]">{filtered.length}</strong> of{' '}
+        <strong className="font-semibold text-[var(--ink)]">{faculty.length}</strong> department faculty records
       </div>
 
       {/* Table View (Default) */}
@@ -209,8 +209,8 @@ export default function FacultyRosterTable({
         <div className="overflow-x-auto bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-xs font-semibold text-[var(--muted)]">
-                <th scope="col" className="py-3 px-4 font-mono">S.No</th>
+              <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-[11.5px] font-semibold uppercase tracking-[0.05em] text-[var(--muted)]">
+                <th scope="col" className="py-3 px-4">S.No</th>
                 <th scope="col" className="py-3 px-4">Faculty Member</th>
                 <th scope="col" className="py-3 px-4">Designation</th>
                 <th scope="col" className="py-3 px-4">Qualification</th>
@@ -228,7 +228,7 @@ export default function FacultyRosterTable({
               ) : (
                 filtered.map((member, index) => (
                   <tr key={member.id} className="hover:bg-[var(--surface)]/60 transition-colors">
-                    <td className="py-3.5 px-4 font-mono text-xs text-[var(--muted)] tabular-nums">
+                    <td className="py-3.5 px-4 font-sans text-[13px] text-[var(--muted)] tabular-nums">
                       {member.sno || index + 1}
                     </td>
                     <td className="py-3.5 px-4">
@@ -239,14 +239,14 @@ export default function FacultyRosterTable({
                         {member.name}
                       </Link>
                     </td>
-                    <td className="py-3.5 px-4 text-xs text-[var(--ink)]">
+                    <td className="py-3.5 px-4 text-[13px] text-[var(--ink)]">
                       {member.designation}
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-xs text-[var(--muted)]">
+                    <td className="py-3.5 px-4 font-sans text-[13px] text-[var(--muted)]">
                       {member.highestQualification || '—'}
                     </td>
                     <td className="py-3.5 px-4">
-                      <span className="inline-flex px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[11px] font-medium text-[var(--ruby)]">
+                      <span className="inline-flex px-2 py-0.5 rounded-sm bg-[var(--surface)] border border-[var(--rule)] text-[11.5px] font-medium text-[var(--ruby)]">
                         {formatCadreLabel(member.cadre)}
                       </span>
                     </td>
@@ -286,7 +286,7 @@ export default function FacultyRosterTable({
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-13 h-13 rounded-full bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center font-mono text-xs font-bold text-[var(--ruby)] shrink-0">
+                  <div className="w-13 h-13 rounded-full bg-[var(--surface)] border border-[var(--rule)] flex items-center justify-center font-serif text-base font-semibold text-[var(--ruby)] shrink-0">
                     {getInitials(member.name)}
                   </div>
                 )}
@@ -298,7 +298,7 @@ export default function FacultyRosterTable({
                   <div className="text-xs text-[var(--muted)] mt-0.5 truncate">
                     {member.designation}
                   </div>
-                  <div className="font-mono text-[11px] text-[var(--ruby)] mt-1.5">
+                  <div className="font-sans text-[12px] font-medium text-[var(--ruby)] mt-1.5">
                     {member.highestQualification || deptCode.toUpperCase()}
                   </div>
                 </div>

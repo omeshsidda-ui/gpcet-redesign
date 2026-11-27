@@ -212,6 +212,8 @@ const STATIC_CATALOG: SearchDoc[] = [
   },
 ];
 
+const SHORT_CODE_BADGES = new Set(['CSE', 'AI', 'ECE', 'EEE', 'ME', 'CIVIL', 'H&S', 'MBA']);
+
 export default function GlobalSearchModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -460,8 +462,8 @@ export default function GlobalSearchModal() {
               ? `${results.length} matching ${results.length === 1 ? 'record' : 'records'}`
               : 'Quick Institutional Index'}
           </span>
-          <span className="hidden sm:inline font-mono text-[11px] tabular-nums">
-            EAPCET: PULE
+          <span className="hidden sm:inline font-sans text-[11.5px] tabular-nums">
+            EAPCET: <span className="font-mono font-semibold text-[var(--ink)]">PULE</span>
           </span>
         </div>
 
@@ -509,7 +511,13 @@ export default function GlobalSearchModal() {
                           {doc.title}
                         </span>
                         {doc.badge && (
-                          <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm bg-[var(--bg)] border border-[var(--rule)] text-[var(--muted)] font-medium">
+                          <span
+                            className={`text-[11px] px-1.5 py-0.5 rounded-sm bg-[var(--bg)] border border-[var(--rule)] text-[var(--muted)] tabular-nums ${
+                              SHORT_CODE_BADGES.has(doc.badge)
+                                ? 'font-mono font-semibold'
+                                : 'font-sans font-medium'
+                            }`}
+                          >
                             {doc.badge}
                           </span>
                         )}
@@ -552,7 +560,7 @@ export default function GlobalSearchModal() {
             </span>
           </div>
 
-          <div className="font-mono text-[11.5px] text-[var(--ink)] font-medium tabular-nums">
+          <div className="font-sans text-[12px] text-[var(--ink)] font-medium tabular-nums">
             GPCET Vault · 5,822 Items
           </div>
         </div>

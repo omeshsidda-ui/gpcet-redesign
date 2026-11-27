@@ -45,15 +45,15 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
           </div>
 
           <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[13px] text-[var(--muted)] tabular-nums">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-sans text-[13.5px] text-[var(--muted)] tabular-nums">
               <span>
-                <strong className="text-[var(--ink)]">{departments.length}</strong> Disciplines
+                <strong className="font-semibold text-[var(--ink)]">{departments.length}</strong> Disciplines
               </span>
               <span>
-                <strong className="text-[var(--ink)]">{totalFaculty}</strong> Verified Faculty
+                <strong className="font-semibold text-[var(--ink)]">{totalFaculty}</strong> Verified Faculty
               </span>
               <span>
-                <strong className="text-[var(--ruby)]">5</strong> NBA Accredited
+                <strong className="font-semibold text-[var(--ruby)]">5</strong> NBA Accredited
               </span>
             </div>
 
@@ -72,11 +72,11 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-[var(--surface)] border-b border-[var(--rule)] text-[13px] font-semibold text-[var(--ink)]">
-                <th scope="col" className="py-3.5 px-4 font-mono">Code</th>
+                <th scope="col" className="py-3.5 px-4">Code</th>
                 <th scope="col" className="py-3.5 px-4">Department</th>
                 <th scope="col" className="py-3.5 px-4">Degrees</th>
-                <th scope="col" className="py-3.5 px-4 font-mono">Intake</th>
-                <th scope="col" className="py-3.5 px-4 font-mono">Faculty</th>
+                <th scope="col" className="py-3.5 px-4">Intake</th>
+                <th scope="col" className="py-3.5 px-4">Faculty</th>
                 <th scope="col" className="py-3.5 px-4">Accreditation</th>
                 <th scope="col" className="py-3.5 px-4 text-right">Actions</th>
               </tr>
@@ -91,8 +91,8 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                       isSelected ? 'bg-[var(--surface)]' : 'hover:bg-[var(--surface)]/55'
                     }`}
                   >
-                    <td className="py-4 px-4 font-mono text-[13px] font-semibold text-[var(--ruby)] tabular-nums whitespace-nowrap">
-                      {dept.deptNumber} · {dept.shortName}
+                    <td className="py-4 px-4 font-sans text-[13px] font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums whitespace-nowrap">
+                      {dept.deptNumber} · <span className="font-mono">{dept.shortName}</span>
                     </td>
                     <td className="py-4 px-4">
                       <Link
@@ -103,16 +103,16 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                       </Link>
                       <div className="text-[13px] text-[var(--muted)] mt-0.5">
                         HOD: {dept.hodName} · Estd.{' '}
-                        <span className="font-mono tabular-nums">{dept.establishedYear}</span>
+                        <span className="font-sans tabular-nums">{dept.establishedYear}</span>
                       </div>
                     </td>
                     <td className="py-4 px-4 text-[13.5px] text-[var(--ink)] whitespace-nowrap">
                       {dept.degrees}
                     </td>
-                    <td className="py-4 px-4 font-mono text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
+                    <td className="py-4 px-4 font-sans text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
                       {dept.intakeLabel}
                     </td>
-                    <td className="py-4 px-4 font-mono text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
+                    <td className="py-4 px-4 font-sans text-[13.5px] text-[var(--ink)] tabular-nums whitespace-nowrap">
                       <Link
                         href={`/departments/${dept.code}/faculty`}
                         className="hover:text-[var(--ruby)] underline decoration-[var(--rule)] underline-offset-4"
@@ -122,7 +122,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                     </td>
                     <td className="py-4 px-4 whitespace-nowrap">
                       <span
-                        className={`inline-flex items-center px-2 py-0.5 rounded-sm font-mono text-xs font-medium border ${
+                        className={`inline-flex items-center px-2 py-0.5 rounded-sm font-sans text-xs font-medium border ${
                           dept.nbaAccredited
                             ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
                             : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
@@ -175,15 +175,15 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
               <div key={dept.code} className="p-4">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="font-mono text-xs font-semibold text-[var(--ruby)] tabular-nums">
-                      {dept.deptNumber} · {dept.shortName}
+                    <span className="font-sans text-xs font-semibold tracking-[0.04em] text-[var(--ruby)] tabular-nums">
+                      {dept.deptNumber} · <span className="font-mono">{dept.shortName}</span>
                     </span>
                     <h3 className="font-serif text-lg font-medium text-[var(--ink)] mt-0.5 leading-snug">
                       <Link href={`/departments/${dept.code}`}>{dept.name}</Link>
                     </h3>
                   </div>
                   <span
-                    className={`shrink-0 font-mono text-[11px] font-medium px-2 py-0.5 rounded-sm border ${
+                    className={`shrink-0 font-sans text-[11px] font-semibold tracking-[0.05em] px-2 py-0.5 rounded-sm border ${
                       dept.nbaAccredited
                         ? 'bg-[#B8860B]/10 text-[var(--distinction-ink)] border-[#B8860B]/30'
                         : 'bg-[var(--surface)] text-[var(--muted)] border-[var(--rule)]'
@@ -193,7 +193,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
                   </span>
                 </div>
 
-                <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-[var(--muted)] font-mono tabular-nums">
+                <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-[var(--muted)] font-sans tabular-nums">
                   <span>{dept.degrees}</span>
                   <span>Intake: {dept.intakeLabel}</span>
                   <span>{dept.facultyCount} Faculty</span>
@@ -231,8 +231,8 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
           >
             <div className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--rule)]">
               <div>
-                <div className="font-mono text-xs text-[var(--ruby)] font-semibold tabular-nums">
-                  {selectedDept.shortName} · Estd. {selectedDept.establishedYear}
+                <div className="font-sans text-xs text-[var(--ruby)] font-semibold tracking-[0.04em] tabular-nums">
+                  <span className="font-mono">{selectedDept.shortName}</span> · Estd. {selectedDept.establishedYear}
                 </div>
                 <h3 className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ink)] mt-1 leading-snug">
                   {selectedDept.name}
@@ -251,7 +251,7 @@ export default function DepartmentalMatrix({ departments }: DepartmentalMatrixPr
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-5">
               <div className="lg:col-span-7 space-y-3">
                 <div>
-                  <div className="font-mono text-xs font-semibold text-[var(--muted)]">
+                  <div className="font-sans text-xs font-semibold tracking-wide text-[var(--muted)]">
                     Department Vision
                   </div>
                   <p className="text-[15px] text-[var(--ink)] leading-relaxed mt-1.5 max-w-[66ch]">

@@ -46,7 +46,7 @@ export default function AdminForbidden({
             <dl className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-[var(--surface)] border border-[var(--rule)] rounded-md p-4 text-xs">
               <div>
                 <dt className="text-[var(--muted)] font-medium">Signed-in Account</dt>
-                <dd className="mt-0.5 font-mono text-[var(--ink)] truncate">
+                <dd className="mt-0.5 font-sans font-medium text-[var(--ink)] truncate">
                   {userEmail || 'Unknown user'}
                 </dd>
               </div>

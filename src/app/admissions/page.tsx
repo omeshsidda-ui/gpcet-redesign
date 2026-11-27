@@ -43,18 +43,18 @@ export default async function AdmissionsPage() {
             </a>
           </div>
 
-          <div className="lg:col-span-4 grid grid-cols-3 gap-5 pt-5 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[var(--rule)] lg:pl-7 font-mono tabular-nums">
+          <div className="lg:col-span-4 grid grid-cols-3 gap-5 pt-5 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[var(--rule)] lg:pl-7 font-sans tabular-nums">
             <div>
-              <div className="text-2xl font-semibold text-[var(--ruby)]">PULE</div>
-              <div className="text-xs text-[var(--muted)] font-sans mt-1">EAPCET Code</div>
+              <div className="font-mono text-2xl font-semibold text-[var(--ruby)]">PULE</div>
+              <div className="text-xs text-[var(--muted)] mt-1">EAPCET Code</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold text-[var(--ink)]">70%</div>
-              <div className="text-xs text-[var(--muted)] font-sans mt-1">Convenor Quota</div>
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ink)] tabular-nums">70%</div>
+              <div className="text-xs text-[var(--muted)] mt-1">Convenor Quota</div>
             </div>
             <div>
-              <div className="text-2xl font-semibold text-[var(--ruby)]">30%</div>
-              <div className="text-xs text-[var(--muted)] font-sans mt-1">Mgmt / NRI</div>
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ruby)] tabular-nums">30%</div>
+              <div className="text-xs text-[var(--muted)] mt-1">Mgmt / NRI</div>
             </div>
           </div>
         </header>
@@ -72,9 +72,9 @@ export default async function AdmissionsPage() {
                 <table className="w-full text-left border-collapse text-[14px]">
                   <thead>
                     <tr className="border-b border-[var(--rule)] text-[13px] font-semibold text-[var(--ink)] bg-[var(--surface)]/50">
-                      <th scope="col" className="py-3.5 px-4 font-mono">Code</th>
+                      <th scope="col" className="py-3.5 px-4">Code</th>
                       <th scope="col" className="py-3.5 px-4">Program / Branch</th>
-                      <th scope="col" className="py-3.5 px-4 font-mono">Intake</th>
+                      <th scope="col" className="py-3.5 px-4">Intake</th>
                       <th scope="col" className="py-3.5 px-4">Status</th>
                     </tr>
                   </thead>
@@ -92,10 +92,10 @@ export default async function AdmissionsPage() {
                             {dept.name}
                           </Link>
                         </td>
-                        <td className="py-3.5 px-4 font-mono text-[13px] tabular-nums text-[var(--ink)]">
+                        <td className="py-3.5 px-4 font-sans text-[13px] tabular-nums text-[var(--ink)]">
                           {dept.intakeLabel}
                         </td>
-                        <td className="py-3.5 px-4 font-mono text-xs text-[var(--muted)]">
+                        <td className="py-3.5 px-4 font-sans text-xs text-[var(--muted)]">
                           {dept.nbaStatusLabel}
                         </td>
                       </tr>

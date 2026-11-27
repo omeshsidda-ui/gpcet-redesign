@@ -163,7 +163,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
                 >
                   <FileText className="inline-block w-3.5 h-3.5 self-center text-[var(--brand-crimson)] shrink-0" aria-hidden="true" />
                   <span>{children}</span>
-                  <span className="text-[10px] font-mono font-semibold tracking-wider uppercase bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-px rounded-sm border border-[var(--rule)] shrink-0">
+                  <span className="text-[10px] font-sans font-semibold tracking-[0.06em] uppercase bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-px rounded-sm border border-[var(--rule)] shrink-0">
                     PDF
                   </span>
                 </a>

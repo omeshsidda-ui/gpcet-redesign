@@ -51,11 +51,11 @@ export default function ResearchExcellenceBand() {
 
             <div className="p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[var(--rule)]">
-                <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[var(--ruby)]">
+                <div className="inline-flex items-center gap-2 text-xs font-sans font-semibold tracking-wide text-[var(--ruby)]">
                   <Cpu className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />
                   <span>AICTE IDEA Lab · R&amp;D Cell · IEEE Student Branch</span>
                 </div>
-                <span className="font-mono text-xs text-[var(--muted)] tabular-nums">
+                <span className="font-sans text-xs font-medium text-[var(--muted)] tabular-nums">
                   48 NAAC SSR Metrics
                 </span>
               </div>
@@ -124,22 +124,22 @@ export default function ResearchExcellenceBand() {
               </div>
 
               <div className="p-6">
-                <div className="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--ruby)]">
+                <div className="flex items-center gap-2 font-sans text-xs font-semibold tracking-wide text-[var(--ruby)]">
                   <Library className="w-4 h-4" aria-hidden="true" />
                   <span>Central &amp; Digital Library</span>
                 </div>
-                <div className="mt-4 grid grid-cols-3 gap-4 py-4 border-y border-[var(--rule)] font-mono tabular-nums">
+                <div className="mt-4 grid grid-cols-3 gap-4 py-4 border-y border-[var(--rule)] font-sans tabular-nums">
                   <div>
-                    <div className="text-2xl font-semibold text-[var(--ink)]">36,808</div>
-                    <div className="text-xs text-[var(--muted)] font-sans mt-0.5">Volumes</div>
+                    <div className="font-serif text-2xl sm:text-3xl font-normal text-[var(--ink)] tabular-nums">36,808</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">Volumes</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-semibold text-[var(--ink)]">3,118</div>
-                    <div className="text-xs text-[var(--muted)] font-sans mt-0.5">Online Journals</div>
+                    <div className="font-serif text-2xl sm:text-3xl font-normal text-[var(--ink)] tabular-nums">3,118</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">Online Journals</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-semibold text-[var(--ruby)]">500</div>
-                    <div className="text-xs text-[var(--muted)] font-sans mt-0.5">Reading Seats</div>
+                    <div className="font-serif text-2xl sm:text-3xl font-normal text-[var(--ruby)] tabular-nums">500</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">Reading Seats</div>
                   </div>
                 </div>
                 <p className="text-[14px] text-[var(--muted)] leading-relaxed mt-4">
@@ -165,7 +165,7 @@ export default function ResearchExcellenceBand() {
                   <Award className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                   <span>Statutory &amp; Accreditation Index</span>
                 </span>
-                <span className="font-mono text-xs font-semibold text-[var(--ruby)]">Cycle 2</span>
+                <span className="font-sans text-xs font-semibold tracking-wide text-[var(--ruby)]">Cycle 2</span>
               </div>
 
               <ul className="divide-y divide-[var(--rule)] text-[14px] mt-1">
@@ -175,7 +175,7 @@ export default function ResearchExcellenceBand() {
                     className="py-3 flex items-center justify-between text-[var(--ink)] hover:text-[var(--ruby)] transition-colors"
                   >
                     <span className="font-medium">NAAC SSR Criteria 1–7 Portfolio</span>
-                    <span className="font-mono text-xs text-[var(--muted)] tabular-nums">48 Metrics →</span>
+                    <span className="font-sans text-xs font-medium text-[var(--muted)] tabular-nums">48 Metrics →</span>
                   </Link>
                 </li>
                 <li>
@@ -184,7 +184,7 @@ export default function ResearchExcellenceBand() {
                     className="py-3 flex items-center justify-between text-[var(--ink)] hover:text-[var(--ruby)] transition-colors"
                   >
                     <span className="font-medium">NBA Tier-1 Accredited Programs</span>
-                    <span className="font-mono text-xs text-[var(--muted)] tabular-nums">5 Branches →</span>
+                    <span className="font-sans text-xs font-medium text-[var(--muted)] tabular-nums">5 Branches →</span>
                   </Link>
                 </li>
                 <li>
@@ -193,7 +193,7 @@ export default function ResearchExcellenceBand() {
                     className="py-3 flex items-center justify-between text-[var(--ink)] hover:text-[var(--ruby)] transition-colors"
                   >
                     <span className="font-medium">Placements, Internships &amp; MoUs</span>
-                    <span className="font-mono text-xs text-[var(--muted)]">Records →</span>
+                    <span className="font-sans text-xs font-medium text-[var(--muted)]">Records →</span>
                   </Link>
                 </li>
                 <li>
@@ -205,7 +205,7 @@ export default function ResearchExcellenceBand() {
                       <FileText className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
                       Mandatory &amp; Statutory Disclosures
                     </span>
-                    <span className="font-mono text-xs text-[var(--muted)]">Vault →</span>
+                    <span className="font-sans text-xs font-medium text-[var(--muted)]">Vault →</span>
                   </Link>
                 </li>
               </ul>

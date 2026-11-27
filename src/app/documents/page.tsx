@@ -64,24 +64,24 @@ export default function DocumentsVaultPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-5 grid grid-cols-3 gap-4 pt-4 lg:pt-0 lg:border-l lg:border-[var(--rule)] lg:pl-6 font-mono tabular-nums">
+          <div className="lg:col-span-5 grid grid-cols-3 gap-4 pt-4 lg:pt-0 lg:border-l lg:border-[var(--rule)] lg:pl-6 font-sans tabular-nums">
             <div>
-              <div className="text-xl font-bold text-[var(--ink)]">
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ink)] tabular-nums">
                 {(categories.syllabus || 382).toLocaleString('en-US')}
               </div>
-              <div className="text-[11px] text-[var(--muted)] font-sans">Syllabi</div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">Syllabi</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--ruby)]">
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--ruby)] tabular-nums">
                 {(categories.academic_calendar || 42).toLocaleString('en-US')}
               </div>
-              <div className="text-[11px] text-[var(--muted)] font-sans">Calendars</div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">Calendars</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-[var(--brand-crimson)]">
+              <div className="font-serif text-2xl sm:text-[1.75rem] font-normal text-[var(--brand-crimson)] tabular-nums">
                 {(categories.exam_timetable || 20).toLocaleString('en-US')}
               </div>
-              <div className="text-[11px] text-[var(--muted)] font-sans">Timetables</div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">Timetables</div>
             </div>
           </div>
         </header>
