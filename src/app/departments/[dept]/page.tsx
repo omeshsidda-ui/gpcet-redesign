@@ -43,12 +43,12 @@ export default async function DepartmentOverviewPage({ params }: DeptOverviewPro
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[var(--surface-raised)] border border-[var(--rule)] rounded-md p-6 sm:p-8">
         <div className="lg:col-span-5 lg:border-r lg:border-[var(--rule)] lg:pr-8">
           <h2 className="font-serif text-2xl font-medium text-[var(--ink)]">Department Vision</h2>
-          <p className="mt-3 text-base leading-relaxed text-[var(--ink)]">{department.vision}</p>
+          <p className="mt-3 text-[15.5px] leading-[1.68] text-[var(--ink)]">{department.vision}</p>
         </div>
 
         <div className="lg:col-span-7">
           <h2 className="font-serif text-2xl font-medium text-[var(--ink)]">Department Mission</h2>
-          <ul className="mt-3 space-y-2.5 text-sm text-[var(--muted)] leading-relaxed list-disc pl-5">
+          <ul className="mt-3 space-y-2.5 text-[15.5px] text-[var(--ink)] leading-[1.68] list-disc pl-5">
             {department.mission.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}

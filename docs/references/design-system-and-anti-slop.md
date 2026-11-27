@@ -58,9 +58,9 @@ Typography creates the authoritative collegiate dignity of GPCET. It pairs a **d
 - Optical grading: High contrast, tight tracking (`-0.025em`), leading `0.95` to `1.05`, sentence case.
 - Font source: Google Fonts (*Newsreader*) or Fontshare (*Erode*).
 
-### 2. Operational UI Sans (*Plus Jakarta Sans* / *Geist*)
+### 2. Operational UI Sans (*Instrument Sans*)
 - Used for: Navigation links, mega-menu groups, department tabs, document table data, button text, body paragraphs.
-- Characteristics: Tall x-height, open apertures, geometric precision. Body copy constrained to max `72ch` measure.
+- Characteristics: Crisp geometric-humanist proportions, open apertures, clean legibility at UI and reading sizes. Body copy constrained to max `68ch`–`72ch` measure in primary `--ink`.
 
 ### 3. Tabular & Regulation Monospace (*JetBrains Mono*)
 - Used for: Regulation codes (`R20`, `R19`), NAAC metric IDs (`3.4.3`, `5.3.3`), course codes (`20A05401`), file sizes (`2.4 MB`), dates (`2026-10-31`), intake numbers (`360`).

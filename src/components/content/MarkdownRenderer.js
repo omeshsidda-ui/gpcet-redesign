@@ -50,17 +50,16 @@ export function normalizeMarkdownTables(markdown) {
   return markdown.replace(/\|\s+\|\s*/g, '|\n| ');
 }
 
-function slugifyHeading(children) {
-  const extractText = (node) => {
-    if (!node) return '';
-    if (typeof node === 'string') return node;
-    if (typeof node === 'number') return String(node);
-    if (Array.isArray(node)) return node.map(extractText).join('');
-    if (node.props?.children) return extractText(node.props.children);
-    return '';
-  };
+function extractHeadingText(node) {
+  if (!node) return '';
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(extractHeadingText).join('');
+  if (node.props?.children) return extractHeadingText(node.props.children);
+  return '';
+}
 
-  const text = extractText(children);
+function slugifyHeading(text) {
   return text
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
@@ -85,37 +84,43 @@ export function MarkdownRenderer({ content, className = '' }) {
               'div',
               {
                 className:
-                  'my-6 w-full overflow-x-auto rounded-md border border-[var(--rule)] bg-white shadow-xs focus:outline-none focus:ring-1 focus:ring-slate-400',
+                  'my-7 w-full overflow-x-auto rounded-md border border-[var(--rule)] bg-[var(--surface-raised)] focus-visible:outline-2 focus-visible:outline-[var(--ruby)]',
                 tabIndex: 0,
                 role: 'region',
                 'aria-label': 'Academic data table',
               },
               React.createElement('table', {
-                className: 'w-full text-left text-sm border-collapse divide-y divide-[var(--rule)]',
+                className: 'w-full text-left text-[14.5px] leading-[1.55] border-collapse border-0',
                 ...props,
               })
             ),
           thead: ({ node, ...props }) =>
             React.createElement('thead', {
-              className: 'bg-[var(--surface)] text-xs font-semibold uppercase tracking-wider text-[var(--muted)]',
+              className:
+                'bg-[var(--surface)] text-[11.5px] font-semibold uppercase tracking-[0.06em] text-[var(--muted)]',
+              ...props,
+            }),
+          tbody: ({ node, ...props }) =>
+            React.createElement('tbody', {
+              className: 'divide-y divide-[var(--rule)] [&_tr:last-child_td]:border-b-0',
               ...props,
             }),
           th: ({ node, ...props }) =>
             React.createElement('th', {
               scope: 'col',
               className:
-                'px-4 py-3 text-left font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--rule)] first:sticky first:left-0 first:z-10 first:bg-[var(--surface)] first:shadow-[1px_0_0_0_var(--rule)]',
+                'px-4 py-3 text-left font-semibold text-[var(--muted)] border-b border-[var(--rule)] first:sticky first:left-0 first:z-10 first:bg-[var(--surface)] first:shadow-[1px_0_0_0_var(--rule)]',
               ...props,
             }),
           td: ({ node, ...props }) =>
             React.createElement('td', {
               className:
-                'px-4 py-3 text-sm text-[var(--ink)] tabular-nums border-b border-[var(--rule)] align-top first:sticky first:left-0 first:z-10 first:bg-white first:shadow-[1px_0_0_0_var(--rule)]',
+                'px-4 py-3.5 text-[14.5px] leading-[1.55] text-[var(--ink)] tabular-nums border-b border-[var(--rule)] align-top first:sticky first:left-0 first:z-10 first:bg-[var(--surface-raised)] first:shadow-[1px_0_0_0_var(--rule)]',
               ...props,
             }),
           tr: ({ node, ...props }) =>
             React.createElement('tr', {
-              className: 'hover:bg-[var(--surface)]/70 transition-colors',
+              className: 'hover:bg-[var(--surface)]/65 transition-colors',
               ...props,
             }),
           a: ({ node, href, children, ...props }) => {
@@ -138,11 +143,11 @@ export function MarkdownRenderer({ content, className = '' }) {
                   target: '_blank',
                   rel: 'noopener noreferrer',
                   className:
-                    'inline-flex items-baseline gap-1 text-red-800 hover:text-red-950 font-medium underline underline-offset-2 decoration-red-300 hover:decoration-red-800 transition-colors',
+                    'inline-flex items-baseline gap-1.5 text-[var(--ruby)] hover:text-[var(--burgundy)] font-medium underline underline-offset-[3px] decoration-[var(--ruby)]/35 hover:decoration-[var(--ruby)] transition-colors',
                   ...props,
                 },
                 React.createElement(FileText, {
-                  className: 'inline-block w-3.5 h-3.5 self-center text-red-700 shrink-0',
+                  className: 'inline-block w-3.5 h-3.5 self-center text-[var(--brand-crimson)] shrink-0',
                   'aria-hidden': 'true',
                 }),
                 React.createElement('span', null, children),
@@ -150,7 +155,7 @@ export function MarkdownRenderer({ content, className = '' }) {
                   'span',
                   {
                     className:
-                      'text-[10px] font-mono uppercase bg-red-50 text-red-800 px-1 py-0.2 rounded border border-red-200 shrink-0',
+                      'text-[10px] font-mono font-semibold tracking-wider uppercase bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-px rounded-sm border border-[var(--rule)] shrink-0',
                   },
                   'PDF'
                 )
@@ -169,7 +174,7 @@ export function MarkdownRenderer({ content, className = '' }) {
                   target: '_blank',
                   rel: 'noopener noreferrer',
                   className:
-                    'inline-flex items-baseline gap-1 text-[var(--ruby)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors',
+                    'inline-flex items-baseline gap-1 text-[var(--ruby)] hover:text-[var(--burgundy)] font-medium underline underline-offset-[3px] decoration-[var(--ruby)]/35 hover:decoration-[var(--ruby)] transition-colors',
                   ...props,
                 },
                 React.createElement('span', null, children),
@@ -185,20 +190,21 @@ export function MarkdownRenderer({ content, className = '' }) {
               {
                 href: safeHref,
                 className:
-                  'text-[var(--ink)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors',
+                  'text-[var(--ruby)] hover:text-[var(--burgundy)] font-medium underline underline-offset-[3px] decoration-[var(--ruby)]/35 hover:decoration-[var(--ruby)] transition-colors',
                 ...props,
               },
               children
             );
           },
           h2: ({ node, children, ...props }) => {
-            const id = slugifyHeading(children);
+            const headingText = extractHeadingText(children);
+            const id = slugifyHeading(headingText);
             return React.createElement(
               'h2',
               {
                 id,
                 className:
-                  'group flex items-center gap-2 font-serif text-3xl font-medium tracking-tight text-[var(--ink)] mt-10 mb-4 scroll-mt-20 border-b border-[var(--rule)] pb-2',
+                  'group flex items-center gap-2.5 font-serif text-[1.75rem] sm:text-[2rem] leading-[1.18] font-medium tracking-[-0.02em] text-[var(--ink)] mt-11 mb-4 first:mt-0 scroll-mt-24 border-b border-[var(--rule)] pb-2.5 text-balance',
                 ...props,
               },
               React.createElement('span', null, children),
@@ -207,9 +213,9 @@ export function MarkdownRenderer({ content, className = '' }) {
                     'a',
                     {
                       href: `#${id}`,
-                      'aria-label': `Link to ${children}`,
+                      'aria-label': `Link to ${headingText}`,
                       className:
-                        'opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity',
+                        'no-underline opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--ruby)] transition-opacity',
                     },
                     React.createElement(Hash, { className: 'w-4 h-4' })
                   )
@@ -217,13 +223,14 @@ export function MarkdownRenderer({ content, className = '' }) {
             );
           },
           h3: ({ node, children, ...props }) => {
-            const id = slugifyHeading(children);
+            const headingText = extractHeadingText(children);
+            const id = slugifyHeading(headingText);
             return React.createElement(
               'h3',
               {
                 id,
                 className:
-                  'group flex items-center gap-2 font-serif text-2xl font-medium tracking-tight text-[var(--ink)] mt-8 mb-3 scroll-mt-20',
+                  'group flex items-center gap-2 font-serif text-[1.375rem] sm:text-[1.5rem] leading-[1.24] font-medium tracking-[-0.015em] text-[var(--ink)] mt-8 mb-3 first:mt-0 scroll-mt-24 text-balance',
                 ...props,
               },
               React.createElement('span', null, children),
@@ -232,9 +239,9 @@ export function MarkdownRenderer({ content, className = '' }) {
                     'a',
                     {
                       href: `#${id}`,
-                      'aria-label': `Link to ${children}`,
+                      'aria-label': `Link to ${headingText}`,
                       className:
-                        'opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity',
+                        'no-underline opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--ruby)] transition-opacity',
                     },
                     React.createElement(Hash, { className: 'w-3.5 h-3.5' })
                   )
@@ -243,25 +250,33 @@ export function MarkdownRenderer({ content, className = '' }) {
           },
           p: ({ node, ...props }) =>
             React.createElement('p', {
-              className: 'text-base leading-relaxed text-[var(--muted)] my-4 max-w-prose',
+              className: 'text-[16px] leading-[1.72] text-[var(--ink)] my-4 max-w-[68ch] text-pretty',
               ...props,
             }),
           ul: ({ node, ...props }) =>
             React.createElement('ul', {
-              className: 'list-disc list-outside pl-6 my-4 space-y-2 text-[var(--muted)]',
+              className:
+                'list-disc list-outside pl-6 my-4 space-y-2 text-[16px] leading-[1.72] text-[var(--ink)] max-w-[68ch] marker:text-[var(--ruby)]/75 [&_ul]:my-2 [&_ol]:my-2',
               ...props,
             }),
           ol: ({ node, ...props }) =>
             React.createElement('ol', {
-              className: 'list-decimal list-outside pl-6 my-4 space-y-2 text-[var(--muted)]',
+              className:
+                'list-decimal list-outside pl-6 my-4 space-y-2 text-[16px] leading-[1.72] text-[var(--ink)] max-w-[68ch] marker:text-[var(--ruby)] marker:font-medium [&_ul]:my-2 [&_ol]:my-2',
               ...props,
             }),
           li: ({ node, ...props }) =>
-            React.createElement('li', { className: 'leading-relaxed', ...props }),
+            React.createElement('li', { className: 'leading-[1.72] pl-1 text-pretty', ...props }),
           blockquote: ({ node, ...props }) =>
             React.createElement('blockquote', {
               className:
-                'border-l-2 border-[var(--brand-crimson)] pl-4 py-1 my-5 italic text-[var(--muted)] bg-[var(--surface)]/70 rounded-r-md',
+                'border-l-2 border-[var(--ruby)] pl-5 pr-4 py-3 my-6 font-serif italic text-[17px] leading-[1.68] text-[var(--ink)] bg-[var(--surface)] rounded-r-sm max-w-[64ch]',
+              ...props,
+            }),
+          pre: ({ node, ...props }) =>
+            React.createElement('pre', {
+              className:
+                'my-6 overflow-x-auto rounded-md border border-[var(--rule)] bg-[var(--surface)] p-4 font-mono text-[13px] leading-relaxed text-[var(--ink)] [&_code]:border-0 [&_code]:bg-transparent [&_code]:p-0 [&_code]:text-inherit',
               ...props,
             }),
           code: ({ node, className, children, ...props }) =>
@@ -269,13 +284,13 @@ export function MarkdownRenderer({ content, className = '' }) {
               'code',
               {
                 className:
-                  'font-mono text-xs bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-0.5 rounded border border-[var(--rule)] tabular-nums',
+                  'font-mono text-[0.84em] bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-0.5 rounded-sm border border-[var(--rule)] tabular-nums',
                 ...props,
               },
               children
             ),
           hr: ({ node, ...props }) =>
-            React.createElement('hr', { className: 'my-8 border-[var(--rule)]', ...props }),
+            React.createElement('hr', { className: 'my-9 border-0 border-t border-[var(--rule)]', ...props }),
         },
       },
       preprocessed

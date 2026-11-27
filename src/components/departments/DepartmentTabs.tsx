@@ -28,7 +28,7 @@ export default function DepartmentTabs({ deptCode, facultyCount }: DepartmentTab
       className="lg:sticky top-0 z-30 bg-[var(--surface)] border-b border-[var(--rule)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-x-auto">
-        <div className="flex items-center gap-1 flex-wrap py-1">
+        <div className="flex items-center gap-6">
           {tabs.map((tab) => {
             const isActive = tab.exact
               ? pathname === tab.href
@@ -38,10 +38,10 @@ export default function DepartmentTabs({ deptCode, facultyCount }: DepartmentTab
                 key={tab.href}
                 href={tab.href}
                 aria-current={isActive ? 'page' : undefined}
-                className={`px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold rounded-sm transition-colors whitespace-nowrap border-b-2 ${
+                className={`py-3.5 text-[13.5px] font-semibold transition-colors whitespace-nowrap border-b-2 ${
                   isActive
-                    ? 'border-[var(--brand-crimson)] text-[var(--ink)] bg-[var(--surface-raised)]'
-                    : 'border-transparent text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface-raised)]/60'
+                    ? 'border-[var(--ruby)] text-[var(--ruby)]'
+                    : 'border-transparent text-[var(--ink)]/70 hover:text-[var(--ink)] hover:border-[var(--rule)]'
                 }`}
               >
                 {tab.label}

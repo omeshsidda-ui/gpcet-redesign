@@ -10,8 +10,6 @@ import {
   GraduationCap,
   Users,
   Award,
-  ArrowRight,
-  ExternalLink,
   CornerDownLeft,
 } from 'lucide-react';
 import MiniSearch from 'minisearch';
@@ -242,7 +240,6 @@ export default function GlobalSearchModal() {
     miniSearch.addAll(STATIC_CATALOG);
     miniSearchRef.current = miniSearch;
 
-    // Lazily load faculty and additional documents when idle
     const loadExtraData = async () => {
       try {
         const depts = ['cse', 'ai', 'ece', 'eee', 'me', 'civil', 'hs', 'mba'];
@@ -252,7 +249,7 @@ export default function GlobalSearchModal() {
           try {
             const data = await import(`../../data/faculty/${dept}.json`);
             if (Array.isArray(data.default)) {
-              data.default.forEach((f: any, idx: number) => {
+              data.default.forEach((f: { name?: string; designation?: string; department?: string; qualification?: string }, idx: number) => {
                 const slug = (f.name || '')
                   .toLowerCase()
                   .replace(/dr\.|mr\.|mrs\.|ms\.|prof\./g, '')
@@ -284,10 +281,12 @@ export default function GlobalSearchModal() {
     };
 
     if (typeof window !== 'undefined') {
-      const id = window.requestIdleCallback ? window.requestIdleCallback(loadExtraData) : setTimeout(loadExtraData, 500);
-      return () => {
-        if (window.cancelIdleCallback) window.cancelIdleCallback(id as number);
-      };
+      if (window.requestIdleCallback) {
+        const idleId = window.requestIdleCallback(loadExtraData);
+        return () => window.cancelIdleCallback?.(idleId);
+      }
+      const timeoutId = setTimeout(loadExtraData, 500);
+      return () => clearTimeout(timeoutId);
     }
   }, []);
 
@@ -324,13 +323,17 @@ export default function GlobalSearchModal() {
       dialog.current?.showModal();
       inputRef.current?.focus();
       return () => {
-        if (trigger instanceof HTMLElement && trigger.isConnected) trigger.focus({ preventScroll: true });
+        if (trigger instanceof HTMLElement && trigger.isConnected) {
+          trigger.focus({ preventScroll: true });
+        }
       };
     }
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) document.getElementById(`search-result-${selectedIndex}`)?.scrollIntoView({ block: 'nearest' });
+    if (isOpen) {
+      document.getElementById(`search-result-${selectedIndex}`)?.scrollIntoView({ block: 'nearest' });
+    }
   }, [isOpen, selectedIndex]);
 
   // Handle Query Changes with MiniSearch
@@ -381,11 +384,11 @@ export default function GlobalSearchModal() {
       case 'Departments':
         return <GraduationCap className="w-4 h-4 text-[var(--brand-crimson)]" aria-hidden="true" />;
       case 'Documents':
-        return <FileText className="w-4 h-4 text-slate-600" aria-hidden="true" />;
+        return <FileText className="w-4 h-4 text-[var(--ink)]" aria-hidden="true" />;
       case 'Faculty':
-        return <Users className="w-4 h-4 text-emerald-700" aria-hidden="true" />;
+        return <Users className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />;
       case 'Accreditation':
-        return <Award className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />;
+        return <Award className="w-4 h-4 text-[var(--distinction-ink)]" aria-hidden="true" />;
       default:
         return <FileText className="w-4 h-4 text-[var(--muted)]" aria-hidden="true" />;
     }
@@ -400,17 +403,17 @@ export default function GlobalSearchModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Institutional Search Command Palette"
-      className="fixed inset-0 m-0 max-w-none max-h-none w-full h-dvh z-50 bg-transparent backdrop:bg-black/60 flex items-start justify-center pt-12 sm:pt-20 p-4 animate-in fade-in duration-120"
+      className="fixed inset-0 m-0 max-w-none max-h-none w-full h-dvh z-50 bg-transparent backdrop:bg-[#181112]/60 flex items-start justify-center pt-10 sm:pt-20 p-4"
       onClick={() => setIsOpen(false)}
       onKeyDown={handleModalKeyDown}
     >
       <div
-        className="w-full max-w-2xl bg-[var(--surface-raised)] border border-[var(--rule)] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-120"
+        className="w-full max-w-2xl bg-[var(--surface-raised)] border border-[var(--ink)]/15 rounded-sm shadow-2xl overflow-hidden flex flex-col max-h-[85vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-[var(--rule)] bg-[var(--surface)] gap-3">
-          <Search className="w-5 h-5 text-[var(--muted)] flex-shrink-0" aria-hidden="true" />
+        <div className="flex items-center px-4 sm:px-5 py-3.5 border-b-2 border-[var(--rule)] focus-within:border-[var(--ruby)] bg-[var(--bg)] gap-3 transition-colors duration-120">
+          <Search className="w-4 h-4 text-[var(--muted)] shrink-0" aria-hidden="true" />
           <input
             ref={inputRef}
             type="text"
@@ -423,23 +426,43 @@ export default function GlobalSearchModal() {
             aria-activedescendant={results.length ? `search-result-${selectedIndex}` : undefined}
             aria-autocomplete="list"
             aria-controls="search-results-list"
-            className="flex-1 bg-transparent border-none text-sm sm:text-base text-[var(--ink)] placeholder:text-[var(--muted)] focus:outline-none focus:ring-0"
+            style={{ outline: 'none', boxShadow: 'none' }}
+            className="flex-1 bg-transparent border-none text-[15px] leading-normal text-[var(--ink)] placeholder:text-[var(--muted)]"
           />
-          {query ? (
+          {query && (
             <button
               type="button"
-              onClick={() => handleQueryChange('')}
-              className="text-[var(--muted)] hover:text-[var(--ink)] p-1 rounded"
+              onClick={() => {
+                handleQueryChange('');
+                inputRef.current?.focus();
+              }}
+              className="text-[12px] font-medium text-[var(--muted)] hover:text-[var(--ink)] px-2 py-1 rounded-sm hover:bg-[var(--surface)] transition-colors duration-120"
               aria-label="Clear search input"
             >
-              <X className="w-4 h-4" />
+              Clear
             </button>
-          ) : (
-            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono rounded border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--muted)]">
-              ESC
-            </kbd>
           )}
-          <button type="button" onClick={() => setIsOpen(false)} aria-label="Close search" className="p-2 text-[var(--ruby)] hover:bg-white"><X size={18} /></button>
+          <span className="h-4 w-px bg-[var(--rule)]" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close search"
+            className="p-1.5 rounded-sm text-[var(--muted)] hover:text-[var(--ruby)] hover:bg-[var(--surface)] transition-colors duration-120"
+          >
+            <X className="w-4 h-4" aria-hidden="true" />
+          </button>
+        </div>
+
+        {/* Context Header Strip */}
+        <div className="px-4 sm:px-5 py-2 bg-[var(--surface)] border-b border-[var(--rule)] flex items-center justify-between text-[12px] text-[var(--muted)]">
+          <span>
+            {query.trim()
+              ? `${results.length} matching ${results.length === 1 ? 'record' : 'records'}`
+              : 'Quick Institutional Index'}
+          </span>
+          <span className="hidden sm:inline font-mono text-[11px] tabular-nums">
+            EAPCET: PULE
+          </span>
         </div>
 
         {/* Results Container */}
@@ -448,12 +471,12 @@ export default function GlobalSearchModal() {
           id="search-results-list"
           aria-label="Search results"
           role="listbox"
-          className="overflow-y-auto p-2 divide-y divide-[var(--rule)] flex-1 max-h-[55vh]"
+          className="overflow-y-auto divide-y divide-[var(--rule)] flex-1 max-h-[55vh]"
         >
           {results.length === 0 ? (
-            <div className="py-12 px-6 text-center text-sm text-[var(--muted)]">
-              <p className="font-medium text-[var(--ink)]">No cataloged matches found</p>
-              <p className="mt-1 text-xs">
+            <div className="py-12 px-6 text-center text-[14px] text-[var(--muted)]">
+              <p className="font-semibold text-[var(--ink)]">No cataloged matches found</p>
+              <p className="mt-1.5 text-[13px] max-w-md mx-auto leading-relaxed">
                 Try searching by regulation code (R20, R19), course name, faculty name, or department acronym.
               </p>
             </div>
@@ -468,35 +491,37 @@ export default function GlobalSearchModal() {
                   aria-selected={isSelected}
                   onClick={() => navigateTo(doc.href)}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-start justify-between gap-3 p-3 rounded-md cursor-pointer transition-colors ${
-                    isSelected
-                      ? 'bg-[var(--surface)] border-l-2 border-[var(--brand-crimson)]'
-                      : 'hover:bg-[var(--surface)]'
+                  className={`flex items-start justify-between gap-4 px-4 sm:px-5 py-3.5 cursor-pointer transition-colors duration-120 ${
+                    isSelected ? 'bg-[var(--surface)]' : 'hover:bg-[var(--surface)]/60'
                   }`}
                 >
                   <div className="flex items-start gap-3 min-w-0">
-                    <div className="mt-0.5 p-1 rounded bg-[var(--surface-raised)] border border-[var(--rule)] flex-shrink-0">
+                    <div className="mt-0.5 p-1.5 rounded-sm bg-[var(--bg)] border border-[var(--rule)] shrink-0">
                       {getCategoryIcon(doc.category)}
                     </div>
                     <div className="min-w-0 flex flex-col">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-sm font-semibold text-[var(--ink)] truncate">
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <span
+                          className={`text-[14.5px] font-semibold leading-snug ${
+                            isSelected ? 'text-[var(--ruby)]' : 'text-[var(--ink)]'
+                          }`}
+                        >
                           {doc.title}
                         </span>
                         {doc.badge && (
-                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[var(--surface-raised)] border border-[var(--rule)] text-[var(--muted)] font-medium">
+                          <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm bg-[var(--bg)] border border-[var(--rule)] text-[var(--muted)] font-medium">
                             {doc.badge}
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-[var(--muted)] line-clamp-1 mt-0.5">
+                      <p className="text-[12.5px] text-[var(--muted)] leading-relaxed mt-0.5">
                         {doc.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 flex-shrink-0 self-center">
-                    <span className="text-[10px] uppercase font-semibold tracking-wider text-[var(--muted)]">
+                  <div className="flex items-center gap-2 shrink-0 self-center">
+                    <span className="text-[11px] font-medium text-[var(--muted)]">
                       {doc.category}
                     </span>
                     {isSelected && (
@@ -510,24 +535,24 @@ export default function GlobalSearchModal() {
         </div>
 
         {/* Accessible Keyboard Hint Footer */}
-        <div className="px-4 py-2.5 bg-[var(--surface)] border-t border-[var(--rule)] flex items-center justify-between text-xs text-[var(--muted)]">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1">
-              <kbd className="font-mono text-[10px] px-1 bg-[var(--surface-raised)] border border-[var(--rule)] rounded">↑</kbd>
-              <kbd className="font-mono text-[10px] px-1 bg-[var(--surface-raised)] border border-[var(--rule)] rounded">↓</kbd>
-              <span>to navigate</span>
+        <div className="px-4 sm:px-5 py-2.5 bg-[var(--surface)] border-t border-[var(--rule)] flex items-center justify-between gap-4 text-[12px] text-[var(--muted)]">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1.5">
+              <kbd className="font-mono text-[10.5px] px-1.5 py-0.5 bg-[var(--surface-raised)] border border-[var(--ink)]/12 rounded-sm">↑</kbd>
+              <kbd className="font-mono text-[10.5px] px-1.5 py-0.5 bg-[var(--surface-raised)] border border-[var(--ink)]/12 rounded-sm">↓</kbd>
+              <span>navigate</span>
             </span>
-            <span className="flex items-center gap-1">
-              <kbd className="font-mono text-[10px] px-1.5 bg-[var(--surface-raised)] border border-[var(--rule)] rounded">↵</kbd>
-              <span>to select</span>
+            <span className="flex items-center gap-1.5">
+              <kbd className="font-mono text-[10.5px] px-1.5 py-0.5 bg-[var(--surface-raised)] border border-[var(--ink)]/12 rounded-sm">↵</kbd>
+              <span>open</span>
             </span>
-            <span className="hidden sm:flex items-center gap-1">
-              <kbd className="font-mono text-[10px] px-1 bg-[var(--surface-raised)] border border-[var(--rule)] rounded">esc</kbd>
-              <span>to close</span>
+            <span className="hidden sm:flex items-center gap-1.5">
+              <kbd className="font-mono text-[10.5px] px-1.5 py-0.5 bg-[var(--surface-raised)] border border-[var(--ink)]/12 rounded-sm">esc</kbd>
+              <span>close</span>
             </span>
           </div>
 
-          <div className="font-mono text-[11px] text-[var(--ink)] font-medium">
+          <div className="font-mono text-[11.5px] text-[var(--ink)] font-medium tabular-nums">
             GPCET Vault · 5,822 Items
           </div>
         </div>

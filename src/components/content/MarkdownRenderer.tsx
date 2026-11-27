@@ -56,24 +56,25 @@ export function normalizeMarkdownTables(markdown: string): string {
     return '';
   }
   // Convert compressed pipe-table row separators into standard markdown newlines
-  let cleaned = markdown.replace(/\|\s+\|\s*/g, '|\n| ');
-  return cleaned;
+  return markdown.replace(/\|\s+\|\s*/g, '|\n| ');
+}
+
+function extractHeadingText(node: unknown): string {
+  if (!node) return '';
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(extractHeadingText).join('');
+  if (typeof node === 'object' && node !== null && 'props' in node) {
+    const props = (node as { props?: { children?: unknown } }).props;
+    if (props?.children) return extractHeadingText(props.children);
+  }
+  return '';
 }
 
 /**
  * Helper to slugify heading text into a valid HTML id anchor.
  */
-function slugifyHeading(children: React.ReactNode): string {
-  const extractText = (node: any): string => {
-    if (!node) return '';
-    if (typeof node === 'string') return node;
-    if (typeof node === 'number') return String(node);
-    if (Array.isArray(node)) return node.map(extractText).join('');
-    if (node.props?.children) return extractText(node.props.children);
-    return '';
-  };
-
-  const text = extractText(children);
+function slugifyHeading(text: string): string {
   return text
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
@@ -102,38 +103,41 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
         components={{
           table: ({ node, ...props }) => (
             <div
-              className="my-6 w-full overflow-x-auto rounded-md border border-[var(--rule)] bg-white shadow-xs focus:outline-none focus:ring-1 focus:ring-slate-400"
+              className="my-7 w-full overflow-x-auto rounded-md border border-[var(--rule)] bg-[var(--surface-raised)] focus-visible:outline-2 focus-visible:outline-[var(--ruby)]"
               tabIndex={0}
               role="region"
               aria-label="Academic data table"
             >
               <table
-                className="w-full text-left text-sm border-collapse divide-y divide-[var(--rule)]"
+                className="w-full text-left text-[14.5px] leading-[1.55] border-collapse border-0"
                 {...props}
               />
             </div>
           ),
           thead: ({ node, ...props }) => (
             <thead
-              className="bg-[var(--surface)] text-xs font-semibold uppercase tracking-wider text-[var(--muted)]"
+              className="bg-[var(--surface)] text-[11.5px] font-semibold uppercase tracking-[0.06em] text-[var(--muted)]"
               {...props}
             />
+          ),
+          tbody: ({ node, ...props }) => (
+            <tbody className="divide-y divide-[var(--rule)] [&_tr:last-child_td]:border-b-0" {...props} />
           ),
           th: ({ node, ...props }) => (
             <th
               scope="col"
-              className="px-4 py-3 text-left font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--rule)] first:sticky first:left-0 first:z-10 first:bg-[var(--surface)] first:shadow-[1px_0_0_0_var(--rule)]"
+              className="px-4 py-3 text-left font-semibold text-[var(--muted)] border-b border-[var(--rule)] first:sticky first:left-0 first:z-10 first:bg-[var(--surface)] first:shadow-[1px_0_0_0_var(--rule)]"
               {...props}
             />
           ),
           td: ({ node, ...props }) => (
             <td
-              className="px-4 py-3 text-sm text-[var(--ink)] tabular-nums border-b border-[var(--rule)] align-top first:sticky first:left-0 first:z-10 first:bg-white first:shadow-[1px_0_0_0_var(--rule)]"
+              className="px-4 py-3.5 text-[14.5px] leading-[1.55] text-[var(--ink)] tabular-nums border-b border-[var(--rule)] align-top first:sticky first:left-0 first:z-10 first:bg-[var(--surface-raised)] first:shadow-[1px_0_0_0_var(--rule)]"
               {...props}
             />
           ),
           tr: ({ node, ...props }) => (
-            <tr className="hover:bg-[var(--surface)]/70 transition-colors" {...props} />
+            <tr className="hover:bg-[var(--surface)]/65 transition-colors" {...props} />
           ),
           a: ({ node, href, children, ...props }) => {
             let safeHref = href || '';
@@ -154,12 +158,12 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
                   href={safeHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-baseline gap-1 text-red-800 hover:text-red-950 font-medium underline underline-offset-2 decoration-red-300 hover:decoration-red-800 transition-colors"
+                  className="inline-flex items-baseline gap-1.5 text-[var(--ruby)] hover:text-[var(--burgundy)] font-medium underline underline-offset-[3px] decoration-[var(--ruby)]/35 hover:decoration-[var(--ruby)] transition-colors"
                   {...props}
                 >
-                  <FileText className="inline-block w-3.5 h-3.5 self-center text-red-700 shrink-0" aria-hidden="true" />
+                  <FileText className="inline-block w-3.5 h-3.5 self-center text-[var(--brand-crimson)] shrink-0" aria-hidden="true" />
                   <span>{children}</span>
-                  <span className="text-[10px] font-mono uppercase bg-red-50 text-red-800 px-1 py-0.2 rounded border border-red-200 shrink-0">
+                  <span className="text-[10px] font-mono font-semibold tracking-wider uppercase bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-px rounded-sm border border-[var(--rule)] shrink-0">
                     PDF
                   </span>
                 </a>
@@ -176,7 +180,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
                   aria-label={imageLabel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-baseline gap-1 text-[var(--ruby)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
+                  className="inline-flex items-baseline gap-1 text-[var(--ruby)] hover:text-[var(--burgundy)] font-medium underline underline-offset-[3px] decoration-[var(--ruby)]/35 hover:decoration-[var(--ruby)] transition-colors"
                   {...props}
                 >
                   <span>{children}</span>
@@ -188,7 +192,7 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             return (
               <a
                 href={safeHref}
-                className="text-[var(--ink)] hover:text-[var(--ruby)] font-medium underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
+                className="text-[var(--ruby)] hover:text-[var(--burgundy)] font-medium underline underline-offset-[3px] decoration-[var(--ruby)]/35 hover:decoration-[var(--ruby)] transition-colors"
                 {...props}
               >
                 {children}
@@ -196,19 +200,20 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             );
           },
           h2: ({ node, children, ...props }) => {
-            const id = slugifyHeading(children);
+            const headingText = extractHeadingText(children);
+            const id = slugifyHeading(headingText);
             return (
               <h2
                 id={id}
-                className="group flex items-center gap-2 font-serif text-3xl font-medium tracking-tight text-[var(--ink)] mt-10 mb-4 scroll-mt-20 border-b border-[var(--rule)] pb-2"
+                className="group flex items-center gap-2.5 font-serif text-[1.75rem] sm:text-[2rem] leading-[1.18] font-medium tracking-[-0.02em] text-[var(--ink)] mt-11 mb-4 first:mt-0 scroll-mt-24 border-b border-[var(--rule)] pb-2.5 text-balance"
                 {...props}
               >
                 <span>{children}</span>
                 {id && (
                   <a
                     href={`#${id}`}
-                    aria-label={`Link to ${children}`}
-                    className="opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity"
+                    aria-label={`Link to ${headingText}`}
+                    className="no-underline opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--ruby)] transition-opacity"
                   >
                     <Hash className="w-4 h-4" />
                   </a>
@@ -217,19 +222,20 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             );
           },
           h3: ({ node, children, ...props }) => {
-            const id = slugifyHeading(children);
+            const headingText = extractHeadingText(children);
+            const id = slugifyHeading(headingText);
             return (
               <h3
                 id={id}
-                className="group flex items-center gap-2 font-serif text-2xl font-medium tracking-tight text-[var(--ink)] mt-8 mb-3 scroll-mt-20"
+                className="group flex items-center gap-2 font-serif text-[1.375rem] sm:text-[1.5rem] leading-[1.24] font-medium tracking-[-0.015em] text-[var(--ink)] mt-8 mb-3 first:mt-0 scroll-mt-24 text-balance"
                 {...props}
               >
                 <span>{children}</span>
                 {id && (
                   <a
                     href={`#${id}`}
-                    aria-label={`Link to ${children}`}
-                    className="opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--muted)] transition-opacity"
+                    aria-label={`Link to ${headingText}`}
+                    className="no-underline opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] hover:text-[var(--ruby)] transition-opacity"
                   >
                     <Hash className="w-3.5 h-3.5" />
                   </a>
@@ -238,33 +244,45 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
             );
           },
           p: ({ node, ...props }) => (
-            <p className="text-base leading-relaxed text-[var(--muted)] my-4 max-w-prose" {...props} />
+            <p className="text-[16px] leading-[1.72] text-[var(--ink)] my-4 max-w-[68ch] text-pretty" {...props} />
           ),
           ul: ({ node, ...props }) => (
-            <ul className="list-disc list-outside pl-6 my-4 space-y-2 text-[var(--muted)]" {...props} />
+            <ul
+              className="list-disc list-outside pl-6 my-4 space-y-2 text-[16px] leading-[1.72] text-[var(--ink)] max-w-[68ch] marker:text-[var(--ruby)]/75 [&_ul]:my-2 [&_ol]:my-2"
+              {...props}
+            />
           ),
           ol: ({ node, ...props }) => (
-            <ol className="list-decimal list-outside pl-6 my-4 space-y-2 text-[var(--muted)]" {...props} />
+            <ol
+              className="list-decimal list-outside pl-6 my-4 space-y-2 text-[16px] leading-[1.72] text-[var(--ink)] max-w-[68ch] marker:text-[var(--ruby)] marker:font-medium [&_ul]:my-2 [&_ol]:my-2"
+              {...props}
+            />
           ),
           li: ({ node, ...props }) => (
-            <li className="leading-relaxed" {...props} />
+            <li className="leading-[1.72] pl-1 text-pretty" {...props} />
           ),
           blockquote: ({ node, ...props }) => (
             <blockquote
-              className="border-l-2 border-[var(--brand-crimson)] pl-4 py-1 my-5 italic text-[var(--muted)] bg-[var(--surface)]/70 rounded-r-md"
+              className="border-l-2 border-[var(--ruby)] pl-5 pr-4 py-3 my-6 font-serif italic text-[17px] leading-[1.68] text-[var(--ink)] bg-[var(--surface)] rounded-r-sm max-w-[64ch]"
+              {...props}
+            />
+          ),
+          pre: ({ node, ...props }) => (
+            <pre
+              className="my-6 overflow-x-auto rounded-md border border-[var(--rule)] bg-[var(--surface)] p-4 font-mono text-[13px] leading-relaxed text-[var(--ink)] [&_code]:border-0 [&_code]:bg-transparent [&_code]:p-0 [&_code]:text-inherit"
               {...props}
             />
           ),
           code: ({ node, className, children, ...props }) => (
             <code
-              className="font-mono text-xs bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-0.5 rounded border border-[var(--rule)] tabular-nums"
+              className="font-mono text-[0.84em] bg-[var(--surface)] text-[var(--ruby)] px-1.5 py-0.5 rounded-sm border border-[var(--rule)] tabular-nums"
               {...props}
             >
               {children}
             </code>
           ),
           hr: ({ node, ...props }) => (
-            <hr className="my-8 border-[var(--rule)]" {...props} />
+            <hr className="my-9 border-0 border-t border-[var(--rule)]" {...props} />
           ),
         }}
       >

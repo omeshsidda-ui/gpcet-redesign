@@ -54,25 +54,25 @@ export default function LeadershipDiscourse() {
   return (
     <section
       aria-labelledby="leadership-discourse-heading"
-      className="bg-[var(--surface)] border-b border-[var(--rule)] py-14 sm:py-16"
+      className="bg-[var(--surface)] border-b border-[var(--rule)] py-16 sm:py-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 border-b border-[var(--rule)] items-end">
           <div className="lg:col-span-5">
             <h2
               id="leadership-discourse-heading"
-              className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-[var(--ink)]"
+              className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[var(--ink)]"
             >
               Leadership &amp; Institutional Vision
             </h2>
           </div>
           <div className="lg:col-span-7 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-sm text-[var(--muted)] max-w-[60ch]">
+            <p className="text-[15px] text-[var(--muted)] leading-relaxed max-w-[60ch]">
               Stewardship from the Ravindra Educational Society Governing Body and Academic Council.
             </p>
             <Link
               href="/administration"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] transition-colors"
+              className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--ruby)] hover:text-[var(--brand-crimson)] underline underline-offset-4 decoration-[var(--ruby)]/30 hover:decoration-[var(--brand-crimson)] transition-colors"
             >
               <span>Governing Body &amp; Administration</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -81,32 +81,34 @@ export default function LeadershipDiscourse() {
         </div>
 
         {/* 2x2 Architectural Grid separated by hairlines */}
-        <div className="mt-8 grid lg:grid-cols-2 gap-x-12">
+        <div className="mt-10 grid lg:grid-cols-2 gap-x-14 gap-y-2">
           {LEADERSHIP_PROFILES.map((leader) => (
             <article
               key={leader.name}
-              className="py-7 flex flex-col justify-between gap-5 border-t border-[var(--ruby)]"
+              className="py-8 flex flex-col justify-between gap-6 border-t-2 border-[var(--ruby)]"
             >
-              <blockquote className="font-serif text-xl sm:text-2xl leading-relaxed text-[var(--ink)]">
+              <blockquote className="font-serif italic text-[1.25rem] sm:text-[1.45rem] font-normal leading-[1.48] text-[var(--ink)]">
                 &ldquo;{leader.quote}&rdquo;
               </blockquote>
 
-              <div className="flex items-center justify-between gap-4 pt-4 border-t border-[var(--rule)]">
-                <div className="flex items-center gap-3.5">
+              <div className="flex items-center justify-between gap-4 pt-5 border-t border-[var(--rule)]">
+                <div className="flex items-center gap-4">
                   <img
                     src={leader.portraitSrc}
                     alt={`${leader.name}, ${leader.role}`}
                     width={64}
                     height={80}
-                    className="w-16 h-20 object-cover object-top border border-[var(--rule)] shrink-0 bg-[var(--surface)]"
+                    className="w-16 h-20 object-cover object-top border border-[var(--ink)]/20 p-0.5 bg-[var(--surface-raised)] rounded-sm shrink-0"
                     loading="lazy"
                   />
                   <div>
-                    <div className="text-sm font-bold text-[var(--ink)]">{leader.name}</div>
-                    <div className="text-xs font-semibold text-[var(--brand-crimson)]">
+                    <div className="font-serif text-lg font-medium text-[var(--ink)] leading-snug">
+                      {leader.name}
+                    </div>
+                    <div className="text-[13px] font-semibold text-[var(--ruby)] mt-0.5">
                       {leader.role}
                     </div>
-                    <div className="text-[11px] text-[var(--muted)] mt-0.5">
+                    <div className="text-[13px] text-[var(--muted)] mt-0.5 leading-snug">
                       {leader.credentials}
                     </div>
                   </div>
@@ -115,7 +117,7 @@ export default function LeadershipDiscourse() {
                 <Link
                   href={leader.profileHref}
                   aria-label={`View ${leader.name} institutional section`}
-                  className="p-2 rounded border border-[var(--rule)] text-[var(--ruby)] hover:bg-[var(--surface)] transition-colors shrink-0"
+                  className="p-2.5 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] text-[var(--ruby)] hover:border-[var(--ruby)] hover:bg-[var(--bg)] transition-colors shrink-0"
                 >
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>

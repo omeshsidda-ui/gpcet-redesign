@@ -99,7 +99,7 @@ test('InstitutionalFooter.tsx contains statutory seals and RTI disclosures', () 
 test('layout.tsx configures Google Fonts, skip-to-content, and shell components', () => {
   const code = fs.readFileSync(path.join(root, 'src', 'app', 'layout.tsx'), 'utf8');
   assert.ok(code.includes('Newsreader'), 'Loads Newsreader serif font');
-  assert.ok(code.includes('Plus_Jakarta_Sans'), 'Loads Plus Jakarta Sans font');
+  assert.ok(code.includes('Instrument_Sans'), 'Loads Instrument Sans font');
   assert.ok(code.includes('JetBrains_Mono'), 'Loads JetBrains Mono font');
   assert.ok(code.includes('skip-to-content'), 'Includes skip-to-content accessibility link');
   assert.ok(code.includes('<TopInstitutionalBar />'), 'Mounts TopInstitutionalBar');

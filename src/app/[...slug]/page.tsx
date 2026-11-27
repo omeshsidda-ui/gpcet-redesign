@@ -102,7 +102,7 @@ export default async function CatchAllContentPage({ params }: PageProps) {
   return (
     <article className="space-y-8">
       {/* Hierarchical Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-[var(--muted)]">
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[13px] text-[var(--muted)]">
         {breadcrumbs.map((crumb, idx) => {
           const isLast = idx === breadcrumbs.length - 1;
           return (
@@ -115,7 +115,7 @@ export default async function CatchAllContentPage({ params }: PageProps) {
               ) : (
                 <Link
                   href={crumb.href}
-                  className="hover:text-[var(--ink)] underline underline-offset-2 decoration-slate-300 hover:decoration-slate-800 transition-colors"
+                  className="hover:text-[var(--ink)] underline underline-offset-4 decoration-[var(--rule)] hover:decoration-[var(--ink)] transition-colors"
                 >
                   {crumb.label}
                 </Link>
@@ -126,22 +126,22 @@ export default async function CatchAllContentPage({ params }: PageProps) {
       </nav>
 
       {/* Institutional Document Header */}
-      <header className="section-masthead border-b border-[var(--rule)] pb-6">
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-semibold bg-[var(--surface)] text-[var(--ruby)] border border-[var(--rule)] uppercase tracking-wider font-mono">
+      <header className="section-masthead border-b border-[var(--rule)] pb-7">
+        <div className="flex flex-wrap items-center gap-3 mb-3.5">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-sm text-xs font-semibold bg-[var(--surface)] text-[var(--ruby)] border border-[var(--rule)] font-mono">
             {frontmatter.section}
           </span>
-          <span className="inline-flex items-center gap-1 text-[11px] text-[var(--muted)] font-mono">
-            <ShieldCheck className="w-3 h-3 text-emerald-600" />
-            Autonomous Verified
+          <span className="inline-flex items-center gap-1.5 text-xs text-[var(--muted)] font-mono">
+            <ShieldCheck className="w-3.5 h-3.5 text-[var(--distinction-ink)]" aria-hidden="true" />
+            <span>Autonomous Verified</span>
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-serif font-medium tracking-tight text-[var(--ink)] mb-4">
+        <h1 className="font-serif font-normal tracking-tight text-[var(--ink)] mb-4">
           {frontmatter.title}
         </h1>
 
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[var(--muted)]">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-[var(--muted)] tabular-nums">
           {formattedDate && (
             <div className="inline-flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-[var(--muted)]" aria-hidden="true" />
@@ -158,7 +158,7 @@ export default async function CatchAllContentPage({ params }: PageProps) {
 
           {frontmatter.pdfs_count > 0 && (
             <div className="inline-flex items-center gap-1.5 text-[var(--muted)] font-medium">
-              <FileText className="w-3.5 h-3.5 text-red-600" aria-hidden="true" />
+              <FileText className="w-3.5 h-3.5 text-[var(--ruby)]" aria-hidden="true" />
               <span>{frontmatter.pdfs_count} Verified PDF{frontmatter.pdfs_count > 1 ? 's' : ''}</span>
             </div>
           )}
@@ -184,13 +184,13 @@ export default async function CatchAllContentPage({ params }: PageProps) {
             aria-label="Table of contents"
             className="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24 space-y-4"
           >
-            <div className="rounded-lg border border-[var(--rule)] bg-white p-5 shadow-xs">
-              <div className="flex items-center gap-1.5 pb-3 border-b border-[var(--rule)] text-xs font-bold uppercase tracking-wider text-[var(--ink)]">
-                <Compass className="w-4 h-4 text-[var(--muted)]" aria-hidden="true" />
+            <div className="rounded-sm border border-[var(--rule)] border-t-2 border-t-[var(--ruby)] bg-[var(--surface-raised)] p-5">
+              <div className="flex items-center gap-2 pb-3 border-b border-[var(--rule)] text-[13px] font-semibold text-[var(--ink)]">
+                <Compass className="w-4 h-4 text-[var(--ruby)]" aria-hidden="true" />
                 <span>On This Page</span>
               </div>
 
-              <ul className="mt-3 space-y-2 text-xs">
+              <ul className="mt-3.5 space-y-2.5 text-[13px] leading-snug">
                 {toc.map((item) => (
                   <li
                     key={item.id}
@@ -198,10 +198,10 @@ export default async function CatchAllContentPage({ params }: PageProps) {
                   >
                     <a
                       href={`#${item.id}`}
-                      className="group flex items-center justify-between text-[var(--muted)] hover:text-[var(--ruby)] font-medium transition-colors"
+                      className="group flex items-center justify-between gap-2 text-[var(--muted)] hover:text-[var(--ruby)] font-medium transition-colors"
                     >
                       <span className="truncate">{item.text}</span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--muted)] shrink-0 transition-opacity" />
+                      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 focus-visible:opacity-100 group-hover:opacity-100 text-[var(--ruby)] shrink-0 transition-opacity" />
                     </a>
                   </li>
                 ))}

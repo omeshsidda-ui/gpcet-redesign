@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Newsreader, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
+import { Newsreader, Instrument_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import TopInstitutionalBar from '@/components/global/TopInstitutionalBar';
 import InstitutionalNavbar from '@/components/global/InstitutionalNavbar';
@@ -13,11 +13,11 @@ const newsreader = Newsreader({
   style: ['normal', 'italic'],
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
-  variable: '--font-plus-jakarta-sans',
+  variable: '--font-instrument-sans',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -65,9 +65,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
+      className={`${newsreader.variable} ${instrumentSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased font-sans flex flex-col selection:bg-[var(--ruby)] selection:text-white">
+      <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased font-sans text-[15.5px] sm:text-base leading-relaxed flex flex-col selection:bg-[var(--ruby)] selection:text-white">
         {/* Accessible Skip-to-content target */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content

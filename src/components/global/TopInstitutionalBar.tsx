@@ -1,105 +1,122 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Award, ShieldCheck, Check, Copy, ExternalLink } from 'lucide-react';
+import { Award, ShieldCheck, Check, Copy } from 'lucide-react';
 
 export default function TopInstitutionalBar() {
   const [copied, setCopied] = useState(false);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText('PULE');
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    };
+  }, []);
+
+  const handleCopyCode = async () => {
+    try {
+      await navigator.clipboard?.writeText('PULE');
+    } catch {
+      // Clipboard API may be unavailable in restricted contexts; visual confirmation still updates.
+    }
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <aside
       aria-label="Institutional credentials and quick student portals"
-      className="bg-[var(--ruby)] text-stone-100 border-b border-white/10 text-xs py-1.5 px-4 sm:px-6 relative z-30 transition-colors"
+      className="bg-[#181112] text-stone-200 border-b border-white/10 text-xs py-1.5 px-4 sm:px-6 relative z-30"
     >
-      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row xl:items-center xl:justify-between gap-2">
-        {/* Left: Civic Credentials & Autonomous Recognition */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] sm:text-xs">
-          <span className="inline-flex items-center font-semibold text-white tracking-wider">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1.5 lg:gap-3">
+        {/* Left: Statutory Credentials & Autonomous Recognition */}
+        <div className="flex flex-wrap lg:flex-nowrap items-center gap-x-2 xl:gap-x-2.5 gap-y-1 text-[11.5px] sm:text-xs leading-tight min-w-0">
+          <span className="font-semibold text-white tracking-wider whitespace-nowrap">
             UGC AUTONOMOUS
           </span>
 
-          <span className="text-white/40 hidden sm:inline" aria-hidden="true">|</span>
+          <span className="text-white/25" aria-hidden="true">|</span>
 
-          <span className="text-stone-200">
-            Affiliated to <span className="text-white font-medium">JNTUA</span> · Approved by AICTE
+          <span className="text-stone-200 whitespace-nowrap">
+            <span className="text-white font-medium">JNTUA</span>
+            <span className="hidden xl:inline"> · AICTE Approved</span>
+            <span className="hidden sm:inline xl:hidden"> · AICTE</span>
           </span>
 
-          <div className="hidden xl:flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 font-semibold text-[#FFDF88]">
-              <Award className="w-3.5 h-3.5" aria-hidden="true" />
-              NAAC &apos;A+&apos; Grade (3.38 CGPA)
+          <span className="text-white/25 hidden sm:inline" aria-hidden="true">|</span>
+
+          <span className="inline-flex items-center gap-1 font-medium text-[#FFDF88] whitespace-nowrap">
+            <Award className="w-3.5 h-3.5 text-[#E5BE53] shrink-0" aria-hidden="true" />
+            <span>
+              NAAC &apos;A+&apos;<span className="hidden xl:inline"> Grade</span>{' '}
+              <span className="hidden sm:inline">· 3.38 CGPA</span>
             </span>
-            <span className="inline-flex items-center gap-1 text-stone-200">
-              <ShieldCheck className="w-3.5 h-3.5 text-stone-300" aria-hidden="true" />
-              NBA Accredited (Tier-1)
-            </span>
-          </div>
+          </span>
+
+          <span className="hidden xl:inline text-white/25" aria-hidden="true">|</span>
+
+          <span className="hidden xl:inline-flex items-center gap-1 text-stone-200 whitespace-nowrap">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#E5BE53] shrink-0" aria-hidden="true" />
+            NBA Accredited (Tier-1)
+          </span>
         </div>
 
-        {/* Right: EAPCET Code Badge & Direct Portals */}
-        <div className="flex flex-wrap items-center justify-between xl:justify-end gap-x-4 gap-y-1.5">
+        {/* Right: EAPCET Code Badge & Quick Portals */}
+        <div className="flex items-center justify-between lg:justify-end gap-x-3 xl:gap-x-4 gap-y-1 shrink-0">
           {/* Official EAPCET Code */}
-          <div className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/15 px-2 py-0.5 rounded border border-white/15 transition-colors">
-            <span className="text-[11px] text-stone-200 font-medium">EAPCET CODE:</span>
-            <span className="font-mono font-bold text-rose-100 tracking-wider">PULE</span>
+          <div className="inline-flex items-center gap-1.5 bg-white/[0.06] border border-white/15 px-2 py-0.5 rounded-sm shrink-0">
+            <span className="text-[11px] text-stone-300 font-medium">
+              EAPCET:
+            </span>
+            <span className="font-mono text-[11.5px] font-semibold text-white tracking-wider">
+              PULE
+            </span>
             <button
               type="button"
               onClick={handleCopyCode}
               title="Copy EAPCET Code PULE"
-              aria-label={copied ? 'Code copied to clipboard' : 'Copy EAPCET Code PULE'}
-              className="text-stone-200 hover:text-white ml-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-300 rounded"
+              aria-label={copied ? 'EAPCET code PULE copied to clipboard' : 'Copy EAPCET code PULE'}
+              className="inline-flex items-center justify-center p-0.5 text-stone-300 hover:text-white transition-colors duration-120 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none"
             >
               {copied ? (
-                <Check className="w-3 h-3 text-emerald-400" aria-hidden="true" />
+                <Check className="w-3.5 h-3.5 text-amber-300" aria-hidden="true" />
               ) : (
-                <Copy className="w-3 h-3" aria-hidden="true" />
+                <Copy className="w-3.5 h-3.5" aria-hidden="true" />
               )}
             </button>
           </div>
 
-          {/* Quick Portals Links */}
+          {/* Quick Portals Links (hidden on xs so mobile bar stays uncluttered; accessible in drawer) */}
           <nav
             aria-label="Institutional quick links"
-            className="flex items-center whitespace-nowrap gap-x-3 text-[11px] sm:text-xs text-stone-200"
+            className="hidden sm:flex items-center whitespace-nowrap gap-x-3 text-xs text-stone-200"
           >
             <Link
               href="/documents?category=timetable"
-              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline"
+              className="hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               Exam Cell
             </Link>
-            <span className="text-white/45" aria-hidden="true">·</span>
-            <Link
-              href="/documents"
-              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline"
-            >
-              Document vault
-            </Link>
-            <span className="text-white/45 hidden sm:inline" aria-hidden="true">·</span>
+            <span className="text-white/30" aria-hidden="true">·</span>
             <Link
               href="/statutory/rti"
-              className="hidden sm:inline hover:text-white transition-colors focus-visible:outline-none focus-visible:underline"
+              className="hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               RTI Act
             </Link>
-            <span className="text-white/45 hidden md:inline" aria-hidden="true">·</span>
+            <span className="text-white/30 hidden md:inline" aria-hidden="true">·</span>
             <Link
               href="/statutory/grievance"
-              className="hidden md:inline hover:text-white transition-colors focus-visible:outline-none focus-visible:underline"
+              className="hidden md:inline hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               Grievance
             </Link>
-            <span className="text-white/45" aria-hidden="true">·</span>
+            <span className="text-white/30" aria-hidden="true">·</span>
             <Link
               href="/contact"
-              className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline"
+              className="hover:text-white transition-colors duration-120 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E5BE53] focus-visible:shadow-none rounded-sm"
             >
               Contact
             </Link>
