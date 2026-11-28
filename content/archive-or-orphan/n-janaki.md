@@ -12,52 +12,50 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27107%27%20height%3D%27150%27%20viewBox%3D%270%200%20107%20150%27%3E%3Crect%20width%3D%27107%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "N JANAKI")
-
 **N.Janaki  
 M.Sc,B.Ed**
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-60ef8ea1efac9099c5a)
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-aa2f5fe45e808ce17de)
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-070978660da14fec715)
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-ee07979b9988e9d35e7)
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-60ef8ea1efac9099c5a)
 
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-aa2f5fe45e808ce17de)
 
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-070978660da14fec715)
 
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-ee07979b9988e9d35e7)

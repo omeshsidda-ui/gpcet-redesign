@@ -20,4 +20,4 @@ Placements
 
 ## **IEEE Student Chapter**
 
-![ieee-logo](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)IEEE opens the door to opportunities that will help you develop your professional identity in IEEE’s designated fields of interest: sciences, technology, engineering, and mathematics (STEM). In addition to accessing a range of membership benefits, you’ll make global connections with people who can help you along your targeted career path through IEEE’s international community of members and volunteers.
+IEEE opens the door to opportunities that will help you develop your professional identity in IEEE’s designated fields of interest: sciences, technology, engineering, and mathematics (STEM). In addition to accessing a range of membership benefits, you’ll make global connections with people who can help you along your targeted career path through IEEE’s international community of members and volunteers.

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import { FileText, ExternalLink, Hash } from 'lucide-react';
+import { sanitizeMarkdownArtifacts } from '../../lib/markdown-sanitize.ts';
 
 export const academicSanitizeSchema = {
   ...defaultSchema,
@@ -101,7 +102,7 @@ function slugifyHeading(text) {
 }
 
 export function MarkdownRenderer({ content, className = '' }) {
-  const preprocessed = normalizeMarkdownTables(content);
+  const preprocessed = normalizeMarkdownTables(sanitizeMarkdownArtifacts(content));
 
   return React.createElement(
     'div',
@@ -156,8 +157,26 @@ export function MarkdownRenderer({ content, className = '' }) {
               className: 'hover:bg-[var(--surface)]/65 transition-colors',
               ...props,
             }),
+          img: ({ node, src, alt, ...props }) => {
+            const safeSrc = typeof src === 'string' ? src.trim() : '';
+            if (
+              !safeSrc ||
+              /^data:image\/svg\+xml/i.test(safeSrc) ||
+              /^data:image\/gif;base64,R0lGODlhAQAB/i.test(safeSrc)
+            ) {
+              return null;
+            }
+            const upgradedSrc =
+              safeSrc.startsWith('http://www.gpcet.ac.in/') || safeSrc.startsWith('http://gpcet.ac.in/')
+                ? safeSrc.replace('http://', 'https://')
+                : safeSrc;
+            return React.createElement('img', { src: upgradedSrc, alt: alt ?? '', ...props });
+          },
           a: ({ node, href, children, ...props }) => {
-            let safeHref = href || '';
+            let safeHref = (href || '')
+              .trim()
+              .replace(/["'“”‘’″′\\]+$/g, '')
+              .replace(/(?:%E2%80%9D|%E2%80%9C|%E2%80%99|%E2%80%98|%E2%80%B3|%E2%80%B2|%22|%27)+$/gi, '');
             if (safeHref.startsWith('http://www.gpcet.ac.in/')) {
               safeHref = safeHref.replace('http://', 'https://');
             } else if (safeHref.startsWith('http://gpcet.ac.in/')) {

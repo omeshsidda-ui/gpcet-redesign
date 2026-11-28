@@ -12,52 +12,50 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27131%27%20height%3D%27150%27%20viewBox%3D%270%200%20131%20150%27%3E%3Crect%20width%3D%27131%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "Dr. K C T SWAMY")
-
 **Dr. K.C.T.Swamy  
 M.E,Ph.D**
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-4f9b1c6fbac743257fe)
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-82178283b937174178c)
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-df8810bf80f57514ed7)
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-0fa709b53a275f761e1)
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-4f9b1c6fbac743257fe)
 
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-82178283b937174178c)
 
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-df8810bf80f57514ed7)
 
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-0fa709b53a275f761e1)

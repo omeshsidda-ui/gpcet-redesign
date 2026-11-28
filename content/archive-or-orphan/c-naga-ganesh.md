@@ -12,52 +12,50 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27115%27%20height%3D%27150%27%20viewBox%3D%270%200%20115%20150%27%3E%3Crect%20width%3D%27115%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "C Naga Ganesh")
-
 **NAGA GANESH  
 M.B.A.,**
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-445b28b28a13ec8e246)
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-b0926bf023a7e6e876e)
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-7649c1ff4ccd0d4fc5a)
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-921d8dee5f3c33ee6a8)
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-445b28b28a13ec8e246)
 
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-b0926bf023a7e6e876e)
 
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-7649c1ff4ccd0d4fc5a)
 
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-921d8dee5f3c33ee6a8)

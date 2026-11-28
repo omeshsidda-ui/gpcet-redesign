@@ -12,4 +12,4 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2017/01/sports-image.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2017/01/sports-image.jpg)

@@ -14,4 +14,4 @@ pdfs_count: 0
 
 ## Computer Society Of India
 
-The motto of the Club is to conduct IT activities under the Clu![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)b name and to imbibe the students with the Cream of IT and bring them close to the technology. This aids in gaining edge on IT apart from their academics. The student dynamicity, inner personality, ideas and other skills can be excavated and to promote them to future technical world.
+The motto of the Club is to conduct IT activities under the Club name and to imbibe the students with the Cream of IT and bring them close to the technology. This aids in gaining edge on IT apart from their academics. The student dynamicity, inner personality, ideas and other skills can be excavated and to promote them to future technical world.

@@ -29,10 +29,10 @@ export default async function DepartmentOverviewPage({ params }: DeptOverviewPro
   }
 
   const overviewMarkdown = getDepartmentMarkdownSection(department.code, [
-    'index-2',
-    'index',
-    'index-3',
     'index-4',
+    'index',
+    'index-2',
+    'index-3',
     'civil-vision',
   ]);
   const peoMarkdown = getDepartmentMarkdownSection(department.code, ['peos-2', 'peos']);

@@ -13,5 +13,3 @@ pdfs_count: 0
 ---
 
 ### **Women’s Grievance Redressal Cell online Complaint Registration Form**
-
-\[psfb id=”19821″ title=”Women Grievance”\]

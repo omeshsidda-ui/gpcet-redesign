@@ -49,5 +49,3 @@ The following is the list of faculty publications over the years
 | S.No | Name of the Faculty | Title of Paper | Details of Paper Published | | --- | --- | --- | --- | | 1 | K.Sowjanya | Design of shear walls in response spectrum method using etabs-2013 | Global Journal of trends in Engineering e-ISSN:2393-9923,GJTE-VOLUME(1), ISSUE (1), March 2016 | | 2 | Strength behavior of biomass concrete | INTERNATIONAL JOURNAL OFMULTIDISCIPLINARY EDUCATIONAL RESEARCH ISSN: 2277-7881; IMPACT FACTOR – 3.318; IC VALUE:5.16; ISI VALUE:2.286 VOLUME 5, ISSUE 6(2), JUNE 2016 | - |
 
 | S.No | Name of the Faculty | Title of Paper | Details of Paper Published | | --- | --- | --- | --- | | 1 | J.Ushasree | Strength behavior of biomass concrete | INTERNATIONAL JOURNAL OFMULTIDISCIPLINARY EDUCATIONAL RESEARCH ISSN: 2277-7881; IMPACT FACTOR – 3.318; IC VALUE:5.16; ISI VALUE:2.286 VOLUME 5, ISSUE 6(2), JUNE 2016 |
-
-\[table id=28 /\]

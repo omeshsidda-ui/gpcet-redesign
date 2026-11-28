@@ -12,8 +12,6 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
 **C.Thejaswini Veena  
 M.Tech, (Ph.D)**
 
@@ -22,46 +20,46 @@ cectejeswiniveena@gpcet.ac.in
 Contact: +91-9182190950
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-530389c7c2bd1944232)
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-87182482917ee2484c0)
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-61151609a315b16886d)
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-dd6669aaa2b0b04aa8e)
 
 -   [
-    
+
     #### Overview
-    
+
     ](#tab-530389c7c2bd1944232)
 
 -   [
-    
+
     #### Qualifications
-    
+
     ](#tab-87182482917ee2484c0)
 
 -   [
-    
+
     #### Subjects Taught
-    
+
     ](#tab-61151609a315b16886d)
 
 -   [
-    
+
     #### Publications
-    
+
     ](#tab-dd6669aaa2b0b04aa8e)

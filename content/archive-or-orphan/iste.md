@@ -20,4 +20,4 @@ Placements
 
 ## ISTE
 
-G.Pullaiah College of Engineering & Technology & Ravindra College of Engineering for women Kurnool provided a platform where thought ![iste](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)provoking parley was held. The ISTE Faculty chapter’s of the twin colleges conducted a two day training programme on ”Formulation of Research and Development Initiatives for Engineering Faculty” under the aegis of ESCI here on 28th & 29th July 2014.
+G.Pullaiah College of Engineering & Technology & Ravindra College of Engineering for women Kurnool provided a platform where thought provoking parley was held. The ISTE Faculty chapter’s of the twin colleges conducted a two day training programme on ”Formulation of Research and Development Initiatives for Engineering Faculty” under the aegis of ESCI here on 28th & 29th July 2014.

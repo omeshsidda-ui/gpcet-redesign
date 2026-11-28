@@ -14,7 +14,7 @@ pdfs_count: 0
 
 ## **Transport**
 
-[![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27441%27%20height%3D%27331%27%20viewBox%3D%270%200%20441%20331%27%3E%3Crect%20width%3D%27441%27%20height%3D%27331%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)](https://www.gpcet.ac.in/wp-content/uploads/2017/08/transportation-photo.png)
+![](https://www.gpcet.ac.in/wp-content/uploads/2017/08/transportation-photo.png)
 
      A fleet of fifteen brisk buses ply from all parts of Kurnool to our college. All the students are advised to travel by the college bus, so that they may be able to attend all classes and examinations in time. Students can purchase annual bus passes in advance to use college bus facility.
 

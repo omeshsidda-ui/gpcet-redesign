@@ -11,5 +11,3 @@ canonical_url: "https://www.gpcet.ac.in/my-account/"
 tables_count: 0
 pdfs_count: 0
 ---
-
-\[woocommerce\_my\_account\]

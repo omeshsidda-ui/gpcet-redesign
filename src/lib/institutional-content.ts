@@ -1,6 +1,7 @@
 import { getAllDepartments, getDepartmentByCode } from '@/lib/data/departments.js';
 import { getFacultyRoster, getDepartmentHod } from '@/lib/data/faculty.js';
 import { getContentBySlug } from '@/lib/content';
+import { sanitizeMarkdownArtifacts } from './markdown-sanitize';
 
 export interface DepartmentRecord {
   code: string;
@@ -155,32 +156,22 @@ function stripJQuerySnippets(text: string): string {
 /**
  * Cleans legacy WordPress sidebar blocks, SVG lazy-load placeholders,
  * empty anchors, Avada #tab-* navigation blocks, inline jQuery snippets,
- * and raw shortcodes from scraped markdown content.
+ * and escaped/unescaped WordPress shortcodes from scraped markdown content.
  */
 export function sanitizeScrapedMarkdown(raw: string): string {
   if (!raw || typeof raw !== 'string') return '';
 
-  let text = raw
-    // Neutralize executable <script> and <iframe> blocks before Markdown AST rendering
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<\/?script\b[^>]*>/gi, '')
-    .replace(/<iframe\b[^>]*>[\s\S]*?<\/iframe>/gi, '')
-    .replace(/<\/?iframe\b[^>]*>/gi, '')
-    // Neutralize javascript: URI schemes in Markdown links
-    .replace(/\]\(\s*javascript:[^)]*\)/gi, '](#)');
+  let text = sanitizeMarkdownArtifacts(raw);
 
   // Strip residual jQuery(function(){...}); marquee snippets
   text = stripJQuerySnippets(text)
-    // Strip data:image/svg+xml and 1x1 gif lazy-load placeholders (wrapped in links or standalone, single/multi-line)
-    .replace(/\[[ \t\r\n]*!\[[^\[\]]*\]\(\s*data:image\/(?:[^()]|\([^()]*\))*\)[ \t\r\n]*\]\([^)]*\)/gi, '')
-    .replace(/!\[[^\[\]]*\]\(\s*data:image\/(?:[^()]|\([^()]*\))*\)/gi, '')
     // Strip Avada #tab-* empty/navigation tab links (single-line or multi-line, optional bullets & bold markers)
     .replace(/(?:^|\n)[ \t]*(?:[-*+][ \t]+)?\*{0,4}\[[^\[\]]*\]\(#tab-[a-z0-9_-]+\)\*{0,4}[ \t]*(?=\n|$)/gi, '')
     .replace(/\*{0,4}\[[^\[\]]*\]\(#tab-[a-z0-9_-]+\)\*{0,4}/gi, '')
     // Strip empty anchor tags like [](# "Facebook"), [ ](#), or [](#)
     .replace(/\[\s*\]\(#[^)]*\)/g, '')
-    // Strip WordPress/Avada [fusion_*], [vc_*], and [ms_*] shortcodes
-    .replace(/\[\/?(?:ms|fusion|vc)_[^\]]*\]/gi, '')
+    // Strip stray empty headings like "# " left behind by Elementor/Avada exports
+    .replace(/^#{1,6}[ \t]*$/gm, '')
     // Strip leading breadcrumb/banner lines injected by Avada theme
     .replace(/^[ \t]*Placements[ \t]*$/gm, '')
     .replace(/^[ \t]*Flash News[ \t]*$/gm, '')
@@ -190,7 +181,10 @@ export function sanitizeScrapedMarkdown(raw: string): string {
     .replace(/http:\/\/www\.gpcet\.ac\.in\//g, 'https://www.gpcet.ac.in/')
     .replace(/http:\/\/gpcet\.ac\.in\//g, 'https://gpcet.ac.in/');
 
-  // Remove repeated legacy sidebar link blocks (e.g. "### **About GPCET**\n\n- [...]")
+  // Remove repeated legacy sidebar link blocks (e.g. "### **About GPCET**\n\n- [...]"
+  // or "**Department of CSE(AI)**\n\n- [Home](/departments/ai)...")
+  const sidebarHeaderRe =
+    /^(?:#{2,4}\s+)?\*{0,2}(?:About GPCET|Department of [A-Z&()\s]+|H&S Department|(?:CSE|AI|ECE|EEE|ME|CE|CIVIL|H&S|HS|MBA)\s+Department(?:\s+Menu)?|CIVIL ENGINEERING|Student Resources|Research Resources|Placements)\*{0,2}\s*$/i;
   const lines = text.split('\n');
   const cleanedLines: string[] = [];
   let skippingSidebar = false;
@@ -199,14 +193,16 @@ export function sanitizeScrapedMarkdown(raw: string): string {
     const line = lines[i];
     const trimmed = line.trim();
 
-    if (
-      /^#{2,4}\s+\*?\*?(About GPCET|Department of [A-Z&()\s]+|H&S Department|Student Resources|Research Resources|Placements)\*?\*?\s*$/i.test(
-        trimmed
-      )
-    ) {
-      // Check if followed by a bullet list of internal links
-      const nextNonEmpty = lines.slice(i + 1).find((l) => l.trim().length > 0)?.trim() || '';
-      if (nextNonEmpty.startsWith('-   [') || nextNonEmpty.startsWith('- [')) {
+    if (sidebarHeaderRe.test(trimmed)) {
+      const upcoming = lines.slice(i + 1).filter((l) => l.trim().length > 0);
+      const first = upcoming[0]?.trim() || '';
+      const second = upcoming[1]?.trim() || '';
+      if (
+        first.startsWith('-   [') ||
+        first.startsWith('- [') ||
+        (sidebarHeaderRe.test(first) &&
+          (second.startsWith('-   [') || second.startsWith('- [')))
+      ) {
         skippingSidebar = true;
         continue;
       }
@@ -217,8 +213,7 @@ export function sanitizeScrapedMarkdown(raw: string): string {
         trimmed === '' ||
         trimmed.startsWith('-   [') ||
         trimmed.startsWith('- [') ||
-        /^#{2,4}\s+\*?\*?Department of/i.test(trimmed) ||
-        /^#{2,4}\s+\*?\*?H&S Department/i.test(trimmed)
+        sidebarHeaderRe.test(trimmed)
       ) {
         continue;
       }
@@ -314,32 +309,91 @@ export async function getEnrichedDepartment(code: string): Promise<EnrichedDepar
 }
 
 /**
- * Finds and sanitizes the richest non-empty markdown file among candidate slugs
- * inside `content/departments/<dept>/`.
+ * Finds and sanitizes the cleanest, most current non-empty markdown file among
+ * candidate slugs inside `content/departments/<dept>/`.
+ * Prefers newer canonical department home/section pages over stale 2016-2019
+ * M.Tech/shortcode/mismatched-syllabus duplicates.
  */
 export function getDepartmentMarkdownSection(
   deptCode: string,
   candidateSlugs: string[]
 ): { title: string; content: string; slug: string } | null {
-  let bestMatch: { title: string; content: string; slug: string } | null = null;
+  let bestMatch: { title: string; content: string; slug: string; score: number } | null = null;
 
-  for (const slug of candidateSlugs) {
+  const wantsSyllabus = candidateSlugs.some((s) => /syllabus/i.test(s));
+  const wantsOverview = candidateSlugs.some((s) => /^index/i.test(s));
+
+  for (let idx = 0; idx < candidateSlugs.length; idx++) {
+    const slug = candidateSlugs[idx];
     const page = getContentBySlug(['departments', deptCode.toLowerCase(), slug]);
     if (!page) continue;
 
-    const cleaned = sanitizeScrapedMarkdown(page.content);
-    if (cleaned.length > 40) {
-      if (!bestMatch || cleaned.length > bestMatch.content.length) {
-        bestMatch = {
-          title: page.frontmatter.title,
-          content: cleaned,
-          slug,
-        };
-      }
+    const rawContent = page.content || '';
+    const cleaned = sanitizeScrapedMarkdown(rawContent);
+    if (cleaned.length <= 40) continue;
+
+    const title = String(page.frontmatter.title || '');
+    const modifiedStr = String(page.frontmatter.modified || page.frontmatter.date || '');
+    const timestamp = Date.parse(modifiedStr);
+    const year = Number.isFinite(timestamp) ? new Date(timestamp).getUTCFullYear() : 2016;
+
+    // Base score: recency (current 2023-2025 portal pages beat stale 2016-2019 duplicates)
+    let score = (year - 2015) * 300;
+
+    // Substantive content bonus (capped so bloated legacy tables don't outweigh current pages)
+    score += Math.min(cleaned.length, 2500) * 0.15;
+    if (cleaned.length >= 180) {
+      score += 350;
+    }
+
+    // Penalize legacy M.Tech-* pages when resolving general department overview
+    if (wantsOverview && /\bm\.?tech\b/i.test(title)) {
+      score -= 5000;
+    }
+
+    // Penalize syllabus pages accidentally placed under laboratories-* slugs
+    if (!wantsSyllabus && /\bsyllabus\b/i.test(title)) {
+      score -= 5000;
+    }
+
+    // Penalize pages carrying raw WordPress shortcode residue
+    const shortcodeMatches = rawContent.match(
+      /\\?\[\/?(?:ms|fusion|vc|woocommerce|psfb|table)(?:\\?_[a-z0-9-]+|\b)/gi
+    );
+    if (shortcodeMatches && shortcodeMatches.length > 0) {
+      score -= Math.min(shortcodeMatches.length * 500, 2500);
+    }
+
+    // Penalize stub pages consisting solely of dead Avada accordion hash links
+    const nonHashLines = cleaned
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(
+        (l) =>
+          l.length > 0 &&
+          !/^#{1,6}\s+\[[^\]]+\]\(#[a-f0-9]+\)$/i.test(l) &&
+          !/^#{1,6}\s+/.test(l)
+      );
+    if (nonHashLines.length === 0) {
+      score -= 3000;
+    }
+
+    // Mild tie-breaker favoring earlier candidateSlugs order
+    score -= idx * 10;
+
+    if (!bestMatch || score > bestMatch.score) {
+      bestMatch = {
+        title,
+        content: cleaned,
+        slug,
+        score,
+      };
     }
   }
 
-  return bestMatch;
+  return bestMatch
+    ? { title: bestMatch.title, content: bestMatch.content, slug: bestMatch.slug }
+    : null;
 }
 
 /**

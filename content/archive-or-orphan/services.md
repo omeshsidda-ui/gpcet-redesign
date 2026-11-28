@@ -60,65 +60,53 @@ In sit amet urna dapibus, pretium nisi nec, imperdiet velit maecinas Dapibus aug
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum quis metus sodales ullamcorper. Vivamus eu sodales sapien, sit amet rhoncus nisi. Curabitur luctus ipsum ac magna ultricies imperdiet.
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27300%27%20height%3D%27130%27%20viewBox%3D%270%200%20300%20130%27%3E%3Crect%20width%3D%27300%27%20height%3D%27130%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27300%27%20height%3D%27130%27%20viewBox%3D%270%200%20300%20130%27%3E%3Crect%20width%3D%27300%27%20height%3D%27130%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27300%27%20height%3D%27130%27%20viewBox%3D%270%200%20300%20130%27%3E%3Crect%20width%3D%27300%27%20height%3D%27130%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27300%27%20height%3D%27130%27%20viewBox%3D%270%200%20300%20130%27%3E%3Crect%20width%3D%27300%27%20height%3D%27130%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27300%27%20height%3D%27130%27%20viewBox%3D%270%200%20300%20130%27%3E%3Crect%20width%3D%27300%27%20height%3D%27130%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27300%27%20height%3D%27130%27%20viewBox%3D%270%200%20300%20130%27%3E%3Crect%20width%3D%27300%27%20height%3D%27130%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ## WHY CHOOSE US?
 
 -   [
-    
+
     #### Knowledge
-    
+
     ](#tab-dddc09333ed1f67e11b)
 -   [
-    
+
     #### Certified
-    
+
     ](#tab-56917509a7808f085b3)
 -   [
-    
+
     #### Satisfaction
-    
+
     ](#tab-9b6cf37f62cbbd7468b)
 
 -   [
-    
+
     #### Knowledge
-    
+
     ](#tab-dddc09333ed1f67e11b)
 
 -   [
-    
+
     #### Certified
-    
+
     ](#tab-56917509a7808f085b3)
 
 -   [
-    
+
     #### Satisfaction
-    
+
     ](#tab-9b6cf37f62cbbd7468b)
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_1.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_1.jpg)
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_4.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_4.jpg)
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_6.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_6.jpg)
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_3.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_3.jpg)
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_5.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_5.jpg)
 
-[![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_2.jpg)
+![](https://www.gpcet.ac.in/wp-content/uploads/2018/04/image_carousel_2.jpg)
 
 ### FREE QUOTE
 

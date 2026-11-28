@@ -14,15 +14,11 @@ pdfs_count: 0
 
 [Our Management](#)
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "pullaiah")
-
 #### 
 
 **Sri G Pullaiah**
 
 **Secretary**
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "Mohan-200×200")
 
 ###### 
 
@@ -30,15 +26,13 @@ pdfs_count: 0
 
 **Chairman**
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "gopi")
-
 ###### 
 
 **Mr G Gopinath**
 
 **Joint Secretary**
 
-[![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Crect%20width%3D%27200%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)](https://www.gpcet.ac.in/wp-content/uploads/2019/04/vamsi.jpg "vamsi")
+![](https://www.gpcet.ac.in/wp-content/uploads/2019/04/vamsi.jpg "vamsi")
 
 ###### 
 

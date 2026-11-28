@@ -24,7 +24,11 @@ import {
   MarkdownRenderer,
   normalizeMarkdownTables,
 } from '../src/components/content/MarkdownRenderer.js';
-import { sanitizeScrapedMarkdown } from '../src/lib/institutional-content.ts';
+import {
+  getDepartmentMarkdownSection,
+  sanitizeScrapedMarkdown,
+} from '../src/lib/institutional-content.ts';
+import CatchAllContentPage from '../src/app/[...slug]/page.tsx';
 
 test('ContentFrontmatterSchema validates valid academic metadata and applies coercion', () => {
   const valid = {
@@ -297,6 +301,177 @@ test('MarkdownRenderer renders dead campus intranet and private-IP URLs as muted
   assert(html.includes('(Campus Intranet Archive)'), 'Unavailable indicator must be shown');
   assert(html.includes('Objective') && html.includes('LAN Notice') && html.includes('Private Doc'), 'Original link label text must be preserved');
   assert(html.includes('https://www.gpcet.ac.in/wp-content/uploads/2024/03/em-mid2.pdf'), 'Valid HTTPS PDF link must still be rendered');
+});
+
+test('sanitizeScrapedMarkdown and MarkdownRenderer unwrap/strip escaped & unescaped Magee shortcodes while preserving inner content', () => {
+  const escapedMageeMd = `
+\\[ms\\_image\\_frame src=”https://www.gpcet.ac.in/v1.1/wp-content/uploads/2016/09/slider3.png” border\\_radius=”3″ link=”” link\\_target=”\\_blank” light\\_box=”yes” class=”” id=””\\]
+
+\\[ms\\_panel title=”About Department of CSE” title\\_color=”#000″ border\\_color=”#81d742″\\]
+
+Since inception in 2007, GPCET has rigorously pursued technical excellence.
+
+\\[/ms\\_panel\\]
+
+\\[ms\\_panel title=”Already Headed Panel”\\]
+
+### Existing Overview Heading
+
+Department laboratories and computing facilities.
+
+\\[/ms\\_panel\\]
+
+\\[ms\\_custom\\_box backgroundimage=”” padding=”30″\\]Contact:
+Dr. S.Prem Kumar, M.Tech., Ph.D
+HOD of CSE
+E-mail: mcahod@gpcet.ac.in
+Ph: 9866504950\\[/ms\\_custom\\_box\\]
+
+\\[ms\\_widget\\_area name=”default\\_sidebar” padding=”0″\\]\\[/ms\\_widget\\_area\\]
+`;
+
+  const cleaned = sanitizeScrapedMarkdown(escapedMageeMd);
+  assert(!cleaned.includes('ms_'), 'Escaped Magee shortcodes must be stripped');
+  assert(!cleaned.includes('ms\\_'), 'Escaped Magee underscores must be stripped');
+  assert(!cleaned.includes('slider3.png'), 'ms_image_frame URL must be stripped with shortcode');
+  assert(cleaned.includes('## About Department of CSE'), 'ms_panel title must become H2 when panel lacks a heading');
+  assert(!cleaned.includes('## Already Headed Panel'), 'ms_panel must not add duplicate H2 when inner content already starts with a heading');
+  assert(cleaned.includes('### Existing Overview Heading'), 'Existing heading inside ms_panel must be preserved');
+  assert(cleaned.includes('Since inception in 2007'), 'ms_panel inner prose must be preserved');
+  assert(cleaned.includes('Dr. S.Prem Kumar'), 'ms_custom_box inner HOD contact name must be preserved');
+  assert(cleaned.includes('mcahod@gpcet.ac.in'), 'ms_custom_box inner HOD email must be preserved');
+  assert(cleaned.includes('9866504950'), 'ms_custom_box inner phone must be preserved');
+
+  // Defense-in-depth: MarkdownRenderer directly handles unescaped & escaped shortcodes
+  const unescapedMageeMd = `
+[ms_image_frame src="https://www.gpcet.ac.in/banner.png" border_radius="3"]
+[ms_panel title="About ECE"]
+Department of ECE overview paragraph.
+[/ms_panel]
+[ms_custom_box padding="20"]Contact: Dr. N. Rama Murthy[/ms_custom_box]
+[ms_widget_area name="sidebar"][/ms_widget_area]
+`;
+  const html = renderToString(React.createElement(MarkdownRenderer, { content: unescapedMageeMd }));
+  assert(!html.includes('[ms_'), 'MarkdownRenderer must strip unescaped Magee shortcodes');
+  assert(html.includes('About ECE'), 'MarkdownRenderer must promote ms_panel title to heading');
+  assert(html.includes('Department of ECE overview paragraph.'), 'MarkdownRenderer must preserve ms_panel body');
+  assert(html.includes('Contact: Dr. N. Rama Murthy'), 'MarkdownRenderer must preserve ms_custom_box contact info');
+});
+
+test('sanitizeScrapedMarkdown and MarkdownRenderer strip escaped & unescaped psfb, table, woocommerce shortcodes and smart-quote URL tails', () => {
+  const mixedShortcodesMd = `
+### Women's Grievance Redressal Cell
+
+\\[psfb id=”19821″ title=”Women Grievance”\\]
+
+[psfb id="99" title="Feedback"]
+
+| S.No | Publication |
+| --- | --- |
+| 1 | Concrete Strength Study |
+
+\\[table id=28 /\\]
+
+[table id="14" /]
+
+See the [table of contents](https://www.gpcet.ac.in/toc) and [table] note in prose.
+
+\\[woocommerce\\_my\\_account\\]
+
+[woocommerce_cart]
+
+[Download Circular](https://www.gpcet.ac.in/wp-content/uploads/2024/03/circular.pdf”)
+
+Direct archive link: https://www.gpcet.ac.in/v1.1/wp-content/uploads/2016/09/notice.pdf”
+`;
+
+  const cleaned = sanitizeScrapedMarkdown(mixedShortcodesMd);
+  assert(!cleaned.includes('psfb'), 'psfb shortcodes must be stripped');
+  assert(!cleaned.includes('[table id='), 'table shortcodes must be stripped');
+  assert(!cleaned.includes('woocommerce'), 'woocommerce shortcodes must be stripped');
+  assert(cleaned.includes('[table of contents](https://www.gpcet.ac.in/toc)'), 'Markdown links starting with [table must be preserved');
+  assert(cleaned.includes('and [table] note in prose'), 'Plain [table] word in prose must be preserved');
+  assert(cleaned.includes('https://www.gpcet.ac.in/wp-content/uploads/2024/03/circular.pdf)'), 'Smart-quote tail must be stripped from markdown link URL');
+  assert(!cleaned.includes('notice.pdf”'), 'Smart-quote tail must be stripped from bare URL');
+
+  // Defense-in-depth directly through MarkdownRenderer without pre-sanitizing
+  const html = renderToString(React.createElement(MarkdownRenderer, { content: mixedShortcodesMd }));
+  assert(!html.includes('psfb'), 'MarkdownRenderer must strip psfb shortcodes');
+  assert(!html.includes('table id='), 'MarkdownRenderer must strip TablePress shortcodes');
+  assert(!html.includes('woocommerce'), 'MarkdownRenderer must strip WooCommerce shortcodes');
+  assert(!html.includes('%E2%80%9D'), 'Rendered hrefs must not contain encoded trailing smart quotes');
+  assert(html.includes('href="https://www.gpcet.ac.in/wp-content/uploads/2024/03/circular.pdf"'), 'Cleaned PDF href must render intact');
+});
+
+test('MarkdownRenderer strips data:image/svg+xml and 1x1 data:image/gif lazy-load placeholders as defense-in-depth', () => {
+  const rawSvgMd = `
+[![Principal](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E)](#)
+
+![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E "placeholder")
+
+![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
+
+<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3C%2Fsvg%3E" alt="lazy" />
+
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="lazy-gif" />
+
+\\[ms\\_image\\_frame src=”https://www.gpcet.ac.in/wp-content/uploads/2024/03/campus.jpg” alt=”Campus”\\]
+
+\\[ms\\_widget\\_area name=”default\\_sidebar”\\]Widget fallback text\\[/ms\\_widget\\_area\\]
+
+Real faculty profile text remains visible.
+`;
+
+  const cleaned = sanitizeScrapedMarkdown(rawSvgMd);
+  assert(!cleaned.includes('data:image/svg+xml'), 'sanitizeScrapedMarkdown must strip all SVG placeholder forms');
+  assert(!cleaned.includes('data:image/gif'), 'sanitizeScrapedMarkdown must strip all GIF placeholder forms');
+  assert(!cleaned.includes('Widget fallback text'), 'ms_widget_area inner content must be stripped');
+  assert(cleaned.includes('![Campus](https://www.gpcet.ac.in/wp-content/uploads/2024/03/campus.jpg)'), 'Valid non-v1.1 ms_image_frame must unwrap to markdown image');
+  assert(cleaned.includes('Real faculty profile text remains visible.'));
+
+  const html = renderToString(React.createElement(MarkdownRenderer, { content: rawSvgMd }));
+  assert(!html.includes('data:image/svg+xml'), 'MarkdownRenderer must strip SVG lazy-load placeholders even without pre-sanitization');
+  assert(!html.includes('data:image/gif'), 'MarkdownRenderer must strip GIF lazy-load placeholders even without pre-sanitization');
+  assert(!html.includes('Widget fallback text'), 'MarkdownRenderer must strip ms_widget_area block');
+  assert(html.includes('https://www.gpcet.ac.in/wp-content/uploads/2024/03/campus.jpg'), 'Valid image frame src must render');
+  assert(html.includes('Real faculty profile text remains visible.'));
+});
+
+test('CatchAllContentPage renders clean institutional archive notice for empty-body routes', async () => {
+  for (const slug of [
+    ['academics', 'academics'],
+    ['departments', 'cse', 'events-4'],
+  ]) {
+    const element = await CatchAllContentPage({ params: Promise.resolve({ slug }) });
+    const html = renderToString(element);
+    assert(html.includes('Archived Section Reference'), `Empty route /${slug.join('/')} must render archive fallback notice`);
+    assert(html.includes('/documents'), `Empty route /${slug.join('/')} must link to Document Vault`);
+  }
+});
+
+test('getDepartmentMarkdownSection resolves clean, current overviews across all 8 departments without legacy M.Tech or shortcode leaks', () => {
+  const overviewCandidates = ['index-4', 'index', 'index-2', 'index-3', 'civil-vision'];
+  const expectedSlugs = {
+    cse: 'index-4',
+    ai: 'index',
+    ece: 'index-4',
+    eee: 'index-3',
+    me: 'index-2',
+    civil: 'index',
+    hs: 'index',
+    mba: 'index',
+  };
+
+  for (const [dept, expectedSlug] of Object.entries(expectedSlugs)) {
+    const section = getDepartmentMarkdownSection(dept, overviewCandidates);
+    assert(section !== null, `Department ${dept} must resolve an overview section`);
+    assert.strictEqual(section.slug, expectedSlug, `Department ${dept} should resolve ${expectedSlug}, got ${section.slug}`);
+    assert(section.content.length > 200, `Department ${dept} overview must be substantive`);
+    assert(!/m\.?tech/i.test(section.title), `Department ${dept} overview must not resolve a legacy M.Tech page`);
+    assert(!/\[\/?(?:ms|fusion|vc|psfb|woocommerce)_?/i.test(section.content), `Department ${dept} overview must have zero shortcode leaks`);
+    assert(!section.content.includes('data:image/svg+xml'), `Department ${dept} overview must have zero SVG placeholders`);
+    assert(!section.content.includes('#tab-'), `Department ${dept} overview must have zero #tab- anchors`);
+  }
 });
 
 test('ACCEPTANCE GATE: All scraped markdown pages resolve without runtime parsing errors', () => {

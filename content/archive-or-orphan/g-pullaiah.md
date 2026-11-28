@@ -12,8 +12,6 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-![sec](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
 ### Sri G. Pullaiah
 
 SECRETARY

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import { FileText, ExternalLink, Hash } from 'lucide-react';
+import { sanitizeMarkdownArtifacts } from '../../lib/markdown-sanitize';
 
 /**
  * Strict institutional sanitization schema prohibiting XSS while
@@ -130,7 +131,7 @@ export interface MarkdownRendererProps {
  * horizontal-scroll container with a sticky first column, and auto-links PDF assets.
  */
 export function MarkdownRenderer({ content, className = '' }: MarkdownRendererProps) {
-  const preprocessed = normalizeMarkdownTables(content);
+  const preprocessed = normalizeMarkdownTables(sanitizeMarkdownArtifacts(content));
 
   return (
     <div className={`prose-institutional max-w-none text-[var(--ink)] ${className}`}>
@@ -176,8 +177,25 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
           tr: ({ node, ...props }) => (
             <tr className="hover:bg-[var(--surface)]/65 transition-colors" {...props} />
           ),
+          img: ({ node, src, alt, ...props }) => {
+            const safeSrc = typeof src === 'string' ? src.trim() : '';
+            if (
+              !safeSrc ||
+              /^data:image\/svg\+xml/i.test(safeSrc) ||
+              /^data:image\/gif;base64,R0lGODlhAQAB/i.test(safeSrc)
+            ) {
+              return null;
+            }
+            const upgradedSrc = safeSrc.startsWith('http://www.gpcet.ac.in/') || safeSrc.startsWith('http://gpcet.ac.in/')
+              ? safeSrc.replace('http://', 'https://')
+              : safeSrc;
+            return <img src={upgradedSrc} alt={alt ?? ''} {...props} />;
+          },
           a: ({ node, href, children, ...props }) => {
-            let safeHref = href || '';
+            let safeHref = (href || '')
+              .trim()
+              .replace(/["'“”‘’″′\\]+$/g, '')
+              .replace(/(?:%E2%80%9D|%E2%80%9C|%E2%80%99|%E2%80%98|%E2%80%B3|%E2%80%B2|%22|%27)+$/gi, '');
             // Protocol upgrade per GPCET Business Logic
             if (safeHref.startsWith('http://www.gpcet.ac.in/')) {
               safeHref = safeHref.replace('http://', 'https://');

@@ -35,7 +35,7 @@ Placements
 
 #### [NPTEL](#b6c56ccc6c5ea3aff)
 
-[![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27326%27%20height%3D%27245%27%20viewBox%3D%270%200%20326%20245%27%3E%3Crect%20width%3D%27326%27%20height%3D%27245%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)](https://www.gpcet.ac.in/wp-content/uploads/2017/01/Digital-Library.jpg)A **digital library** is a special **library** with a focused collection of **digital** objects that can include text, visual material, audio material, video material, stored as electronic media formats (as opposed to print, microform, or other media), along with means for organizing, storing, and retrieving the files and media …
+![](https://www.gpcet.ac.in/wp-content/uploads/2017/01/Digital-Library.jpg)A **digital library** is a special **library** with a focused collection of **digital** objects that can include text, visual material, audio material, video material, stored as electronic media formats (as opposed to print, microform, or other media), along with means for organizing, storing, and retrieving the files and media …
 
 **Memberships**
 

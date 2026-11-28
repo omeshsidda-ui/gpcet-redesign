@@ -20,43 +20,29 @@ Established in 2007, G Pullaiah College of Engineering and Technology (GPCET) ha
 
 ## GPCET AT GLANCE
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ## 60:40
 
 Male : Female Student ratio
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 ## 55:45
 
 Male : Female Faculty ratio
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ## 90%
 
 Graduation rate
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 ## 1:20
 
 Faculty : Student ratio
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ## 02
 
 Research Centers
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ## 160 Lakhs
 
 Funding Received through Grants
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27200%27%20viewBox%3D%270%200%20400%20200%27%3E%3Crect%20width%3D%27400%27%20height%3D%27200%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 ## 28
 
@@ -64,21 +50,7 @@ h-index
 
 ## Our Associated Organizations
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ![](https://www.gpcet.ac.in/wp-content/uploads/2026/07/IEEE_logo.jpeg)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27300%27%20viewBox%3D%270%200%20600%20300%27%3E%3Crect%20width%3D%27600%27%20height%3D%27300%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 ## Courses Offered
 
@@ -127,28 +99,6 @@ h-index
 #### Master of Business Administration
 
 ## Our Top Recruiters
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27150%27%20height%3D%27150%27%20viewBox%3D%270%200%20150%20150%27%3E%3Crect%20width%3D%27150%27%20height%3D%27150%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 ## Good Governance
 

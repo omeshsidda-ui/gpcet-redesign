@@ -31,18 +31,6 @@ pdfs_count: 0
 
 ## Our Campus Life
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271280%27%20height%3D%27960%27%20viewBox%3D%270%200%201280%20960%27%3E%3Crect%20width%3D%271280%27%20height%3D%27960%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%272000%27%20height%3D%271500%27%20viewBox%3D%270%200%202000%201500%27%3E%3Crect%20width%3D%272000%27%20height%3D%271500%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271076%27%20height%3D%27718%27%20viewBox%3D%270%200%201076%20718%27%3E%3Crect%20width%3D%271076%27%20height%3D%27718%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27615%27%20height%3D%27384%27%20viewBox%3D%270%200%20615%20384%27%3E%3Crect%20width%3D%27615%27%20height%3D%27384%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%274608%27%20height%3D%273456%27%20viewBox%3D%270%200%204608%203456%27%3E%3Crect%20width%3D%274608%27%20height%3D%273456%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271024%27%20height%3D%27683%27%20viewBox%3D%270%200%201024%20683%27%3E%3Crect%20width%3D%271024%27%20height%3D%27683%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 ## KALANJALI COMMITTEE
 
 G Pullaiah College of Engineering and Technology has always strived for the holistic development of its students. To develop leadership skills in the students, GPCET conducts extracurricular activities. This development is very important, as it helps the student to be aware of their strengths. This facilitates the students to play a role in the team naturally and comfortably. Participating in the different activities, the students build up the essential qualities that pave their way to developing their employability skills automatically. With this objective, the Kalanjali Committee conducts activities every fortnight and motivates the students to participate in these activities. Some of the students also volunteer for the committee’s work.
@@ -84,8 +72,6 @@ The club:
 The club has been conducting activities such as elocutions, debates, story- telling, reading exercises, discussions on issues that encourage critical thinking and problem solving.
 
 ![](https://www.gpcet.ac.in/wp-content/uploads/2020/09/language-skills-comp.png "language-skills-comp")
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27174%27%20height%3D%27290%27%20viewBox%3D%270%200%20174%20290%27%3E%3Crect%20width%3D%27174%27%20height%3D%27290%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "Writing-Skills-in-English")
 
 ## ANVESHNA
 
@@ -129,9 +115,5 @@ Faculty also developed research proposals on innovative ideas, submitted to the 
 **[Video of Research facilities](https://www.gpcet.ac.in/wp-content/uploads/2023/02/RD-facilities-video.mp4)**
 
 ![](https://www.gpcet.ac.in/wp-content/uploads/2020/09/research.jpg "research")
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27299%27%20height%3D%27169%27%20viewBox%3D%270%200%20299%20169%27%3E%3Crect%20width%3D%27299%27%20height%3D%27169%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "anveshana")
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27299%27%20height%3D%27169%27%20viewBox%3D%270%200%20299%20169%27%3E%3Crect%20width%3D%27299%27%20height%3D%27169%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E "anveshana")
 
 ![](https://www.gpcet.ac.in/wp-content/uploads/2020/09/research.jpg "research")

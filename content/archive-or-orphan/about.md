@@ -22,19 +22,11 @@ Sed eget nibh non ante pretium eleifend vitae vitae quam. Proin consequat turpis
 
 [CONTACT US](/archive-or-orphan/contact-page)
 
-[![JOHN DOE](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://bit.ly/2IbKoGl)
-
 JOHN DOEElectrician
-
-[![SAM JACKSON](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://bit.ly/2IbKoGl)
 
 SAM JACKSONElectrician
 
-[![NEIL THOMAS](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://bit.ly/2IbKoGl)
-
 NEIL THOMASElectrician
-
-[![JO DUFFY](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)](https://bit.ly/2IbKoGl)
 
 JO DUFFYElectrician
 
@@ -43,15 +35,14 @@ JO DUFFYElectrician
 Sed pulvinar lectus nunc, eget volutpat magna porttitor a. Fusce ornare, lacus id gravida vehicula, ipsum dui accumsan purus, non ultricies libero erat sit amet ligula. In hac habitasse platea dictumst. Duis tristique posuere urna vel congue.
 
 -   Vivamus dignissim dolor ac ligula volutpat, ac laoreet erat vestibulum.
-    
+
 -   In at arcu condimentum, consequat risus dictum, ornare mauris.
-    
+
 -   In molestie mauris ut nunc sodales, non laoreet ante ultrices.
-    
+
 -   Sed molestie tortor et fermentum molestie etras.
-    
+
 -   Aliquam solitudin tortor accumsan nisi suscipit pellentesque.
-    
 
 [
 
@@ -69,19 +60,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum q
 
 ## TESTIMONIALS
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
 > Thank you for your very professional and promt response. I wish I had found you before I spent money on a competitors theme.
 
 **Lucy Smith**, [Big Media Co](https://bit.ly/2IbKoGl)
 
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
-
 > We had floods in our town and we lost our electricity. You and your team got us back up and running in no time. Thanks Avada!
 
 **Cary Watson**, [Donna Muffet](https://bit.ly/2IbKoGl)
-
-![](data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
 
 > You we’re very professional and quick. We will recommend your services to our friends.
 
@@ -97,8 +82,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum q
 
 Energy Survey Job[admin](https://www.gpcet.ac.in/author/admin/ "Posts by admin")2017-11-15T16:59:33+05:30
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27785%27%20height%3D%271180%27%20viewBox%3D%270%200%20785%201180%27%3E%3Crect%20width%3D%27785%27%20height%3D%271180%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 [Energy Survey Job](https://www.gpcet.ac.in/projects/energy-survey-job/)
 
 #### [Energy Survey Job](https://www.gpcet.ac.in/projects/energy-survey-job/)
@@ -106,8 +89,6 @@ Energy Survey Job[admin](https://www.gpcet.ac.in/author/admin/ "Posts by admin")
 [](https://www.gpcet.ac.in/projects/energy-survey-job/)
 
 Electrical Security[admin](https://www.gpcet.ac.in/author/admin/ "Posts by admin")2017-10-15T15:58:33+05:30
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271180%27%20height%3D%27700%27%20viewBox%3D%270%200%201180%20700%27%3E%3Crect%20width%3D%271180%27%20height%3D%27700%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 [Electrical Security](https://www.gpcet.ac.in/projects/electrical-security-2/)
 
@@ -117,8 +98,6 @@ Electrical Security[admin](https://www.gpcet.ac.in/author/admin/ "Posts by admin
 
 Chakravathi & G Pullaiah[admin](https://www.gpcet.ac.in/author/admin/ "Posts by admin")2019-03-11T09:33:16+05:30
 
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27400%27%20viewBox%3D%270%200%20600%20400%27%3E%3Crect%20width%3D%27600%27%20height%3D%27400%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
-
 [Chakravathi & G Pullaiah](https://www.gpcet.ac.in/projects/electrical-security/)
 
 #### [Chakravathi & G Pullaiah](https://www.gpcet.ac.in/projects/electrical-security/)
@@ -126,8 +105,6 @@ Chakravathi & G Pullaiah[admin](https://www.gpcet.ac.in/author/admin/ "Posts by 
 [](https://www.gpcet.ac.in/projects/electrical-security/)
 
 Lighting Work[admin](https://www.gpcet.ac.in/author/admin/ "Posts by admin")2017-09-15T16:31:33+05:30
-
-![](data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271180%27%20height%3D%27700%27%20viewBox%3D%270%200%201180%20700%27%3E%3Crect%20width%3D%271180%27%20height%3D%27700%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E)
 
 [Lighting Work](https://www.gpcet.ac.in/projects/lighting-work-2/)
 

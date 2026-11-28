@@ -12,9 +12,7 @@ tables_count: 0
 pdfs_count: 0
 ---
 
-\[ms\_image\_frame src=”https://www.gpcet.ac.in/v1.1/wp-content/uploads/2016/09/slider1.png” border\_radius=”5″ link=”” link\_target=”\_self” light\_box=”yes” class=”” id=””\]
-
-\[ms\_panel title=”About Department of Electronics and Communication Engineering (ECE)” title\_color=”#000″ border\_color=”#81d742″ title\_background\_color=”#81d742″ border\_radius=”10″ class=”” id=””\]
+### About Department of Electronics and Communication Engineering (ECE)
 
 Overview
 
@@ -26,11 +24,8 @@ The Department of Electronics and Communication Engineering (ECE) at GPCET is a 
 
 The ECE Program has been recognized by AICTE and affiliated to JNTUA; Anantapur the current intake is 120 students. The intake has been augmented to 180 from the next academic year i.e 2012-2013. The department has Post graduation program i.e., M.Tech in Digital Electronics and Communication Systems with an in take of 36.
 
-\[/ms\_panel\]
-
-\[ms\_custom\_box backgroundimage=”” fixed\_background=”yes” background\_position=”top left” padding=”30″ class=”” id=””\]**Contact:**  
+**Contact:**  
 **Dr N Rama Murthy**  
 Professor & HOD  
 G.Pullaiah College of Engineering & Technology, Kurnool, AP.  
-E-mail: ecehod@gpcet.ac.in  
-\[/ms\_custom\_box\]
+E-mail: ecehod@gpcet.ac.in
